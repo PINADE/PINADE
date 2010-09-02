@@ -29,6 +29,9 @@ class edtActions extends sfActions
   {
     $this->filiere = $request->getParameter('filiere');
     $this->promo = $request->getParameter('promo');
+    $semaine = $request->getParameter('semaine');
+    $this->semaine_suivante = AdeTools::getSemaineNumber($semaine + 1);
+    $this->semaine_precedente = AdeTools::getSemaineNumber($semaine -1);
 
     $adeImage = new AdeImage(array(array($this->filiere, $this->promo )));
 
