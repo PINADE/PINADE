@@ -6,10 +6,10 @@ default:
     content-type: text/html
 
   metas:
-    #title:        symfony project
-    #description:  symfony project
-    #keywords:     symfony, project
-    #language:     en
+    title:        Emploi du temps
+    description:  Emploi du temps de l'Ensisa, par IARISS
+    keywords:     Emploi du temps, edt, IARISS, UHA, ENSISA
+    language:     fr
     #robots:       index, follow
 
   stylesheets:    [main.css, base.css, modele07.css]

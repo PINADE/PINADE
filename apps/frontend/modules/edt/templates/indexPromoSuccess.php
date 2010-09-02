@@ -1,3 +1,9 @@
+<?php
+slot('title');
+  echo $filiere." - ";
+end_slot();
+?>
+
 <p>
   Selectionnez votre promotion:
   <ul>
