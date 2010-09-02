@@ -33,5 +33,7 @@ class edtActions extends sfActions
     $adeImage = new AdeImage(array(array($this->filiere, $this->promo )));
 
     $adeImage->saveAdeImage();
+    
+    $this->image_path = $adeImage->getWebPath();
   }
 }

@@ -94,12 +94,17 @@ class AdeImage
     if(!is_dir($path = $this->getPath()))
       mkdir($path);
     
-    file_put_contents($path."image.gif", $this->content);
+    file_put_contents($path.str_replace(',','-',$this->idPianoWeek).'.gif', $this->content);
   }
 
   protected function getPath()
   {
-    return sfConfig::get('sf_web_dir').'/images/edt/'.str_replace(',','-',$this->idTree).'/';
+    return str_replace(',','-',sfConfig::get('sf_web_dir').'/images/edt/'.$this->idTree.'/');
+  }
+
+  public function getWebPath()
+  {
+    return '/images/edt/'.str_replace(',','-',$this->idTree).'/'.str_replace(',','-',$this->idPianoWeek).'.gif';
   }
 }
 

@@ -1,1 +1,1 @@
-<?php echo "<img src='/images/edt/image.gif' alt='emploi du temps $filiere $promo'/>" ?>
+<img src='<?php echo $image_path ?>' alt='emploi du temps <?php echo $filiere." ".$promo ?>'/>
