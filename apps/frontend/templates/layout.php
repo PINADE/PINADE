@@ -3,7 +3,7 @@
   <head>
     <?php include_http_metas() ?>
     <?php include_metas() ?>
-    <title><?php include_slot('title') ?> - Emploi du temps ENSISA</title>
+    <title><?php include_slot('title') ?>Emploi du temps ENSISA</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
     <?php include_javascripts() ?>
@@ -22,29 +22,29 @@
           <div id="menu">
             <ul>
               <li>Informatique</li>
-              <li><?php echo link_to('1A', 'edt/info/1A') ?></li>
-              <li><?php echo link_to('2A', 'edt/info/2A') ?></li>
-              <li><?php echo link_to('3A', 'edt/info/3A') ?></li>
+              <li><?php echo link_to('1A', 'info/1A') ?></li>
+              <li><?php echo link_to('2A', 'info/2A') ?></li>
+              <li><?php echo link_to('3A', 'info/3A') ?></li>
 
               <li>Automatique</li>
-              <li><?php echo link_to('1A', 'edt/auto/1A') ?></li>
-              <li><?php echo link_to('2A', 'edt/auto/2A') ?></li>
-              <li><?php echo link_to('3A', 'edt/auto/3A') ?></li>
+              <li><?php echo link_to('1A', 'auto/1A') ?></li>
+              <li><?php echo link_to('2A', 'auto/2A') ?></li>
+              <li><?php echo link_to('3A', 'auto/3A') ?></li>
 
               <li>Textile</li>
-              <li><?php echo link_to('1A', 'edt/tex/1A') ?></li>
-              <li><?php echo link_to('2A', 'edt/tex/2A') ?></li>
-              <li><?php echo link_to('3A', 'edt/tex/3A') ?></li>
+              <li><?php echo link_to('1A', 'tex/1A') ?></li>
+              <li><?php echo link_to('2A', 'tex/2A') ?></li>
+              <li><?php echo link_to('3A', 'tex/3A') ?></li>
 
               <li>Mécanique</li>
-              <li><?php echo link_to('1A', 'edt/meca/1A') ?></li>
-              <li><?php echo link_to('2A', 'edt/meca/2A') ?></li>
-              <li><?php echo link_to('3A', 'edt/meca/3A') ?></li>
+              <li><?php echo link_to('1A', 'meca/1A') ?></li>
+              <li><?php echo link_to('2A', 'meca/2A') ?></li>
+              <li><?php echo link_to('3A', 'meca/3A') ?></li>
 
               <li>Système de production</li>
-              <li><?php echo link_to('1A', 'edt/prod/1A') ?></li>
-              <li><?php echo link_to('2A', 'edt/prod/2A') ?></li>
-              <li><?php echo link_to('3A', 'edt/prod/3A') ?></li>
+              <li><?php echo link_to('1A', 'prod/1A') ?></li>
+              <li><?php echo link_to('2A', 'prod/2A') ?></li>
+              <li><?php echo link_to('3A', 'prod/3A') ?></li>
             </ul>
           </div>
           

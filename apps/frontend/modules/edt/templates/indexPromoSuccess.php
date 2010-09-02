@@ -1,6 +1,22 @@
 <?php
 slot('title');
-  echo $filiere." - ";
+  switch($filiere) {
+    case info:
+      echo "Informatique - ";
+      break;
+    case meca:
+      echo "Mécanique - ";
+      break;
+    case tex:
+      echo "Textile - ";
+      break;
+    case auto:
+      echo "Automatique - ";
+      break;
+    case prod:
+      echo "Système de production - ";
+      break;
+  }
 end_slot();
 ?>
 
