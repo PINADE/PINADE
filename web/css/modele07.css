@@ -129,6 +129,13 @@ body {
   display: inline;
 }
 
+#accueil-menu {
+  display:block !important;
+  text-align: center;
+  border-bottom: 1px solid black;
+  margin-bottom:5px;
+}
+
 /* espace pub IARISS */
 #pub p {
 margin: 10px;

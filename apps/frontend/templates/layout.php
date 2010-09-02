@@ -22,7 +22,7 @@
         <div id="navigation">
           <div id="menu">
             <ul>
-              <li>
+              <li id='accueil-menu'>
                 <?php echo link_to('Accueil', '/', "inline") ?>
               </li>
 <?php foreach(array(
