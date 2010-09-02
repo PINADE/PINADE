@@ -2,20 +2,23 @@
 slot('title');
   switch($filiere) {
     case "info":
-      echo "Informatique - ";
+      echo "Informatique";
       break;
     case "meca":
-      echo "Mécanique - ";
+      echo "Mécanique";
       break;
     case "text":
-      echo "Textile - ";
+      echo "Textile";
       break;
     case "auto":
-      echo "Automatique - ";
+      echo "Automatique";
       break;
     case "prod":
-      echo "Système de production - ";
+      echo "Système de production";
       break;
   }
+
+  if(isset($promo)) echo ' - '.$promo;
+
 end_slot();
 ?>

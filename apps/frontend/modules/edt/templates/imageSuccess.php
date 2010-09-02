@@ -1,3 +1,9 @@
+<?php include_partial('title', array('filiere' => $filiere, 'promo' => $promo)) ?>
+
+<h1>
+  <?php include_slot('title') ?>
+</h1>
+
 <p class="center">
   <?php echo link_to('semaine précédente', "@image?filiere=$filiere&promo=$promo&semaine=$semaine_precedente") ?> - 
   <?php echo link_to('semaine actuelle', "@image?filiere=$filiere&promo=$promo&semaine=") ?> - 
