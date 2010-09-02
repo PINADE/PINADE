@@ -23,9 +23,9 @@ end_slot();
 <p>
   Selectionnez votre promotion:
   <ul>
-    <li><?php echo link_to('1A', $filiere.'/1A') ?></li>
-    <li><?php echo link_to('2A', $filiere.'/2A') ?></li>
-    <li><?php echo link_to('3A', $filiere.'/3A') ?></li>
+    <li><?php echo link_to('1A', $filiere.'/1a') ?></li>
+    <li><?php echo link_to('2A', $filiere.'/2a') ?></li>
+    <li><?php echo link_to('3A', $filiere.'/3a') ?></li>
   </ul>
 
 </p>
