@@ -116,12 +116,16 @@ body {
   list-style: none;
 }
 #navigation a {
-  display: block;
+  display: inline-block;
   height: 1%; /* -> 7 */
   padding: 6px 10px 6px 10px;
   line-height: 1.5;
   font-size: .9em;
   text-decoration: none;
+}
+
+#navigation li {
+  display: inline;
 }
 
 /* Contenu */
@@ -141,6 +145,7 @@ body {
   margin: 0;
   padding: 15px 20px 10px 0;
   font-size: .85em;
+  text-align: center;
 }
 
 /* Mention de copyright */
