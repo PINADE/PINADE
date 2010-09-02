@@ -8,9 +8,9 @@
 
 <ul>
 <?php foreach(array(
-  "info" => "Informatique",
-  "auto" => "Automatique",
-  "text" => "Textile",
+  "info" => "Informatique & Réseaux",
+  "auto" => "Automatique & Système",
+  "text" => "Textile & Fibres",
   "meca" => "Mécanique",
   "prod" => "Système de Production") as $id_f => $filiere): ?>
   <li><?php echo image_tag("logos/$id_f.png", "alt='logo $id_f'") ?>
