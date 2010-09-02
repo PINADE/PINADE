@@ -59,7 +59,7 @@ class AdeImage
 
   public function saveAdeImage()
   {
-    file_put_contents("/tmp/image", $this->content);
+    file_put_contents(sfConfig::get('sf_web_dir')."/images/edt/image.gif", $this->content);
   }
 }
 

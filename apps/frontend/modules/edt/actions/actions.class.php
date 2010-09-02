@@ -24,4 +24,12 @@ class edtActions extends sfActions
   {
     $this->filiere = $request->getParameter('filiere');
   }
+  
+  public function executeImage(sfWebRequest $request)
+  {
+    $adeImage = new AdeImage(28, 2, "0,1,2,3,4,5", "134,132,133", "1024", "768", 1057855, 8);
+
+    $adeImage->getImage();
+    $adeImage->saveAdeImage();
+  }
 }
