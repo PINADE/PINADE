@@ -21,6 +21,7 @@ class AdeImage
     $height = "768",
     $displayMode = "1057855",
     $displayConfId = "8",
+    $url,
     $content;
 
   public function __construct($projectId, $idPianoWeek, $idPianoDay, $idTree, $width = "1024", $height = "768", $displayMode = "1057855", $displayConfId = "8")
@@ -35,25 +36,30 @@ class AdeImage
     $this->height = $height;
     $this->displayMode = $displayMode;
     $this->displayConfId = $displayConfId;
+
+    $this->url = "http://www.emploidutemps.uha.fr/ade/imageEt?".
+      "identifier=3df5af70498bff8bc4facf408da524dc".
+      "&projectId=".$this->projectId.
+      "&idPianoWeek=".$this->idPianoWeek.
+      "&idPianoDay=".$this->idPianoDay.
+      "&idTree=".$this->idTree.
+      "&width=".$this->width.
+      "&height=".$this->height.
+      "&lunchName=REPAS".
+      "&displayMode=".$this->displayMode.
+      "&showLoad=false".
+      "&ttl=1283427991552".
+      "&displayConfId=".$this->displayConfId;
   }
   
   public function getImage()
   {
-    $this->content = AdeTools::getAdeImage(
-      $this->ade_cookie,
-      $this->projectId,
-      $this->idPianoWeek,
-      $this->idPianoDay,
-      $this->idTree,
-      $this->width,
-      $this->height,
-      $this->displayMode,
-      $this->displayConfId);
+    $this->content = AdeTools::getAdeImage($this->ade_cookie, $this->url);
   }
 
   public function saveAdeImage()
   {
-    $this->
+    file_put_contents("/tmp/image", $this->content);
   }
 }
 

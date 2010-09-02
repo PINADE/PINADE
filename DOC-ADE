@@ -9,5 +9,5 @@ http://www.emploidutemps.uha.fr/ade/imageEt?
  & lunchName    = REPAS
  & displayMode  = 1057855                          // ?
  & showLoad     = false
- & ttl          = 1283427991552
+ & ttl          = 1283427991552                    // timestamp en micro + 1 jour
  & displayConfId= 8
