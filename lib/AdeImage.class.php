@@ -88,13 +88,14 @@ class AdeImage
 
   public function updateImage()
   {
-    if(file_exists($path.$this->getFilename()))
+    $path = $this->getPath();
+    if(file_exists($filename = $path.$this->getFilename()))
     {
-      $filestat = stat($path.$this->getFilename());
+      $filestat = stat($filename);
       // Si le fichier a été modifié il y a moins de 2h, on zappe
       if($filestat['mtime'] + 2*60*60 > time())
       {
-        sfContext::getInstance()->getLogger()->info('Image déjà en cache : '.$url);
+        sfContext::getInstance()->getLogger()->info('Image déjà en cache : '.$filename);
         return;
       }
     }
@@ -102,10 +103,10 @@ class AdeImage
     if(empty($this->content))
       $this->content = AdeTools::getAdeImage($this->ade_cookie, $this->url);
 
-    if(!is_dir($path = $this->getPath()))
+    if(!is_dir($path))
       mkdir($path);
     
-    file_put_contents($path.$this->getFilename(), $this->content);
+    file_put_contents($filename, $this->content);
   }
 
   protected function getPath()
