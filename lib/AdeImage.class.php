@@ -13,7 +13,7 @@ class AdeImage
 
   protected
     $ade_cookie,
-    $projectId,
+    $projectId = "27",
     $idPianoWeek,
     $idPianoDay,
     $idTree, 
@@ -24,7 +24,7 @@ class AdeImage
     $url,
     $content;
 
-  public function __construct($projectId, $idPianoWeek, $idPianoDay, $idTree, $width = "1024", $height = "768", $displayMode = "1057855", $displayConfId = "8")
+  public function __construct($projectId, $idPianoWeek, $idPianoDay, $idTree, $width = "800", $height = "600", $displayMode = "1057855", $displayConfId = "8")
   {
     $this->ade_cookie = AdeTools::getAdeCookie();
     

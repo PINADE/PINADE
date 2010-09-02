@@ -1,19 +1,19 @@
 <?php
 slot('title');
   switch($filiere) {
-    case info:
+    case "info":
       echo "Informatique - ";
       break;
-    case meca:
+    case "meca":
       echo "Mécanique - ";
       break;
-    case tex:
+    case "text":
       echo "Textile - ";
       break;
-    case auto:
+    case "auto":
       echo "Automatique - ";
       break;
-    case prod:
+    case "prod":
       echo "Système de production - ";
       break;
   }
