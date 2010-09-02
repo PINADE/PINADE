@@ -17,7 +17,7 @@
 /* Général */
 body {
   color: #F0E39E;
-  /* background: ; */
+  background: #2C2F22;
 }
 a {
   color: #FF6533;
@@ -74,8 +74,8 @@ body {
 
 /* En-tête */
 #entete {
-  margin: 20px auto;
-  width:500px;
+  width: 1000px;
+  text-align: center;
 }
 #entete h1 {
   margin: 0;
@@ -88,7 +88,7 @@ body {
   margin: 4px 0 15px 0;
 }
 #entete ul {
-  width:500px;
+  width: 1000px;
 }
 #entete li {
   display: inline;
