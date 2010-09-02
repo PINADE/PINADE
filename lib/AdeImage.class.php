@@ -99,7 +99,7 @@ class AdeImage
 
   protected function getPath()
   {
-    return sfConfig::get('sf_web_dir').'/images/edt/'.str_replace(',','-',$this->id_tree).'/';
+    return sfConfig::get('sf_web_dir').'/images/edt/'.str_replace(',','-',$this->idTree).'/';
   }
 }
 
