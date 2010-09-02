@@ -68,13 +68,13 @@ body {
   padding: 10px 5px;
 }
 #global {
-  width: 750px; /* -> 3 */
+  width: 1275px; /* -> 3 */
   margin: 0 auto; /* -> 4 */
 }
 
 /* En-tête */
 #entete {
-    margin: 20px auto;
+  margin: 20px auto;
   width:500px;
 }
 #entete h1 {
