@@ -138,6 +138,7 @@ margin: 10px;
 #contenu {
   margin-left: 200px; /* -> 8 */
   padding: 10px 20px;
+  text-align: center;
 }
 #contenu > :first-child {
   margin-top: 10px;

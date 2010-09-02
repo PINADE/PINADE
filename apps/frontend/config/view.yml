@@ -12,7 +12,7 @@ default:
     language:     fr
     #robots:       index, follow
 
-  stylesheets:    [main.css, base.css, modele07.css]
+  stylesheets:    [base.css, modele07.css]
 
   javascripts:    []
 
