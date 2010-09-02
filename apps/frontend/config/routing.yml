@@ -10,13 +10,18 @@ filiere_index:
   url:   /:filiere
   param: { module: edt, action: indexPromo }
 
-image_default:
+image_default_index:
   url:  /:filiere/:promo
   param: { module: edt, action: image }
 
 image:
   url:  /:filiere/:promo/:semaine
   param: { module: edt, action: image}
+
+image_default:
+  url:  /:filiere/:promo/*
+  param: { module: edt, action: image }
+
 
 # generic rules
 # please, remove them by adding more specific rules

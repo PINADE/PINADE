@@ -29,7 +29,7 @@ class edtActions extends sfActions
   {
     $this->filiere = $request->getParameter('filiere');
     $this->promo = $request->getParameter('promo');
-    $semaine = ($s = $request->getParameter('semaine', null)) ? $s : AdeTools::getSemaineNumber("coucou");
+    $semaine = ($s = $request->getParameter('semaine', null)) ? $s : AdeTools::getSemaineNumber();
     $this->semaine_suivante = AdeTools::getSemaineNumber($semaine + 1);
     $this->semaine_precedente = AdeTools::getSemaineNumber($semaine -1);
 
