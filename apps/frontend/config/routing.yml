@@ -16,7 +16,7 @@ image_default:
 
 image:
   url:  /:filiere/:promo/:semaine
-  param: { module: edt }
+  param: { module: edt, action: image}
 
 # generic rules
 # please, remove them by adding more specific rules
