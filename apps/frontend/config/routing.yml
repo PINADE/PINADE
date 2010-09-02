@@ -6,6 +6,18 @@ homepage:
   url:   /
   param: { module: edt, action: index }
 
+filiere_index:
+  url:   /:filiere
+  param: { module: edt, action: indexPromo }
+
+image_default:
+  url:  /:filiere/:promo
+  param: { module: edt, action: image, semaine: now }
+
+image:
+  url:  /:filiere/:promo/:semaine
+  param: { module: edt }
+
 # generic rules
 # please, remove them by adding more specific rules
 default_index:
