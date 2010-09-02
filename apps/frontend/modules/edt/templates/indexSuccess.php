@@ -1,3 +1,4 @@
+<?php slot('title'); ?>Accueil<?php end_slot() ?>
 <h1>
   Bienvenue sur l'emploi du temps de l'Ensisa.
 </h1>
