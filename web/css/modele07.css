@@ -31,7 +31,7 @@ strong {
 
 /* Bloc central contenant #navigation et #contenu */
 #centre {
-  background: url(img/07-colonnes.png) repeat-y; /* Voir -> Note 1 */
+  background: url(../images/07-colonnes.png) repeat-y; /* Voir -> Note 1 */
 }
 
 /* Navigation */
