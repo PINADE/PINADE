@@ -32,9 +32,9 @@
               <li><?php echo link_to('3A', 'auto/3A') ?></li>
 
               <li>Textile</li>
-              <li><?php echo link_to('1A', 'tex/1A') ?></li>
-              <li><?php echo link_to('2A', 'tex/2A') ?></li>
-              <li><?php echo link_to('3A', 'tex/3A') ?></li>
+              <li><?php echo link_to('1A', 'text/1A') ?></li>
+              <li><?php echo link_to('2A', 'text/2A') ?></li>
+              <li><?php echo link_to('3A', 'text/3A') ?></li>
 
               <li>Mécanique</li>
               <li><?php echo link_to('1A', 'meca/1A') ?></li>
