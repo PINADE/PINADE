@@ -54,7 +54,6 @@
         </div>
         
         <div id="contenu">
-          <?php echo image_tag('fake', 'alt=fake') ?>
           <?php echo $sf_content ?>
         </div>
       </div>
