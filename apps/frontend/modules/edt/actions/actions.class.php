@@ -19,4 +19,9 @@ class edtActions extends sfActions
   {
     //$this->forward('default', 'module');
   }
+
+  public function executeIndexPromo(sfWebRequest $request)
+  {
+    $this->filiere = $request->getParameter('filiere');
+  }
 }
