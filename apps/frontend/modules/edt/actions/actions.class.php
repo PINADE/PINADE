@@ -30,9 +30,8 @@ class edtActions extends sfActions
     $this->filiere = $request->getParameter('filiere');
     $this->promo = $request->getParameter('promo');
 
-    $adeImage = new AdeImage(28, 2, "0,1,2,3,4,5", "134,132,133", "800", "600", 1057855, 8);
+    $adeImage = new AdeImage(array(array($this->filiere, $this->promo )));
 
-    $adeImage->getImage();
     $adeImage->saveAdeImage();
   }
 }

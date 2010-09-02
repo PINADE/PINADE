@@ -24,18 +24,47 @@ class AdeImage
     $url,
     $content;
 
-  public function __construct($projectId, $idPianoWeek, $idPianoDay, $idTree, $width = "800", $height = "600", $displayMode = "1057855", $displayConfId = "8")
+  public function __construct($trees, $options = array())
   {
     $this->ade_cookie = AdeTools::getAdeCookie();
+
+    $config_tree = sfConfig::get('sf_id_tree');
+    sfContext::getInstance()->getLogger()->info(print_r($config_tree,1));
+    if(!is_array($trees))
+      throw new sfException('$trees must be an array');
+
+    foreach($trees as $tree)
+    {
+      if(isset($config_tree[$tree[0]]))
+      {
+        if(isset($config_tree[$tree[0]][$tree[1]]))
+          $id_tree[] = $config_tree[$tree[0]][$tree[1]];
+        else
+          throw new sfException('La promo '.$tree[1].' de la filière '.$tree[0].' n\'existe pas');
+      }
+      else throw new sfException('La filière '.$tree[0].' n\'existe pas');
+    }
+    if(count($id_tree) == 0) throw new sfException('$id_tree is empty !');
     
-    $this->projectId = $projectId;
-    $this->idPianoWeek = $idPianoWeek;
-    $this->idPianoDay = $idPianoDay;
-    $this->idTree = $idTree;
-    $this->width = $width;
-    $this->height = $height;
-    $this->displayMode = $displayMode;
-    $this->displayConfId = $displayConfId;
+    $options = array_merge(array(
+      'projectId' => '27',
+      'idPianoWeek' => '2',
+      'idPianoDay' => '0,1,2,3,4',
+      'idTree' => implode(',', $id_tree),
+      'width' => '800',
+      'height' => '600',
+      'displayMode' => '1057855',
+      'displayConfId' => '8',
+    ), $options);
+
+    $this->projectId = $options['projectId'];
+    $this->idPianoWeek = $options['idPianoWeek'];
+    $this->idPianoDay = $options['idPianoDay'];
+    $this->idTree = $options['idTree'];
+    $this->width = $options['width'];
+    $this->height = $options['height'];
+    $this->displayMode = $options['displayMode'];
+    $this->displayConfId = $options['displayConfId'];
 
     $this->url = "http://www.emploidutemps.uha.fr/ade/imageEt?".
       "identifier=3df5af70498bff8bc4facf408da524dc".
@@ -59,7 +88,18 @@ class AdeImage
 
   public function saveAdeImage()
   {
-    file_put_contents(sfConfig::get('sf_web_dir')."/images/edt/image.gif", $this->content);
+    if(empty($this->content))
+      $this->content = AdeTools::getAdeImage($this->ade_cookie, $this->url);
+
+    if(!is_dir($path = $this->getPath()))
+      mkdir($path);
+    
+    file_put_contents($path."image.gif", $this->content);
+  }
+
+  protected function getPath()
+  {
+    return sfConfig::get('sf_web_dir').'/images/edt/'.str_replace(',','-',$this->id_tree).'/';
   }
 }
 
