@@ -55,5 +55,18 @@ Pour faciliter ta candidature, tu peux postuler sur un site dédié : <?php echo
         <p>Emploi du temps réalisé par <?php echo link_to('IARISS', 'http://iariss.fr/') ?>.</p>
       </div>
     </div>
+
+    <!-- Piwik -->
+    <script type="text/javascript">
+    var pkBaseURL = (("https:" == document.location.protocol) ? "https://piwik.iariss.fr/" : "http://piwik.iariss.fr/");
+    document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+    </script><script type="text/javascript">
+    try {
+    var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 9);
+    piwikTracker.trackPageView();
+    piwikTracker.enableLinkTracking();
+    } catch( err ) {}
+    </script><noscript><p><img src="http://piwik.iariss.fr/piwik.php?idsite=9" style="border:0" alt="" /></p></noscript>
+    <!-- End Piwik Tag -->
   </body>
 </html>
