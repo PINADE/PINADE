@@ -26,7 +26,7 @@ class AdeImage
 
   public function __construct($trees, $options = array())
   {
-    $this->ade_cookie = AdeTools::getAdeCookie();
+//    $this->ade_cookie = AdeTools::getAdeCookie();
 
     $config_tree = sfConfig::get('sf_id_tree');
     sfContext::getInstance()->getLogger()->info(print_r($config_tree,1));
