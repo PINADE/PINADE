@@ -20,12 +20,12 @@ slot('title');
 end_slot();
 ?>
 
-<p>
+<h2>
   Selectionnez votre promotion:
-  <ul>
-    <li><?php echo link_to('1A', $filiere.'/1a') ?></li>
-    <li><?php echo link_to('2A', $filiere.'/2a') ?></li>
-    <li><?php echo link_to('3A', $filiere.'/3a') ?></li>
-  </ul>
+</h2>
 
-</p>
+<ul>
+  <li><?php echo link_to('1A', $filiere.'/1a') ?></li>
+  <li><?php echo link_to('2A', $filiere.'/2a') ?></li>
+  <li><?php echo link_to('3A', $filiere.'/3a') ?></li>
+</ul>
