@@ -35,7 +35,7 @@ class edtActions extends sfActions
 
     $adeImage = new AdeImage(array(array($this->filiere, $this->promo )), array('idPianoWeek' => $semaine));
 
-    $adeImage->saveAdeImage();
+    $adeImage->updateImage();
     
     $this->image_path = $adeImage->getWebPath();
   }

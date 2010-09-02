@@ -86,20 +86,36 @@ class AdeImage
     $this->content = AdeTools::getAdeImage($this->ade_cookie, $this->url);
   }
 
-  public function saveAdeImage()
+  public function updateImage()
   {
+    if(file_exists($path.$this->getFilename()))
+    {
+      $filestat = stat($path.$this->getFilename());
+      // Si le fichier a été modifié il y a moins de 2h, on zappe
+      if($filestat['mtime'] + 2*60*60 > time())
+      {
+        sfContext::getInstance()->getLogger()->info('Image déjà en cache : '.$url);
+        return;
+      }
+    }
+
     if(empty($this->content))
       $this->content = AdeTools::getAdeImage($this->ade_cookie, $this->url);
 
     if(!is_dir($path = $this->getPath()))
       mkdir($path);
     
-    file_put_contents($path.str_replace(',','-',$this->idPianoWeek).'.gif', $this->content);
+    file_put_contents($path.$this->getFilename(), $this->content);
   }
 
   protected function getPath()
   {
     return str_replace(',','-',sfConfig::get('sf_web_dir').'/images/edt/'.$this->idTree.'/');
+  }
+
+  protected function getFilename()
+  {
+    return str_replace(',','-',$this->idPianoWeek).'.gif';
   }
 
   public function getWebPath()
