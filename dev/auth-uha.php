@@ -8,8 +8,11 @@ $pattern = '@name="lt" value="([^"]+)" />@';
 preg_match($pattern, $login_page, $matches);
 $lt = $matches[1];
 
+// base 64 :
+// username=prenom.nom40uha.fr&password=YOURPASSWORD
+
 /* Get Cookie and link to emploidutemps */
-$data_string = "username=theophile.helleboid%40uha.fr&password=balamurugan&lt=$lt";
+$data_string = base64_decode("dXNlcm5hbWU9dGhlb3BoaWxlLmhlbGxlYm9pZCU0MHVoYS5mciZwYXNzd29yZD1iYWxhbXVydWdhbg==")."&lt=$lt";
 $handle = curl_init("https://cas.uha.fr/cas/login?service=http%3A%2F%2Femploidutemps.uha.fr%2Fade%2Fstandard%2Fgui%2Finterface.jsp");
 curl_setopt($handle, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded')); //, 'Content-length: ') 
 curl_setopt($handle, CURLOPT_POST, true);
