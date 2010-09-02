@@ -64,7 +64,7 @@
           </div>
           
           <div id="pub">
-            <p>Tu es étudiant à l'ENSISA ? Tu souhaites rejoindre une équipe motivée et acquérir de nombreuses compétences ? IARISS recrute, dès la rentrée !
+            <p>Tu es étudiant à l'ENSISA&nbsp;? Tu souhaites rejoindre une équipe motivée et acquérir de nombreuses compétences ? IARISS recrute, dès la rentrée !
 Pour faciliter ta candidature, tu peux postuler sur un site dédié : <?php echo link_to('Candidature IARISS', 'http://candidature.iariss.fr') ?>
             </p>
           </div>
@@ -76,7 +76,7 @@ Pour faciliter ta candidature, tu peux postuler sur un site dédié : <?php echo
       </div>
 
       <div id="pied">
-        <p>Emploi du temps réalisé par <?php echo link_to('IARISS', 'http://iariss.fr') ?>.</p>
+        <p>Emploi du temps réalisé par <?php echo link_to('IARISS', 'http://iariss.fr/') ?>.</p>
       </div>
     </div>
   </body>

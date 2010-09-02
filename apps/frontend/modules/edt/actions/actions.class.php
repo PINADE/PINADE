@@ -29,11 +29,11 @@ class edtActions extends sfActions
   {
     $this->filiere = $request->getParameter('filiere');
     $this->promo = $request->getParameter('promo');
-    $semaine = $request->getParameter('semaine');
+    $semaine = ($s = $request->getParameter('semaine', null)) ? $s : AdeTools::getSemaineNumber("coucou");
     $this->semaine_suivante = AdeTools::getSemaineNumber($semaine + 1);
     $this->semaine_precedente = AdeTools::getSemaineNumber($semaine -1);
 
-    $adeImage = new AdeImage(array(array($this->filiere, $this->promo )));
+    $adeImage = new AdeImage(array(array($this->filiere, $this->promo )), array('idPianoWeek' => $semaine));
 
     $adeImage->saveAdeImage();
     

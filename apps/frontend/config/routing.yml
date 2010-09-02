@@ -12,7 +12,7 @@ filiere_index:
 
 image_default:
   url:  /:filiere/:promo
-  param: { module: edt, action: image, semaine: now }
+  param: { module: edt, action: image }
 
 image:
   url:  /:filiere/:promo/:semaine
