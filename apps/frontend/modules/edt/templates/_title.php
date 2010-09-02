@@ -18,7 +18,7 @@ slot('title');
       break;
   }
 
-  if(isset($promo)) echo ' - '.$promo;
+  if(isset($promo)) echo ' - '.strtoupper($promo);
 
 end_slot();
 ?>
