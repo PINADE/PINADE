@@ -55,7 +55,7 @@ Pour faciliter ta candidature, tu peux postuler sur un site dédié : <?php echo
       </div>
 
       <div id="pied">
-        <p>Emploi du temps réalisé par <?php echo link_to('IARISS', 'http://iariss.fr/') ?>. - <a href="mailto:contact@iariss.fr">Contact</a></p>
+        <p>Emploi du temps réalisé par <?php echo link_to('IARISS', 'http://iariss.fr/') ?> - <a href="mailto:contact@iariss.fr">Contact</a></p>
       </div>
     </div>
 
