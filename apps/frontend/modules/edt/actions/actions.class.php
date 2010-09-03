@@ -39,4 +39,9 @@ class edtActions extends sfActions
     
     $this->image_path = $adeImage->getWebPath();
   }
+
+  public function executeError404(sfWebRequest $request)
+  {
+
+  }
 }

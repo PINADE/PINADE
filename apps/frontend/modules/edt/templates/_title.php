@@ -20,5 +20,7 @@ slot('title');
 
   if(isset($promo)) echo ' - '.strtoupper($promo);
 
+  if(isset($erreur)) echo $erreur;
+  
 end_slot();
 ?>
