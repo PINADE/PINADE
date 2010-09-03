@@ -22,11 +22,14 @@ class AdeImage
     $displayMode = "1057855",
     $displayConfId = "8",
     $url,
-    $content;
+    $content,
+    $ade_browser;
 
   public function __construct($trees, $options = array())
   {
 //    $this->ade_cookie = AdeTools::getAdeCookie();
+
+    $this->ade_browser = new AdeBrowser();
 
     $config_tree = sfConfig::get('sf_id_tree');
     sfContext::getInstance()->getLogger()->info(print_r($config_tree,1));
@@ -101,7 +104,7 @@ class AdeImage
     }
 
     if(empty($this->content))
-      $this->content = AdeTools::getAdeImage($this->ade_cookie, $this->url);
+      $this->content = $this->ade_browser->getUrl($this->url);
 
     if(!is_dir($path))
       mkdir($path);
