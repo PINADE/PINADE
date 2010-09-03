@@ -3,7 +3,9 @@
 <h1>
   <?php include_slot('title') ?>
 </h1>
-
+<h2>
+  Semaine du <b><?php echo strftime("%A %e %B %G", $timestamp) ?></b> au <b><?php echo  strftime("%A %e %B %G", intval($timestamp) + 5*24*60*60 - 1) ?></b>
+</h2>
 <p class="center">
   <?php echo link_to('semaine précédente', "@image?filiere=$filiere&promo=$promo&semaine=$semaine_precedente") ?> - 
   <?php echo link_to('semaine actuelle', "@image?filiere=$filiere&promo=$promo&semaine=") ?> - 

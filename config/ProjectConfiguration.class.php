@@ -1,4 +1,5 @@
 <?php
+setlocale(LC_ALL, 'fr_FR.utf8');
 
 require_once dirname(__FILE__).'/../lib/vendor/symfony/lib/autoload/sfCoreAutoload.class.php';
 sfCoreAutoload::register();

@@ -29,7 +29,7 @@ class edtActions extends sfActions
   {
     $this->filiere = $request->getParameter('filiere');
     $this->promo = $request->getParameter('promo');
-    $semaine = ($s = $request->getParameter('semaine', null)) ? $s : AdeTools::getSemaineNumber();
+    $semaine = $request->getParameter('semaine', AdeTools::getSemaineNumber());
     $this->semaine_suivante = AdeTools::getSemaineNumber($semaine + 1);
     $this->semaine_precedente = AdeTools::getSemaineNumber($semaine -1);
 
@@ -38,6 +38,9 @@ class edtActions extends sfActions
     $adeImage->updateImage();
     
     $this->image_path = $adeImage->getWebPath();
+
+    // Timestamp du lundi, début de semaine
+    $this->timestamp = AdeTools::getTimestamp($semaine);
   }
 
   public function executeError404(sfWebRequest $request)
