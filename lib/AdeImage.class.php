@@ -32,7 +32,6 @@ class AdeImage
     $this->ade_browser = new AdeBrowser();
 
     $config_tree = sfConfig::get('sf_id_tree');
-    sfContext::getInstance()->getLogger()->info(print_r($config_tree,1));
     if(!is_array($trees))
       throw new sfException('$trees must be an array');
 
