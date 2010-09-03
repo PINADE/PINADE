@@ -2,6 +2,8 @@
 error_reporting(-1);
 $ade_cookie = "662969F0B3EEA35A915D8E37B3D8D3A";
 
+echo time();
+
     $handle = curl_init("http://emploidutemps.uha.fr/ade/standard/gui/interface.jsp");
     curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($handle, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows; U; Windows NT 6.1; fr; rv:1.9.2.7) Gecko/20100701 Firefox/3.6.7");
@@ -20,6 +22,7 @@ if(strpos($content, "Location: https://cas.uha.fr") === false) {
 } else
   echo "NOK";
 */
+echo time();
 
 echo $content;
 
