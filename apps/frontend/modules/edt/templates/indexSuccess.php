@@ -1,13 +1,15 @@
 <?php slot('title'); ?>Accueil<?php end_slot() ?>
 <h1>
-  Bienvenue sur l'emploi du temps de l'Ensisa.
+  Bienvenue sur l'emploi du temps de l'ENSISA.
 </h1>
 
 <h2>
   Selectionnez votre filière:
 </h2>
 
-<ul>
+
+
+<ul >
 <?php foreach(array(
   "info" => "Informatique &amp; Réseaux",
   "auto" => "Automatique &amp; Système",

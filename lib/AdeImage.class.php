@@ -40,9 +40,9 @@ class AdeImage
         if(isset($config_tree[$tree[0]][$tree[1]]))
           $id_tree[] = $config_tree[$tree[0]][$tree[1]];
         else
-          throw new sfException('La promo '.$tree[1].' de la filière '.$tree[0].' n\'existe pas');
+          throw new sfError404Exception('La promo '.$tree[1].' de la filière '.$tree[0].' n\'existe pas');
       }
-      else throw new sfException('La filière '.$tree[0].' n\'existe pas');
+      else throw new sfError404Exception('La filière '.$tree[0].' n\'existe pas');
     }
     if(count($id_tree) == 0) throw new sfException('$id_tree is empty !');
     
