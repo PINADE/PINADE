@@ -42,7 +42,7 @@ all:
     use_database:           false
 
     # login cas : base64_encode("username=prenom.nom%40uha.fr&password=YOURPASSWORD")
-    cas_login: 'dXNlcm5hbWU9dGhlb3BoaWxlLmhlbGxlYm9pZCU0MHVoYS5mciZwYXNzd29yZD1iYWxhbXVydWdhbg=='
+    cas_login: 'dXNlcm5hbWU9cHJlbm9tLm5vbSU0MHVoYS5mciZwYXNzd29yZD1ZT1VSUEFTU1dPUkQ='
 
     id_tree:
       auto:
