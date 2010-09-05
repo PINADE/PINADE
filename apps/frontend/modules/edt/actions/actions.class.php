@@ -32,7 +32,7 @@ class edtActions extends sfActions
     $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
     $this->semaine_suivante = $semaine + 1;
     // Pas de semaine négative !
-    $this->semaine_precedente = abs($semaine - 1);
+    $this->semaine_precedente = max(0,$semaine - 1);
 
     $adeImage = new AdeImage(array(array($this->filiere, $this->promo )), array('idPianoWeek' => $semaine));
 
