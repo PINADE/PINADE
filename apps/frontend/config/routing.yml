@@ -6,6 +6,10 @@ homepage:
   url:   /
   param: { module: edt, action: index }
 
+faq:
+  url:   /faq
+  param: { module: edt, action: faq }
+
 filiere_index:
   url:   /:filiere
   param: { module: edt, action: indexPromo }
