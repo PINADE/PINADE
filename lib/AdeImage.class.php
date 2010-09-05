@@ -94,8 +94,8 @@ class AdeImage
     if(file_exists($filepath = $path.$this->getFilename()))
     {
       $filestat = stat($filepath);
-      // Si le fichier a été modifié il y a moins de 2h, on zappe
-      if($filestat['mtime'] + 2*60*60 > time())
+      // Si le fichier a été modifié il y a moins de 1h, on zappe
+      if($filestat['mtime'] + 1*60*60 > time())
       {
         sfContext::getInstance()->getLogger()->info('Image déjà en cache : '.$filepath);
         return;
