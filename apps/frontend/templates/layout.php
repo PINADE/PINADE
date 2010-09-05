@@ -34,42 +34,13 @@
               <li><?php echo image_tag("logos/$id_f.png", "alt='logo $id_f'") ?><?php echo $filiere ?>
                 <ul>
   <?php foreach(array("1a" => "1A", "2a" => "2A", "3a" => "3A") as $id_p => $promo): ?>
-    <?php if($id_f == "prod" && $id_p == "3a") continue ?>
+  <?php if($id_f == "prod" && $id_p == "3a") continue ?>
                   <li><?php echo link_to("$promo", "@image?filiere=$id_f&promo=$id_p&semaine=".$sf_request->getParameter('semaine')) ?></li>
   <?php endforeach ?>
                 </ul>
               </li>
-              <li><img alt="logo auto" src="/images/logos/auto.png" />Automatique
-                  <ul>
-                    <li><a href="/auto/1a/">1A</a></li>
-                    <li><a href="/auto/2a/">2A</a></li>
-                    <li><a href="/auto/3a/">3A</a></li>
-                  </ul>
-
-              </li>
-              <li><img alt="logo text" src="/images/logos/text.png" />Textile
-                  <ul>
-                    <li><a href="/text/1a/">1A</a></li>
-                    <li><a href="/text/2a/">2A</a></li>
-                    <li><a href="/text/3a/">3A</a></li>
-                  </ul>
-              </li>
-
-              <li><img alt="logo meca" src="/images/logos/meca.png" />Mécanique
-                  <ul>
-                    <li><a href="/meca/1a/">1A</a></li>
-                    <li><a href="/meca/2a/">2A</a></li>
-                    <li><a href="/meca/3a/">3A</a></li>
-                  </ul>
-              </li>
-              <li><img alt="logo prod" src="/images/logos/prod.png" />Système de Production
-                  <ul>
-                    <li><a href="/prod/1a/">1A</a></li>
-                    <li><a href="/prod/2a/">2A</a></li>
-                  </ul>
-              </li>
+<?php endforeach ?>
             </ul>
-
           </div>
           
           <div id="pub">
