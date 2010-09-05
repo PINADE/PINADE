@@ -107,8 +107,13 @@ class AdeImage
 
     if(!is_dir($path))
       mkdir($path);
-    
-    file_put_contents($filepath, $this->content);
+
+    // Do NOT remove cache if the file is empty (there is a problem)
+    if(!empty($this->content)) 
+      file_put_contents($filepath, $this->content);
+    else
+      sfContext::getInstance()->getLogger()->error('Image vide lors du téléchargement ! Cache non réécrit');
+
   }
 
   protected function getPath()
@@ -124,6 +129,122 @@ class AdeImage
   public function getWebPath()
   {
     return '/images/edt/'.str_replace(',','-',$this->idTree).'/'.str_replace(',','-',$this->idPianoWeek).'.gif';
+  }
+  public function setIdTree()
+  {
+    // Sélectionner un id :
+    //  http://www.emploidutemps.uha.fr/ade/standard/gui/tree.jsp?selectId=269&reset=false&forceLoad=false&scroll=0
+    // http://www.emploidutemps.uha.fr/ade/standard/gui/tree.jsp?selectId=191&reset=true&forceLoad=false&scroll=57
+/*    $reset = 'true';
+    foreach(explode(',', $this->idTree) as $id_tree)
+    {
+      $this->ade_browser->getUrl('http://www.emploidutemps.uha.fr/ade/standard/gui/tree.jsp?'.
+         'selectId='.$id_tree
+        .'&reset='.$reset
+        .'&forceLoad=false&scroll=0');
+      // On ne reset plus pour ne pas perdre les premiers sélectionnés
+      $reset = 'false';
+    }
+*/
+
+    foreach(array(
+      'http://www.emploidutemps.uha.fr/ade/custom/modules/plannings/plannings.jsp', // Obligatoire 
+      'http://www.emploidutemps.uha.fr/ade/standard/gui/tree.jsp?category=trainee&expand=false&forceLoad=false&reload=false&scroll=0',
+      'http://www.emploidutemps.uha.fr/ade/standard/gui/tree.jsp?selectBranchId=199&reset=false&forceLoad=false&scroll=0',
+      ) as $url)
+    {
+      $this->ade_browser->getUrl($url);
+    }
+
+  }
+
+  public function setIdWeek()
+  {
+   // Sélectionner une semaine :
+    // http://www.emploidutemps.uha.fr/ade/custom/modules/plannings/imagemap.jsp?reset=true&week=3&width=1274&height=143
+    // http://www.emploidutemps.uha.fr/ade/custom/modules/plannings/bounds.jsp?week=2&reset=true
+    $reset = 'true';
+    foreach(explode(',', $this->idPianoWeek) as $id_piano_week)
+    {
+//      $this->ade_browser->getUrl('http://www.emploidutemps.uha.fr/ade/custom/modules/plannings/imagemap.jsp?'.
+      $this->ade_browser->getUrl('http://www.emploidutemps.uha.fr/ade/custom/modules/plannings/bounds.jsp?'.
+          'reset='.$reset
+        .'&week='.$id_piano_week
+        .'&width='.$this->width
+        .'&height='.$this->height);
+      $reset = 'false';
+    }
+  }
+
+  public function setIdDay()
+  {
+    // Sélectionner un seul jour :
+    //  http://www.emploidutemps.uha.fr/ade/custom/modules/plannings/pianoDays.jsp?day=2&reset=true&forceLoad=false
+    $reset = 'true';
+    foreach(explode(',', $this->idPianoDay) as $id_piano_day)
+    {
+      $this->ade_browser->getUrl('http://www.emploidutemps.uha.fr/ade/custom/modules/plannings/pianoDays.jsp?'.
+          'day='.$id_piano_day
+         .'&reset='.$reset
+         .'&forceLoad=false');
+      // On ne reset plus pour ne pas perdre les premiers sélectionnés
+      $reset = 'false';
+    }
+  }
+
+  public function setProjectId()
+  {
+    $this->ade_browser->getUrl('http://www.emploidutemps.uha.fr/ade/standard/gui/interface.jsp', 'projectId='.$this->projectId.'&x=41&y=9');
+  }
+  
+  public function getHtmlInfo()
+  {
+  }
+  public function parseHtmlInfo()
+  {
+//    $adeImage->setProjectId();
+//    $adeImage->setIdTree();
+
+//*    $adeImage->setIdWeek();
+//*    $adeImage->setIdDay();
+
+//    $this->html_info = $this->ade_browser->getUrl('http://www.emploidutemps.uha.fr/ade/custom/modules/plannings/info.jsp?light=true&order=slot');
+
+    $this->html_info = file_get_contents(sfConfig::get('sf_web_dir').'/info2.html');
+    
+    // replace & by &amp; and remove <BODY> line (there is 2 <BODY ...>)
+    $this->html_info = str_replace('&', '&amp;', $this->html_info);
+    $this->html_info = str_replace('<BODY>', '', $this->html_info);
+
+    $dom = new domDocument; 
+    $string = "";
+
+    /*** load the html into the object ***/ 
+    if(!$dom->loadHTML($this->html_info))
+      throw new sfException('HTML non chargé');
+
+    /*** discard white space ***/ 
+    $dom->preserveWhiteSpace = false; 
+
+    /*** the table by its tag name ***/ 
+    $tables = $dom->getElementsByTagName('table'); 
+
+    /*** get all rows from the table ***/ 
+    $rows = $tables->item(0)->getElementsByTagName('tr'); 
+
+    /*** loop over the table rows ***/ 
+    foreach ($rows as $row) 
+    { 
+        /*** get each column by tag name ***/ 
+        $cols = $row->getElementsByTagName('td'); 
+        /*** echo the values ***/ 
+        foreach($cols as $col)
+        {
+          $string .= $col->nodeValue.',';
+        }
+        $string .= "\n";
+    }
+    return $string;
   }
 }
 

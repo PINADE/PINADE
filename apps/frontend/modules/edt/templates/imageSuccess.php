@@ -14,3 +14,7 @@
 </p>
 <img src='<?php echo $image_path ?>' alt='emploi du temps <?php echo $filiere." ".$promo ?>'/>
 
+<hr/>
+<?php if(isset($html)): ?>
+<pre><?php echo $html ?>
+<?php endif ?></pre>

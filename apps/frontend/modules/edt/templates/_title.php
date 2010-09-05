@@ -1,6 +1,9 @@
 <?php
 slot('title');
-  switch($filiere) {
+if(isset($filiere))
+{
+  switch($filiere)
+  {
     case "info":
       echo "Informatique";
       break;
@@ -17,7 +20,7 @@ slot('title');
       echo "Système de production";
       break;
   }
-
+}
   if(isset($promo)) echo ' - '.strtoupper($promo);
 
   if(isset($erreur)) echo $erreur;
