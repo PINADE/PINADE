@@ -8,7 +8,7 @@
 L'équipe de <?php echo link_to('IARISS', 'http://www.iariss.fr/') ?> a codé ce site pour vous,
 parce qu'elle trouvait que le site proposé par l'UHA, <?php echo link_to('emploidutemps.uha.fr', 'http://emploidutemps.uha.fr/') ?>, 
 n'est pas du tout pratique.<br/>
-Les auteurs initiaux sont Michaël Muré et Thépophile Helleboid, mais nous en attendons d'autres. Venez nous rejoindre !
+Les auteurs initiaux sont Michaël Muré et Thépophile Helleboid, mais nous en attendons d'autres. Venez nous rejoindre&nbsp;!
 
 <h2 id="contact">Je veux contacter les auteurs, à qui m'adresser ?</h2>
 Envoyez un mail à <code>contact@iariss.fr</code>, c'est l'adresse unique pour contacter les auteurs.<br/>
@@ -20,7 +20,7 @@ Les emplois du temps sont mis à jour toutes les heures. Si vous trouvez que ce 
 Ce site a été développé avec le framework PHP <?php echo link_to('Symfony', 'http://www.symfony-project.org/') ?>.
 Il se connecte à ADE Expert, logiciel utilisé pour les emplois du temps de l'UHA, et télécharge les images des emplois du temps pour les garder sur notre serveur (1h actuellement).
 Le logiciel reproduit votre navigation, longue et un peu complexe, et peut récupérer les informations pour vous.<br/>
-Si vous souhaitez connaître le fonctionnement exact, <a href="#contact">contactez-nous</a>, et reportez vous à la section <b>Où sont les sources ?</b>
+Si vous souhaitez connaître le fonctionnement exact, <a href="#contact">contactez-nous</a>, et reportez vous à la section <a href="#sources">Où sont les sources&nbsp;?</a>
 
 <h2 id="fonctionnalite">Je voudrais avoir telle fonctionnalité, c'est possible ?</h2>
 Bien sûr, tout est possible avec l'informatique !<br/>
