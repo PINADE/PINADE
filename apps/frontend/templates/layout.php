@@ -25,21 +25,45 @@
               <li id='accueil-menu'>
                 <?php echo link_to('Accueil', '/', "inline") ?>
               </li>
-<?php foreach(array(
-  "info" => "Informatique",
-  "auto" => "Automatique",
-  "text" => "Textile",
-  "meca" => "Mécanique",
-  "prod" => "Système de Production") as $id_f => $filiere): ?>
-              <li><?php echo image_tag("logos/$id_f.png", "alt='logo $id_f'") ?><?php echo $filiere ?>
-                <ul>
-  <?php foreach(array("1a" => "1A", "2a" => "2A", "3a" => "3A") as $id_p => $promo): ?>
-                  <li><?php echo link_to("$promo", "@image?filiere=$id_f&promo=$id_p&semaine=".$sf_request->getParameter('semaine')) ?></li>
-  <?php endforeach ?>
-                </ul>
+              <li><img alt="logo info" src="/images/logos/info.png" />Informatique
+                  <ul>
+                    <li><a href="/info/1a/">1A</a></li>
+                    <li><a href="/info/2a/">2A</a></li>
+                    <li><a href="/info/3a/">3A</a></li>
+
+                  </ul>
               </li>
-<?php endforeach ?>
+              <li><img alt="logo auto" src="/images/logos/auto.png" />Automatique
+                  <ul>
+                    <li><a href="/auto/1a/">1A</a></li>
+                    <li><a href="/auto/2a/">2A</a></li>
+                    <li><a href="/auto/3a/">3A</a></li>
+                  </ul>
+
+              </li>
+              <li><img alt="logo text" src="/images/logos/text.png" />Textile
+                  <ul>
+                    <li><a href="/text/1a/">1A</a></li>
+                    <li><a href="/text/2a/">2A</a></li>
+                    <li><a href="/text/3a/">3A</a></li>
+                  </ul>
+              </li>
+
+              <li><img alt="logo meca" src="/images/logos/meca.png" />Mécanique
+                  <ul>
+                    <li><a href="/meca/1a/">1A</a></li>
+                    <li><a href="/meca/2a/">2A</a></li>
+                    <li><a href="/meca/3a/">3A</a></li>
+                  </ul>
+              </li>
+              <li><img alt="logo prod" src="/images/logos/prod.png" />Système de Production
+                  <ul>
+                    <li><a href="/prod/1a/">1A</a></li>
+                    <li><a href="/prod/2a/">2A</a></li>
+                  </ul>
+              </li>
             </ul>
+
           </div>
           
           <div id="pub">
