@@ -47,4 +47,8 @@ class edtActions extends sfActions
   {
 
   }
+
+  public function executeFaq(sfWebRequest $request)
+  {
+  }
 }
