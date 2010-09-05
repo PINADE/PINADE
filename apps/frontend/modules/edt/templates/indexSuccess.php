@@ -17,7 +17,7 @@
   "meca" => "Mécanique",
   "prod" => "Système de Production") as $id_f => $filiere): ?>
   <li><?php echo image_tag("logos/$id_f.png", "alt='logo $id_f'") ?>
-      <?php echo link_to($filiere, '/'.$id_f) ?>
+      <?php echo link_to($filiere, '@filiere_index?filiere='.$id_f) ?>
   </li>
 <?php endforeach ?>
 </ul>

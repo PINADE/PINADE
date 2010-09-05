@@ -9,7 +9,7 @@
 </h2>
 
 <ul>
-  <li><?php echo link_to('1A', $filiere.'/1a') ?></li>
-  <li><?php echo link_to('2A', $filiere.'/2a') ?></li>
-  <li><?php echo link_to('3A', $filiere.'/3a') ?></li>
+  <li><?php echo link_to('1A', '@image?filiere='.$filiere.'&promo=1a&semaine=') ?></li>
+  <li><?php echo link_to('2A', '@image?filiere='.$filiere.'&promo=2a&semaine=') ?></li>
+  <li><?php echo link_to('3A', '@image?filiere='.$filiere.'&promo=3a&semaine=') ?></li>
 </ul>
