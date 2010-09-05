@@ -69,7 +69,7 @@ class AdeImage
     $this->displayConfId = $options['displayConfId'];
 
     $this->url = "http://www.emploidutemps.uha.fr/ade/imageEt?".
-      "identifier=3df5af70498bff8bc4facf408da524dc".
+      "identifier=".sfConfig::get('sf_ade_identifier').
       "&projectId=".$this->projectId.
       "&idPianoWeek=".$this->idPianoWeek.
       "&idPianoDay=".$this->idPianoDay.
