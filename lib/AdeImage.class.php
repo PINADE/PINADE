@@ -112,7 +112,7 @@ class AdeImage
     if(!empty($this->content)) 
       file_put_contents($filepath, $this->content);
     else
-      sfContext::getInstance()->getLogger()->error('Image vide lors du téléchargement ! Cache non réécrit');
+      sfContext::getInstance()->getLogger()->info('Image vide lors du téléchargement ! Cache non réécrit');
 
   }
 
