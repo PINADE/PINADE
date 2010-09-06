@@ -1,0 +1,38 @@
+Installation:
+
+1. Apache
+2. Symfony
+3. Configuration
+
+
+= 1 == Apache ===================================
+
+Configurez votre serveur web avec le virtualhost suivant, en adaptant les chemins.
+
+<VirtualHost *:80>
+        DocumentRoot /data/www/edt/web
+        ServerName edt.iariss.fr
+        ServerAlias edt.iariss.com
+
+        Alias /sf /data/www/edt/lib/vendor/symfony/data/web/sf
+
+        <Directory /data/www/edt>
+                Options FollowSymLinks MultiViews
+                AllowOverride All
+                Order allow,deny
+                allow from all
+        </Directory>
+</VirtualHost>
+
+= 2 == Symfony ==================================
+
+Telechargez Symfony 1.4 sur http://www.symfony-project.org/installation/1_4.
+
+Décompressez l'archive dans lib/vendor/symfony/
+
+
+= 3 == Configuration ============================
+
+Copiez le fichier apps/frontend/config/settings.yml.default en le renommant en settings.yml.
+
+Adaptez si nécessaire les valeurs de cas_login, ade_identifier et id_tree.
