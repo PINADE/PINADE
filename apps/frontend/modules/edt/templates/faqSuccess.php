@@ -18,7 +18,7 @@ Les emplois du temps sont mis à jour toutes les heures. Si vous trouvez que ce 
 
 <h2 id="fonctionnement">Comment fonctionne votre site ?</h2>
 Ce site a été développé avec le framework PHP <?php echo link_to('Symfony', 'http://www.symfony-project.org/') ?>.
-Il se connecte à ADE Expert, logiciel utilisé pour les emplois du temps de l'UHA, et télécharge les images des emplois du temps pour les garder sur notre serveur (1h actuellement).
+Il se connecte à ADE Expert, logiciel utilisé pour les emplois du temps de l'UHA, et télécharge les images des emplois du temps pour les garder sur notre serveur (chaque heure actuellement).
 Le logiciel reproduit votre navigation, longue et un peu complexe, et peut récupérer les informations pour vous.<br/>
 Si vous souhaitez connaître le fonctionnement exact, <a href="#contact">contactez-nous</a>, et reportez vous à la section <a href="#sources">Où sont les sources&nbsp;?</a>
 
