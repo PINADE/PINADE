@@ -112,7 +112,7 @@ body {
 }
 #navigation ul {
   margin: 0;
-  padding: 13px;
+  padding: 3px; /* was : 13 */
   list-style: none;
 }
 #navigation a {

@@ -10,6 +10,10 @@ faq:
   url:   /faq
   param: { module: edt, action: faq }
 
+cron_all:
+  url:  /cron/:action/*
+  param: { module: cron }
+
 filiere_index:
   url:   /:filiere
   param: { module: edt, action: indexPromo }

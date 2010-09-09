@@ -27,17 +27,24 @@ class edtActions extends sfActions
   
   public function executeImage(sfWebRequest $request)
   {
+    $filieres = sfConfig::get('sf_filieres');
     $this->filiere = $request->getParameter('filiere');
     $this->promo = $request->getParameter('promo');
+    
+    $this->nom_filiere = $filieres[$this->filiere]['nom'];
+    $this->nom_promo = $filieres[$this->filiere]['promotions'][$this->promo]['nom'];
+
     $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
     $this->semaine_suivante = $semaine + 1;
     // Pas de semaine négative !
     $this->semaine_precedente = max(0,$semaine - 1);
 
-    $adeImage = new AdeImage(array(array($this->filiere, $this->promo )), array('idPianoWeek' => $semaine));
-
+    $adeImage = new AdeImage(
+      array(array('filiere' => $this->filiere, 'promo' => $this->promo )),
+      array('idPianoWeek' => $semaine)
+    );
     $adeImage->updateImage();
-    
+
     $this->image_path = $adeImage->getWebPath();
 
     // Timestamp du lundi, début de semaine

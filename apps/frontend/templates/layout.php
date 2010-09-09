@@ -25,17 +25,12 @@
               <li id='accueil-menu'>
                 <?php echo link_to('Accueil', '/', "inline") ?>
               </li>
-<?php foreach(array(
-  "info" => "Informatique",
-  "auto" => "Automatique",
-  "text" => "Textile",
-  "meca" => "Mécanique",
-  "prod" => "Système de Production") as $id_f => $filiere): ?>
-              <li><?php echo image_tag("logos/$id_f.png", "alt='logo $id_f'") ?><?php echo $filiere ?>
+<?php $filieres = sfConfig::get('sf_filieres') ?>
+<?php foreach($filieres as $id_f => $filiere): ?>
+              <li><?php echo image_tag("logos/$id_f.png", "alt='logo $id_f'") ?><?php echo $filiere['nom'] ?>
                 <ul>
-  <?php foreach(array("1a" => "1A", "2a" => "2A", "3a" => "3A") as $id_p => $promo): ?>
-  <?php if($id_f == "prod" && $id_p == "3a") continue ?>
-                  <li><?php echo link_to("$promo", "@image?filiere=$id_f&promo=$id_p&semaine=".$sf_request->getParameter('semaine')) ?></li>
+  <?php foreach($filiere['promotions'] as $id_p => $promo): ?>
+                  <li><?php echo link_to($promo['nom'], "@image?filiere=$id_f&promo=$id_p&semaine=".$sf_request->getParameter('semaine')) ?></li>
   <?php endforeach ?>
                 </ul>
               </li>

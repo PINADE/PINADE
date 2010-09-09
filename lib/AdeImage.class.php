@@ -31,26 +31,26 @@ class AdeImage
 
     $this->ade_browser = new AdeBrowser();
 
-    $config_tree = sfConfig::get('sf_id_tree');
+    $filieres = sfConfig::get('sf_filieres');
     if(!is_array($trees))
       throw new sfException('$trees must be an array');
 
     foreach($trees as $tree)
     {
-      if(isset($config_tree[$tree[0]]))
+      if(isset($filieres[$tree['filiere']]))
       {
-        if(isset($config_tree[$tree[0]][$tree[1]]))
-          $id_tree[] = $config_tree[$tree[0]][$tree[1]];
+        if(isset($filieres[$tree['filiere']]['promotions'][$tree['promo']]))
+          $id_tree[] = $filieres[$tree['filiere']]['promotions'][$tree['promo']]['trees'];
         else
-          throw new sfError404Exception('La promo '.$tree[1].' de la filière '.$tree[0].' n\'existe pas');
+          throw new sfError404Exception('La promo '.$tree['promo'].' de la filière '.$tree['filiere'].' n\'existe pas');
       }
-      else throw new sfError404Exception('La filière '.$tree[0].' n\'existe pas');
+      else throw new sfError404Exception('La filière '.$tree['filiere'].' n\'existe pas');
     }
     if(count($id_tree) == 0) throw new sfException('$id_tree is empty !');
     
     $options = array_merge(array(
       'projectId' => '27',
-      'idPianoWeek' => '2',
+      'idPianoWeek' => AdeTools::getSemaineNumber(),
       'idPianoDay' => '0,1,2,3,4',
       'idTree' => implode(',', $id_tree),
       'width' => '800',
@@ -88,27 +88,35 @@ class AdeImage
     $this->content = AdeTools::getAdeImage($this->ade_cookie, $this->url);
   }
 
-  public function updateImage()
+  public function updateImage($force = false)
   {
     $path = $this->getPath();
-    if(file_exists($filepath = $path.$this->getFilename()))
+    $filepath = $path.$this->getFilename();
+
+    
+    if(!file_exists($filepath))                 // Si le fichier n'existe pas, on met à jour
+      $update = true;
+    elseif(file_get_contents($filepath) == "") // Sinon, si le fichier est vide, idem
+      $update = true;
+    elseif(time() > filemtime($filepath) + 6*60*60) // Si le fichier a été modifié il y a plus de 6h, on met à jour
+        $update = true;
+    else                                      // Sinon, si on force si on décide comme ça
+      $update = $force;
+
+    if($update != true)
     {
-      $filestat = stat($filepath);
-      // Si le fichier a été modifié il y a moins de 1h, on zappe
-      if($filestat['mtime'] + 1*60*60 > time())
-      {
-        sfContext::getInstance()->getLogger()->info('Image déjà en cache : '.$filepath);
-        return;
-      }
+      sfContext::getInstance()->getLogger()->info('Image déjà en cache : '.$filepath);
+      return;
     }
 
+    // Refresh content if it's empty
     if(empty($this->content))
       $this->content = $this->ade_browser->getUrl($this->url);
 
     if(!is_dir($path))
       mkdir($path);
 
-    // Do NOT remove cache if the file is empty (there is a problem)
+    // Do NOT remove cache if the file is empty (there is likely a problem)
     if(!empty($this->content)) 
       file_put_contents($filepath, $this->content);
     else
