@@ -1,2 +1,8 @@
-TODO List
+TODO List:
+
+- ajout de message par promo, par filière, par semaine; par des admin
+
+- gérer le paramètre identifieur du lundi matin minuit
+
+- redirection de la page d'accueil vers le dernier edt vu par cookies 
 
