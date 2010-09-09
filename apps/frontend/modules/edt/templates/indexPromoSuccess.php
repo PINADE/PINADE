@@ -8,8 +8,11 @@
   Selectionnez votre promotion:
 </h2>
 
+<?php $filieres = sfConfig::get('sf_filieres') ?>
+
 <ul>
-  <li><?php echo link_to('1A', '@image?filiere='.$filiere.'&promo=1a&semaine=') ?></li>
-  <li><?php echo link_to('2A', '@image?filiere='.$filiere.'&promo=2a&semaine=') ?></li>
-  <li><?php echo link_to('3A', '@image?filiere='.$filiere.'&promo=3a&semaine=') ?></li>
+<?php foreach($filieres[$filiere]['promotions'] as $id_p => $promo): ?>
+  <li><?php echo link_to($promo['nom'], "@image?filiere=$id_f&promo=$id_p&semaine=".$sf_request->getParameter('semaine')) ?></li>
+<?php endforeach ?>
 </ul>
+
