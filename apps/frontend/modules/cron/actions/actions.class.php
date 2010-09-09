@@ -14,7 +14,7 @@ class cronActions extends sfActions
   {
     if (!in_array(@$_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1')))
     {
-      $request->redirect('@homepage');
+      $this->redirect('@homepage');
     }
     
     $filieres = sfConfig::get('sf_filieres');
