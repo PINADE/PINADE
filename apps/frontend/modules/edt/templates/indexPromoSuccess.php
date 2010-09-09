@@ -1,4 +1,4 @@
-<?php include_partial('title', array('filiere' => $filiere)) ?>
+<?php include_partial('title', array('nom_filiere' => $nom_filiere)) ?>
 
 <h1>
   <?php include_slot('title') ?>
@@ -12,7 +12,8 @@
 
 <ul>
 <?php foreach($filieres[$filiere]['promotions'] as $id_p => $promo): ?>
-  <li><?php echo link_to($promo['nom'], "@image?filiere=$id_f&promo=$id_p&semaine=".$sf_request->getParameter('semaine')) ?></li>
+  <li><?php echo link_to($promo['nom'], "@image?filiere=$filiere&promo=$id_p&semaine=".$sf_request->getParameter('semaine')) ?></li>
 <?php endforeach ?>
 </ul>
 
+  

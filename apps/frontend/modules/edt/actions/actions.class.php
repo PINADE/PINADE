@@ -22,7 +22,10 @@ class edtActions extends sfActions
 
   public function executeIndexPromo(sfWebRequest $request)
   {
+    $filieres = sfConfig::get('sf_filieres');
     $this->filiere = $request->getParameter('filiere');
+    
+    $this->nom_filiere = $filieres[$this->filiere]['nom'];
   }
   
   public function executeImage(sfWebRequest $request)
