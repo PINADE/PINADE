@@ -12,7 +12,7 @@
     <div id="global">
       <div id="entete">
         <ul>
-          <li><?php echo link_to('Accueil', '/') ?></li>
+          <li><?php echo link_to('Accueil', '@homepage') ?></li>
           <li><?php echo link_to('Annales', 'http://annales.iariss.fr/') ?></li>
           <li><?php echo link_to('Trombinoscope', 'http://trombi.iariss.fr/') ?></li>
           <li><?php echo link_to('Blog', 'http://ensisa11.iariss.fr/') ?></li>
@@ -23,7 +23,7 @@
           <div id="menu">
             <ul>
               <li id='accueil-menu'>
-                <?php echo link_to('Accueil', '/', "inline") ?>
+                <?php echo link_to('Accueil', '@homepage', "inline") ?>
               </li>
 <?php $filieres = sfConfig::get('sf_filieres') ?>
 <?php foreach($filieres as $id_f => $filiere): ?>
