@@ -22,15 +22,18 @@ class AdeImage
     $displayMode = "1057855",
     $displayConfId = "8",
     $url,
-    $content,
     $ade_browser;
 
-  public function __construct($trees, $options = array())
+  public function __construct($trees = null, $options = array())
   {
-//    $this->ade_cookie = AdeTools::getAdeCookie();
-
     $this->ade_browser = new AdeBrowser();
 
+    if(is_array($trees))
+      $this->initialize($trees, $options);
+  }
+  
+  public function initialize($trees, $options = array())
+  {
     $filieres = sfConfig::get('sf_filieres');
     if(!is_array($trees))
       throw new sfException('$trees must be an array');
@@ -110,15 +113,14 @@ class AdeImage
     }
 
     // Refresh content if it's empty
-    if(empty($this->content))
-      $this->content = $this->ade_browser->getUrl($this->url);
+    $content = $this->ade_browser->getUrl($this->url);
 
     if(!is_dir($path))
       mkdir($path);
 
     // Do NOT remove cache if the file is empty (there is likely a problem)
-    if(!empty($this->content)) 
-      file_put_contents($filepath, $this->content);
+    if(!empty($content)) 
+      file_put_contents($filepath, $content);
     else
       sfContext::getInstance()->getLogger()->info('Image vide lors du téléchargement ! Cache non réécrit');
 

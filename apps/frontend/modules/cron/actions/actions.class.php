@@ -19,6 +19,7 @@ class cronActions extends sfActions
     
     $filieres = sfConfig::get('sf_filieres');
     $semaine = AdeTools::getSemaineNumber();
+    $adeImage = new AdeImage();
 
     $message = "";
     // Pour la semaine en cours et la suivante
@@ -31,7 +32,7 @@ class cronActions extends sfActions
         foreach($filiere['promotions'] as $id_p => $promotion)
         {
           // On crée une image ADE, qu'on met à jour en forçant l'update
-          $adeImage = new AdeImage(
+          $adeImage->initialize(
             array(array('filiere' => $id_f, 'promo' => $id_p )),
             array('idPianoWeek' => $semaine)
           );
