@@ -1,2 +1,5 @@
-default:
+all:
   has_layout:     false
+
+identifier:
+  has_layout:     true

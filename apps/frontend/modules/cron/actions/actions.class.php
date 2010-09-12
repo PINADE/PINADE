@@ -43,4 +43,51 @@ class cronActions extends sfActions
     }
     $this->message = $message;
   }
+  /**
+    Change ade_identifier in the settings.yml
+    Be careful : it's extremly dangerous !
+
+    The identifier changes every monday, at 00h00
+  */
+  public function executeIdentifier(sfWebRequest $request)
+  {
+    $browser = new AdeBrowser();
+
+    // Emulates query for display an arbitrary image
+    // Select Project
+    $browser->getUrl('http://www.emploidutemps.uha.fr/ade/standard/gui/interface.jsp', 'projectId=27&x=41&y=9');
+    // Mandatory (because of ADE)
+    $browser->getUrl('http://www.emploidutemps.uha.fr/ade/custom/modules/plannings/plannings.jsp');
+    // Select groups of students
+    $browser->getUrl('http://www.emploidutemps.uha.fr/ade/standard/gui/tree.jsp?category=trainee&expand=false&forceLoad=false&reload=false&scroll=0');
+    // Select a group
+    $browser->getUrl('http://www.emploidutemps.uha.fr/ade/standard/gui/tree.jsp?branchId=199&reset=true&forceLoad=false&scroll=0');
+    // Select a group
+    $browser->getUrl('http://www.emploidutemps.uha.fr/ade/standard/gui/tree.jsp?branchId=190&reset=false&forceLoad=false&scroll=0');
+    // "Click" on a group
+    $browser->getUrl('http://www.emploidutemps.uha.fr/ade/standard/gui/tree.jsp?selectBranchId=199&reset=true&forceLoad=false&scroll=0');
+    // Get the page with the link to the image
+    $imagemap = $browser->getUrl('http://www.emploidutemps.uha.fr/ade/custom/modules/plannings/imagemap.jsp?width=1306&height=315');
+
+    // Get the identifier 
+    preg_match("@identifier=([0-9a-f]{32})@", $imagemap, $matches);
+    if(count($matches)) // If the identifier is found
+    {
+      $identifier = $matches[1];
+      $this->identifier = $identifier;
+
+      // Open the settings.yml, change the identifier, and rewrite it
+      // Be careful : the number of spaces before ade_identifier is important
+      $ade_config = file_get_contents(sfConfig::get('sf_app_config_dir').'/settings.yml');
+      $ade_config = preg_replace(
+        '@\s+ade_identifier:\s+\'[0-9a-f]{32}\'@',
+        "\n    ade_identifier:  '".$identifier."'",
+        $ade_config);
+      file_put_contents(sfConfig::get('sf_app_config_dir').'/settings.yml', $ade_config);
+    }
+    else
+    {
+      $this->identifier = "Identifier not found !";
+    }
+  }
 }
