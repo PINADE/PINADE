@@ -10,7 +10,7 @@ faq:
   url:   /faq
   param: { module: edt, action: faq }
 
-cron_all:
+cron:
   url:  /cron/:action/*
   param: { module: cron }
 
