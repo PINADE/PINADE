@@ -54,6 +54,28 @@ class edtActions extends sfActions
     $this->timestamp = AdeTools::getTimestamp($semaine);
   }
 
+  public function executeImg(sfWebRequest $request)
+  {
+    $filieres = sfConfig::get('sf_filieres');
+    $this->filiere = $request->getParameter('filiere');
+    $this->promo = $request->getParameter('promo');
+    
+    $semaine = AdeTools::getSemaineNumber();
+
+    $adeImage = new AdeImage(
+      array(array('filiere' => $this->filiere, 'promo' => $this->promo )),
+      array('idPianoWeek' => $semaine)
+    );
+    $adeImage->updateImage();
+
+    // Set content and exit
+    $this->getResponse()->setContent(file_get_contents(sfConfig::get('sf_web_dir').$adeImage->getWebPath()));
+    $this->getResponse()->setContentType('image/gif');
+
+    return sfView::NONE;
+ 
+  }
+
   public function executeError404(sfWebRequest $request)
   {
 

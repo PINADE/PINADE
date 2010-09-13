@@ -22,6 +22,10 @@ image_default_index:
   url:  /:filiere/:promo
   param: { module: edt, action: image }
 
+image_img_default:
+  url:  /img/:filiere/:promo/*
+  param: { module: edt, action: img }
+
 image:
   url:  /:filiere/:promo/:semaine
   param: { module: edt, action: image}
