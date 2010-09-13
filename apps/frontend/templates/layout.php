@@ -6,7 +6,7 @@
     <title><?php include_slot('title') ?> - Emploi du temps ENSISA</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
-    <link rel="stylesheet" href="/css/mobile.css" type="text/css" media="handheld, only screen and (max-device-width: 480px)" />
+    <link rel="stylesheet" href="/css/mobile.css" type="text/css" /> <!-- media="handheld, only screen and (max-device-width: 480px)" /> -->
     <?php include_javascripts() ?>
   </head>
   <body>
