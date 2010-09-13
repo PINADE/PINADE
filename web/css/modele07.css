@@ -37,6 +37,9 @@ strong {
 /* Navigation */
 #navigation {
   background: #181A12; /* -> 2 */
+  position: absolute;
+  top:5em;
+
 }
 #navigation a {
   color: #FF6533;
@@ -108,7 +111,7 @@ body {
 /* Menu de navigation */
 #navigation {
   width: 180px;
-  float: left; /* -> 6 */
+/*  float: left; /* -> 6 */
 }
 #navigation ul {
   margin: 0;
@@ -144,8 +147,9 @@ margin: 10px;
 }
 
 /* Contenu */
+
 #contenu {
-  margin-left: 200px; /* -> 8 */
+  margin-left: 200px; 
   padding: 10px 20px;
 }
 #contenu > :first-child {

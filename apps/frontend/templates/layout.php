@@ -19,6 +19,11 @@
         </ul>
       </div>
       <div id="centre">
+   
+        <div id="contenu">
+          <?php echo $sf_content ?>
+        </div>
+
         <div id="navigation">
           <div id="menu">
             <ul>
@@ -44,10 +49,7 @@ Pour faciliter ta candidature, tu peux postuler sur un site dédié : <?php echo
             </p>
           </div>
         </div>
-        
-        <div id="contenu">
-          <?php echo $sf_content ?>
-        </div>
+     
       </div>
 
       <div id="pied">
