@@ -47,10 +47,17 @@ class edtActions extends sfActions
   {
     $this->processImage($request);
 
-    // Set content and exit
-    $this->getResponse()->setContent(file_get_contents(sfConfig::get('sf_web_dir').$this->adeImage->getWebPath()));
-    $this->getResponse()->setContentType('image/gif');
+    $filepath = sfConfig::get('sf_web_dir').$this->adeImage->getWebPath();
 
+    // Set content and exit
+    $this->getResponse()->setContentType('image/gif');
+    $this->getResponse()->setHttpHeader('Content-Length', filesize($filepath));
+    // The image can be cached by proxy and browser's cache, during at most 3600 seconds
+    $this->getResponse()->addCacheControlHttpHeader('public');
+    $this->getResponse()->addCacheControlHttpHeader('max-age', '3600');
+    $this->getResponse()->setContent(file_get_contents($filepath));
+
+    // Send only the content without the layout
     return sfView::NONE;
  
   }
