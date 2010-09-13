@@ -13,7 +13,7 @@ default:
     language:     fr
     #robots:       index, follow
 
-  stylesheets:    [base.css, modele07.css, mobile.css: {media: 'only screen and (max-device-width: 480px)' }]
+  stylesheets:    [base.css, modele07.css ]
 
   javascripts:    []
 
