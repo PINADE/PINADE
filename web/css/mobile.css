@@ -16,12 +16,13 @@ body {
 
 #contenu {
   background: none transparent;
-  margin: auto;
-  padding: auto;
+  margin: 0;
+  padding: 0;
 }
 
 #centre {
   background: none transparent;
+  overflow:visible;
 }
 
 #navigation {
@@ -33,6 +34,14 @@ body {
   width:auto;
 }
 
+#entete ul {
+  width:auto;
+}
+/*
 #contenu .center {
   text-align:left;
+}
+*/
+#pied {
+  text-align: left;
 }
