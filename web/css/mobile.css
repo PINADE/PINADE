@@ -1,0 +1,38 @@
+h1, h2 {
+  font-size:110%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin:0;
+}
+
+body {
+  background: none transparent;
+}
+
+#global {
+  width: auto;
+}
+
+#contenu {
+  background: none transparent;
+  margin: auto;
+  padding: auto;
+}
+
+#centre {
+  background: none transparent;
+}
+
+#navigation {
+  position:inherit;
+}
+
+#entete {
+  text-align:left;
+  width:auto;
+}
+
+#contenu .center {
+  text-align:left;
+}
