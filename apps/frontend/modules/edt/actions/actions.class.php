@@ -38,6 +38,8 @@ class edtActions extends sfActions
     $this->nom_promo = $filieres[$this->filiere]['promotions'][$this->promo]['nom'];
 
     $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
+
+    $this->semaine = $semaine;
     $this->semaine_suivante = $semaine + 1;
     // Pas de semaine négative !
     $this->semaine_precedente = max(0,$semaine - 1);
@@ -54,13 +56,16 @@ class edtActions extends sfActions
     $this->timestamp = AdeTools::getTimestamp($semaine);
   }
 
+  /**
+    Display the gif of the week
+  */
   public function executeImg(sfWebRequest $request)
   {
     $filieres = sfConfig::get('sf_filieres');
     $this->filiere = $request->getParameter('filiere');
     $this->promo = $request->getParameter('promo');
     
-    $semaine = AdeTools::getSemaineNumber();
+    $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
 
     $adeImage = new AdeImage(
       array(array('filiere' => $this->filiere, 'promo' => $this->promo )),
@@ -74,6 +79,11 @@ class edtActions extends sfActions
 
     return sfView::NONE;
  
+  }
+
+  protected function processImage(sfWebRequest $request)
+  {
+
   }
 
   public function executeError404(sfWebRequest $request)
