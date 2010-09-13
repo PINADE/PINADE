@@ -24,11 +24,38 @@ class edtActions extends sfActions
   {
     $filieres = sfConfig::get('sf_filieres');
     $this->filiere = $request->getParameter('filiere');
-    
-    $this->nom_filiere = $filieres[$this->filiere]['nom'];
+    if(isset($filieres[$this->filiere]['nom']))
+      $this->nom_filiere = $filieres[$this->filiere]['nom'];
+    else
+      throw new sfError404Exception('La filière '.$this->filiere.' n\'existe pas');
   }
   
   public function executeImage(sfWebRequest $request)
+  {
+    $this->processImage($request);
+
+    $this->image_path = $this->adeImage->getWebPath();
+
+    // Timestamp du lundi, début de semaine
+    $this->timestamp = AdeTools::getTimestamp($this->semaine);
+  }
+
+  /**
+    Display the gif of the week
+  */
+  public function executeImg(sfWebRequest $request)
+  {
+    $this->processImage($request);
+
+    // Set content and exit
+    $this->getResponse()->setContent(file_get_contents(sfConfig::get('sf_web_dir').$this->adeImage->getWebPath()));
+    $this->getResponse()->setContentType('image/gif');
+
+    return sfView::NONE;
+ 
+  }
+
+  protected function processImage(sfWebRequest $request)
   {
     $filieres = sfConfig::get('sf_filieres');
     $this->filiere = $request->getParameter('filiere');
@@ -44,46 +71,11 @@ class edtActions extends sfActions
     // Pas de semaine négative !
     $this->semaine_precedente = max(0,$semaine - 1);
 
-    $adeImage = new AdeImage(
+    $this->adeImage = new AdeImage(
       array(array('filiere' => $this->filiere, 'promo' => $this->promo )),
       array('idPianoWeek' => $semaine)
     );
-    $adeImage->updateImage();
-
-    $this->image_path = $adeImage->getWebPath();
-
-    // Timestamp du lundi, début de semaine
-    $this->timestamp = AdeTools::getTimestamp($semaine);
-  }
-
-  /**
-    Display the gif of the week
-  */
-  public function executeImg(sfWebRequest $request)
-  {
-    $filieres = sfConfig::get('sf_filieres');
-    $this->filiere = $request->getParameter('filiere');
-    $this->promo = $request->getParameter('promo');
-    
-    $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
-
-    $adeImage = new AdeImage(
-      array(array('filiere' => $this->filiere, 'promo' => $this->promo )),
-      array('idPianoWeek' => $semaine)
-    );
-    $adeImage->updateImage();
-
-    // Set content and exit
-    $this->getResponse()->setContent(file_get_contents(sfConfig::get('sf_web_dir').$adeImage->getWebPath()));
-    $this->getResponse()->setContentType('image/gif');
-
-    return sfView::NONE;
- 
-  }
-
-  protected function processImage(sfWebRequest $request)
-  {
-
+    $this->adeImage->updateImage();
   }
 
   public function executeError404(sfWebRequest $request)
