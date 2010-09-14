@@ -52,6 +52,7 @@ class edtActions extends sfActions
     // Set content and exit
     $this->getResponse()->setContentType('image/gif');
     $this->getResponse()->setHttpHeader('Content-Length', filesize($filepath));
+    $this->getResponse()->setHttpHeader('Last-Modified', gmdate('D, d M Y H:i:s', filemtime($filepath)).' GMT');
     // The image can be cached by proxy and browser's cache, during at most 3600 seconds
     $this->getResponse()->addCacheControlHttpHeader('public');
     $this->getResponse()->addCacheControlHttpHeader('max-age', '3600');
