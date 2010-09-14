@@ -43,7 +43,7 @@ all:
 
     # login cas : base64_encode("username=prenom.nom%40uha.fr&password=YOURPASSWORD")
     cas_login: 'dXNlcm5hbWU9cHJlbm9tLm5vbSU0MHVoYS5mciZwYXNzd29yZD1ZT1VSUEFTU1dPUkQ='
-    ade_identifier:  'md5 of something'
+    ade_identifier:  'd6aa97d33d459ea3670056e737c99a3d'
 
     filieres:
       info:
