@@ -66,12 +66,12 @@ class cronActions extends sfActions
     $browser->getUrl('http://www.emploidutemps.uha.fr/ade/custom/modules/plannings/plannings.jsp');
     // Select groups of students
     $browser->getUrl('http://www.emploidutemps.uha.fr/ade/standard/gui/tree.jsp?category=trainee&expand=false&forceLoad=false&reload=false&scroll=0');
-    // Select a group
+    // Select a group (ENSISA Lumiere)
     $browser->getUrl('http://www.emploidutemps.uha.fr/ade/standard/gui/tree.jsp?branchId=199&reset=true&forceLoad=false&scroll=0');
-    // Select a group
+    // Select a group (FIP)
     $browser->getUrl('http://www.emploidutemps.uha.fr/ade/standard/gui/tree.jsp?branchId=190&reset=false&forceLoad=false&scroll=0');
-    // "Click" on a group
-    $browser->getUrl('http://www.emploidutemps.uha.fr/ade/standard/gui/tree.jsp?selectBranchId=199&reset=true&forceLoad=false&scroll=0');
+    // "Click" on a group (1A FIP)
+    $browser->getUrl('http://www.emploidutemps.uha.fr/ade/standard/gui/tree.jsp?selectBranchId=16&reset=true&forceLoad=false&scroll=0');
     // Get the page with the link to the image
     $imagemap = $browser->getUrl('http://www.emploidutemps.uha.fr/ade/custom/modules/plannings/imagemap.jsp?width=1306&height=315');
 
