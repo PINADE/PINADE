@@ -21,8 +21,6 @@
       </div>
       <div id="centre">
         <div id="contenu">
-        <div style="padding:5px; border:1px solid red; margin:3px">Des problèmes d'affichage surviennent actuellement sur l'emploi du temps IARISS. Ces derniers sont provoqués par la mise à jour du logiciel de l'UHA. Si vous avez besoin de votre emploi du temps, vous pouvez consulter <a href="http://emploidutemps.uha.fr/">l'emploi du temps « officiel »</a></div>
-
           <?php echo $sf_content ?>
         </div>
 
