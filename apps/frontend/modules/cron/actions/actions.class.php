@@ -61,7 +61,7 @@ class cronActions extends sfActions
 
     // Emulates query for display an arbitrary image
     // Select Project
-    $browser->getUrl('http://www.emploidutemps.uha.fr/ade/standard/gui/interface.jsp', 'projectId=27&x=41&y=9');
+    $browser->getUrl('http://www.emploidutemps.uha.fr/ade/standard/gui/interface.jsp', 'projectId='.sfConfig::get('sf_ade_project_id').'&x=41&y=9');
     // Mandatory (because of ADE)
     $browser->getUrl('http://www.emploidutemps.uha.fr/ade/custom/modules/plannings/plannings.jsp');
     // Select groups of students

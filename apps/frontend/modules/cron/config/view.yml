@@ -1,5 +1,5 @@
 all:
-  has_layout:     false
+  has_layout:     true
 
 identifier:
   has_layout:     true

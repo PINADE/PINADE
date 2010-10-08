@@ -13,7 +13,7 @@ class AdeImage
 
   protected
     $ade_cookie,
-    $projectId = "27",
+    $projectId,
     $idPianoWeek,
     $idPianoDay,
     $idTree, 
@@ -52,7 +52,7 @@ class AdeImage
     if(count($id_tree) == 0) throw new sfException('$id_tree is empty !');
     
     $options = array_merge(array(
-      'projectId' => '27',
+      'projectId' => sfConfig::get('sf_ade_project_id'),
       'idPianoWeek' => AdeTools::getSemaineNumber(),
       'idPianoDay' => '0,1,2,3,4',
       'idTree' => implode(',', $id_tree),

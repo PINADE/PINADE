@@ -87,7 +87,9 @@ class edtActions extends sfActions
 
     // Send only the content without the layout
     return sfView::NONE;
- 
+    
+    // If you want to debug, comment the previous line and uncomment the following
+    // $this->setTemplate('index');
   }
 
   public function executeError404(sfWebRequest $request)
