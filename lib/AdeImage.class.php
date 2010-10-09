@@ -121,13 +121,37 @@ class AdeImage
 
     // Check if the image is type of 'image/gif' (PHP 5.3 min)
     $finfo = new finfo(FILEINFO_MIME);
-    if(empty($content))     // Do NOT remove cache if the file is empty (there is likely a problem)
-      sfContext::getInstance()->getLogger()->info('Image vide lors du téléchargement ! Cache non réécrit');
-    elseif (strpos($finfo->buffer($content), 'image/gif') === false)
-      sfContext::getInstance()->getLogger()->info('le contenu n\'est pas une image. Pas de remplacement !');
-    else // it seems OK, we can write it
-      file_put_contents($filepath, $content);
+    if(empty($content))
+    {   // Do NOT remove cache if the file is empty (there is likely a problem)
+      sfContext::getInstance()->getLogger()->info($erreur = 'Image vide lors du téléchargement ! Cache non réécrit');
 
+    }
+    elseif (strpos($finfo->buffer($content), 'image/gif') === false)
+    {
+      sfContext::getInstance()->getLogger()->info($erreur = 'le contenu n\'est pas une image. Pas de remplacement !');
+    }
+    else // it seems OK, we can write it
+    {
+      file_put_contents($filepath, $content);
+      return 0;
+    }
+    // There is a problem, we send a mail !
+    
+    $message = $this->getMailer()->compose(
+      array('informatique@iariss.fr' => 'Informatique IARISS'),
+      array('informatique@iariss.fr' => 'Informatique IARISS',
+        'presidence@iariss.fr' => 'Présidence IARISS'),
+      'Image de edt.iariss.fr non mise à jour',
+  <<<EOF
+  Bonjour,
+
+  L'emploi du temps a essayé de télécharger {$this->url} mais a échoué.
+  {$erreur}
+
+  Si vous ne savez pas qui contacter, vous pouvez joindre Théophile : t.helleboid@iariss.fr
+EOF
+    );
+    $this->getMailer()->send($message);
   }
 
   protected function getPath()
