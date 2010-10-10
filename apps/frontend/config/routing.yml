@@ -24,6 +24,11 @@ image_img_default:
   url:  /img/:filiere/:promo/*
   param: { module: img, action: img }
 
+# détails sur l'image d'une semaine
+details_img:
+  url:  /details/:filiere/:promo/:semaine/*
+  param: { module: img, action: details }
+
 # Page de l'edt pour la semaine courante
 image_default_index:
   url:  /:filiere/:promo

@@ -49,4 +49,32 @@ class imgActions extends sfActions
     // $this->setTemplate('index');
   }
 
+  /**
+    Display details aout the gif of the week
+  */
+  public function executeDetails(sfWebRequest $request)
+  {
+    $filiere = $request->getParameter('filiere');
+    $promo = $request->getParameter('promo');
+    
+    $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
+
+    $adeImage = new AdeImage(
+      array(array('filiere' => $filiere, 'promo' => $promo )),
+      array('idPianoWeek' => $semaine)
+    );
+
+    $filepath = sfConfig::get('sf_web_dir').$adeImage->getWebPath();
+
+    $this->filiere = $filiere;
+    $this->promo = $promo;
+    $this->semaine = $semaine;
+    $this->filepath = $filepath;
+    if(file_exists($filepath))
+      $this->mtime = filemtime($filepath);
+    else
+      $this->mtime = 0;
+    
+  }
+
 }
