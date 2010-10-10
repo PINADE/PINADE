@@ -29,6 +29,12 @@ details_img:
   url:  /details/:filiere/:promo/:semaine/*
   param: { module: img, action: details }
 
+# iCal
+ical:
+  url:  /ical/:action/:filiere/:promo/:semaine/*
+  param: { module: ical }
+
+
 # Page de l'edt pour la semaine courante
 image_default_index:
   url:  /:filiere/:promo
