@@ -1,7 +1,7 @@
 <?php
 slot('title');
 
-echo $nom_filiere;
+if(isset($nom_filiere)) echo $nom_filiere;
 
 if(isset($nom_promo)) echo ' - '.$nom_promo;
 

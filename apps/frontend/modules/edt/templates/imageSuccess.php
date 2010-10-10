@@ -11,4 +11,4 @@
   <?php echo link_to('semaine actuelle', "@image?filiere=$filiere&promo=$promo&semaine=") ?>
   <?php echo link_to(image_tag('divers/suivant.png', 'alt=">>"'), "@image?filiere=$filiere&promo=$promo&semaine=$semaine_suivante") ?>
 </p>
-<img src='/img/<?php echo $filiere.'/'.$promo.'/'.$semaine.'/img.gif' ?>' alt='emploi du temps <?php echo $filiere." ".$promo ?>'/>
+<img src='<?php echo url_for("@image_img?filiere=$filiere&promo=$promo&semaine=$semaine") ?>/img.gif' alt='emploi du temps <?php echo $filiere." ".$promo ?>'/>

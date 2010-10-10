@@ -1,8 +1,6 @@
 <?php include_partial('title', array('erreur' => "Foire aux questions")) ?>
 
-<h1>
-  <?php include_slot('title') ?>
-</h1>
+<h1><?php include_slot('title') ?></h1>
 
 <h2 id="fiable">Est-ce le site de référence ?</h2>
 <b>Non, ce site n'est pas le site officiel de l'emploi du temps</b> de l'<?php echo link_to('ENSISA','http://www.ensisa.fr/') ?>.
