@@ -58,27 +58,27 @@ class cronActions extends sfActions
     $adeImage = new AdeImage();
 
     $message = "";
-    // Pour la semaine en cours et la suivante
-    foreach(array($semaine, $semaine +1) as $semaine)
+
+    // Pour chaque filière de chaque semaine
+    foreach($filieres as $id_f => $filiere)
     {
-      // Pour chaque filière de chaque semaine
-      foreach($filieres as $id_f => $filiere)
+      // Et pour chaque promo de chaque filiere de chaque semaine
+      foreach($filiere['promotions'] as $id_p => $promotion)
       {
-        // Et pour chaque promo de chaque filiere de chaque semaine
-        foreach($filiere['promotions'] as $id_p => $promotion)
-        {
-          // On crée une image ADE, qu'on met à jour en forçant l'update
-          $adeImage->initialize(
-            array(array('filiere' => $id_f, 'promo' => $id_p )),
-            array('idPianoWeek' => $semaine)
-          );
-          $adeImage->updateHtml();
-          $adeImage->updateIcal();
-          $message .= '- '.$filiere['nom'].', '.$promotion['nom'].", semaine $semaine mis à jour\n";
-        }
+        // On crée une image ADE, qu'on met à jour en forçant l'update
+        $adeImage->initialize(
+          array(array('filiere' => $id_f, 'promo' => $id_p )),
+          array('idPianoWeek' => $semaine)
+        );
+        $adeImage->updateHtml();
+        $adeImage->updateIcal();
+        $message .= '- '.$filiere['nom'].', '.$promotion['nom']."\n";
+        file_put_contents('/tmp/'.$filiere['nom'].'-'.$promotion['nom'], time());
       }
     }
+
     $this->message = $message;
+    $this->setTemplate('all');
   }
 
   /**
