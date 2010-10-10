@@ -44,6 +44,43 @@ class cronActions extends sfActions
     }
     $this->message = $message;
   }
+
+  public function executeIcal(sfWebRequest $request)
+  {
+
+    if (!($request->getParameter('debug') == '1' || in_array(@$_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))))
+    {
+      $this->redirect('@homepage');
+    }
+    
+    $filieres = sfConfig::get('sf_filieres');
+    $semaine = AdeTools::getSemaineNumber();
+    $adeImage = new AdeImage();
+
+    $message = "";
+    // Pour la semaine en cours et la suivante
+    foreach(array($semaine, $semaine +1) as $semaine)
+    {
+      // Pour chaque filière de chaque semaine
+      foreach($filieres as $id_f => $filiere)
+      {
+        // Et pour chaque promo de chaque filiere de chaque semaine
+        foreach($filiere['promotions'] as $id_p => $promotion)
+        {
+          // On crée une image ADE, qu'on met à jour en forçant l'update
+          $adeImage->initialize(
+            array(array('filiere' => $id_f, 'promo' => $id_p )),
+            array('idPianoWeek' => $semaine)
+          );
+          $adeImage->updateHtml();
+          $adeImage->updateIcal();
+          $message .= '- '.$filiere['nom'].', '.$promotion['nom'].", semaine $semaine mis à jour\n";
+        }
+      }
+    }
+    $this->message = $message;
+  }
+
   /**
     Change ade_identifier in the settings.yml
     Be careful : it's extremly dangerous !
