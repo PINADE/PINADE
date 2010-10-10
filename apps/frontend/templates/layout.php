@@ -43,9 +43,10 @@
             </ul>
           </div>
           
-          <div id="pub">
-            <p>Tu es étudiant à l'ENSISA&nbsp;? Tu souhaites rejoindre une équipe motivée et acquérir de nombreuses compétences ? IARISS recrute, dès la rentrée !
-Pour faciliter ta candidature, tu peux postuler sur un site dédié : <?php echo link_to('Candidature IARISS', 'http://candidature.iariss.fr') ?>
+          <div id="pub" style="text-align:justify; font-size:80%">
+            <p>Tu souhaites avoir ton emploi du temps sur <b>Google Agenda</b> ou un logiciel similaire&nbsp;?
+            Nous cherchons des beta-testeurs pour cette nouvelle fonctionnalité&nbsp;!<br/>
+            Contacte nous (<code>contact@iariss.fr</code>), tu recevras la marche à suivre&nbsp;!
             </p>
           </div>
         </div>
