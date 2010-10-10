@@ -83,6 +83,10 @@ class edtActions extends sfActions
     // The image can be cached by proxy and browser's cache, during at most 3600 seconds
     $this->getResponse()->addCacheControlHttpHeader('public');
     $this->getResponse()->addCacheControlHttpHeader('max-age', '3600');
+    // Debug info
+    if(strlen($adeImage->getError()))
+      $this->getResponse()->setHttpHeader('X-Edt-error', $adeImage->getError());
+    // Send content
     $this->getResponse()->setContent(file_get_contents($filepath));
 
     // Send only the content without the layout

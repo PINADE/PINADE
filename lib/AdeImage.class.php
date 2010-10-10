@@ -22,7 +22,8 @@ class AdeImage
     $displayMode = "1057855",
     $displayConfId = "8",
     $url,
-    $ade_browser;
+    $ade_browser,
+    $error = "";
 
   public function __construct($trees = null, $options = array())
   {
@@ -100,7 +101,9 @@ class AdeImage
     if(!file_exists($filepath))                 // Si le fichier n'existe pas, on met à jour
       $update = true;
     elseif(file_get_contents($filepath) == "") // Sinon, si le fichier est vide, idem
+    {
       $update = true;
+    }
     elseif(time() > filemtime($filepath) + 6*60*60) // Si le fichier a été modifié il y a plus de 6h, on met à jour
       $update = true;
     else                                      // Sinon, si on force si on décide comme ça
@@ -122,9 +125,15 @@ class AdeImage
     // Check if the image is type of 'image/gif' (PHP 5.3 min)
     $finfo = new finfo(FILEINFO_MIME);
     if(empty($content))     // Do NOT remove cache if the file is empty (there is likely a problem)
+    {
       sfContext::getInstance()->getLogger()->info('Image vide lors du téléchargement ! Cache non réécrit');
+      $this->error = "empty picture";
+    }
     elseif (strpos($finfo->buffer($content), 'image/gif') === false)
+    {
       sfContext::getInstance()->getLogger()->info('le contenu n\'est pas une image. Pas de remplacement !');
+      $this->error = "not a picture";
+    }
     else // it seems OK, we can write it
       file_put_contents($filepath, $content);
 
@@ -259,6 +268,11 @@ class AdeImage
         $string .= "\n";
     }
     return $string;
+  }
+
+  public function getError()
+  {
+    return $this->error;
   }
 }
 
