@@ -84,12 +84,13 @@ class cronActions extends sfActions
 
       // Open the settings.yml, change the identifier, and rewrite it
       // Be careful : the number of spaces before ade_identifier is important
-      $ade_config = file_get_contents(sfConfig::get('sf_app_config_dir').'/settings.yml');
+      $config_file = sfConfig::get('sf_plugins_dir').'/sfADEConfigPlugin/config/settings.yml';
+      $ade_config = file_get_contents($config_file);
       $ade_config = preg_replace(
         '@\s+ade_identifier:\s+\'[0-9a-f]{32}\'@',
         "\n    ade_identifier:  '".$identifier."'",
         $ade_config);
-      file_put_contents(sfConfig::get('sf_app_config_dir').'/settings.yml', $ade_config);
+      file_put_contents($config_file, $ade_config);
     }
     else
     {
