@@ -1,7 +1,7 @@
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
-# default rules
+# pages statiques (ou presque)
 homepage:
   url:   /
   param: { module: edt, action: index }
@@ -10,26 +10,26 @@ faq:
   url:   /faq
   param: { module: edt, action: faq }
 
+# actions cron
 cron:
   url:  /cron/:action/*
   param: { module: cron }
 
-filiere_index:
-  url:   /:filiere
-  param: { module: edt, action: indexPromo }
+# Image gif d'une semaine, puis celle par défaut
+image_img:
+  url:  /img/:filiere/:promo/:semaine/*
+  param: { module: img, action: img }
 
+image_img_default:
+  url:  /img/:filiere/:promo/*
+  param: { module: img, action: img }
+
+# Page de l'edt pour la semaine courante
 image_default_index:
   url:  /:filiere/:promo
   param: { module: edt, action: image }
 
-image_img:
-  url:  /img/:filiere/:promo/:semaine/*
-  param: { module: edt, action: img }
-
-image_img_default:
-  url:  /img/:filiere/:promo/*
-  param: { module: edt, action: img }
-
+# Page pour une semaine, puis pour la semaine par défaut
 image:
   url:  /:filiere/:promo/:semaine
   param: { module: edt, action: image}
@@ -37,6 +37,11 @@ image:
 image_default:
   url:  /:filiere/:promo/*
   param: { module: edt, action: image }
+
+# Page pour une filière
+filiere_index:
+  url:   /:filiere
+  param: { module: edt, action: indexPromo }
 
 
 # generic rules
