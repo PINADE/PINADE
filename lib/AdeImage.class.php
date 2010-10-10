@@ -237,7 +237,7 @@ BEGIN:VTIMEZONE
 TZID:Europe/Paris
 X-LIC-LOCATION:Europe/Paris
 BEGIN:DAYLIGHT
-TZOFFSETFROM:+0100
+TZOFFSETFROM:+0000
 TZOFFSETTO:+0200
 TZNAME:CEST
 DTSTART:19700329T020000
@@ -281,7 +281,7 @@ END:VTIMEZONE\n\n";
 
       $ical .=  "BEGIN:VEVENT\n";
       $ical .= "SUMMARY:$nom - $salle - $prof - $promo\n";
-      $ical .= "DTSTART:".$date[2].$date[1].$date[0]."T".$heure[0].$heure[1]."00Z\n";
+      $ical .= "DTSTART:".$date[2].$date[1].$date[0]."T".$heure[0].$heure[1]."00\n";
       $ical .= "DURATION:PT".intval($duree[0])."H".intval($duree[1])."M0S\n";
       $ical .= 'LOCATION:'.$salle."\n";
       $ical .= "DESCRIPTION:$nom - $salle - $prof - $promo - ".$entree['date']." - ".$entree['heure']." (".$entree['duree'].")\n";
