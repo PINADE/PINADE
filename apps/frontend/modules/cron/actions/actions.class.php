@@ -89,7 +89,10 @@ class cronActions extends sfActions
   */
   public function executeIdentifier(sfWebRequest $request)
   {
-    if (!($request->getParameter('debug') == '1' || in_array(@$_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))))
+    if (!($request->getParameter('debug') == '1'
+      || in_array(@$_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1'))
+      || gethostbyaddr($_SERVER['REMOTE_ADDR']) == "iariss")
+    )
     {
       $this->redirect('@homepage');
     }
