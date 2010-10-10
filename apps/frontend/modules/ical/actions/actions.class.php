@@ -26,7 +26,7 @@ class icalActions extends sfActions
     );
     $adeImage->updateHtml();
     $adeImage->updateIcal();
-    $this->path = $adeImage->getPath().'info.html';
+    $this->path = $adeImage->getInfoPath();
   }
   /**
     Display the gif of the week
@@ -42,13 +42,13 @@ class icalActions extends sfActions
       array(array('filiere' => $filiere, 'promo' => $promo )),
       array('idPianoWeek' => $semaine)
     );
-    $filepath = $adeImage->getPath().'ical.ics';
+    $filepath = $adeImage->getIcalPath();
 //    $this->setLayout(false);
-    $this->getResponse()->setContentType('text/plain');
+    $this->getResponse()->setContentType('text/calendar');
 
     // Set content and exit
     $this->getResponse()->setHttpHeader('Content-Length', filesize($filepath));
-//    $this->getResponse()->setHttpHeader('Last-Modified', gmdate('D, d M Y H:i:s', filemtime($filepath)).' GMT');
+    $this->getResponse()->setHttpHeader('Last-Modified', gmdate('D, d M Y H:i:s', filemtime($filepath)).' GMT');
     // The image can be cached by proxy and browser's cache, during at most 3600 seconds
 //    $this->getResponse()->addCacheControlHttpHeader('public');
 //    $this->getResponse()->addCacheControlHttpHeader('max-age', '3600');

@@ -158,6 +158,15 @@ class AdeImage
   {
     return '/images/edt/'.str_replace(',','-',$this->idTree).'/'.str_replace(',','-',$this->idPianoWeek).'.gif';
   }
+  public function getInfoPath()
+  {
+    return $this->getPath().'info.html';
+  }
+
+  public function getIcalPath()
+  {
+    return $this->getPath().'ical.ics';
+  }
 
 
 
@@ -205,12 +214,12 @@ class AdeImage
     }
     // Get the page with the link to the image
     $imagemap = $this->ade_browser->getUrl('http://www.emploidutemps.uha.fr/ade/custom/modules/plannings/info.jsp?light=true&order=slot');
-    file_put_contents($this->getPath().'info.html', $imagemap);
+    file_put_contents($this->getInfoPath(), $imagemap);
   }
 
   public function updateIcal()
   {
-    $filepath = $this->getPath().'info.html';
+    $filepath = $this->getInfoPath();
 //    if(!file_exists($filepath))
 //    {
 //      $this->updateHtml();
@@ -292,7 +301,7 @@ END:VTIMEZONE\n\n";
 
     $ical .= "END:VCALENDAR";
 
-    file_put_contents($this->getPath().'ical.ics', $ical);
+    file_put_contents($this->getIcalPath(), $ical);
 
   }
 
