@@ -179,25 +179,38 @@ class AdeImage
       $this->ade_browser->getUrl('http://www.emploidutemps.uha.fr/ade/standard/gui/tree.jsp?branchId='.$branchId.'&reset='.$reset.'&forceLoad=false&scroll=0');
       $reset = "false";
     }
+
+    $reset = "true";
     foreach($filieres[$this->nom_filiere]['promotions'][$this->nom_promo]['selectBranchId'] as $selectBranchId)
     {
       // "Click" on a branch
-      $this->ade_browser->getUrl('http://www.emploidutemps.uha.fr/ade/standard/gui/tree.jsp?selectBranchId='.$selectBranchId.'&reset=false&forceLoad=false&scroll=0');
+      $this->ade_browser->getUrl('http://www.emploidutemps.uha.fr/ade/standard/gui/tree.jsp?selectBranchId='.$selectBranchId.'&reset='.$reset.'&forceLoad=false&scroll=0');
+      $reset = "false";
     }
+
+    $reset = "true";
     foreach($filieres[$this->nom_filiere]['promotions'][$this->nom_promo]['selectId'] as $selectId)
     {
       // "Click" on a group
-      $this->ade_browser->getUrl('http://www.emploidutemps.uha.fr/ade/standard/gui/tree.jsp?selectId='.$selectId.'&reset=false&forceLoad=false&scroll=0');
+      $this->ade_browser->getUrl('http://www.emploidutemps.uha.fr/ade/standard/gui/tree.jsp?selectId='.$selectId.'&reset='.$reset.'&forceLoad=false&scroll=0');
+      $reset = "false";
     }
 
+    $reset = "true";
+    for($i = 6; $i < 44; $i++)
+    {
+      // select weeks
+      $this->ade_browser->getUrl('http://www.emploidutemps.uha.fr/ade/custom/modules/plannings/info.jsp?order=slot&week='.$i.'&reset='.$reset);
+      $reset = "false";
+    }
     // Get the page with the link to the image
     $imagemap = $this->ade_browser->getUrl('http://www.emploidutemps.uha.fr/ade/custom/modules/plannings/info.jsp?light=true&order=slot');
-    file_put_contents($this->getPath().$this->idPianoWeek.'.html', $imagemap);
+    file_put_contents($this->getPath().'info.html', $imagemap);
   }
 
   public function updateIcal()
   {
-    $filepath = $this->getPath().$this->idPianoWeek.'.html';
+    $filepath = $this->getPath().'info.html';
 //    if(!file_exists($filepath))
 //    {
 //      $this->updateHtml();
@@ -214,9 +227,30 @@ class AdeImage
       throw new sfException('HTML non chargé');
     
     $ical = "BEGIN:VCALENDAR
+PRODID:-//edt.iariss.fr//Symfony1.4 iariss.fr//EN
 VERSION:2.0
-PRODID:-//edt.iariss.fr//Symfony1.4//
-TZNAME:Paris\, Madrid\n\n";
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:edt.iariss.fr - ".$this->nom_promo." - ".$this->nom_filiere."
+X-WR-TIMEZONE:Europe/Paris
+BEGIN:VTIMEZONE
+TZID:Europe/Paris
+X-LIC-LOCATION:Europe/Paris
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE\n\n";
     
     $lignes = $dom->getElementsByTagName('tr'); // on recupere toute les lignes
     $noms = array('date','nom', 'heure','duree', 'type', 'promo','prof','salle');
@@ -246,11 +280,11 @@ TZNAME:Paris\, Madrid\n\n";
       $salle = $entree['salle'];                            // string
 
       $ical .=  "BEGIN:VEVENT\n";
-      $ical .= "DESCRIPTION:$nom - $salle - $prof - $promo\n";
+      $ical .= "SUMMARY:$nom - $salle - $prof - $promo\n";
       $ical .= "DTSTART:".$date[2].$date[1].$date[0]."T".$heure[0].$heure[1]."00Z\n";
       $ical .= "DURATION:PT".intval($duree[0])."H".intval($duree[1])."M0S\n";
       $ical .= 'LOCATION:'.$salle."\n";
-      $ical .= "SUMMARY:$nom - $salle - $prof - $promo - ".$entree['date']." - ".$entree['heure']." (".$entree['duree'].")\n";
+      $ical .= "DESCRIPTION:$nom - $salle - $prof - $promo - ".$entree['date']." - ".$entree['heure']." (".$entree['duree'].")\n";
       $ical .= "END:VEVENT\n\n";      
 
     }

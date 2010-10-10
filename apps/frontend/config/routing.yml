@@ -31,7 +31,7 @@ details_img:
 
 # iCal
 ical:
-  url:  /ical/:action/:filiere/:promo/:semaine/*
+  url:  /ical/:action/:filiere/:promo/*
   param: { module: ical }
 
 

@@ -26,7 +26,7 @@ class icalActions extends sfActions
     );
     $adeImage->updateHtml();
     $adeImage->updateIcal();
-    $this->path = $adeImage->getPath().$semaine.'.html';
+    $this->path = $adeImage->getPath().'info.html';
   }
   /**
     Display the gif of the week
