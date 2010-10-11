@@ -12,3 +12,17 @@
   <?php echo link_to(image_tag('divers/suivant.png', 'alt=">>"'), "@image?filiere=$filiere&promo=$promo&semaine=$semaine_suivante") ?>
 </p>
 <img src='<?php echo url_for("@image_img?filiere=$filiere&promo=$promo&semaine=$semaine") ?>/img.gif' alt='emploi du temps <?php echo $filiere." ".$promo ?>'/>
+
+<!-- raccourci clavier gauche/droite -->
+<script type="text/javascript">
+document.onkeydown=function(e){
+  if(e.which == 37)
+  {
+    document.location = '<?php echo url_for("@image?filiere=$filiere&promo=$promo&semaine=".max(0,$semaine-1)) ?>';
+  }
+  else if(e.which == 39)
+  {
+    document.location = '<?php echo url_for("@image?filiere=$filiere&promo=$promo&semaine=".max(0,$semaine+1)) ?>';
+  }
+}
+</script>
