@@ -10,7 +10,9 @@ class ProjectConfiguration extends sfProjectConfiguration
 {
   public function setup()
   {
-    $this->enablePlugins('sfDoctrinePlugin');
+// No Doctrine object in edt for now (10/2010) Theo
+//    $this->enablePlugins('sfDoctrinePlugin');
+
     $this->enablePlugins('sfADEConfigPlugin');
   }
 }
