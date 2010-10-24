@@ -34,7 +34,7 @@ document.onkeydown=function(e){
 <?php endif ?>
 
 <?php if($sf_request->getCookie('default') == $filiere.'/'.$promo): ?>
-  <?php echo link_to('Oublier le cookie', "@cookie_reset?filiere=$filiere&promo=$promo") ?>
+  <?php echo link_to('Supprimer le cookie', "@cookie_reset?filiere=$filiere&promo=$promo") ?>
 <?php else: ?>
   <?php echo link_to('Ouvrir cette page au lieu de la page d\'accueil (cookie)', "@cookie_set?filiere=$filiere&promo=$promo") ?><br/>
 <?php endif ?>
