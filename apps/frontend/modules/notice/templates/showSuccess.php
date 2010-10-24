@@ -2,10 +2,10 @@
   Visualisation de la note <?php echo $promo.'/'.$filiere.'/'.$semaine ?>
 </h1>
 
-<?php echo link_to('Éditer la note', "notice/edit?promo=$promo&filiere=$filiere&semaine=$semaine") ?>
+<b><?php echo link_to('Créer/Éditer la note', "notice/edit?promo=$promo&filiere=$filiere&semaine=$semaine") ?></b>
 
 <?php if(! empty($notice)): ?>
-  <div id="notice"><?php echo $notice ?></div>
+  <div id="notice"><?php echo nl2br($notice) ?></div>
 <?php endif ?>
 
 <h2>

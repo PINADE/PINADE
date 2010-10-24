@@ -30,5 +30,5 @@ document.onkeydown=function(e){
 </script>
 
 <?php if(! empty($notice)): ?>
-  <div id="notice"><?php echo $notice ?></div>
+  <div id="notice"><?php echo nl2br($notice) ?></div>
 <?php endif ?>
