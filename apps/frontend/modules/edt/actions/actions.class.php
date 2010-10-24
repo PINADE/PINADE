@@ -27,11 +27,13 @@ class edtActions extends sfActions
       $promo = $array[1];
       $filieres = sfConfig::get('sf_filieres');
 
+      // On vérifie si la promo existe bien, pour éviter les farces
+      // et les redirections infinies (cookie mis à "/" par exemple
       if(isset($filieres[$filiere]['promotions'][$promo]['nom']))
         $this->redirect("@image?filiere=$filiere&promo=$promo&semaine=");
-      else
-        throw new sfError404Exception('La redirection est incorrecte');
+
     }
+    // Si on n'a pas redirigé, pas de cookie ou cookie erroné
   }
 
   public function executeIndexPromo(sfWebRequest $request)
