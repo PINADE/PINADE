@@ -34,8 +34,8 @@ document.onkeydown=function(e){
 <?php endif ?>
 
 <?php if($sf_request->getCookie('default') == $filiere.'/'.$promo): ?>
-  <?php echo link_to('Retrouver la page d\'accueil par défaut', "@cookie_reset?filiere=$filiere&promo=$promo&semaine=$semaine") ?>
+  <?php echo link_to('Effacer cette page comme page d\'accueil', "@cookie_reset?filiere=$filiere&promo=$promo&semaine=$semaine") ?>
 <?php else: ?>
-  <?php echo link_to('Enregistrer cette page comme page d\'acceuil', "@cookie_set?filiere=$filiere&promo=$promo&semaine=$semaine") ?><br/>
+  <?php echo link_to('Enregistrer cette page comme page d\'accueil', "@cookie_set?filiere=$filiere&promo=$promo&semaine=$semaine") ?><br/>
 <?php endif ?>
 
