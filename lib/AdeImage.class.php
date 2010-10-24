@@ -41,6 +41,9 @@ class AdeImage
     if(!is_array($trees))
       throw new sfException('$trees must be an array');
 
+    if(intval($options['idPianoWeek']) < 0 || intval($options['idPianoWeek']) >= 45)
+      throw new sfError404Exception('La semaine que vous cherchez n\'existe pas');
+
     foreach($trees as $tree)
     {
       if(isset($filieres[$tree['filiere']]))
