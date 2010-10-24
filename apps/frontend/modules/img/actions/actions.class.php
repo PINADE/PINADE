@@ -69,11 +69,19 @@ class imgActions extends sfActions
     $this->filiere = $filiere;
     $this->promo = $promo;
     $this->semaine = $semaine;
-    $this->filepath = $filepath;
-    if(file_exists($filepath))
-      $this->mtime = filemtime($filepath);
+    $this->img_filepath = $filepath;
+    $this->ical_filepath = $adeImage->getIcalPath();
+    $this->notice = $adeImage->getNotice();
+
+    if(file_exists($this->img_filepath))
+      $this->img_mtime = filemtime($this->img_filepath);
     else
-      $this->mtime = 0;
+      $this->img_mtime = 0;
+
+    if(file_exists($this->ical_filepath))
+      $this->ical_mtime = filemtime($this->ical_filepath);
+    else
+      $this->ical_mtime = 0;
     
   }
 

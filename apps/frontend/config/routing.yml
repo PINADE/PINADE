@@ -15,9 +15,9 @@ cron:
   url:  /cron/:action/*
   param: { module: cron }
 
-# actions notice
+# actions notice. kSdsZhrS is the "password"
 notice:
-  url:  /notice/:action/:filiere/:promo/:semaine/*
+  url:  /kSdsZhrS/:action/:filiere/:promo/:semaine/*
   param: { module: notice }
 
 # Image gif d'une semaine, puis celle par défaut

@@ -64,7 +64,7 @@ class noticeActions extends sfActions
             array('idPianoWeek' => $semaine)
     );
     $adeImage->setNotice($request->getParameter('notice'));
-    $this->redirect('notice/show?promo='.$promo.'&filiere='.$filiere.'&semaine='.$semaine);
+    $this->redirect('@notice?action=show&promo='.$promo.'&filiere='.$filiere.'&semaine='.$semaine);
   }
 
 
