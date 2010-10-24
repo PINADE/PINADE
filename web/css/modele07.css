@@ -152,9 +152,16 @@ margin: 10px;
   margin-left: 200px; 
   padding: 10px 20px;
 }
-#contenu > :first-child {
+/*
+ #contenu > :first-child {
   margin-top: 10px;
 }
+*/
+h1,h2,h3 {
+  margin-top:5px;
+  margin-bottom:0px;
+}
+
 #contenu p, #contenu li {
   line-height: 1.5;
 }
@@ -181,81 +188,9 @@ img {
   vertical-align:middle;
 }
 
-/* --- NOTES ---
-
-1.  Dans ce gabarit, nous avons un conteneur div#centre, qui regroupe
-  div#navigation et div#contenu uniquement. C'est ce conteneur que l'on
-  utilise pour placer une image de fond répétée en hauteur, qui dessine
-  le fond de la colonne de gauche et de la colonne de droite.
-  Ainsi, quelle que soit la colonne la plus longue, on aura bien,
-  visuellement, deux colonnes de hauteurs égales.
-
-2.  On utilise ici des couleurs de fond pour div#navigation et div#contenu.
-  Et pourtant, nous avons déjà une image de fond, sur div#centre, qui
-  «dessine» nos deux colonnes. Pourquoi rajouter des couleurs de fond à
-  ces blocs, alors? C'est en fait une sécurité, au cas où:
-  - l'image de fond mettrait du temps à se charger (ça arrive);
-  - l'image de fond ne peut pas être chargée (rare, mais ça arrive aussi).
-  Ainsi, si ces problèmes surviennent, le contenu restera lisible. Notamment
-  le contenu de div#contenu, qui est sombre, tandis que le fond de la page
-  est déjà sombre.
-  Notez que dans certains cas ce genre de «sécurité» sera difficile à mettre
-  en place, par exemple parce que la couleur de fond des blocs masquerait
-  une image de fond comportant des motifs.
-  Mais, plus généralement, un bon design de site web devrait rester lisible
-  même si les images sont désactivées (ce qui est une option de beaucoup
-  de navigateurs).
-
-3.  On utilise ici une largeur fixe de 750px. Pourquoi 750px? Parce que c'est
-  une largeur dont on peut être à peu près sûr qu'elle passera sur un
-  écran en 800x600 (résolution encore utilisée par une partie des
-  internautes), sans générer de barre de défilement horizontal inutile.
-  De plus, pour un site au contenu relativement réduit, cette largeur suffit
-  généralement.
-  Pour un site au contenu plus important, avec un design en trois colonnes
-  par exemple, une largeur plus importante, telle que 900 ou 950px, peut
-  être pertinente.
-
-4.  Les marges automatiques à gauche et à droite permettent de centrer notre
-  bloc div#global, et donc tout le site.
-  Pour aligner div#global à gauche, on fera:
-    margin-left: 0;
-    margin-rigth: auto;
-  Pour aligner div#global à droite, on fera:
-    margin-left: auto;
-    margin-right: 0;
-  Pour aligner div#global à droite avec un retrait (à droite) de 100px:
-    margin-left: auto;
-    margin-right: 100px;
-
-5.  On utilise ces propriétés pour empêcher le dépassement des flottants (cf.
-  http://web.covertprestige.info/test/
-  03-elements-flottants-et-element-parent-1.html).
-  Le overflow:hidden crée un contexte de formatage qui vient contenir les
-  flottants. Le width:100% a le même rôle, mais uniquement pour Internet
-  Explorer 6 (utilisation du HasLayout). Dans l'idéal, on le placera avec
-  des correctifs destinés à IE6 dans une feuille de styles appelée via un
-  commentaire conditionnel.
-
-6.  C'est la propriété "float" qui nous permet de placer deux blocs
-  côte-à-côte. Notez bien que l'élément flottant (ici, notre menu de
-  navigation) doit être placé en premier dans le code HTML. Il est
-  préférable de lui donner une largeur, ce que nous faisons ici avec un
-  "width: 180px;".
-
-7.  Correction d'un bug d'Internet Explorer 6. Voir la dernière partie de
-  http://blog.alsacreations.com/2006/10/20/294-impact-sur-le-rendu-de-la-
-  mise-en-forme-du-code-html
-  Dans l'idéal, on placera ce correctif dans une feuille séparée, appelée
-  via un commentaire conditionnel visant IE6.
-
-8.  Les éléments flottants ne repoussent pas les blocs, mais repoussent
-  uniquement leur contenu. Pour que notre bloc de contenu principal forme
-  une colonne distincte du menu, on lui donne donc une marge à gauche de
-  200px.
-  Il existe une autre technique pour adapter la largeur d'un bloc aux
-  flottants qui le précèdent. On pourra lire l'article suivant:
-    http://css.alsacreations.com/Faire-une-mise-en-page-sans-tableaux/
-    design-trois-colonnes-positionnement-flottant
-
-*/
+#notice {
+  background: #eee;
+  border:1px solid black;
+  padding:5px;
+  margin:8px;
+}

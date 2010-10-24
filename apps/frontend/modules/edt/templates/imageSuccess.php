@@ -1,4 +1,6 @@
 <?php include_partial('title', array('nom_filiere' => $nom_filiere, 'nom_promo' => $nom_promo)) ?>
+
+
 <h1>
   <?php include_slot('title') ?>
 </h1>
@@ -26,3 +28,7 @@ document.onkeydown=function(e){
   }
 }
 </script>
+
+<?php if(! empty($notice)): ?>
+  <div id="notice"><?php echo $notice ?></div>
+<?php endif ?>

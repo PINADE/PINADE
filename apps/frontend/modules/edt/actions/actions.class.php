@@ -56,44 +56,8 @@ class edtActions extends sfActions
 
     // Timestamp du lundi, début de semaine
     $this->timestamp = AdeTools::getTimestamp($this->semaine);
-  }
-
-  /**
-    Display the gif of the week
-  */
-  public function executeImg(sfWebRequest $request)
-  {
-    $filiere = $request->getParameter('filiere');
-    $promo = $request->getParameter('promo');
-    
-    $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
-
-    $adeImage = new AdeImage(
-      array(array('filiere' => $filiere, 'promo' => $promo )),
-      array('idPianoWeek' => $semaine)
-    );
-    $adeImage->updateImage();
-
-    $filepath = sfConfig::get('sf_web_dir').$adeImage->getWebPath();
-
-    // Set content and exit
-    $this->getResponse()->setContentType('image/gif');
-    $this->getResponse()->setHttpHeader('Content-Length', filesize($filepath));
-    $this->getResponse()->setHttpHeader('Last-Modified', gmdate('D, d M Y H:i:s', filemtime($filepath)).' GMT');
-    // The image can be cached by proxy and browser's cache, during at most 3600 seconds
-    $this->getResponse()->addCacheControlHttpHeader('public');
-    $this->getResponse()->addCacheControlHttpHeader('max-age', '3600');
-    // Debug info
-    if(strlen($adeImage->getError()))
-      $this->getResponse()->setHttpHeader('X-Edt-error', $adeImage->getError());
-    // Send content
-    $this->getResponse()->setContent(file_get_contents($filepath));
-
-    // Send only the content without the layout
-    return sfView::NONE;
-    
-    // If you want to debug, comment the previous line and uncomment the following
-    // $this->setTemplate('index');
+    // Notice
+    $this->notice = $this->adeImage->getNotice();
   }
 
   public function executeError404(sfWebRequest $request)

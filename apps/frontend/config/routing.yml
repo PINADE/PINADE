@@ -15,6 +15,11 @@ cron:
   url:  /cron/:action/*
   param: { module: cron }
 
+# actions notice
+notice:
+  url:  /notice/:action/:filiere/:promo/:semaine/*
+  param: { module: notice }
+
 # Image gif d'une semaine, puis celle par défaut
 image_img:
   url:  /img/:filiere/:promo/:semaine/*
@@ -36,7 +41,7 @@ ical_update:
 
 # iCal
 ical:
-  url:  /ical/:filiere/:promo/*
+  url:  /ical/:filiere/:promo/ical.ics
   param: { module: ical, action: ical }
 
 

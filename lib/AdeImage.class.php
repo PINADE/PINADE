@@ -97,6 +97,28 @@ class AdeImage
     $this->content = AdeTools::getAdeImage($this->ade_cookie, $this->url);
   }
 
+
+  /**
+    Retourne les informations de la semaine, si elles existent
+  */
+  public function getNotice()
+  {
+    $path = $this->getPath().'/notice-'.$this->idPianoWeek.'.txt';
+    if(file_exists($path))
+      return file_get_contents($path);
+    else
+      return;
+  }
+
+  /**
+    Retourne les informations de la semaine, si elles existent
+  */
+  public function setNotice($notice)
+  {
+    $path = $this->getPath().'/notice-'.$this->idPianoWeek.'.txt';
+    return file_put_contents($path, $notice) ;
+  }
+
   public function updateImage($force = false)
   {
     $path = $this->getPath();
