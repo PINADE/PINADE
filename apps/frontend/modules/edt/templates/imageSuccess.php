@@ -33,5 +33,9 @@ document.onkeydown=function(e){
   <div id="notice"><?php echo nl2br($notice) ?></div>
 <?php endif ?>
 
-<?php echo link_to('Ouvrir cette page au lieu de la page d\'accueil (cookie)', "@cookie_set?filiere=$filiere&promo=$promo") ?><br/>
-<?php echo link_to('Oublier le cookie', "@cookie_reset?filiere=$filiere&promo=$promo") ?>
+<?php if($sf_request->getCookie('default') == $filiere.'/'.$promo): ?>
+  <?php echo link_to('Oublier le cookie', "@cookie_reset?filiere=$filiere&promo=$promo") ?>
+<?php else: ?>
+  <?php echo link_to('Ouvrir cette page au lieu de la page d\'accueil (cookie)', "@cookie_set?filiere=$filiere&promo=$promo") ?><br/>
+<?php endif ?>
+
