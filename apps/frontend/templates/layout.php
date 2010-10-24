@@ -44,9 +44,9 @@
           </div>
           
           <div id="pub" style="text-align:justify; font-size:80%">
-            <p>Tu souhaites avoir ton emploi du temps sur <b>Google Agenda</b> ou un logiciel similaire&nbsp;?
-            Nous cherchons des beta-testeurs pour cette nouvelle fonctionnalité&nbsp;!<br/>
-            Contacte nous (<code>contact@iariss.fr</code>), tu recevras la marche à suivre&nbsp;!
+            <p>Tu veux changer de semaine avec ton <b>clavier</b>&nbsp;?<br/>
+            Tu souhaites avoir ton emploi du temps sur <b>Google Agenda</b> ou un logiciel similaire&nbsp;?<br/>
+            Tout est expliqué sur la <?php echo link_to('FAQ', '@faq', 'style="padding:0"') ?>&nbsp;!
             </p>
           </div>
         </div>
