@@ -27,7 +27,7 @@ Les auteurs initiaux sont <b>Michaël Muré</b> et <b>Thépophile Helleboid</b>,
 
 <h2 id="delai">Quel est le délai de mise à jour des emplois du temps ?</h2>
 <p>Les emplois du temps sont mis à jour très régulièrement&nbsp;:
-<b>toutes les deux heures</b> pour les semaines courante et suivante, toutes les trois heures pour les autres.
+<b>toutes les deux heures</b> pour les semaines courante et suivante, toutes les six heures pour les autres.
  Si vous trouvez que ce délai n'est pas adapté, <a href="#contact">contactez-nous</a>.</p>
 
 <span style="color:red; float:left; padding:3px;">nouveau ! </span>
