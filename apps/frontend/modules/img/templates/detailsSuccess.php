@@ -8,5 +8,5 @@ Information sur l'image<br/>
   <li>Ical Filepath : <b <?php echo ($ical_mtime == 0) ? 'style="color:red"' : '' ?>><?php echo $ical_filepath ?></b><br/>
     Dernière modification : <b><?php echo strftime("%a %d %b %Y %H:%M:%S", $ical_mtime) ?></b></li>
   <li>Notice : <div style="border:1px solid black;padding:5px"><b><?php echo (!empty($notice)) ? nl2br($notice) : "Pas de notice" ?></b></div></li>
-
+  <li>Cookie default : <b><?echo $cookie ?></b></li>
 </ul>

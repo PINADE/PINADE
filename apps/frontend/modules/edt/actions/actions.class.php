@@ -17,7 +17,21 @@ class edtActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
+    // On récupère le cookie et on redirige s'il existe
+    // default=<filiere>/<promo>
+    $default = $request->getCookie('default');
+    if(! empty($default))
+    {
+      $array = explode('/', $default);
+      $filiere = $array[0];
+      $promo = $array[1];
+      $filieres = sfConfig::get('sf_filieres');
 
+      if(isset($filieres[$filiere]['promotions'][$promo]['nom']))
+        $this->redirect("@image?filiere=$filiere&promo=$promo&semaine=");
+      else
+        throw new sfError404Exception('La redirection est incorrecte');
+    }
   }
 
   public function executeIndexPromo(sfWebRequest $request)
@@ -67,5 +81,31 @@ class edtActions extends sfActions
 
   public function executeFaq(sfWebRequest $request)
   {
+  }
+
+  /**
+   *  Set and reset default cookie 
+   */
+  public function executeSet(sfWebRequest $request)
+  {
+    $filiere = $request->getParameter('filiere');
+    $promo = $request->getParameter('promo');
+    $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
+
+    $this->getResponse()->setCookie('default', $filiere.'/'.$promo, '1 year');
+    $this->getUser()->setFlash('info', 'Cookie enregistré');
+    $this->redirect("@image?filiere=$filiere&promo=$promo&semaine=$semaine");
+  }
+
+  public function executeReset(sfWebRequest $request)
+  {
+    $filiere = $request->getParameter('filiere');
+    $promo = $request->getParameter('promo');
+    $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
+
+    // Expires yesterday ! => expires now
+    $this->getResponse()->setCookie('default', '', 'yesterday');
+    $this->getUser()->setFlash('info', 'Cookie effacé');
+    $this->redirect("@image?filiere=$filiere&promo=$promo&semaine=$semaine");
   }
 }

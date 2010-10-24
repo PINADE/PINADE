@@ -32,3 +32,6 @@ document.onkeydown=function(e){
 <?php if(! empty($notice)): ?>
   <div id="notice"><?php echo nl2br($notice) ?></div>
 <?php endif ?>
+
+<?php echo link_to('Ouvrir cette page au lieu de la page d\'accueil (cookie)', "@cookie_set?filiere=$filiere&promo=$promo") ?><br/>
+<?php echo link_to('Oublier le cookie', "@cookie_reset?filiere=$filiere&promo=$promo") ?>

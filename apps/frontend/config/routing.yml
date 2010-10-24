@@ -20,6 +20,15 @@ notice:
   url:  /kSdsZhrS/:action/:filiere/:promo/:semaine/*
   param: { module: notice }
 
+# (re)set cookie
+cookie_set:
+  url:  /cookie/set/:filiere/:promo/*
+  param: { module: edt, action: set }
+
+cookie_reset:
+  url:  /cookie/reset/:filiere/:promo/*
+  param: { module: edt, action: reset }
+
 # Image gif d'une semaine, puis celle par défaut
 image_img:
   url:  /img/:filiere/:promo/:semaine/*
