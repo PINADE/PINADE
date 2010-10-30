@@ -73,6 +73,7 @@ class imgActions extends sfActions
     $this->ical_filepath = $adeImage->getIcalPath();
     $this->notice = $adeImage->getNotice();
     $this->cookie = $request->getCookie('default');
+    $this->url = $adeImage->getUrl();
 
     if(file_exists($this->img_filepath))
       $this->img_mtime = filemtime($this->img_filepath);

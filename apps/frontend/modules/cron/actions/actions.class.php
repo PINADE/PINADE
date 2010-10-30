@@ -107,19 +107,19 @@ class cronActions extends sfActions
 
     // Emulates query for display an arbitrary image
     // Select Project
-    $browser->getUrl('http://www.emploidutemps.uha.fr/ade/standard/gui/interface.jsp', 'projectId='.sfConfig::get('sf_ade_project_id').'&x=41&y=9');
+    $browser->getUrl(sfConfig::get('sf_ade_url').'standard/gui/interface.jsp', 'projectId='.sfConfig::get('sf_ade_project_id').'&x=41&y=9');
     // Mandatory (because of ADE)
-    $browser->getUrl('http://www.emploidutemps.uha.fr/ade/custom/modules/plannings/plannings.jsp');
+    $browser->getUrl(sfConfig::get('sf_ade_url').'custom/modules/plannings/plannings.jsp');
     // Select groups of students
-    $browser->getUrl('http://www.emploidutemps.uha.fr/ade/standard/gui/tree.jsp?category=trainee&expand=false&forceLoad=false&reload=false&scroll=0');
+    $browser->getUrl(sfConfig::get('sf_ade_url').'standard/gui/tree.jsp?category=trainee&expand=false&forceLoad=false&reload=false&scroll=0');
     // Select a group (ENSISA Lumiere)
-    $browser->getUrl('http://www.emploidutemps.uha.fr/ade/standard/gui/tree.jsp?branchId=199&reset=true&forceLoad=false&scroll=0');
+    $browser->getUrl(sfConfig::get('sf_ade_url').'standard/gui/tree.jsp?branchId=199&reset=true&forceLoad=false&scroll=0');
     // Select a group (FIP)
-    $browser->getUrl('http://www.emploidutemps.uha.fr/ade/standard/gui/tree.jsp?branchId=190&reset=false&forceLoad=false&scroll=0');
+    $browser->getUrl(sfConfig::get('sf_ade_url').'standard/gui/tree.jsp?branchId=190&reset=false&forceLoad=false&scroll=0');
     // "Click" on a group (1A FIP)
-    $browser->getUrl('http://www.emploidutemps.uha.fr/ade/standard/gui/tree.jsp?selectBranchId=16&reset=true&forceLoad=false&scroll=0');
+    $browser->getUrl(sfConfig::get('sf_ade_url').'standard/gui/tree.jsp?selectBranchId=16&reset=true&forceLoad=false&scroll=0');
     // Get the page with the link to the image
-    $imagemap = $browser->getUrl('http://www.emploidutemps.uha.fr/ade/custom/modules/plannings/imagemap.jsp?width=1306&height=315');
+    $imagemap = $browser->getUrl(sfConfig::get('sf_ade_url').'custom/modules/plannings/imagemap.jsp?width=1306&height=315');
 
     // Get the identifier 
     preg_match("@identifier=([0-9a-f]{32})@", $imagemap, $matches);
@@ -141,6 +141,7 @@ class cronActions extends sfActions
     else
     {
       $this->identifier = "Identifier not found !";
+      $this->imagemap = $imagemap;
     }
   }
 }
