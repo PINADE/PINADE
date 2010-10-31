@@ -11,14 +11,6 @@
   </head>
   <body>
     <div id="global">
-      <div id="entete">
-        <ul>
-          <li><?php echo link_to('Accueil', '@homepage') ?></li>
-          <li><?php echo link_to('Annales', 'http://annales.iariss.fr/') ?></li>
-          <li><?php echo link_to('Trombinoscope', 'http://trombi.iariss.fr/') ?></li>
-          <li><?php echo link_to('Blog', 'http://ensisa11.iariss.fr/') ?></li>
-        </ul>
-      </div>
       <div id="centre">
         <div id="contenu">
           <?php echo $sf_content ?>
@@ -48,6 +40,16 @@
             Tu souhaites avoir ton emploi du temps sur <b>Google Agenda</b> ou un logiciel similaire&nbsp;?<br/>
             Tout est expliqué sur la <?php echo link_to('FAQ', '@faq', 'style="padding:0"') ?>&nbsp;!
             </p>
+          </div>
+          <div id="liens-internes">
+            <b>Liens utiles</b>
+            <ul>
+              <li><?php echo link_to('iariss.fr', 'http://www.iariss.fr/') ?></li>
+              <li><?php echo link_to('Annales', 'http://annales.iariss.fr/') ?></li>
+              <li><?php echo link_to('Trombinoscope', 'http://trombi.iariss.fr/') ?></li>
+<!--               <li><?php echo link_to('BDE ENSISA', 'http://www.ensisa.info/') ?></li> -->
+              <li><?php echo link_to('emploisdutemps.uha.fr', 'https://emploisdutemps.uha.fr/') ?></li>
+            </ul>
           </div>
         </div>
      

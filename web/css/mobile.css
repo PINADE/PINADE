@@ -30,15 +30,6 @@ body {
   position:inherit;
 }
 
-#entete {
-  text-align:left;
-  width:auto;
-  display:none;
-}
-
-#entete ul {
-  width:auto;
-}
 /*
 #contenu .center {
   text-align:left;

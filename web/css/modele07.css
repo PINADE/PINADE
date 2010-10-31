@@ -38,7 +38,7 @@ strong {
 #navigation {
   background: #181A12; /* -> 2 */
   position: absolute;
-  top:5em;
+  top:2em;
 
 }
 #navigation a {
@@ -75,32 +75,6 @@ body {
   margin: 0 auto; /* -> 4 */
 }
 
-/* En-tête */
-#entete {
-  width: 1000px;
-  text-align: center;
-}
-#entete h1 {
-  margin: 0;
-}
-#entete h1 img {
-  float: left;
-  margin: 7px 20px 10px 0;
-}
-#entete .sous-titre {
-  margin: 4px 0 15px 0;
-}
-#entete ul {
-  width: 1000px;
-}
-#entete li {
-  display: inline;
-}
-#entete a {
-  display:inline-block;
-  border:1px solid black;
-  padding:5px;
-}
 
 /* Bloc central contenant #navigation et #contenu */
 #centre {
@@ -144,6 +118,18 @@ body {
 /* espace pub IARISS */
 #pub p {
 margin: 10px;
+}
+#pub a {
+  display:inline;
+}
+
+/* Liens internes */
+#liens-internes {
+  padding-left:10px;
+}
+
+#liens-internes a {
+  display:block;
 }
 
 /* Contenu */
