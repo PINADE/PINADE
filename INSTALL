@@ -41,4 +41,5 @@ Utilisez Firebug et Firefox pour écouter le trafic réseau sur ADE.
 
 Ouvrez lib/AdeBrowser.class.php
 
-Les méthodes 
+La méthode d'authentification (getAuthentification()) doit probablement être
+adaptée.
