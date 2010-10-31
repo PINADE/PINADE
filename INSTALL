@@ -10,13 +10,13 @@ Installation:
 Configurez votre serveur web avec le virtualhost suivant, en adaptant les chemins.
 
 <VirtualHost *:80>
-        DocumentRoot /data/www/edt/web
+        DocumentRoot /var/www/edt/web
         ServerName edt.iariss.fr
         ServerAlias edt.iariss.com
 
-        Alias /sf /data/www/edt/lib/vendor/symfony/data/web/sf
+        Alias /sf /var/www/edt/lib/vendor/symfony/data/web/sf
 
-        <Directory /data/www/edt>
+        <Directory /var/www/edt>
                 Options FollowSymLinks MultiViews
                 AllowOverride All
                 Order allow,deny
@@ -33,6 +33,12 @@ Décompressez l'archive dans lib/vendor/symfony/
 
 = 3 == Configuration ============================
 
-Copiez le fichier apps/frontend/config/settings.yml.default en le renommant en settings.yml.
+Ouvrez le fichier plugins/sfADEConfigPlugin/config/settings.yml
+Adaptez si nécessaire toutes les valeurs du fichier.
+Utilisez Firebug et Firefox pour écouter le trafic réseau sur ADE.
 
-Adaptez si nécessaire les valeurs de cas_login, ade_identifier et id_tree.
+= 4 == Authentification =========================
+
+Ouvrez lib/AdeBrowser.class.php
+
+Les méthodes 
