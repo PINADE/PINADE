@@ -30,7 +30,7 @@ document.onkeydown=function(e){
 </script>
 
 <?php if(! empty($notice)): ?>
-  <div id="notice"><?php echo nl2br($notice) ?></div>
+  <div id="notice"><?php echo nl2br(html_entity_decode($notice)) ?></div>
 <?php endif ?>
 
 <?php if($sf_request->getCookie('default') == $filiere.'/'.$promo): ?>

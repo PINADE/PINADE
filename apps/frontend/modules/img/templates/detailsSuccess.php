@@ -8,6 +8,6 @@ Information sur l'image<br/>
     Dernière modification : <b><?php echo strftime("%a %d %b %Y %H:%M:%S", $img_mtime) ?></b></li>
   <li>Ical Filepath : <b <?php echo ($ical_mtime == 0) ? 'style="color:red"' : '' ?>><?php echo $ical_filepath ?></b><br/>
     Dernière modification : <b><?php echo strftime("%a %d %b %Y %H:%M:%S", $ical_mtime) ?></b></li>
-  <li>Notice : <?php echo (!empty($notice)) ? '<div style="border:1px solid black;padding:5px">'.nl2br($notice).'</div>' : "<b><i>Pas de notice</i></b>" ?></li>
+  <li>Notice : <?php echo (!empty($notice)) ? '<div style="border:1px solid black;padding:5px">'.nl2br(html_entity_decode($notice)).'</div>' : "<b><i>Pas de notice</i></b>" ?></li>
   <li>Cookie default : <b><?php echo (!empty($cookie)) ? $cookie : "<i>Pas de cookie</i>" ?></b></li>
 </ul>

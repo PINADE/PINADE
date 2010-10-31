@@ -5,7 +5,7 @@
 <b><?php echo link_to('Créer/Éditer la note', "@notice?action=edit&promo=$promo&filiere=$filiere&semaine=$semaine") ?></b>
 
 <?php if(! empty($notice)): ?>
-  <div id="notice"><?php echo nl2br($notice) ?></div>
+  <div id="notice"><?php echo nl2br(html_entity_decode($notice)) ?></div>
 <?php endif ?>
 
 <h2>
