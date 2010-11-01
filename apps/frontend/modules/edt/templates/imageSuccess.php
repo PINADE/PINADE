@@ -1,12 +1,13 @@
 <?php include_partial('title', array('nom_filiere' => $nom_filiere, 'nom_promo' => $nom_promo)) ?>
 
 
-<h1>
+<h1 id="title">
   <?php include_slot('title') ?>
 </h1>
-<h2>
+<h2 id="semaine">
   Semaine du <b><?php echo strftime("%e %B %G", $timestamp + 2*60*60) ?></b> au <b><?php echo  strftime("%e %B %G", intval($timestamp) + 5*24*60*60 - 1 ) ?></b>
 </h2>
+<br style="clear:both" />
 <p class="center">
   <?php echo link_to(image_tag('divers/precedent.png', 'alt="<<"')
 , "@image?filiere=$filiere&promo=$promo&semaine=$semaine_precedente") ?>
