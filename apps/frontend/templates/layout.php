@@ -48,7 +48,8 @@
               <li><?php echo link_to('Annales', 'http://annales.iariss.fr/') ?></li>
               <li><?php echo link_to('Trombinoscope', 'http://trombi.iariss.fr/') ?></li>
 <!--               <li><?php echo link_to('BDE ENSISA', 'http://www.ensisa.info/') ?></li> -->
-              <li><?php echo link_to('emploisdutemps.uha.fr', 'https://emploisdutemps.uha.fr/') ?></li>
+              <li><?php echo link_to('emploisdutemps.uha.fr', 
+              'https://www.emploisdutemps.uha.fr/') ?></li>
             </ul>
           </div>
         </div>
