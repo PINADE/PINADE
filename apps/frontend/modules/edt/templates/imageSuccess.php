@@ -7,7 +7,11 @@
 <h2 id="semaine">
   Semaine du <b><?php echo strftime("%e %B %G", $timestamp + 2*60*60) ?></b> au <b><?php echo  strftime("%e %B %G", intval($timestamp) + 5*24*60*60 - 1 ) ?></b>
 </h2>
-<br style="clear:both" />
+
+<?php if(! empty($notice)): ?>
+  <div id="notice"><?php echo nl2br(html_entity_decode($notice)) ?></div>
+<?php endif ?>
+
 <p class="center">
   <?php echo link_to(image_tag('divers/precedent.png', 'alt="<<"')
 , "@image?filiere=$filiere&promo=$promo&semaine=$semaine_precedente") ?>
@@ -29,10 +33,6 @@ document.onkeydown=function(e){
   }
 }
 </script>
-
-<?php if(! empty($notice)): ?>
-  <div id="notice"><?php echo nl2br(html_entity_decode($notice)) ?></div>
-<?php endif ?>
 
 <?php if($sf_request->getCookie('default') == $filiere.'/'.$promo): ?>
   <?php echo link_to('Effacer cette page comme page d\'accueil', "@cookie_reset?filiere=$filiere&promo=$promo&semaine=$semaine") ?>
