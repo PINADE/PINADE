@@ -74,11 +74,11 @@ cite {
 
 /* Liens */
 a {
-	color: mediumblue;
+	color: #0000CD;
 	text-decoration: underline;
 }
 a:hover, a:focus {
-	color: crimson;
+	color: #DC143C;
 }
 a img {
 	border: none; /* -> 10 */
@@ -90,7 +90,7 @@ em {
 }
 strong {
 	font-weight: bold;
-	color: dimgray;
+	color: #696969;
 }
 
 
