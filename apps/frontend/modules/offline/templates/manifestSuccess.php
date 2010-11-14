@@ -23,17 +23,21 @@ foreach($filieres as $f) {
 <?php echo image_path("divers/precedent.png")."\n";     ?>
 <?php echo image_path("divers/suivant.png")."\n";       ?>
 
+# The welcome page
+<?php echo url_for('@homepage')."\n" ?>
+
 # The edt image
 <?php echo url_for("@image_img?filiere=$filiere&promo=$promo&semaine=$semaine")."/img.gif\n"; ?>
 
 # The current page
 <?php echo url_for("@image?filiere=$filiere&promo=$promo&semaine=$semaine")."\n"; ?>
-<?php echo url_for("@image?filiere=$filiere&promo=$promo&semaine=")."\n"; ?>
+# The current page has no semaine number if it's default
+<?php echo ($semaine == AdeTools::getSemaineNumber()) ? url_for("@image?filiere=$filiere&promo=$promo&semaine=")."\n" : "# it's not current week\n"; ?>
 
 # If you are online, you can still download what you want
 NETWORK:
 *
 
 FALLBACK:
-<?php echo url_for("@image_img?filiere=$filiere&promo=$promo&semaine=") ?> <?php echo image_path("edt-vide.png") ?>
+<?php echo url_for("@image_img?filiere=$filiere&promo=$promo&semaine=$semaine")."/img.gif" ?> <?php echo image_path("edt-offline.png") ?>
 

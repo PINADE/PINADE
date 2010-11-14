@@ -37,6 +37,7 @@ Ouvrez le fichier plugins/sfADEConfigPlugin/config/settings.yml
 Adaptez si nécessaire toutes les valeurs du fichier.
 Utilisez Firebug et Firefox pour écouter le trafic réseau sur ADE.
 
+Modifiez l'epoch UHA dans lib/AdeTools.class.php
 = 4 == Authentification =========================
 
 Ouvrez lib/AdeBrowser.class.php

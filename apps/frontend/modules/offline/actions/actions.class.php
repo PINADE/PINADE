@@ -41,6 +41,7 @@ class offlineActions extends sfActions
 
     $this->filieres = array_keys(sfConfig::get('sf_filieres'));
     $this->stylesheets = print_r($this->getResponse()->getStylesheets(),1);
+
   }
 
   public function executeEnable(sfWebRequest $request)

@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr" <?php
- echo ($sf_request->getCookie("offline") == "enabled") ?
- 'manifest="'.url_for('@manifest?filiere='.$sf_request->getParameter('filiere').'&promo='.$sf_request->getParameter('promo').'&semaine=').'" >'
+  echo ($sf_request->getCookie("offline") == "enabled") ?
+    'manifest="'.url_for('@manifest?filiere='.$sf_request->getParameter('filiere').
+    '&promo='.$sf_request->getParameter('promo').
+    '&semaine='.$sf_request->getParameter('semaine', AdeTools::getSemaineNumber())).'" >'
  : '>'
 ?>
   <head>
