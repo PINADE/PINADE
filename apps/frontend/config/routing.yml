@@ -53,6 +53,18 @@ ical:
   url:  /ical/:filiere/:promo/ical.ics
   param: { module: ical, action: ical }
 
+# manifest for offline
+manifest:
+  url:  /cache.manifest/:filiere/:promo/:semaine/*
+  param: { module: offline, action: manifest }
+
+manifest_default:
+  url:  /cache.manifest/:filiere/:promo/*
+  param: { module: offline, action: manifest }
+
+offline_action:
+  url:  /offline/:action/*
+  param: { module: offline }
 
 # Page de l'edt pour la semaine courante
 image_default_index:
