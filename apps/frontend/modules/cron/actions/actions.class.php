@@ -137,11 +137,21 @@ class cronActions extends sfActions
         "\n    ade_identifier:  '".$identifier."'",
         $ade_config);
       file_put_contents($config_file, $ade_config);
+
+      // We clear the cache !
+      $this->clearCache();
     }
     else
     {
       $this->identifier = "Identifier not found !";
       $this->imagemap = $imagemap;
     }
+  }
+
+  protected function clearCache()
+  {
+    //Clear cache
+    $cache = new sfFileCache(array('cache_dir' => sfConfig::get('sf_app_cache_dir')));
+    $cache->clean();
   }
 }
