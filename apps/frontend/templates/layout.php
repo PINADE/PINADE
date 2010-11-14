@@ -12,8 +12,11 @@
     <?php include_stylesheets() ?>
     <link rel="stylesheet" href="/css/mobile.css" type="text/css" media="handheld, only screen and (max-device-width: 480px)" />
     <?php include_javascripts() ?>
+    <?php if($sf_request->getCookie("offline") == "enabled")
+            echo javascript_include_tag('offline.js');
+    ?>
   </head>
-  <body>
+  <body <?php echo ($sf_request->getCookie("offline") == "enabled") ? 'onload="loaded();"' : '' ?> >
     <div id="global">
       <div id="centre">
         <div id="contenu">
@@ -65,6 +68,7 @@
           Emploi du temps réalisé par <?php echo link_to('IARISS', 'http://iariss.fr/') ?>
           - <a href="mailto:contact@iariss.fr">Contact</a>
           - <?php echo link_to('FAQ', '@faq') ?>
+          - <span id="status"></span>
         </p>
       </div>
     </div>
