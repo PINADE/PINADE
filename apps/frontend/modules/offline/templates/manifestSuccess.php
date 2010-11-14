@@ -15,6 +15,10 @@ foreach($filieres as $f) {
   echo image_path("logos/$f")."\n";
 }
 ?>
+
+# Javascript
+<?php echo javascript_path('offline.js')."\n"           ?>
+
 # Others images
 <?php echo image_path("divers/precedent.png")."\n";     ?>
 <?php echo image_path("divers/suivant.png")."\n";       ?>
