@@ -68,7 +68,11 @@ class edtActions extends sfActions
       array('idPianoWeek' => $semaine)
     );
 
-    $this->image_path = $this->adeImage->getWebPath();
+    $this->image_path = sfConfig::get('sf_web_dir').$this->adeImage->getWebPath();
+    if(file_exists($this->image_path))
+      $this->image_mtime = filemtime($this->image_path);
+
+    $this->diff_day = (time() - $this->image_mtime)/(60*60*24);
 
     // Timestamp du lundi, début de semaine
     $this->timestamp = AdeTools::getTimestamp($this->semaine);

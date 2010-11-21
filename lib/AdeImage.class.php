@@ -130,11 +130,9 @@ class AdeImage
     
     if(!file_exists($filepath))                 // Si le fichier n'existe pas, on met à jour
       $update = true;
-    elseif(file_get_contents($filepath) == "") // Sinon, si le fichier est vide, idem
-    {
+    elseif(time() > filemtime($filepath) + 3*60*60) // Si le fichier a été modifié il y a plus de 3h, on met à jour
       $update = true;
-    }
-    elseif(time() > filemtime($filepath) + 6*60*60) // Si le fichier a été modifié il y a plus de 6h, on met à jour
+    elseif(file_get_contents($filepath) == "") // Sinon, si le fichier est vide, idem
       $update = true;
     else                                      // Sinon, si on force si on décide comme ça
       $update = $force;
