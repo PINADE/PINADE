@@ -23,10 +23,10 @@ test:
     param:
       delivery_strategy: none
 
-dev:
-  mailer:
-    param:
-      delivery_strategy: none
+# dev:
+#   mailer:
+#     param:
+#       delivery_strategy: none
 
 all:
   routing:
@@ -45,3 +45,9 @@ all:
     class: sfSessionStorage
     param:
       auto_start: false
+
+  mailer:
+    param:
+      transport:
+        class: Swift_MailTransport
+ 
