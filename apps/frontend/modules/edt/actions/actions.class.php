@@ -71,6 +71,8 @@ class edtActions extends sfActions
     $this->image_path = sfConfig::get('sf_web_dir').$this->adeImage->getWebPath();
     if(file_exists($this->image_path))
       $this->image_mtime = filemtime($this->image_path);
+    else
+      $this->adeImage->updateImage();
 
     $this->diff_day = (time() - $this->image_mtime)/(60*60*24);
 
