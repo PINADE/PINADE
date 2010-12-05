@@ -4,7 +4,7 @@
 
 <h2 id="fiable">Est-ce le site de référence ?</h2>
 <p><b>Non, ce site n'est pas le site officiel de l'emploi du temps</b> de l'<?php echo link_to('ENSISA','http://www.ensisa.fr/') ?>.
-Le site officiel est <?php echo link_to('emploisdutemps.uha.fr', 'https://emploisdutemps.uha.fr/') ?> et reste la référence de votre emploi du temps.<br/>
+Le site officiel est <?php echo link_to('emploisdutemps.uha.fr', 'https://www.emploisdutemps.uha.fr/') ?> et reste la référence de votre emploi du temps.<br/>
 Cependant, si tout va bien, <b>edt.iariss.fr</b> met à jour régulièrement (<i>cf</i> section <a href="#delai"><b>Délai</b></a>) les emplois du temps.</p>
 
 <span style="color:red; float:left; padding:3px;">nouveau ! </span>
@@ -18,7 +18,7 @@ Il n'y a pas d'autres raccourcis actuellement, mais contactez nous si vous en vo
 
 <h2 id="origine">Qui est à l'origine de ce site ?</h2>
 <p>L'équipe de <?php echo link_to('IARISS', 'http://www.iariss.fr/') ?> a codé ce site pour vous,
-parce qu'elle trouvait que le site proposé par l'UHA, <?php echo link_to('emploisdutemps.uha.fr', 'https://emploisdutemps.uha.fr/') ?>, 
+parce qu'elle trouvait que le site proposé par l'UHA, <?php echo link_to('emploisdutemps.uha.fr', 'https://www.emploisdutemps.uha.fr/') ?>, 
 n'est pas du tout pratique.<br/>
 Les auteurs initiaux sont <b>Michaël Muré</b> et <b>Thépophile Helleboid</b>, mais nous en attendons d'autres. Venez nous rejoindre&nbsp;!</p>
 
