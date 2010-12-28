@@ -4,8 +4,8 @@
     'manifest="'.url_for('@manifest?filiere='.$sf_request->getParameter('filiere').
     '&promo='.$sf_request->getParameter('promo').
     '&semaine='.$sf_request->getParameter('semaine', AdeTools::getSemaineNumber())).'" >'
- : '>'
-?>
+ : '>' ?>
+
   <head>
     <?php include_http_metas() ?>
     <?php include_metas() ?>
@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="/css/mobile.css" type="text/css" media="handheld, only screen and (max-device-width: 480px)" />
     <?php include_javascripts() ?>
     <?php if($sf_request->getCookie("offline") == "enabled")
-            echo javascript_include_tag('offline.js');
-    ?>
+            echo javascript_include_tag('offline.js');    ?>
+
   </head>
   <body <?php echo ($sf_request->getCookie("offline") == "enabled") ? 'onload="loaded();"' : '' ?> >
     <div id="global">
@@ -30,15 +30,17 @@
             <ul>
               <li id='accueil-menu'>
                 <?php echo link_to('Accueil', '@homepage', "inline") ?>
+
               </li>
 <?php $filieres = sfConfig::get('sf_filieres') ?>
 <?php foreach($filieres as $id_f => $filiere): ?>
               <li><?php echo image_tag("logos/$id_f.png", "alt='logo $id_f'") ?><?php echo $filiere['nom'] ?>
+
                 <ul>
   <?php foreach($filiere['promotions'] as $id_p => $promo): ?>
-                  <li><?php echo link_to($promo['nom'], "@image?filiere=$id_f&promo=$id_p&semaine=".$sf_request->getParameter('semaine')) ?></li>
+                <li><?php echo link_to($promo['nom'], "@image?filiere=$id_f&promo=$id_p&semaine=".$sf_request->getParameter('semaine')) ?></li>
   <?php endforeach ?>
-                </ul>
+              </ul>
               </li>
 <?php endforeach ?>
             </ul>
@@ -46,8 +48,8 @@
           
           <div id="pub" style="text-align:justify; font-size:80%">
             <p>Tu veux changer de semaine avec ton <b>clavier</b>&nbsp;?<br/>
-            Tu souhaites avoir ton emploi du temps sur <b>Google Agenda</b> ou un logiciel similaire&nbsp;?<br/>
-            Tout est expliqué sur la <?php echo link_to('FAQ', '@faq', 'style="padding:0"') ?>&nbsp;!
+              Tu souhaites avoir ton emploi du temps sur <b>Google Agenda</b> ou un logiciel similaire&nbsp;?<br/>
+              Tout est expliqué sur la <?php echo link_to('FAQ', '@faq', 'style="padding:0"') ?>&nbsp;!
             </p>
           </div>
           <div id="liens-internes">

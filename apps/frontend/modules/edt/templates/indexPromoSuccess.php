@@ -1,8 +1,6 @@
 <?php include_partial('title', array('nom_filiere' => $nom_filiere)) ?>
 
-<h1>
-  <?php include_slot('title') ?>
-</h1>
+<h1><?php include_slot('title') ?></h1>
 
 <h2>
   Selectionnez votre promotion:

@@ -1,6 +1,4 @@
-<?php
-slot('title');
-
+<?php slot('title'); 
 if(isset($nom_filiere)) echo $nom_filiere;
 
 if(isset($nom_promo)) echo ' - '.$nom_promo;
