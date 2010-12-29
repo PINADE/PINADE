@@ -54,4 +54,5 @@
 <?php else: ?>
           <?php echo link_to('Enregistrer cette page comme page d\'accueil', "@cookie_set?filiere=$filiere&promo=$promo&semaine=$semaine") ?><br/>
 <?php endif ?>
-
+<br/>
+<?php echo link_to("Ajouter à Google Agenda", "http://www.google.com/calendar/render?cid=".urlencode(url_for("@ical?promo=$promo&filiere=$filiere", true))) ?>
