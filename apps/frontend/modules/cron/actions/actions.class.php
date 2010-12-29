@@ -79,7 +79,6 @@ class cronActions extends sfActions
         $adeImage->updateHtml();
         $adeImage->updateIcal();
         $message .= '- '.$filiere['nom'].', '.$promotion['nom']."\n";
-        file_put_contents('/tmp/'.$filiere['nom'].'-'.$promotion['nom'], time());
       }
     }
 
