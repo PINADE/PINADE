@@ -312,7 +312,7 @@ END:VTIMEZONE\n\n";
       $prof = $entree['prof'];                              // string
       $salle = $entree['salle'];                            // string
 
-      $ical .=  "BEGIN:VEVENT\n";
+      $ical .= "BEGIN:VEVENT\n";
       $ical .= "SUMMARY:$nom - $salle - $prof - $promo\n";
       $ical .= "DTSTART:".$date[2].$date[1].$date[0]."T".$heure[0].$heure[1]."00\n";
       $ical .= "DURATION:PT".intval($duree[0])."H".intval($duree[1])."M0S\n";
