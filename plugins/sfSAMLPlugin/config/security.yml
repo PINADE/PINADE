@@ -1,0 +1,6 @@
+# signin & signout have to have free access
+signin:
+  is_secure: false
+
+signout:
+  is_secure: false
