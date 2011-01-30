@@ -149,7 +149,7 @@ class cronActions extends sfActions
         array('presidence@iariss.fr', 'informatique@iariss.fr'),
         $_SERVER['SERVER_NAME'].' : identifier ADE non trouvé',
         $_SERVER['SERVER_NAME']." a tenté d'obtenir un nouvel identifier ADE mais a échoué. Les images ne seront plus mises à jour.
-Pour réparer le code source, rendez-vous dans ".$_SERVER['PHP_SELF']."
+Pour réparer le code source, rendez-vous dans ".basename(__FILE__)."
 Merci d'avance,
 Amicalement
 -- 
