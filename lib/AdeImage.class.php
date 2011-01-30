@@ -151,20 +151,29 @@ class AdeImage
     if(!is_dir($path))
       mkdir($path);
 
-    // Check if the image is type of 'image/gif' (PHP 5.3 min)
-    $finfo = new finfo(FILEINFO_MIME);
     if(empty($content))     // Do NOT remove cache if the file is empty (there is likely a problem)
     {
       sfContext::getInstance()->getLogger()->info('Image vide lors du téléchargement ! Cache non réécrit');
       $this->error = "empty picture : ".$this->url;
     }
-    elseif (strpos($finfo->buffer($content), 'image/gif') === false)
+    else
     {
-      sfContext::getInstance()->getLogger()->info('le contenu n\'est pas une image. Pas de remplacement !');
-      $this->error = "not a picture : ".$this->url;
+      // L'image n'est pas vide, est-elle vraiment une image ?
+      $tempname = tempnam($this->getPath(), "edt-");
+      file_put_contents($tempname, $content);
+
+      if (getimagesize($tempname)== false)
+      {
+        sfContext::getInstance()->getLogger()->info('le contenu n\'est pas une image. Pas de remplacement !');
+        $this->error = "not a picture : ".$this->url;
+      }
+      else
+      { // it seems OK, we can write it
+        file_put_contents($filepath, $content);
+      }
+      // Suppression du fichier temporaire
+      unlink($tempname);
     }
-    else // it seems OK, we can write it
-      file_put_contents($filepath, $content);
 
   }
 
