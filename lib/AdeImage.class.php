@@ -327,7 +327,7 @@ END:VTIMEZONE\n\n";
       $ical .= "DURATION:PT".intval($duree[0])."H".intval($duree[1])."M0S\n";
       $ical .= 'LOCATION:'.$salle."\n";
       $ical .= "DESCRIPTION:$nom - $salle - $prof - $promo - ".$entree['date']." - ".$entree['heure']." (".$entree['duree'].")\n";
-      $ical .= "UID:".$date[2].$date[1].$date[0]."T".$heure[0].$heure[1]."00-$prof$salle$type".$this->nom_promo."-".$this->nom_filiere."@edt.iariss.fr\n";
+      $ical .= "UID:".$date[2].$date[1].$date[0]."T".$heure[0].$heure[1]."01-$prof$salle$type".$this->nom_promo."-".$this->nom_filiere."@edt.iariss.fr\n";
       $ical .= "END:VEVENT\n\n";      
 
     }
