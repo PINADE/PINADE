@@ -30,7 +30,6 @@ Les auteurs initiaux sont <b>Michaël Muré</b> et <b>Thépophile Helleboid</b>,
 <b>toutes les deux heures</b> pour les semaines courante et suivante, toutes les six heures pour les autres.
  Si vous trouvez que ce délai n'est pas adapté, <a href="#contact">contactez-nous</a>.</p>
 
-<span style="color:red; float:left; padding:3px;">nouveau ! </span>
 <h2 id="ical">Où trouver le calendrier <i>iCal</i> de mon emploi du temps ?</h2>
 L'adresse est simple : <code>http://edt.iariss.fr/ical/<i>&lt;votre filière&gt;</i>/<i>&lt;votre promo&gt;</i>/ical.ics</code></br/>
 Par exemple, pour les 2A Informatique : <code><a href="http://edt.iariss.fr/ical/info/2a/ical.ics">http://edt.iariss.fr/ical/info/2a/ical.ics</a></code>.<br/>
