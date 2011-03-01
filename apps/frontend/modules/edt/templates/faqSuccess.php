@@ -13,7 +13,7 @@ Cependant, si tout va bien, <b>edt.iariss.fr</b> met à jour régulièrement (<i
   <li>La touche «&nbsp;flèche gauche&nbsp;» pour aller vers la semaine précédente,</li>
   <li>La touche «&nbsp;flèche droite&nbsp;» pour aller vers la semaine suivante.</li>
 </ul>
-Il n'y a pas d'autres raccourcis actuellement, mais contactez nous si vous en voulez plus !<br/></p>
+Il n'y a pas d'autres raccourcis actuellement, mais contactez nous si vous en voulez plus&nbsp;!<br/></p>
 
 <h2 id="origine">Qui est à l'origine de ce site ?</h2>
 <p>L'équipe de <?php echo link_to('IARISS', 'http://www.iariss.fr/') ?> a codé ce site pour vous,
