@@ -7,7 +7,6 @@
 Le site officiel est <?php echo link_to('emploisdutemps.uha.fr', 'https://www.emploisdutemps.uha.fr/') ?> et reste la référence de votre emploi du temps.<br/>
 Cependant, si tout va bien, <b>edt.iariss.fr</b> met à jour régulièrement (<i>cf</i> section <a href="#delai"><b>Délai</b></a>) les emplois du temps.</p>
 
-<span style="color:red; float:left; padding:3px;">nouveau ! </span>
 <h2 id="raccourcis">Quels sont les raccourcis claviers sur le site ?</h2>
 <p>Deux raccourcis claviers ont été mis en place pour faciliter la navigation sur <b>edt.iariss.fr</b> :
 <ul>
