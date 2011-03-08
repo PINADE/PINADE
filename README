@@ -1,3 +1,9 @@
-Emploi du temps IARISS
-m.mure, t.helleboid
+PINADE signifie PINADE Is Not ADE.
 
+PINADE est un site réalisé avec symfony pour servir de frontend à ADE Expert, logiciel d'emplois du temps utilisé dans plusieurs universités françaises.
+
+La première version (historique) de PINADE a été utilisée sur http://edt.iariss.fr/ pour les emplois du temps de l'ENSISA ( http://www.ensisa.fr/ ).
+
+L'auteur principal de PINADE est Théophile Helleboid aka chtitux ( chtitux@chtitux.org ).
+
+Le code source est libre d'utilisation en attendant qu'une licence Libre soit clairement choisie.
