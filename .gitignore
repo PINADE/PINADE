@@ -1,3 +1,8 @@
 plugins/sfADEConfigPlugin/config/settings.yml
 lib/vendor/*
 !/lib/vendor/README
+cache/*
+!cache/dummy.txt
+log/*
+!log/dummy.txt
+
