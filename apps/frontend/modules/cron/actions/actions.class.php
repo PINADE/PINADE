@@ -145,8 +145,8 @@ class cronActions extends sfActions
       $this->identifier = "Identifier not found !";
       $this->imagemap = $imagemap;
       $this->getMailer()->composeAndSend(
-        'informatique@iariss.fr',
-        array('presidence@iariss.fr', 'informatique@iariss.fr'),
+        sfConfig::get('sf_email_from'),
+        sfConfig::get('sf_email_to'),
         $_SERVER['SERVER_NAME'].' : identifier ADE non trouvé',
         $_SERVER['SERVER_NAME']." a tenté d'obtenir un nouvel identifier ADE mais a échoué. Les images ne seront plus mises à jour.
 Pour réparer le code source, rendez-vous dans ".__FILE__."

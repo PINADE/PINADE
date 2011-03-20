@@ -5,7 +5,11 @@ all:
     ade_url: 'https://www.emploisdutemps.uha.fr/ade/'
     
     # cas_login est de la forme : base64_encode("username=prenom.nom%40uha.fr&password=YOURPASSWORD")
-    #cas_login: 'Mettre ici le hash'
+    cas_login: 'Mettre ici le hash'
+    
+    # Email de contact utilisé par PINADE pour prévenir d'un probleme
+    email_from:      dsi@example.net
+    email_to:        youremail@example.net
     
     ade_identifier:  '0682e640e1751d9e8bc3e858ba1493ea'
 
