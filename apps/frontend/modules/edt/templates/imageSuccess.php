@@ -38,6 +38,9 @@
           <!-- raccourci clavier gauche/droite -->
           <script type="text/javascript">
           document.onkeydown=function(e){
+            //Internet Explorer ne prend pas d'objet Event en paramètre, il faut donc aller le chercher dans l'objet window 
+            if (typeof event == "undefined" ) e = window.event;
+
             if(e.which == 37)
             {
               document.location = '<?php echo url_for("@image?filiere=$filiere&promo=$promo&semaine=".max(0,$semaine-1)) ?>';
