@@ -43,6 +43,7 @@ Assurez vous que les répertoires suivants soient accessibles en écriture à Ap
 - cache/
 - log/ 
 - web/images/edt
+- plugins/sfADEConfigPlugin/config/settings.yml
 
 = 4 == Authentification =========================
 
