@@ -22,11 +22,11 @@ notice:
 
 # (re)set cookie
 cookie_set:
-  url:  /cookie/set/:key/:value/*
+  url:  /cookie/set/*
   param: { module: cookie, action: set }
 
 cookie_reset:
-  url:  /cookie/reset/:key/*
+  url:  /cookie/reset/*
   param: { module: cookie, action: reset }
 
 # Image gif d'une semaine, puis celle par défaut

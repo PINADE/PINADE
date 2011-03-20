@@ -192,3 +192,17 @@ img {
   font-weight:bold;
   color:red;
 }
+
+.button {
+  padding: 0;
+  display: inline;
+  border-style: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #332510;
+  text-decoration:underline;
+}
+
+.button:hover, .button:focus {
+  color: #6E5122;
+}

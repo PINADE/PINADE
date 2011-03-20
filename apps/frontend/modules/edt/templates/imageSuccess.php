@@ -53,9 +53,17 @@
           </script>
 <br/>
 <?php if($sf_request->getCookie('default') == $filiere.'-'.$promo): ?>
-          <?php echo link_to('Effacer cette page comme page d\'accueil', "@cookie_reset?key=default") ?>
+          <form method="post" action="<?php echo url_for('@cookie_reset') ?>">
+          <input type="submit" value="Effacer cette page comme page d'accueil" class="button" />
+          <input type="hidden" name="key" value="default" />
 <?php else: ?>
-          <?php echo link_to('Enregistrer cette page comme page d\'accueil', "@cookie_set?key=default&value=$filiere-$promo") ?>
+          <form method="post" action="<?php echo url_for('@cookie_set') ?>">
+          <input type="submit" value="Enregistrer cette page comme page d'accueil" class="button" />
+          <input type="hidden" name="key" value="default" />
+          <input type="hidden" name="value" value="<?php echo $filiere.'-'.$promo ?>" />
+
 <?php endif ?>
+          </form>
+
 <br/>
 <?php echo link_to("Ajouter à Google Agenda", "http://www.google.com/calendar/render?cid=".urlencode(url_for("@ical?promo=$promo&filiere=$filiere", true))) ?>
