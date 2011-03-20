@@ -1,1 +1,3 @@
 plugins/sfADEConfigPlugin/config/settings.yml
+lib/vendor/*
+!/lib/vendor/README
