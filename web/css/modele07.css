@@ -117,10 +117,11 @@ body {
 
 /* espace pub IARISS */
 #pub p {
-margin: 10px;
+  margin: 10px;
 }
 #pub a {
   display:inline;
+  padding:0;
 }
 
 /* Liens internes */
