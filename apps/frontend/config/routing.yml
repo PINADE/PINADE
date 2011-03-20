@@ -22,12 +22,12 @@ notice:
 
 # (re)set cookie
 cookie_set:
-  url:  /cookie/set/:filiere/:promo/:semaine/*
-  param: { module: edt, action: set }
+  url:  /cookie/set/:key/:value/*
+  param: { module: cookie, action: set }
 
 cookie_reset:
-  url:  /cookie/reset/:filiere/:promo/:semaine/*
-  param: { module: edt, action: reset }
+  url:  /cookie/reset/:key/*
+  param: { module: cookie, action: reset }
 
 # Image gif d'une semaine, puis celle par défaut
 image_img:

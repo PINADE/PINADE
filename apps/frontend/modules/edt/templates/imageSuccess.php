@@ -48,11 +48,11 @@
             }
           }
           </script>
-
-<?php if($sf_request->getCookie('default') == $filiere.'/'.$promo): ?>
-          <?php echo link_to('Effacer cette page comme page d\'accueil', "@cookie_reset?filiere=$filiere&promo=$promo&semaine=$semaine") ?>
+<br/>
+<?php if($sf_request->getCookie('default') == $filiere.'-'.$promo): ?>
+          <?php echo link_to('Effacer cette page comme page d\'accueil', "@cookie_reset?key=default") ?>
 <?php else: ?>
-          <?php echo link_to('Enregistrer cette page comme page d\'accueil', "@cookie_set?filiere=$filiere&promo=$promo&semaine=$semaine") ?><br/>
+          <?php echo link_to('Enregistrer cette page comme page d\'accueil', "@cookie_set?key=default&value=$filiere-$promo") ?>
 <?php endif ?>
 <br/>
 <?php echo link_to("Ajouter à Google Agenda", "http://www.google.com/calendar/render?cid=".urlencode(url_for("@ical?promo=$promo&filiere=$filiere", true))) ?>

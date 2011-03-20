@@ -22,16 +22,18 @@ class edtActions extends sfActions
     $default = $request->getCookie('default');
     if(! empty($default))
     {
-      $array = explode('/', $default);
-      $filiere = $array[0];
-      $promo = $array[1];
-      $filieres = sfConfig::get('sf_filieres');
+      $array = explode('-', $default);
+      if(count($array) == 2)
+      {
+        $filiere = $array[0];
+        $promo = $array[1];
+        $filieres = sfConfig::get('sf_filieres');
 
-      // On vérifie si la promo existe bien, pour éviter les farces
-      // et les redirections infinies (cookie mis à "/" par exemple
-      if(isset($filieres[$filiere]['promotions'][$promo]['nom']))
-        $this->redirect("@image?filiere=$filiere&promo=$promo&semaine=");
-
+        // On vérifie si la promo existe bien, pour éviter les farces
+        // et les redirections infinies (cookie mis à "/" par exemple
+        if(isset($filieres[$filiere]['promotions'][$promo]['nom']))
+          $this->redirect("@image?filiere=$filiere&promo=$promo&semaine=");
+      }
     }
     // Si on n'a pas redirigé, pas de cookie ou cookie erroné
   }
