@@ -10,15 +10,9 @@
 
 
 <ul >
-<?php foreach(array(
-  "info" => "Informatique &amp; Réseaux",
-  "auto" => "Automatique &amp; Système",
-  "text" => "Textile &amp; Fibres",
-  "meca" => "Mécanique",
-  "prod" => "Système de Production",
-  "lmme" => "License/Master Méca") as $id_f => $filiere): ?>
+<?php foreach(sfConfig::get('sf_filieres') as $id_f => $filiere): ?>
   <li><?php echo image_tag("logos/$id_f.png", "alt='logo $id_f'") ?>
-      <?php echo link_to($filiere, '@filiere_index?filiere='.$id_f) ?>
+      <?php echo link_to($filiere['nom'], '@filiere_index?filiere='.$id_f) ?>
   </li>
 <?php endforeach ?>
 </ul>
