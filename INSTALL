@@ -38,6 +38,12 @@ Adaptez si nécessaire toutes les valeurs du fichier.
 Utilisez Firebug et Firefox pour écouter le trafic réseau sur ADE.
 
 Modifiez l'epoch UHA dans lib/AdeTools.class.php
+
+Assurez vous que les répertoires suivants soient accessibles en écriture à Apache :
+- cache/
+- log/ 
+- web/images/edt
+
 = 4 == Authentification =========================
 
 Ouvrez lib/AdeBrowser.class.php
