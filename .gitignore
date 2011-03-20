@@ -5,4 +5,6 @@ cache/*
 !cache/dummy.txt
 log/*
 !log/dummy.txt
+web/images/edt/*
+!web/images/edt/dummy.txt
 
