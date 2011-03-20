@@ -125,7 +125,7 @@ body {
 }
 
 /* Liens internes */
-#liens-internes {
+#liens-internes, #stylesheet {
   padding-left:10px;
 }
 

@@ -19,6 +19,11 @@ all:
 
     branches_to_id: [ 199, 190, 16 ]
 
+    css:
+      style1: { title: "Style 1" }
+    #  antoine: { title: "Clear style" }
+
+
     filieres:
       info:
         nom : 'Informatique'

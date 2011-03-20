@@ -12,6 +12,7 @@
     <title><?php include_slot('title') ?> - Emploi du temps ENSISA</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
+    <?php include_partial('global/perso-css') ?>
     <link rel="stylesheet" href="/css/mobile.css" type="text/css" media="handheld, only screen and (max-device-width: 480px)" />
     <?php include_javascripts() ?>
     <?php if($sf_request->getCookie("offline") == "enabled")
@@ -63,8 +64,23 @@
               'https://www.emploisdutemps.uha.fr/') ?></li>
             </ul>
           </div>
+        <?php if(count($stylesheets = sfConfig::get('sf_css'))): ?>
+        <div id="stylesheet">
+          <form method="post" action="<?php echo url_for('@cookie_set') ?>">
+            Changez l'affichage de l'emploi du temps !<br/>
+            <input type="hidden" name="key" value="css" />
+            <select name="value">
+              <option value="">Par défaut</option>
+            <?php foreach($stylesheets as $id_css => $css): ?>
+              <option value="<?php echo $id_css ?>"
+                <?php echo ($sf_request->getCookie('css') == $id_css) ? " selected='selected' " : "" ?>
+                ><?php echo $css['title'] ?></option>
+            <?php endforeach ?>
+            </select><br/>
+            <input type="submit" value="Enregistrer ce style" />
+          </form>
         </div>
-     
+        <?php endif ?>
       </div>
 
       <div id="pied">
