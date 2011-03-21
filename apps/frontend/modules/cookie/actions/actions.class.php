@@ -15,6 +15,9 @@ class cookieActions extends sfActions
    */
   public function executeSet(sfWebRequest $request)
   {
+    // Prévient les attaques XSS : la requête doit être un POST
+    $this->forward404Unless($request->isMethod(sfRequest::POST));
+
     switch($request->getParameter('key'))
     {
       case 'default':
@@ -30,6 +33,9 @@ class cookieActions extends sfActions
 
   public function executeReset(sfWebRequest $request)
   {
+    // Prévient les attaques XSS : la requête doit être un POST
+    $this->forward404Unless($request->isMethod(sfRequest::POST));
+
     // Expires yesterday ! => expires now
     $this->getResponse()->setCookie($request->getParameter('key'), '', 'yesterday');
     $this->getUser()->setFlash('info', 'Cookie effacé');
