@@ -1,0 +1,22 @@
+# Configuration:
+#   columns:
+#     identifier:   { type: string(255) }
+#     
+
+Filiere:
+  columns:
+    url:     { type: string(255) }
+    nom:     { type: string(255) }
+    description:     { type: string(4000) }
+    logo:    { type: string(255) }
+
+Promotion:
+  columns:
+    url:     { type: string(255) }
+    nom:     { type: string(255) }
+    description:        { type: string(4000) }
+    conf_trees:         { type: string(255) }
+#     Pourra servir pour l'iCal
+#     conf_branch_id:     { type: string(255) }
+#     conf_select_branch_id: { type: string(255) }
+#     conf_select_id:     { type: string(255) }
