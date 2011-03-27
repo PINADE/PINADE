@@ -93,29 +93,4 @@ class edtActions extends sfActions
   {
   }
 
-  /**
-   *  Set and reset default cookie 
-   */
-  public function executeSet(sfWebRequest $request)
-  {
-    $filiere = $request->getParameter('filiere');
-    $promo = $request->getParameter('promo');
-    $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
-
-    $this->getResponse()->setCookie('default', $filiere.'/'.$promo, '1 year');
-    $this->getUser()->setFlash('info', 'Cookie enregistré');
-    $this->redirect("@image?filiere=$filiere&promo=$promo&semaine=$semaine");
-  }
-
-  public function executeReset(sfWebRequest $request)
-  {
-    $filiere = $request->getParameter('filiere');
-    $promo = $request->getParameter('promo');
-    $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
-
-    // Expires yesterday ! => expires now
-    $this->getResponse()->setCookie('default', '', 'yesterday');
-    $this->getUser()->setFlash('info', 'Cookie effacé');
-    $this->redirect("@image?filiere=$filiere&promo=$promo&semaine=$semaine");
-  }
 }
