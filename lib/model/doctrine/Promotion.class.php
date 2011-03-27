@@ -16,4 +16,8 @@ class Promotion extends BasePromotion
   {
     return $this->getNom();
   }
+  public function getUrlToWeek($week)
+  {
+    return "@image?filiere=".$this->getFiliere()->getUrl()."&promo=".$this->getUrl()."&semaine=".$week;
+  }
 }

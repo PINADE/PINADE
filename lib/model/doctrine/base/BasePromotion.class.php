@@ -9,26 +9,35 @@
  * @property string $nom
  * @property string $description
  * @property integer $filiere_id
- * @property string $conf_trees
+ * @property string $id_tree
+ * @property string $id_piano_day
+ * @property integer $width
+ * @property integer $height
  * @property Filiere $Filiere
  * 
- * @method string    getUrl()         Returns the current record's "url" value
- * @method string    getNom()         Returns the current record's "nom" value
- * @method string    getDescription() Returns the current record's "description" value
- * @method integer   getFiliereId()   Returns the current record's "filiere_id" value
- * @method string    getConfTrees()   Returns the current record's "conf_trees" value
- * @method Filiere   getFiliere()     Returns the current record's "Filiere" value
- * @method Promotion setUrl()         Sets the current record's "url" value
- * @method Promotion setNom()         Sets the current record's "nom" value
- * @method Promotion setDescription() Sets the current record's "description" value
- * @method Promotion setFiliereId()   Sets the current record's "filiere_id" value
- * @method Promotion setConfTrees()   Sets the current record's "conf_trees" value
- * @method Promotion setFiliere()     Sets the current record's "Filiere" value
+ * @method string    getUrl()          Returns the current record's "url" value
+ * @method string    getNom()          Returns the current record's "nom" value
+ * @method string    getDescription()  Returns the current record's "description" value
+ * @method integer   getFiliereId()    Returns the current record's "filiere_id" value
+ * @method string    getIdTree()       Returns the current record's "id_tree" value
+ * @method string    getIdPianoDay()   Returns the current record's "id_piano_day" value
+ * @method integer   getWidth()        Returns the current record's "width" value
+ * @method integer   getHeight()       Returns the current record's "height" value
+ * @method Filiere   getFiliere()      Returns the current record's "Filiere" value
+ * @method Promotion setUrl()          Sets the current record's "url" value
+ * @method Promotion setNom()          Sets the current record's "nom" value
+ * @method Promotion setDescription()  Sets the current record's "description" value
+ * @method Promotion setFiliereId()    Sets the current record's "filiere_id" value
+ * @method Promotion setIdTree()       Sets the current record's "id_tree" value
+ * @method Promotion setIdPianoDay()   Sets the current record's "id_piano_day" value
+ * @method Promotion setWidth()        Sets the current record's "width" value
+ * @method Promotion setHeight()       Sets the current record's "height" value
+ * @method Promotion setFiliere()      Sets the current record's "Filiere" value
  * 
  * @package    edt
  * @subpackage model
  * @author     Théophile Helleboid, Michael Muré
- * @version    SVN: $Id: Builder.php 7691 2011-02-04 15:43:29Z jwage $
+ * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 abstract class BasePromotion extends sfDoctrineRecord
 {
@@ -51,9 +60,22 @@ abstract class BasePromotion extends sfDoctrineRecord
              'type' => 'integer',
              'notnull' => true,
              ));
-        $this->hasColumn('conf_trees', 'string', 255, array(
+        $this->hasColumn('id_tree', 'string', 255, array(
              'type' => 'string',
              'length' => 255,
+             ));
+        $this->hasColumn('id_piano_day', 'string', 255, array(
+             'type' => 'string',
+             'default' => '0,1,2,3,4',
+             'length' => 255,
+             ));
+        $this->hasColumn('width', 'integer', null, array(
+             'type' => 'integer',
+             'default' => 800,
+             ));
+        $this->hasColumn('height', 'integer', null, array(
+             'type' => 'integer',
+             'default' => 600,
              ));
     }
 

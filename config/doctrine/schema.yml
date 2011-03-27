@@ -1,7 +1,9 @@
 # Configuration:
 #   columns:
 #     identifier:   { type: string(255) }
-#     
+#     project_id:         { type: string(255) }
+#       'displayMode' => '1057855',
+#       'displayConfId' => '8',
 
 Filiere:
   columns:
@@ -18,9 +20,13 @@ Promotion:
     nom:     { type: string(255) }
     description:        { type: string(4000) }
     filiere_id:         { type: integer, notnull: true }
-    conf_trees:         { type: string(255) }
+    id_tree:            { type: string(255) }
+    id_piano_day:       { type: string(255), default: '0,1,2,3,4' }
+    width:              { type: integer, default: 800 }
+    height:             { type: integer, default: 600 }
   relations:
     Filiere:  { local: filiere_id, foreign: id, type: one }
+
 
 #     Pourra servir pour l'iCal
 #     conf_branch_id:     { type: string(255) }

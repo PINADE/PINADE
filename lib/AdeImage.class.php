@@ -12,92 +12,41 @@ class AdeImage
 {
 
   protected
+    $promotion,
     $ade_cookie,
     $projectId,
-    $idPianoWeek,
-    $idPianoDay,
-    $idTree, 
-    $width = "1024",
-    $height = "768",
-    $displayMode = "1057855",
-    $displayConfId = "8",
-    $url,
+    $semaine,
     $ade_browser,
-    $error = "",
-    $nom_promo,
-    $nom_filiere;
+    $error = "";
 
-  public function __construct($trees = null, $options = array())
+  public function __construct(Promotion $promotion = null, $semaine = null)
   {
     $this->ade_browser = new AdeBrowser();
+    $this->promotion = $promotion;
 
-    if(is_array($trees))
-      $this->initialize($trees, $options);
+    if($semaine == null)
+      $this->semaine = AdeTools::getSemaineNumber();
+    else
+      $this->semaine = $semaine;
+    
   }
   
-  public function initialize($trees, $options = array())
+  public function getUrl($week = NULL)
   {
-    $filieres = sfConfig::get('sf_filieres');
-    if(!is_array($trees))
-      throw new sfException('$trees must be an array');
 
-    if(intval($options['idPianoWeek']) < 0 || intval($options['idPianoWeek']) >= 45)
-      throw new sfError404Exception('La semaine que vous cherchez n\'existe pas');
-
-    foreach($trees as $tree)
-    {
-      if(isset($filieres[$tree['filiere']]))
-      {
-        if(isset($filieres[$tree['filiere']]['promotions'][$tree['promo']]))
-          $id_tree[] = $filieres[$tree['filiere']]['promotions'][$tree['promo']]['trees'];
-        else
-          throw new sfError404Exception('La promo '.$tree['promo'].' de la filière '.$tree['filiere'].' n\'existe pas');
-      }
-      else throw new sfError404Exception('La filière '.$tree['filiere'].' n\'existe pas');
-    }
-    if(count($id_tree) == 0) throw new sfException('$id_tree is empty !');
-    
-    $options = array_merge(array(
-      'projectId' => sfConfig::get('sf_ade_project_id'),
-      'idPianoWeek' => AdeTools::getSemaineNumber(),
-      'idPianoDay' => '0,1,2,3,4',
-      'idTree' => implode(',', $id_tree),
-      'width' => '800',
-      'height' => '600',
-      'displayMode' => '1057855',
-      'displayConfId' => '8',
-    ), $options);
-
-    $this->projectId = $options['projectId'];
-    $this->idPianoWeek = $options['idPianoWeek'];
-    $this->idPianoDay = $options['idPianoDay'];
-    $this->idTree = $options['idTree'];
-    $this->width = $options['width'];
-    $this->height = $options['height'];
-    $this->displayMode = $options['displayMode'];
-    $this->displayConfId = $options['displayConfId'];
-    // FIXME : faire un tableau sur les noms, ou l'enlever
-    $this->nom_filiere = $trees[0]['filiere'];
-    $this->nom_promo = $trees[0]['promo'];
-
-    $this->url = sfConfig::get('sf_ade_url')."imageEt?".
+    return sfConfig::get('sf_ade_url')."imageEt?".
       "identifier=".sfConfig::get('sf_ade_identifier').
-      "&projectId=".$this->projectId.
-      "&idPianoWeek=".$this->idPianoWeek.
-      "&idPianoDay=".$this->idPianoDay.
-      "&idTree=".$this->idTree.
-      "&width=".$this->width.
-      "&height=".$this->height.
+      "&projectId=".sfConfig::get('sf_ade_project_id').
+      "&idPianoWeek=".$this->semaine.
+      "&idPianoDay=".$this->promotion->getIdPianoDay().
+      "&idTree=".$this->promotion->getIdTree().
+      "&width=".$this->promotion->getWidth().
+      "&height=".$this->promotion->getHeight().
       "&lunchName=REPAS".
-      "&displayMode=".$this->displayMode.
+      "&displayMode=".sfConfig::get('sfade_display_mode').
       "&showLoad=false".
       "&ttl=1283427991552".
-      "&displayConfId=".$this->displayConfId;
-  }
-  
-  public function getImage()
-  {
-    $this->content = AdeTools::getAdeImage($this->ade_cookie, $this->url);
+      "&displayConfId=".sfConfig::get('sf_ade_display_conf_id');
   }
 
 
@@ -106,7 +55,7 @@ class AdeImage
   */
   public function getNotice()
   {
-    $path = $this->getPath().'/notice-'.$this->idPianoWeek.'.txt';
+    $path = $this->getPath().'/notice-'.$this->semaine.'.txt';
     if(file_exists($path))
       return file_get_contents($path);
     else
@@ -118,7 +67,7 @@ class AdeImage
   */
   public function setNotice($notice)
   {
-    $path = $this->getPath().'/notice-'.$this->idPianoWeek.'.txt';
+    $path = $this->getPath().'/notice-'.$this->semaine.'.txt';
     return file_put_contents($path, $notice) ;
   }
 
@@ -145,7 +94,7 @@ class AdeImage
     }
 
     // Refresh content if we have to
-    $content = $this->ade_browser->getUrl($this->url);
+    $content = $this->ade_browser->getUrl($this->getUrl());
 
     // Create the directory if we need to
     if(!is_dir($path))
@@ -154,7 +103,7 @@ class AdeImage
     if(empty($content))     // Do NOT remove cache if the file is empty (there is likely a problem)
     {
       sfContext::getInstance()->getLogger()->info('Image vide lors du téléchargement ! Cache non réécrit');
-      $this->error = "empty picture : ".$this->url;
+      $this->error = "empty picture : ".$this->getUrl();
     }
     else
     {
@@ -165,7 +114,7 @@ class AdeImage
       if (getimagesize($tempname)== false)
       {
         sfContext::getInstance()->getLogger()->info('le contenu n\'est pas une image. Pas de remplacement !');
-        $this->error = "not a picture : ".$this->url;
+        $this->error = "not a picture : ".$this->getUrl();
       }
       else
       { // it seems OK, we can write it
@@ -179,17 +128,17 @@ class AdeImage
 
   public function getPath()
   {
-    return str_replace(',','-',sfConfig::get('sf_web_dir').'/images/edt/'.$this->idTree.'/');
+    return str_replace(',','-',sfConfig::get('sf_web_dir').'/images/edt/'.$this->promotion->getIdTree().'/');
   }
 
   protected function getFilename()
   {
-    return str_replace(',','-',$this->idPianoWeek).'.gif';
+    return str_replace(',','-',$this->semaine).'.gif';
   }
 
   public function getWebPath()
   {
-    return '/images/edt/'.str_replace(',','-',$this->idTree).'/'.str_replace(',','-',$this->idPianoWeek).'.gif';
+    return '/images/edt/'.str_replace(',','-',$this->promotion->getIdTree()).'/'.str_replace(',','-',$this->semaine).'.gif';
   }
   public function getInfoPath()
   {
@@ -343,10 +292,7 @@ END:VTIMEZONE\n\n";
   {
     return $this->error;
   }
-  public function getUrl()
-  {
-    return $this->url;
-  }
+
 }
 
 
