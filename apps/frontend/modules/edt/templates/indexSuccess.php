@@ -10,9 +10,9 @@
 
 
 <ul >
-<?php foreach(sfConfig::get('sf_filieres') as $id_f => $filiere): ?>
-  <li><?php echo image_tag("logos/$id_f.png", "alt='logo $id_f'") ?>
-      <?php echo link_to($filiere['nom'], '@filiere_index?filiere='.$id_f) ?>
+<?php foreach($filieres as $filiere): ?>
+  <li><?php echo image_tag("logos/".$filiere->getLogo(), "alt='logo ".$filiere."'") ?>
+      <?php echo link_to($filiere, '@filiere_index?filiere='.$filiere->getUrl()) ?>
   </li>
 <?php endforeach ?>
 </ul>

@@ -35,7 +35,10 @@ class edtActions extends sfActions
           $this->redirect("@image?filiere=$filiere&promo=$promo&semaine=");
       }
     }
-    // Si on n'a pas redirigé, pas de cookie ou cookie erroné
+    // Si on n'a pas redirigé, pas de cookie ou cookie erroné, on affiche la liste des filières
+    $this->filieres = Doctrine_Core::getTable('Filiere')
+      ->createQuery('f')
+      ->execute();
   }
 
   public function executeIndexPromo(sfWebRequest $request)
