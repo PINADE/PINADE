@@ -43,7 +43,7 @@ class AdeImage
       "&width=".$this->promotion->getWidth().
       "&height=".$this->promotion->getHeight().
       "&lunchName=REPAS".
-      "&displayMode=".sfConfig::get('sfade_display_mode').
+      "&displayMode=".sfConfig::get('sf_ade_display_mode').
       "&showLoad=false".
       "&ttl=1283427991552".
       "&displayConfId=".sfConfig::get('sf_ade_display_conf_id');

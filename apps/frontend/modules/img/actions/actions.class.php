@@ -16,15 +16,18 @@ class imgActions extends sfActions
   */
   public function executeImg(sfWebRequest $request)
   {
-    $filiere = $request->getParameter('filiere');
-    $promo = $request->getParameter('promo');
-    
+    $this->promotion = Doctrine_Core::getTable('Promotion')
+      ->createQuery('p')
+      ->leftJoin('p.Filiere f')
+      ->where('p.url = ? AND f.url = ?', array($request->getParameter('promo'),  $request->getParameter('filiere')))
+      ->execute()
+      ->getFirst();
+    $this->filiere = $this->promotion->getFiliere();
+
     $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
 
-    $adeImage = new AdeImage(
-      array(array('filiere' => $filiere, 'promo' => $promo )),
-      array('idPianoWeek' => $semaine)
-    );
+    $adeImage = new AdeImage($this->promotion, $semaine);
+
     $adeImage->updateImage();
 
     $filepath = sfConfig::get('sf_web_dir').$adeImage->getWebPath();
@@ -54,20 +57,21 @@ class imgActions extends sfActions
   */
   public function executeDetails(sfWebRequest $request)
   {
-    $filiere = $request->getParameter('filiere');
-    $promo = $request->getParameter('promo');
+    $this->promotion = Doctrine_Core::getTable('Promotion')
+      ->createQuery('p')
+      ->leftJoin('p.Filiere f')
+      ->where('p.url = ? AND f.url = ?', array($request->getParameter('promo'),  $request->getParameter('filiere')))
+      ->execute()
+      ->getFirst();
+    $this->filiere = $this->promotion->getFiliere();
     
     $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
 
-    $adeImage = new AdeImage(
-      array(array('filiere' => $filiere, 'promo' => $promo )),
-      array('idPianoWeek' => $semaine)
-    );
+    $adeImage = new AdeImage($this->promotion, $semaine);
+
 
     $filepath = sfConfig::get('sf_web_dir').$adeImage->getWebPath();
 
-    $this->filiere = $filiere;
-    $this->promo = $promo;
     $this->semaine = $semaine;
     $this->img_filepath = $filepath;
     $this->ical_filepath = $adeImage->getIcalPath();
