@@ -1,0 +1,57 @@
+Promotion:
+  Promotion_1:
+    url: 1a
+    nom: 1A
+    description: 'Informatique & Réseaux 1a'
+    Filiere: Filiere_1
+    id_tree: '271,177,178,179,180,181,182,183,184'
+    id_piano_day: '0,1,2,3,4'
+    width: '800'
+    height: '600'
+  Promotion_2:
+    url: 2a
+    nom: 2A
+    description: 'Informatique & Réseaux 2a'
+    Filiere: Filiere_1
+    id_tree: '192,237,238,20,21,22,24,31,136,244,247,137,138,139,141,142'
+    id_piano_day: '0,1,2,3,4'
+    width: '800'
+    height: '600'
+  Promotion_3:
+    url: 2a
+    nom: 2A
+    description: 'Auto 2a'
+    Filiere: Filiere_2
+    id_tree: '215,240,242,119,122,123,124,126,111,249,250,112,114,120,133,134'
+    id_piano_day: '0,1,2,3,4'
+    width: '800'
+    height: '600'
+  Promotion_4:
+    url: 1a
+    nom: 1A
+    description: 'Auto 1a'
+    Filiere: Filiere_2
+    id_tree: '271,204,186,187,131,130,129,128,127'
+    id_piano_day: '0,1,2,3,4'
+    width: '800'
+    height: '600'
+  Promotion_5:
+    url: 3a
+    nom: 3A
+    description: 'Informatique & Réseaux 3a'
+    Filiere: Filiere_1
+    id_tree: '147,148,149,113,116,117,118'
+    id_piano_day: '0,1,2,3,4'
+    width: '800'
+    height: '600'
+Filiere:
+  Filiere_1:
+    url: info
+    nom: Informatique
+    description: "Informatique & Réseaux\r\n"
+    logo: info.png
+  Filiere_2:
+    url: auto
+    nom: Automatiques
+    description: null
+    logo: auto.png
