@@ -49,6 +49,7 @@ class edtActions extends sfActions
   {
     $this->filiere = Doctrine_Core::getTable('Filiere')
       ->createQuery('f')
+      ->leftJoin('f.Promotions p')
       ->where('f.url = ?', array($request->getParameter('filiere')))
       ->execute()
       ->getFirst();

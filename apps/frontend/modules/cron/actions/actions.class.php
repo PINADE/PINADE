@@ -21,28 +21,23 @@ class cronActions extends sfActions
       $this->redirect('@homepage');
     }
     
-    $filieres = sfConfig::get('sf_filieres');
+    $promotions = Doctrine_Core::getTable('Promotion')
+      ->createQuery('f')
+      ->execute();
+
     $semaine = AdeTools::getSemaineNumber();
-    $adeImage = new AdeImage();
 
     $message = "";
     // Pour la semaine en cours et la suivante
     foreach(array($semaine, $semaine +1) as $semaine)
     {
-      // Pour chaque filière de chaque semaine
-      foreach($filieres as $id_f => $filiere)
+      // Pour chaque promo de chaque filiere de chaque semaine
+      foreach($promotions as $promotion)
       {
-        // Et pour chaque promo de chaque filiere de chaque semaine
-        foreach($filiere['promotions'] as $id_p => $promotion)
-        {
-          // On crée une image ADE, qu'on met à jour en forçant l'update
-          $adeImage->initialize(
-            array(array('filiere' => $id_f, 'promo' => $id_p )),
-            array('idPianoWeek' => $semaine)
-          );
-          $adeImage->updateImage(true);
-          $message .= '- '.$filiere['nom'].', '.$promotion['nom'].", semaine $semaine mis à jour\n";
-        }
+        // On crée une image ADE, qu'on met à jour en forçant l'update
+        $adeImage = new AdeImage($promotion, $semaine);
+        $adeImage->updateImage(true);
+        $message .= '- '.$promotion->getFiliere().', '.$promotion.", semaine $semaine mis à jour\n";
       }
     }
     $this->message = $message;
@@ -59,27 +54,23 @@ class cronActions extends sfActions
       $this->redirect('@homepage');
     }
     
-    $filieres = sfConfig::get('sf_filieres');
+    $promotions = Doctrine_Core::getTable('Promotion')
+      ->createQuery('f')
+      ->execute();
+
     $semaine = AdeTools::getSemaineNumber();
-    $adeImage = new AdeImage();
 
     $message = "";
 
-    // Pour chaque filière de chaque semaine
-    foreach($filieres as $id_f => $filiere)
+    // Pour chaque promo de chaque filiere de chaque semaine
+    foreach($promotions as $promotion)
     {
-      // Et pour chaque promo de chaque filiere de chaque semaine
-      foreach($filiere['promotions'] as $id_p => $promotion)
-      {
-        // On crée une image ADE, qu'on met à jour en forçant l'update
-        $adeImage->initialize(
-          array(array('filiere' => $id_f, 'promo' => $id_p )),
-          array('idPianoWeek' => $semaine)
-        );
-        $adeImage->updateHtml();
-        $adeImage->updateIcal();
-        $message .= '- '.$filiere['nom'].', '.$promotion['nom']."\n";
-      }
+      // On crée une image ADE, qu'on met à jour en forçant l'update
+      $adeImage = new AdeImage($promotion, $semaine);
+
+      $adeImage->updateHtml();
+      $adeImage->updateIcal();
+      $message .= '- '.$promotion->getFiliere().', '.$promotion." mis à jour\n";
     }
 
     $this->message = $message;
