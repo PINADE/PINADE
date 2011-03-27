@@ -5,6 +5,9 @@ Promotion:
     description: 'Informatique & Réseaux 1a'
     Filiere: Filiere_1
     id_tree: '271,177,178,179,180,181,182,183,184'
+    branch_id: '199,203,159,165'
+    select_branch_id: '175,151'
+    select_id: null
     id_piano_day: '0,1,2,3,4'
     width: '800'
     height: '600'
@@ -14,6 +17,9 @@ Promotion:
     description: 'Informatique & Réseaux 2a'
     Filiere: Filiere_1
     id_tree: '192,237,238,20,21,22,24,31,136,244,247,137,138,139,141,142'
+    branch_id: '199,203,115,17,110'
+    select_branch_id: '91,132'
+    select_id: null
     id_piano_day: '0,1,2,3,4'
     width: '800'
     height: '600'
@@ -23,6 +29,9 @@ Promotion:
     description: 'Auto 2a'
     Filiere: Filiere_2
     id_tree: '215,240,242,119,122,123,124,126,111,249,250,112,114,120,133,134'
+    branch_id: '199,203,115,17,110'
+    select_branch_id: '103,135'
+    select_id: null
     id_piano_day: '0,1,2,3,4'
     width: '800'
     height: '600'
@@ -32,6 +41,9 @@ Promotion:
     description: 'Auto 1a'
     Filiere: Filiere_2
     id_tree: '271,204,186,187,131,130,129,128,127'
+    branch_id: '199,203,159,151,165'
+    select_branch_id: '121'
+    select_id: '271'
     id_piano_day: '0,1,2,3,4'
     width: '800'
     height: '600'
@@ -41,6 +53,9 @@ Promotion:
     description: 'Informatique & Réseaux 3a'
     Filiere: Filiere_1
     id_tree: '147,148,149,113,116,117,118'
+    branch_id: '199,203,143,145'
+    select_branch_id: '146'
+    select_id: null
     id_piano_day: '0,1,2,3,4'
     width: '800'
     height: '600'
