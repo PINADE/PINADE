@@ -39,5 +39,5 @@ all:
 
 
     # Enable the database manager
-    use_database:           false
+    use_database:           true
 
