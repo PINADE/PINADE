@@ -66,6 +66,8 @@ class edtActions extends sfActions
       ->where('p.url = ? AND f.url = ?', array($request->getParameter('promo'),  $request->getParameter('filiere')))
       ->execute()
       ->getFirst();
+    $this->forward404Unless($this->promotion);
+
     $this->filiere = $this->promotion->getFiliere();
 
     $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
