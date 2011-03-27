@@ -20,7 +20,7 @@ all:
     branches_to_id: [ 199, 190, 16 ]
 
     css:
-      style1: { title: "Style 1" }
+      flat: { title: "Flat" }
     #  antoine: { title: "Clear style" }
 
 
