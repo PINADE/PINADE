@@ -40,12 +40,14 @@ class edtActions extends sfActions
 
   public function executeIndexPromo(sfWebRequest $request)
   {
-    $filieres = sfConfig::get('sf_filieres');
-    $this->filiere = $request->getParameter('filiere');
-    if(isset($filieres[$this->filiere]['nom']))
-      $this->nom_filiere = $filieres[$this->filiere]['nom'];
-    else
-      throw new sfError404Exception('La filière '.$this->filiere.' n\'existe pas');
+    $this->filiere = Doctrine_Core::getTable('Filiere')
+      ->createQuery('f')
+      ->where('f.url = ?', array($request->getParameter('filiere')))
+      ->execute()
+      ->getFirst();
+
+    $this->forward404Unless( $this->filiere, sprintf('Object filiere does not exist (%s).', $request->getParameter('filiere')));
+
   }
   
   public function executeImage(sfWebRequest $request)
