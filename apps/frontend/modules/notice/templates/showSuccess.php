@@ -14,7 +14,7 @@
 <p class="center">
   <?php echo link_to(image_tag('divers/precedent.png', 'alt="<<"')
 , "@notice?action=show&filiere=$filiere&promo=$promo&semaine=".max(0,$semaine-1)) ?>
-  <?php echo link_to('semaine actuelle', "@image?filiere=$filiere&promo=$promo&semaine=$semaine") ?>
+  <?php echo link_to('semaine actuelle', "@notice?action=show&filiere=$filiere&promo=$promo&semaine=$semaine") ?>
   <?php echo link_to(image_tag('divers/suivant.png', 'alt=">>"'), "@notice?action=show&filiere=$filiere&promo=$promo&semaine=".($semaine + 1)) ?>
 </p>
 <img src='<?php echo url_for("@image_img?filiere=$filiere&promo=$promo&semaine=$semaine") ?>/img.gif' alt='emploi du temps <?php echo $filiere." ".$promo ?>'/>
