@@ -154,7 +154,6 @@ class AdeImage
 
   public function updateHtml()
   {
-    $filieres = sfConfig::get('sf_filieres');
 
     // Select Project
     $this->ade_browser->getUrl(sfConfig::get('sf_ade_url').'standard/gui/interface.jsp', 'projectId='.sfConfig::get('sf_ade_project_id').'&x=41&y=9');
@@ -164,7 +163,7 @@ class AdeImage
     $this->ade_browser->getUrl(sfConfig::get('sf_ade_url').'standard/gui/tree.jsp?category=trainee&expand=false&forceLoad=false&reload=false&scroll=0');
 
     $reset = "true";
-    foreach($filieres[$this->nom_filiere]['promotions'][$this->nom_promo]['branchId'] as $branchId)
+    foreach(explode(",",$this->promotion->getBranchId()) as $branchId)
     {
       // Select a group
       $this->ade_browser->getUrl(sfConfig::get('sf_ade_url').'standard/gui/tree.jsp?branchId='.$branchId.'&reset='.$reset.'&forceLoad=false&scroll=0');
@@ -172,7 +171,7 @@ class AdeImage
     }
 
     $reset = "true";
-    foreach($filieres[$this->nom_filiere]['promotions'][$this->nom_promo]['selectBranchId'] as $selectBranchId)
+    foreach(explode(",",$this->promotion->getSelectBranchId()) as $selectBranchId)
     {
       // "Click" on a branch
       $this->ade_browser->getUrl(sfConfig::get('sf_ade_url').'standard/gui/tree.jsp?selectBranchId='.$selectBranchId.'&reset='.$reset.'&forceLoad=false&scroll=0');
@@ -180,7 +179,7 @@ class AdeImage
     }
 
     $reset = "true";
-    foreach($filieres[$this->nom_filiere]['promotions'][$this->nom_promo]['selectId'] as $selectId)
+    foreach(explode(",",$this->promotion->getSelectId()) as $selectId)
     {
       // "Click" on a group
       $this->ade_browser->getUrl(sfConfig::get('sf_ade_url').'standard/gui/tree.jsp?selectId='.$selectId.'&reset='.$reset.'&forceLoad=false&scroll=0');
@@ -222,7 +221,7 @@ PRODID:-//edt.iariss.fr//Symfony1.4 iariss.fr//EN
 VERSION:2.0
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:edt.iariss.fr - ".$this->nom_promo." - ".$this->nom_filiere."
+X-WR-CALNAME:edt.iariss.fr - ".$this->promotion." - ".$this->promotion->getFiliere()."
 X-WR-TIMEZONE:Europe/Paris
 BEGIN:VTIMEZONE
 TZID:Europe/Paris
@@ -276,7 +275,7 @@ END:VTIMEZONE\n\n";
       $ical .= "DURATION:PT".intval($duree[0])."H".intval($duree[1])."M0S\n";
       $ical .= 'LOCATION:'.$salle."\n";
       $ical .= "DESCRIPTION:$nom - $salle - $prof - $promo - ".$entree['date']." - ".$entree['heure']." (".$entree['duree'].")\n";
-      $ical .= "UID:".$date[2].$date[1].$date[0]."T".$heure[0].$heure[1]."01-$prof$salle$type".$this->nom_promo."-".$this->nom_filiere."@edt.iariss.fr\n";
+      $ical .= "UID:".$date[2].$date[1].$date[0]."T".$heure[0].$heure[1]."01-$prof$salle$type".$this->promotion."-".$this->promotion->getFiliere()."@edt.iariss.fr\n";
       $ical .= "END:VEVENT\n\n";      
 
     }
