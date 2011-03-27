@@ -12,4 +12,8 @@
  */
 class Filiere extends BaseFiliere
 {
+  public function __toString()
+  {
+    return $this->getNom();
+  }
 }

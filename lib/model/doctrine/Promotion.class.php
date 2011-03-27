@@ -12,4 +12,8 @@
  */
 class Promotion extends BasePromotion
 {
+  public function __toString()
+  {
+    return $this->getNom();
+  }
 }
