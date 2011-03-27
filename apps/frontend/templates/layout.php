@@ -33,13 +33,16 @@
                 <?php echo link_to('Accueil', '@homepage', "inline") ?>
 
               </li>
-<?php $filieres = sfConfig::get('sf_filieres') ?>
-<?php foreach($filieres as $id_f => $filiere): ?>
-              <li><?php echo image_tag("logos/$id_f.png", "alt='logo $id_f'") ?><?php echo $filiere['nom'] ?>
+<?php $filieres = Doctrine_Core::getTable('Filiere')
+      ->createQuery('f')
+      ->execute();
+?>
+<?php foreach($filieres as $filiere): ?>
+              <li><?php echo image_tag("logos/".$filiere->getLogo(), "alt='logo ".$filiere."'") ?><?php echo $filiere ?>
 
                 <ul>
-  <?php foreach($filiere['promotions'] as $id_p => $promo): ?>
-                <li><?php echo link_to($promo['nom'], "@image?filiere=$id_f&promo=$id_p&semaine=".$sf_request->getParameter('semaine')) ?></li>
+  <?php foreach($filiere->getPromotions() as $promo): ?>
+                <li><?php echo link_to($promo, "@image?filiere=".$filiere->getUrl()."&promo=".$promo->getUrl()."&semaine=".$sf_request->getParameter('semaine')) ?></li>
   <?php endforeach ?>
               </ul>
               </li>
