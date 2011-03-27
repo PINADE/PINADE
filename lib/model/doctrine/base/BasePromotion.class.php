@@ -10,29 +10,38 @@
  * @property string $description
  * @property integer $filiere_id
  * @property string $id_tree
+ * @property string $branch_id
+ * @property string $select_branch_id
+ * @property string $select_id
  * @property string $id_piano_day
  * @property integer $width
  * @property integer $height
  * @property Filiere $Filiere
  * 
- * @method string    getUrl()          Returns the current record's "url" value
- * @method string    getNom()          Returns the current record's "nom" value
- * @method string    getDescription()  Returns the current record's "description" value
- * @method integer   getFiliereId()    Returns the current record's "filiere_id" value
- * @method string    getIdTree()       Returns the current record's "id_tree" value
- * @method string    getIdPianoDay()   Returns the current record's "id_piano_day" value
- * @method integer   getWidth()        Returns the current record's "width" value
- * @method integer   getHeight()       Returns the current record's "height" value
- * @method Filiere   getFiliere()      Returns the current record's "Filiere" value
- * @method Promotion setUrl()          Sets the current record's "url" value
- * @method Promotion setNom()          Sets the current record's "nom" value
- * @method Promotion setDescription()  Sets the current record's "description" value
- * @method Promotion setFiliereId()    Sets the current record's "filiere_id" value
- * @method Promotion setIdTree()       Sets the current record's "id_tree" value
- * @method Promotion setIdPianoDay()   Sets the current record's "id_piano_day" value
- * @method Promotion setWidth()        Sets the current record's "width" value
- * @method Promotion setHeight()       Sets the current record's "height" value
- * @method Promotion setFiliere()      Sets the current record's "Filiere" value
+ * @method string    getUrl()              Returns the current record's "url" value
+ * @method string    getNom()              Returns the current record's "nom" value
+ * @method string    getDescription()      Returns the current record's "description" value
+ * @method integer   getFiliereId()        Returns the current record's "filiere_id" value
+ * @method string    getIdTree()           Returns the current record's "id_tree" value
+ * @method string    getBranchId()         Returns the current record's "branch_id" value
+ * @method string    getSelectBranchId()   Returns the current record's "select_branch_id" value
+ * @method string    getSelectId()         Returns the current record's "select_id" value
+ * @method string    getIdPianoDay()       Returns the current record's "id_piano_day" value
+ * @method integer   getWidth()            Returns the current record's "width" value
+ * @method integer   getHeight()           Returns the current record's "height" value
+ * @method Filiere   getFiliere()          Returns the current record's "Filiere" value
+ * @method Promotion setUrl()              Sets the current record's "url" value
+ * @method Promotion setNom()              Sets the current record's "nom" value
+ * @method Promotion setDescription()      Sets the current record's "description" value
+ * @method Promotion setFiliereId()        Sets the current record's "filiere_id" value
+ * @method Promotion setIdTree()           Sets the current record's "id_tree" value
+ * @method Promotion setBranchId()         Sets the current record's "branch_id" value
+ * @method Promotion setSelectBranchId()   Sets the current record's "select_branch_id" value
+ * @method Promotion setSelectId()         Sets the current record's "select_id" value
+ * @method Promotion setIdPianoDay()       Sets the current record's "id_piano_day" value
+ * @method Promotion setWidth()            Sets the current record's "width" value
+ * @method Promotion setHeight()           Sets the current record's "height" value
+ * @method Promotion setFiliere()          Sets the current record's "Filiere" value
  * 
  * @package    edt
  * @subpackage model
@@ -61,6 +70,18 @@ abstract class BasePromotion extends sfDoctrineRecord
              'notnull' => true,
              ));
         $this->hasColumn('id_tree', 'string', 255, array(
+             'type' => 'string',
+             'length' => 255,
+             ));
+        $this->hasColumn('branch_id', 'string', 255, array(
+             'type' => 'string',
+             'length' => 255,
+             ));
+        $this->hasColumn('select_branch_id', 'string', 255, array(
+             'type' => 'string',
+             'length' => 255,
+             ));
+        $this->hasColumn('select_id', 'string', 255, array(
              'type' => 'string',
              'length' => 255,
              ));
