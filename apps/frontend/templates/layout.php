@@ -35,6 +35,7 @@
               </li>
 <?php $filieres = Doctrine_Core::getTable('Filiere')
       ->createQuery('f')
+      ->leftJoin('f.Promotions p')
       ->execute();
 ?>
 <?php foreach($filieres as $filiere): ?>
