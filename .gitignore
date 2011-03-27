@@ -7,4 +7,5 @@ log/*
 !log/dummy.txt
 web/images/edt/*
 !web/images/edt/dummy.txt
+config/databases.yml
 
