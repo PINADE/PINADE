@@ -51,6 +51,7 @@ class edtActions extends sfActions
       ->createQuery('f')
       ->leftJoin('f.Promotions p')
       ->where('f.url = ?', array($request->getParameter('filiere')))
+      ->orderBy('p.weight ASC')
       ->execute()
       ->getFirst();
 

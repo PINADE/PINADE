@@ -36,6 +36,9 @@
 <?php $filieres = Doctrine_Core::getTable('Filiere')
       ->createQuery('f')
       ->leftJoin('f.Promotions p')
+      ->where('f.in_menu = 1')
+      ->andWhere('p.in_menu = 1')
+      ->orderBy('f.weight ASC, p.weight ASC')
       ->execute();
 ?>
 <?php foreach($filieres as $filiere): ?>
