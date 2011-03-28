@@ -207,3 +207,9 @@ img {
 .button:hover, .button:focus {
   color: #6E5122;
 }
+
+.erreur {
+  border: 2px solid red;
+  padding: 5px;
+  background: #EEE;
+}
