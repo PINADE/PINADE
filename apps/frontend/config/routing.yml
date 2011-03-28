@@ -66,6 +66,16 @@ offline_action:
   url:  /offline/:action/*
   param: { module: offline }
 
+# Myedt
+myedt:
+  url:  /myedt/:action/*
+  param: { module: myedt }
+
+myedt_default:
+  url:  /myedt/*
+  param: { module: myedt, action: index }
+
+
 # Page de l'edt pour la semaine courante
 image_default_index:
   url:  /:filiere/:promo
