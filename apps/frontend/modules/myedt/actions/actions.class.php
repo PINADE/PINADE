@@ -43,7 +43,7 @@ class myedtActions extends sfActions
     $idTree = $matches['idTree'][1];
     $nom = $request->getParameter('nom');
 
-    if($request->getParameter('nom') == "" || (preg_match("@^[a-zA-Z\-_]+$@", $nom, $dummy) == 0))
+    if($request->getParameter('nom') == "" || (preg_match("@^[0-9a-zA-Z\-_]+$@", $nom, $dummy) == 0))
     {
       $request->setParameter('erreur', "Nom vide ou avec des caractères invalides !");
       $this->forward('myedt', 'import');
