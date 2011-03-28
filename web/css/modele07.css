@@ -16,7 +16,6 @@
 
 /* Général */
 body {
-  color: #F0E39E;
   background: #2C2F22;
 }
 a {
@@ -39,7 +38,7 @@ strong {
   background: #181A12; /* -> 2 */
   position: absolute;
   top:2em;
-
+  color: #F0E39E;
 }
 #navigation a {
   color: #FF6533;
@@ -163,6 +162,7 @@ h1,h2,h3 {
   padding: 15px 20px 10px 0;
   font-size: .85em;
   text-align: center;
+  color: #F0E39E;
 }
 
 /* Mention de copyright */
