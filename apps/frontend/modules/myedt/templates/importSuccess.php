@@ -1,5 +1,5 @@
 <form action="<?php echo url_for('myedt/CreateFromImport') ?>" method="post">
-  <?php if(isset($erreur) && !empty($erreur)): ?>
+  <?php if(($erreur = $sf_request->getParameter('erreur'))): ?>
     <div class="erreur"><?php echo $erreur ?></div>
   <?php endif ?>
 
