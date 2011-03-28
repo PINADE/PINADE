@@ -4,6 +4,9 @@ Promotion:
     nom: 1A
     description: 'Informatique & Réseaux 1a'
     Filiere: Filiere_1
+    weight: '0'
+    in_menu: true
+    project_id: '19'
     id_tree: '271,177,178,179,180,181,182,183,184'
     branch_id: '199,203,159,165'
     select_branch_id: '175,151'
@@ -16,6 +19,9 @@ Promotion:
     nom: 2A
     description: 'Informatique & Réseaux 2a'
     Filiere: Filiere_1
+    weight: '2'
+    in_menu: true
+    project_id: '19'
     id_tree: '192,237,238,20,21,22,24,31,136,244,247,137,138,139,141,142'
     branch_id: '199,203,115,17,110'
     select_branch_id: '91,132'
@@ -28,6 +34,9 @@ Promotion:
     nom: 2A
     description: 'Auto 2a'
     Filiere: Filiere_2
+    weight: '2'
+    in_menu: true
+    project_id: '19'
     id_tree: '215,240,242,119,122,123,124,126,111,249,250,112,114,120,133,134'
     branch_id: '199,203,115,17,110'
     select_branch_id: '103,135'
@@ -40,6 +49,9 @@ Promotion:
     nom: 1A
     description: 'Auto 1a'
     Filiere: Filiere_2
+    weight: '0'
+    in_menu: true
+    project_id: '19'
     id_tree: '271,204,186,187,131,130,129,128,127'
     branch_id: '199,203,159,151,165'
     select_branch_id: '121'
@@ -52,9 +64,222 @@ Promotion:
     nom: 3A
     description: 'Informatique & Réseaux 3a'
     Filiere: Filiere_1
+    weight: '4'
+    in_menu: true
+    project_id: '19'
     id_tree: '147,148,149,113,116,117,118'
     branch_id: '199,203,143,145'
     select_branch_id: '146'
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    width: '800'
+    height: '600'
+  Promotion_6:
+    url: 3a
+    nom: 3A
+    description: null
+    Filiere: Filiere_2
+    weight: '4'
+    in_menu: true
+    project_id: '19'
+    id_tree: '144,113,116,117,118'
+    branch_id: '199,203,143'
+    select_branch_id: '145'
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    width: '800'
+    height: '600'
+  Promotion_7:
+    url: 1a
+    nom: 1A
+    description: null
+    Filiere: Filiere_3
+    weight: '0'
+    in_menu: true
+    project_id: '19'
+    id_tree: '369,371,373,374,375,376,377'
+    branch_id: '275,278'
+    select_branch_id: '282'
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    width: '800'
+    height: '600'
+  Promotion_8:
+    url: 2a
+    nom: 2A
+    description: null
+    Filiere: Filiere_3
+    weight: '2'
+    in_menu: true
+    project_id: '19'
+    id_tree: '393,394,395,397,399,390'
+    branch_id: '275,283'
+    select_branch_id: '285'
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    width: '800'
+    height: '600'
+  Promotion_9:
+    url: 3a
+    nom: 3A
+    description: null
+    Filiere: Filiere_3
+    weight: '4'
+    in_menu: true
+    project_id: '19'
+    id_tree: '401,402,400,403'
+    branch_id: '275,286'
+    select_branch_id: '288'
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    width: '800'
+    height: '600'
+  Promotion_10:
+    url: 1a
+    nom: 1A
+    description: null
+    Filiere: Filiere_4
+    weight: '0'
+    in_menu: true
+    project_id: '19'
+    id_tree: '305,306,307,308,309,310,311,304'
+    branch_id: '275,278'
+    select_branch_id: '279'
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    width: '800'
+    height: '600'
+  Promotion_11:
+    url: 2a
+    nom: 2A
+    description: null
+    Filiere: Filiere_4
+    weight: '2'
+    in_menu: true
+    project_id: '19'
+    id_tree: '382,383,385,386,387,388,389,384'
+    branch_id: '275,283'
+    select_branch_id: '284'
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    width: '800'
+    height: '600'
+  Promotion_12:
+    url: 3a
+    nom: 3A
+    description: null
+    Filiere: Filiere_4
+    weight: '6'
+    in_menu: true
+    project_id: '19'
+    id_tree: '406,407,409,410,411,404'
+    branch_id: '275,286'
+    select_branch_id: '287'
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    width: '800'
+    height: '600'
+  Promotion_13:
+    url: 1a
+    nom: 1A
+    description: null
+    Filiere: Filiere_5
+    weight: '0'
+    in_menu: true
+    project_id: '19'
+    id_tree: '268,107,262,263,266,267'
+    branch_id: '199,190'
+    select_branch_id: '16'
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    width: '800'
+    height: '600'
+  Promotion_14:
+    url: 2a
+    nom: 2A
+    description: null
+    Filiere: Filiere_5
+    weight: '2'
+    in_menu: true
+    project_id: '19'
+    id_tree: '256,78,162,185,188,222,254'
+    branch_id: '199,190'
+    select_branch_id: '213'
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    width: '800'
+    height: '600'
+  Promotion_15:
+    url: l3
+    nom: L3
+    description: null
+    Filiere: Filiere_6
+    weight: '0'
+    in_menu: true
+    project_id: '19'
+    id_tree: '312,504,505'
+    branch_id: '275'
+    select_branch_id: '292'
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    width: '800'
+    height: '600'
+  Promotion_16:
+    url: m1
+    nom: M1
+    description: null
+    Filiere: Filiere_6
+    weight: '2'
+    in_menu: true
+    project_id: '19'
+    id_tree: '313,507,508'
+    branch_id: '275'
+    select_branch_id: '296'
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    width: '800'
+    height: '600'
+  Promotion_17:
+    url: m2
+    nom: M2
+    description: null
+    Filiere: Filiere_6
+    weight: '4'
+    in_menu: true
+    project_id: '19'
+    id_tree: '314'
+    branch_id: '275'
+    select_branch_id: '297'
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    width: '800'
+    height: '600'
+  Promotion_18:
+    url: msf
+    nom: MSF
+    description: null
+    Filiere: Filiere_6
+    weight: '6'
+    in_menu: true
+    project_id: '19'
+    id_tree: '412,413'
+    branch_id: '275'
+    select_branch_id: '294,295'
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    width: '800'
+    height: '600'
+  Promotion_19:
+    url: mr
+    nom: MR
+    description: null
+    Filiere: Filiere_1
+    weight: '10'
+    in_menu: true
+    project_id: '19'
+    id_tree: '573,580,581,560,575,582,584,583,570'
+    branch_id: '199'
+    select_branch_id: '207'
     select_id: null
     id_piano_day: '0,1,2,3,4'
     width: '800'
@@ -65,8 +290,40 @@ Filiere:
     nom: Informatique
     description: "Informatique & Réseaux\r\n"
     logo: info.png
+    weight: '0'
+    in_menu: true
   Filiere_2:
     url: auto
-    nom: Automatiques
+    nom: Automatique
     description: null
     logo: auto.png
+    weight: '3'
+    in_menu: true
+  Filiere_3:
+    url: text
+    nom: Textile
+    description: null
+    logo: text.png
+    weight: '6'
+    in_menu: true
+  Filiere_4:
+    url: meca
+    nom: Mécanique
+    description: null
+    logo: meca.png
+    weight: '8'
+    in_menu: true
+  Filiere_5:
+    url: prod
+    nom: 'Système de Production'
+    description: null
+    logo: prod.png
+    weight: '10'
+    in_menu: true
+  Filiere_6:
+    url: lmme
+    nom: 'Licences/Masters Méca'
+    description: null
+    logo: lmme.png
+    weight: '15'
+    in_menu: true
