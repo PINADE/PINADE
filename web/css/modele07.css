@@ -138,6 +138,7 @@ body {
 #contenu {
   margin-left: 200px; 
   padding: 10px 20px;
+  overflow-x: auto;
 }
 /*
  #contenu > :first-child {
