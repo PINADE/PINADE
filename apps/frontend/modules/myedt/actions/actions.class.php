@@ -20,19 +20,19 @@ class myedtActions extends sfActions
     // idPianoWeek=31
     // idPianoDay=0,1,2,3,4
     // idTree=147,148,149,113,116,117,118
-    $url = $request->getParameter('url');
+    $url = urldecode($request->getParameter('url'));
     $patterns = array(
-      'projectId'   => "@projectId=([\d]+)@",
-      'idPianoWeek' => "@idPianoWeek=([\d]+)@",
-      'idPianoDay'  => "@idPianoDay=([\d,]+)@",
-      'idTree'      => "@idTree=([\d,]+)@",
+      'projectId'   => "@projectId=([\d]+)&@",
+      'idPianoWeek' => "@idPianoWeek=([\d]+)&@",
+      'idPianoDay'  => "@idPianoDay=([\d,]+)&@",
+      'idTree'      => "@idTree=([\d,]+)&@",
     );
     
     foreach($patterns as $id => $pattern)
     {
       if(preg_match($pattern, $url, $matches[$id]) == 0)
       {
-        $request->setParameter('erreur', "Problème dans l'URL de l'image");
+        $request->setParameter('erreur', "Problème dans l'URL de l'image ($id incorrect/non trouvé)");
         $this->forward('myedt', 'import');
       }
     }
@@ -69,8 +69,14 @@ class myedtActions extends sfActions
       ->where('f.url = "perso"')
       ->execute()->getFirst();
 
+    if(!$filiere)
+    {
+      $request->setParameter('erreur', "Erreur de l'administrateur. La filière 'perso' n'existe pas !");
+      $this->forward('myedt', 'import');
+    }
+
     $promotion = new Promotion();
-    // $promotion->setProjectId($projectId);
+    $promotion->setProjectId($projectId);
     // $promotion->setIdPianoWeek($idPianoWeek);
     $promotion->setIdPianoDay($idPianoDay);
     $promotion->setIdTree($idTree);
