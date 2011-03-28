@@ -17,6 +17,8 @@ abstract class BaseFiliereFormFilter extends BaseFormFilterDoctrine
       'nom'         => new sfWidgetFormFilterInput(),
       'description' => new sfWidgetFormFilterInput(),
       'logo'        => new sfWidgetFormFilterInput(),
+      'weight'      => new sfWidgetFormFilterInput(),
+      'in_menu'     => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
     ));
 
     $this->setValidators(array(
@@ -24,6 +26,8 @@ abstract class BaseFiliereFormFilter extends BaseFormFilterDoctrine
       'nom'         => new sfValidatorPass(array('required' => false)),
       'description' => new sfValidatorPass(array('required' => false)),
       'logo'        => new sfValidatorPass(array('required' => false)),
+      'weight'      => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'in_menu'     => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
     ));
 
     $this->widgetSchema->setNameFormat('filiere_filters[%s]');
@@ -48,6 +52,8 @@ abstract class BaseFiliereFormFilter extends BaseFormFilterDoctrine
       'nom'         => 'Text',
       'description' => 'Text',
       'logo'        => 'Text',
+      'weight'      => 'Number',
+      'in_menu'     => 'Boolean',
     );
   }
 }

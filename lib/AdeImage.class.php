@@ -36,7 +36,7 @@ class AdeImage
 
     return sfConfig::get('sf_ade_url')."imageEt?".
       "identifier=".sfConfig::get('sf_ade_identifier').
-      "&projectId=".sfConfig::get('sf_ade_project_id').
+      "&projectId=".$this->promotion->getProjectId().
       "&idPianoWeek=".$this->semaine.
       "&idPianoDay=".$this->promotion->getIdPianoDay().
       "&idTree=".$this->promotion->getIdTree().

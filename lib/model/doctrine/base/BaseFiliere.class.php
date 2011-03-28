@@ -9,17 +9,23 @@
  * @property string $nom
  * @property string $description
  * @property string $logo
+ * @property integer $weight
+ * @property boolean $in_menu
  * @property Doctrine_Collection $Promotions
  * 
  * @method string              getUrl()         Returns the current record's "url" value
  * @method string              getNom()         Returns the current record's "nom" value
  * @method string              getDescription() Returns the current record's "description" value
  * @method string              getLogo()        Returns the current record's "logo" value
+ * @method integer             getWeight()      Returns the current record's "weight" value
+ * @method boolean             getInMenu()      Returns the current record's "in_menu" value
  * @method Doctrine_Collection getPromotions()  Returns the current record's "Promotions" collection
  * @method Filiere             setUrl()         Sets the current record's "url" value
  * @method Filiere             setNom()         Sets the current record's "nom" value
  * @method Filiere             setDescription() Sets the current record's "description" value
  * @method Filiere             setLogo()        Sets the current record's "logo" value
+ * @method Filiere             setWeight()      Sets the current record's "weight" value
+ * @method Filiere             setInMenu()      Sets the current record's "in_menu" value
  * @method Filiere             setPromotions()  Sets the current record's "Promotions" collection
  * 
  * @package    edt
@@ -47,6 +53,14 @@ abstract class BaseFiliere extends sfDoctrineRecord
         $this->hasColumn('logo', 'string', 255, array(
              'type' => 'string',
              'length' => 255,
+             ));
+        $this->hasColumn('weight', 'integer', null, array(
+             'type' => 'integer',
+             'default' => 0,
+             ));
+        $this->hasColumn('in_menu', 'boolean', null, array(
+             'type' => 'boolean',
+             'default' => false,
              ));
     }
 

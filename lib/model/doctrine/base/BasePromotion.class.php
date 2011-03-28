@@ -9,6 +9,9 @@
  * @property string $nom
  * @property string $description
  * @property integer $filiere_id
+ * @property integer $weight
+ * @property boolean $in_menu
+ * @property string $project_id
  * @property string $id_tree
  * @property string $branch_id
  * @property string $select_branch_id
@@ -22,6 +25,9 @@
  * @method string    getNom()              Returns the current record's "nom" value
  * @method string    getDescription()      Returns the current record's "description" value
  * @method integer   getFiliereId()        Returns the current record's "filiere_id" value
+ * @method integer   getWeight()           Returns the current record's "weight" value
+ * @method boolean   getInMenu()           Returns the current record's "in_menu" value
+ * @method string    getProjectId()        Returns the current record's "project_id" value
  * @method string    getIdTree()           Returns the current record's "id_tree" value
  * @method string    getBranchId()         Returns the current record's "branch_id" value
  * @method string    getSelectBranchId()   Returns the current record's "select_branch_id" value
@@ -34,6 +40,9 @@
  * @method Promotion setNom()              Sets the current record's "nom" value
  * @method Promotion setDescription()      Sets the current record's "description" value
  * @method Promotion setFiliereId()        Sets the current record's "filiere_id" value
+ * @method Promotion setWeight()           Sets the current record's "weight" value
+ * @method Promotion setInMenu()           Sets the current record's "in_menu" value
+ * @method Promotion setProjectId()        Sets the current record's "project_id" value
  * @method Promotion setIdTree()           Sets the current record's "id_tree" value
  * @method Promotion setBranchId()         Sets the current record's "branch_id" value
  * @method Promotion setSelectBranchId()   Sets the current record's "select_branch_id" value
@@ -68,6 +77,19 @@ abstract class BasePromotion extends sfDoctrineRecord
         $this->hasColumn('filiere_id', 'integer', null, array(
              'type' => 'integer',
              'notnull' => true,
+             ));
+        $this->hasColumn('weight', 'integer', null, array(
+             'type' => 'integer',
+             'default' => 0,
+             ));
+        $this->hasColumn('in_menu', 'boolean', null, array(
+             'type' => 'boolean',
+             'default' => false,
+             ));
+        $this->hasColumn('project_id', 'string', 255, array(
+             'type' => 'string',
+             'notnull' => true,
+             'length' => 255,
              ));
         $this->hasColumn('id_tree', 'string', 255, array(
              'type' => 'string',

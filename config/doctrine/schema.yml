@@ -11,6 +11,8 @@ Filiere:
     nom:                { type: string(255) }
     description:        { type: string(4000) }
     logo:               { type: string(255) }
+    weight:             { type: integer, default: 0 }
+    in_menu:            { type: boolean, default: false }
   relations:
     Promotions:  { class: Promotion, local: id, foreign: filiere_id, type: many }
 
@@ -20,6 +22,9 @@ Promotion:
     nom:                { type: string(255) }
     description:        { type: string(4000) }
     filiere_id:         { type: integer, notnull: true }
+    weight:             { type: integer, default: 0 }
+    in_menu:            { type: boolean, default: false }
+    project_id:         { type: string(255), notnull: true }
     id_tree:            { type: string(255) }
     branch_id:          { type: string(255) }
     select_branch_id:   { type: string(255) }

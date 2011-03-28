@@ -20,6 +20,8 @@ abstract class BaseFiliereForm extends BaseFormDoctrine
       'nom'         => new sfWidgetFormInputText(),
       'description' => new sfWidgetFormTextarea(),
       'logo'        => new sfWidgetFormInputText(),
+      'weight'      => new sfWidgetFormInputText(),
+      'in_menu'     => new sfWidgetFormInputCheckbox(),
     ));
 
     $this->setValidators(array(
@@ -28,6 +30,8 @@ abstract class BaseFiliereForm extends BaseFormDoctrine
       'nom'         => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'description' => new sfValidatorString(array('max_length' => 4000, 'required' => false)),
       'logo'        => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'weight'      => new sfValidatorInteger(array('required' => false)),
+      'in_menu'     => new sfValidatorBoolean(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('filiere[%s]');
