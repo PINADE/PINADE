@@ -30,7 +30,11 @@ class myedtActions extends sfActions
     
     foreach($patterns as $id => $pattern)
     {
-      preg_match($pattern, $url, $matches[$id]);
+      if(preg_match($pattern, $url, $matches[$id]) == 0)
+      {
+        $request->setParameter('erreur', "Problème dans l'URL de l'image");
+        $this->forward('myedt', 'import');
+      }
     }
 
     $projectId = $matches['projectId'][1];
@@ -39,21 +43,12 @@ class myedtActions extends sfActions
     $idTree = $matches['idTree'][1];
     $nom = $request->getParameter('nom');
 
-    if(empty($projectId) || empty($idPianoWeek) || empty($idPianoDay) || empty($idTree))
-    {
-      $request->setParameter('erreur', "Problème dans l'URL de l'image");
-      $this->forward('myedt', 'import');
-    }
-    elseif($request->getParameter('nom') == "" || (preg_match("@^[a-zA-Z\-_]+$@", $nom, $dummy) == 0))
+    if($request->getParameter('nom') == "" || (preg_match("@^[a-zA-Z\-_]+$@", $nom, $dummy) == 0))
     {
       $request->setParameter('erreur', "Nom vide ou avec des caractères invalides !");
       $this->forward('myedt', 'import');
     }
 
-    $filiere = Doctrine_Core::getTable('Filiere')
-      ->createQuery('f')
-      ->where('f.url = "perso"')
-      ->execute()->getFirst();
 
     $filiere = Doctrine_Core::getTable('Promotion')
       ->createQuery('p')
@@ -68,6 +63,11 @@ class myedtActions extends sfActions
       $this->forward('myedt', 'import');
     }
 
+
+    $filiere = Doctrine_Core::getTable('Filiere')
+      ->createQuery('f')
+      ->where('f.url = "perso"')
+      ->execute()->getFirst();
 
     $promotion = new Promotion();
     // $promotion->setProjectId($projectId);
