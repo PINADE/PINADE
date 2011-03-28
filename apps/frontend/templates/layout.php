@@ -57,6 +57,11 @@
               Tout est expliqué sur la <?php echo link_to('FAQ', '@faq', 'style="padding:0"') ?>&nbsp;!
             </p>
           </div>
+          <div>
+            <p>
+              <b><a href="<?php echo url_for('@myedt?action=import') ?>">Importez votre agenda&nbsp;!</a></b>
+            </p>
+          </div>
           <div id="liens-internes">
             <b>Liens utiles</b>
             <ul>
