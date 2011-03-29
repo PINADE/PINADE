@@ -11,8 +11,8 @@
 
 <ul >
 <?php foreach($filieres as $filiere): ?>
-  <li><?php echo image_tag("logos/".$filiere->getLogo(), "alt='logo ".$filiere."'") ?>
-      <?php echo link_to($filiere, '@filiere_index?filiere='.$filiere->getUrl()) ?>
+  <li><?php echo image_tag("logos/".$filiere->getLogo(), "alt='logo ".$filiere."'");
+   echo " ".link_to($filiere, '@filiere_index?filiere='.$filiere->getUrl()) ?>
   </li>
 <?php endforeach ?>
 </ul>
