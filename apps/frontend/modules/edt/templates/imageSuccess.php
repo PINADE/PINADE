@@ -21,8 +21,9 @@
 
           </p>
 
-<?php if(file_exists($image_path)): ?>
-  <?php if($diff_day > 1): ?>
+<?php if(file_exists($image_path)):
+        if($diff_day > 1):
+?>
               <div id="error">
                 Attention, cet emploi du temps a plus de <?php echo floor($diff_day)." jour".(($diff_day >= 2) ? "s" : "") ?>.
                 <?php echo link_to("Actualisez la page", "@image?filiere=".$filiere->getUrl()."&promo=".$promotion->getUrl()."&semaine=$semaine") ?> et 
