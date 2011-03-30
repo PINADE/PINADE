@@ -77,7 +77,7 @@ Promotion:
   Promotion_6:
     url: 3a
     nom: 3A
-    description: null
+    description: '3A auto'
     Filiere: Filiere_2
     weight: '4'
     in_menu: true
@@ -92,7 +92,7 @@ Promotion:
   Promotion_7:
     url: 1a
     nom: 1A
-    description: null
+    description: '1a textile'
     Filiere: Filiere_3
     weight: '0'
     in_menu: true
@@ -107,7 +107,7 @@ Promotion:
   Promotion_8:
     url: 2a
     nom: 2A
-    description: null
+    description: '2a textile'
     Filiere: Filiere_3
     weight: '2'
     in_menu: true
@@ -122,7 +122,7 @@ Promotion:
   Promotion_9:
     url: 3a
     nom: 3A
-    description: null
+    description: '3a textile'
     Filiere: Filiere_3
     weight: '4'
     in_menu: true
@@ -137,7 +137,7 @@ Promotion:
   Promotion_10:
     url: 1a
     nom: 1A
-    description: null
+    description: '1a méca'
     Filiere: Filiere_4
     weight: '0'
     in_menu: true
@@ -152,7 +152,7 @@ Promotion:
   Promotion_11:
     url: 2a
     nom: 2A
-    description: null
+    description: '2a méca'
     Filiere: Filiere_4
     weight: '2'
     in_menu: true
@@ -167,7 +167,7 @@ Promotion:
   Promotion_12:
     url: 3a
     nom: 3A
-    description: null
+    description: '3a méca'
     Filiere: Filiere_4
     weight: '6'
     in_menu: true
@@ -182,7 +182,7 @@ Promotion:
   Promotion_13:
     url: 1a
     nom: 1A
-    description: null
+    description: '1a prod'
     Filiere: Filiere_5
     weight: '0'
     in_menu: true
@@ -197,7 +197,7 @@ Promotion:
   Promotion_14:
     url: 2a
     nom: 2A
-    description: null
+    description: '2a prod'
     Filiere: Filiere_5
     weight: '2'
     in_menu: true
@@ -212,7 +212,7 @@ Promotion:
   Promotion_15:
     url: l3
     nom: L3
-    description: null
+    description: 'l3 / lmme'
     Filiere: Filiere_6
     weight: '0'
     in_menu: true
@@ -227,7 +227,7 @@ Promotion:
   Promotion_16:
     url: m1
     nom: M1
-    description: null
+    description: 'm1 / lmme'
     Filiere: Filiere_6
     weight: '2'
     in_menu: true
@@ -242,7 +242,7 @@ Promotion:
   Promotion_17:
     url: m2
     nom: M2
-    description: null
+    description: 'm2 / lmme'
     Filiere: Filiere_6
     weight: '4'
     in_menu: true
@@ -257,7 +257,7 @@ Promotion:
   Promotion_18:
     url: msf
     nom: MSF
-    description: null
+    description: 'MSF / lmme'
     Filiere: Filiere_6
     weight: '6'
     in_menu: true
@@ -272,7 +272,7 @@ Promotion:
   Promotion_19:
     url: mr
     nom: MR
-    description: null
+    description: 'master recherche / info'
     Filiere: Filiere_1
     weight: '10'
     in_menu: true
@@ -282,6 +282,66 @@ Promotion:
     select_branch_id: '207'
     select_id: null
     id_piano_day: '0,1,2,3,4'
+    width: '800'
+    height: '600'
+  Promotion_20:
+    url: m1-miage
+    nom: m1-miage
+    description: null
+    Filiere: Filiere_7
+    weight: '0'
+    in_menu: false
+    project_id: ''
+    id_tree: '331'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0'
+    width: '800'
+    height: '600'
+  Promotion_21:
+    url: m1-miage-ok
+    nom: m1-miage-ok
+    description: null
+    Filiere: Filiere_7
+    weight: '0'
+    in_menu: false
+    project_id: '4'
+    id_tree: '331'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0'
+    width: '800'
+    height: '600'
+  Promotion_22:
+    url: m1-miage-ok2
+    nom: m1-miage-ok2
+    description: null
+    Filiere: Filiere_7
+    weight: '0'
+    in_menu: false
+    project_id: '4'
+    id_tree: '331,940,955,954'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    width: '800'
+    height: '600'
+  Promotion_23:
+    url: L3-chimie-FST
+    nom: L3-chimie-FST
+    description: null
+    Filiere: Filiere_7
+    weight: '0'
+    in_menu: false
+    project_id: '4'
+    id_tree: '665,1010,1011,323,332,501,502,498,1202,1201,497,503,270,271'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
     width: '800'
     height: '600'
 Filiere:
@@ -327,3 +387,10 @@ Filiere:
     logo: lmme.png
     weight: '15'
     in_menu: true
+  Filiere_7:
+    url: perso
+    nom: 'edt Personnels'
+    description: null
+    logo: perso.png
+    weight: '20'
+    in_menu: false
