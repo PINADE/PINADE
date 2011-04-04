@@ -187,7 +187,7 @@ class AdeImage
     }
 
     $reset = "true";
-    for($i = 6; $i < 44; $i++)
+    for($i = 1; $i < 44; $i++)
     {
       // select weeks
       $this->ade_browser->getUrl(sfConfig::get('sf_ade_url').'custom/modules/plannings/info.jsp?order=slot&week='.$i.'&reset='.$reset);
