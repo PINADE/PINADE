@@ -20,37 +20,40 @@
  * @property integer $width
  * @property integer $height
  * @property Filiere $Filiere
+ * @property Doctrine_Collection $Messages
  * 
- * @method string    getUrl()              Returns the current record's "url" value
- * @method string    getNom()              Returns the current record's "nom" value
- * @method string    getDescription()      Returns the current record's "description" value
- * @method integer   getFiliereId()        Returns the current record's "filiere_id" value
- * @method integer   getWeight()           Returns the current record's "weight" value
- * @method boolean   getInMenu()           Returns the current record's "in_menu" value
- * @method string    getProjectId()        Returns the current record's "project_id" value
- * @method string    getIdTree()           Returns the current record's "id_tree" value
- * @method string    getBranchId()         Returns the current record's "branch_id" value
- * @method string    getSelectBranchId()   Returns the current record's "select_branch_id" value
- * @method string    getSelectId()         Returns the current record's "select_id" value
- * @method string    getIdPianoDay()       Returns the current record's "id_piano_day" value
- * @method integer   getWidth()            Returns the current record's "width" value
- * @method integer   getHeight()           Returns the current record's "height" value
- * @method Filiere   getFiliere()          Returns the current record's "Filiere" value
- * @method Promotion setUrl()              Sets the current record's "url" value
- * @method Promotion setNom()              Sets the current record's "nom" value
- * @method Promotion setDescription()      Sets the current record's "description" value
- * @method Promotion setFiliereId()        Sets the current record's "filiere_id" value
- * @method Promotion setWeight()           Sets the current record's "weight" value
- * @method Promotion setInMenu()           Sets the current record's "in_menu" value
- * @method Promotion setProjectId()        Sets the current record's "project_id" value
- * @method Promotion setIdTree()           Sets the current record's "id_tree" value
- * @method Promotion setBranchId()         Sets the current record's "branch_id" value
- * @method Promotion setSelectBranchId()   Sets the current record's "select_branch_id" value
- * @method Promotion setSelectId()         Sets the current record's "select_id" value
- * @method Promotion setIdPianoDay()       Sets the current record's "id_piano_day" value
- * @method Promotion setWidth()            Sets the current record's "width" value
- * @method Promotion setHeight()           Sets the current record's "height" value
- * @method Promotion setFiliere()          Sets the current record's "Filiere" value
+ * @method string              getUrl()              Returns the current record's "url" value
+ * @method string              getNom()              Returns the current record's "nom" value
+ * @method string              getDescription()      Returns the current record's "description" value
+ * @method integer             getFiliereId()        Returns the current record's "filiere_id" value
+ * @method integer             getWeight()           Returns the current record's "weight" value
+ * @method boolean             getInMenu()           Returns the current record's "in_menu" value
+ * @method string              getProjectId()        Returns the current record's "project_id" value
+ * @method string              getIdTree()           Returns the current record's "id_tree" value
+ * @method string              getBranchId()         Returns the current record's "branch_id" value
+ * @method string              getSelectBranchId()   Returns the current record's "select_branch_id" value
+ * @method string              getSelectId()         Returns the current record's "select_id" value
+ * @method string              getIdPianoDay()       Returns the current record's "id_piano_day" value
+ * @method integer             getWidth()            Returns the current record's "width" value
+ * @method integer             getHeight()           Returns the current record's "height" value
+ * @method Filiere             getFiliere()          Returns the current record's "Filiere" value
+ * @method Doctrine_Collection getMessages()         Returns the current record's "Messages" collection
+ * @method Promotion           setUrl()              Sets the current record's "url" value
+ * @method Promotion           setNom()              Sets the current record's "nom" value
+ * @method Promotion           setDescription()      Sets the current record's "description" value
+ * @method Promotion           setFiliereId()        Sets the current record's "filiere_id" value
+ * @method Promotion           setWeight()           Sets the current record's "weight" value
+ * @method Promotion           setInMenu()           Sets the current record's "in_menu" value
+ * @method Promotion           setProjectId()        Sets the current record's "project_id" value
+ * @method Promotion           setIdTree()           Sets the current record's "id_tree" value
+ * @method Promotion           setBranchId()         Sets the current record's "branch_id" value
+ * @method Promotion           setSelectBranchId()   Sets the current record's "select_branch_id" value
+ * @method Promotion           setSelectId()         Sets the current record's "select_id" value
+ * @method Promotion           setIdPianoDay()       Sets the current record's "id_piano_day" value
+ * @method Promotion           setWidth()            Sets the current record's "width" value
+ * @method Promotion           setHeight()           Sets the current record's "height" value
+ * @method Promotion           setFiliere()          Sets the current record's "Filiere" value
+ * @method Promotion           setMessages()         Sets the current record's "Messages" collection
  * 
  * @package    edt
  * @subpackage model
@@ -128,5 +131,9 @@ abstract class BasePromotion extends sfDoctrineRecord
         $this->hasOne('Filiere', array(
              'local' => 'filiere_id',
              'foreign' => 'id'));
+
+        $this->hasMany('Message as Messages', array(
+             'local' => 'id',
+             'foreign' => 'promotion_id'));
     }
 }

@@ -16,55 +16,88 @@ class noticeActions extends sfActions
 
   public function executeShow(sfWebRequest $request)
   {
-    $semaine = $request->getParameter('semaine', AdeTools::getSemaineNumber());
-    $filiere = $request->getParameter('filiere');
-    $promo = $request->getParameter('promo');
+    $this->promotion = Doctrine_Core::getTable('Promotion')
+      ->createQuery('p')
+      ->leftJoin('p.Filiere f')
+      ->where('p.url = ? AND f.url = ?', array($request->getParameter('promo'),  $request->getParameter('filiere')))
+      ->execute()
+      ->getFirst();
+    $this->forward404Unless($this->promotion);
 
-    $adeImage = new AdeImage(
-            array(array('filiere' => $filiere, 'promo' =>  $promo)),
-            array('idPianoWeek' => $semaine)
-    );
+    $this->filiere = $this->promotion->getFiliere();
 
-    $this->notice = $adeImage->getNotice();
-    $this->promo = $promo;
-    $this->filiere = $filiere;
+    $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
+
     $this->semaine = $semaine;
-    $this->image_path = $adeImage->getWebPath();
+    $this->semaine_suivante = $semaine + 1;
+    // Pas de semaine négative !
+    $this->semaine_precedente = max(0,$semaine - 1);
+
+
+    $this->adeImage = new AdeImage($this->promotion, $this->semaine);
+
+    $this->image_path = sfConfig::get('sf_web_dir').$this->adeImage->getWebPath();
+    if(file_exists($this->image_path))
+      $this->image_mtime = filemtime($this->image_path);
+    else
+      $this->adeImage->updateImage();
+
+    $this->diff_day = (time() - $this->image_mtime)/(60*60*24);
+
     // Timestamp du lundi, début de semaine
     $this->timestamp = AdeTools::getTimestamp($this->semaine);
+    // Notice
+    $this->notice = $this->promotion->getWeekMessage($this->semaine);
   }
 
   public function executeEdit(sfWebRequest $request)
   {
-    $semaine = $request->getParameter('semaine', AdeTools::getSemaineNumber());
-    $filiere = $request->getParameter('filiere');
-    $promo = $request->getParameter('promo');
+    $this->promotion = Doctrine_Core::getTable('Promotion')
+      ->createQuery('p')
+      ->leftJoin('p.Filiere f')
+      ->where('p.url = ? AND f.url = ?', array($request->getParameter('promo'),  $request->getParameter('filiere')))
+      ->execute()
+      ->getFirst();
+    $this->forward404Unless($this->promotion);
 
-    $adeImage = new AdeImage(
-            array(array('filiere' => $filiere, 'promo' =>  $promo)),
-            array('idPianoWeek' => $semaine)
-    );
-
-    $this->notice = $adeImage->getNotice();
-    $this->promo = $promo;
-    $this->filiere = $filiere;
+    $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
     $this->semaine = $semaine;
-    $this->image_path = $adeImage->getWebPath();
+
+    // Notice
+    $this->notice = $this->promotion->getWeekMessage($this->semaine);
+
+
+    $this->timestamp = AdeTools::getTimestamp($this->semaine);
 
   }
   public function executeUpdate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
-    $semaine = $request->getParameter('semaine', AdeTools::getSemaineNumber());
-    $filiere = $request->getParameter('filiere');
-    $promo = $request->getParameter('promo');
+    $promotion = Doctrine_Core::getTable('Promotion')
+      ->createQuery('p')
+      ->leftJoin('p.Filiere f')
+      ->where('p.url = ? AND f.url = ?', array($request->getParameter('promo'),  $request->getParameter('filiere')))
+      ->execute()
+      ->getFirst();
+    $this->forward404Unless($promotion);
+    $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
 
-    $adeImage = new AdeImage(
-            array(array('filiere' => $filiere, 'promo' =>  $promo)),
-            array('idPianoWeek' => $semaine)
-    );
-    $adeImage->setNotice($request->getParameter('notice'));
-    $this->redirect('@notice?action=show&promo='.$promo.'&filiere='.$filiere.'&semaine='.$semaine);
+    if($message = $promotion->getWeekMessage($semaine)) {
+      // Un message existe déjà, on le met à jour
+      $message->setTexte($request->getParameter('message'));
+      $message->save();
+    }
+    else
+    {
+      // On crée le message dans la base :
+      $message = new Message();
+      $message->setTexte($request->getParameter('message'));
+      $message->setPromotionId($promotion->getId());
+      $message->setSemaine($semaine);
+      $message->save();
+    }
+
+    $this->redirect("@notice?action=show&promo=".$promotion->getUrl()."&filiere=".$promotion->getFiliere()->getUrl()."&semaine=$semaine");
   }
 
 

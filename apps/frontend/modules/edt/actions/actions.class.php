@@ -92,7 +92,7 @@ class edtActions extends sfActions
     // Timestamp du lundi, début de semaine
     $this->timestamp = AdeTools::getTimestamp($this->semaine);
     // Notice
-    $this->notice = $this->adeImage->getNotice();
+    $this->notice = $this->promotion->getWeekMessage($this->semaine);
   }
 
   public function executeError404(sfWebRequest $request)

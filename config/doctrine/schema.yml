@@ -34,3 +34,13 @@ Promotion:
     height:             { type: integer, default: 600 }
   relations:
     Filiere:  { local: filiere_id, foreign: id, type: one }
+    Messages: { class: Message, local: id, foreign: promotion_id, type: many }
+
+Message:
+  actAs:  { Timestampable: ~ }
+  columns:
+    texte:              { type: string(4000) }
+    promotion_id:       { type: integer, notnull: true }
+    semaine:            { type: integer, notnull: true }
+  relations:
+    Promotion:  { local: promotion_id, foreign: id, type: one }

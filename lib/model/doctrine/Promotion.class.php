@@ -20,4 +20,14 @@ class Promotion extends BasePromotion
   {
     return "@image?filiere=".$this->getFiliere()->getUrl()."&promo=".$this->getUrl()."&semaine=".$week;
   }
+
+  public function getWeekMessage($week)
+  {
+    return Doctrine::getTable('Message')
+      ->createQuery('m')
+      ->where('m.promotion_id = ?', array($this->getId()))
+      ->andWhere('m.semaine = ?', array($week))
+      ->execute()
+      ->getFirst();
+  }
 }

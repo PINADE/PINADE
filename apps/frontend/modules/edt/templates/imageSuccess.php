@@ -7,7 +7,7 @@
             Semaine du <b><?php echo strftime("%e %B %G", $timestamp + 2*60*60) ?></b> au <b><?php echo  strftime("%e %B %G", intval($timestamp) + 5*24*60*60 - 1 ) ?></b>
           </h2>
 
-<?php if(! empty($notice)): ?>
+<?php if($notice): ?>
             <div id="notice"><?php echo nl2br(html_entity_decode($notice)) ?></div>
 <?php endif ?>
 
