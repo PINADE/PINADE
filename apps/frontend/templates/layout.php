@@ -33,13 +33,20 @@
                 <?php echo link_to('Accueil', '@homepage', "inline") ?>
 
               </li>
-<?php $filieres = sfConfig::get('sf_filieres') ?>
-<?php foreach($filieres as $id_f => $filiere): ?>
-              <li><?php echo image_tag("logos/$id_f.png", "alt='logo $id_f'") ?><?php echo $filiere['nom'] ?>
+<?php $filieres = Doctrine_Core::getTable('Filiere')
+      ->createQuery('f')
+      ->leftJoin('f.Promotions p')
+      ->where('f.in_menu = 1')
+      ->andWhere('p.in_menu = 1')
+      ->orderBy('f.weight ASC, p.weight ASC')
+      ->execute();
+?>
+<?php foreach($filieres as $filiere): ?>
+              <li><?php echo image_tag("logos/".$filiere->getLogo(), "alt='logo ".$filiere."'") ?><?php echo $filiere ?>
 
                 <ul>
-  <?php foreach($filiere['promotions'] as $id_p => $promo): ?>
-                <li><?php echo link_to($promo['nom'], "@image?filiere=$id_f&promo=$id_p&semaine=".$sf_request->getParameter('semaine')) ?></li>
+  <?php foreach($filiere->getPromotions() as $promo): ?>
+                <li><?php echo link_to($promo, "@image?filiere=".$filiere->getUrl()."&promo=".$promo->getUrl()."&semaine=".$sf_request->getParameter('semaine')) ?></li>
   <?php endforeach ?>
               </ul>
               </li>
@@ -51,6 +58,11 @@
             <p>Tu veux changer de semaine avec ton <b>clavier</b>&nbsp;?<br/>
               Tu souhaites avoir ton emploi du temps sur <b>Google Agenda</b> ou un logiciel similaire&nbsp;?<br/>
               Tout est expliqué sur la <?php echo link_to('FAQ', '@faq', 'style="padding:0"') ?>&nbsp;!
+            </p>
+          </div>
+          <div>
+            <p>
+              <b><a href="<?php echo url_for('@myedt?action=import') ?>">Importez votre agenda&nbsp;!</a></b>
             </p>
           </div>
           <div id="liens-internes">

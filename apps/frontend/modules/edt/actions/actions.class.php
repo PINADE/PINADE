@@ -27,35 +27,49 @@ class edtActions extends sfActions
       {
         $filiere = $array[0];
         $promo = $array[1];
-        $filieres = sfConfig::get('sf_filieres');
+        $promotion = Doctrine_Core::getTable('Promotion')
+              ->createQuery('p')
+              ->leftJoin('p.Filiere f')
+              ->where('p.url = ? AND f.url = ?', array($promo, $filiere))
+              ->execute();
 
         // On vérifie si la promo existe bien, pour éviter les farces
         // et les redirections infinies (cookie mis à "/" par exemple
-        if(isset($filieres[$filiere]['promotions'][$promo]['nom']))
+        if($promotion->count())
           $this->redirect("@image?filiere=$filiere&promo=$promo&semaine=");
       }
     }
-    // Si on n'a pas redirigé, pas de cookie ou cookie erroné
+    // Si on n'a pas redirigé, pas de cookie ou cookie erroné, on affiche la liste des filières
+    $this->filieres = Doctrine_Core::getTable('Filiere')
+      ->createQuery('f')
+      ->execute();
   }
 
   public function executeIndexPromo(sfWebRequest $request)
   {
-    $filieres = sfConfig::get('sf_filieres');
-    $this->filiere = $request->getParameter('filiere');
-    if(isset($filieres[$this->filiere]['nom']))
-      $this->nom_filiere = $filieres[$this->filiere]['nom'];
-    else
-      throw new sfError404Exception('La filière '.$this->filiere.' n\'existe pas');
+    $this->filiere = Doctrine_Core::getTable('Filiere')
+      ->createQuery('f')
+      ->leftJoin('f.Promotions p')
+      ->where('f.url = ?', array($request->getParameter('filiere')))
+      ->orderBy('p.weight ASC')
+      ->execute()
+      ->getFirst();
+
+    $this->forward404Unless( $this->filiere, sprintf('Object filiere does not exist (%s).', $request->getParameter('filiere')));
+
   }
   
   public function executeImage(sfWebRequest $request)
   {
-    $filieres = sfConfig::get('sf_filieres');
-    $this->filiere = $request->getParameter('filiere');
-    $this->promo = $request->getParameter('promo');
-    
-    $this->nom_filiere = $filieres[$this->filiere]['nom'];
-    $this->nom_promo = $filieres[$this->filiere]['promotions'][$this->promo]['nom'];
+    $this->promotion = Doctrine_Core::getTable('Promotion')
+      ->createQuery('p')
+      ->leftJoin('p.Filiere f')
+      ->where('p.url = ? AND f.url = ?', array($request->getParameter('promo'),  $request->getParameter('filiere')))
+      ->execute()
+      ->getFirst();
+    $this->forward404Unless($this->promotion);
+
+    $this->filiere = $this->promotion->getFiliere();
 
     $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
 
@@ -65,10 +79,7 @@ class edtActions extends sfActions
     $this->semaine_precedente = max(0,$semaine - 1);
 
 
-    $this->adeImage = new AdeImage(
-      array(array('filiere' => $this->filiere, 'promo' => $this->promo )),
-      array('idPianoWeek' => $semaine)
-    );
+    $this->adeImage = new AdeImage($this->promotion, $this->semaine);
 
     $this->image_path = sfConfig::get('sf_web_dir').$this->adeImage->getWebPath();
     if(file_exists($this->image_path))
@@ -81,7 +92,7 @@ class edtActions extends sfActions
     // Timestamp du lundi, début de semaine
     $this->timestamp = AdeTools::getTimestamp($this->semaine);
     // Notice
-    $this->notice = $this->adeImage->getNotice();
+    $this->notice = $this->promotion->getWeekMessage($this->semaine);
   }
 
   public function executeError404(sfWebRequest $request)

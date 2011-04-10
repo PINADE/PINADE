@@ -22,6 +22,13 @@ test:
     no_script_name:         false
     etag:                   false
 
+cache:
+  .settings:
+    error_reporting: <?php echo (E_ALL | E_STRICT)."\n" ?>
+    web_debug:       true
+    cache:           true
+    etag:            false
+
 all:
   .actions:   
       error_404_module:     edt
@@ -39,5 +46,5 @@ all:
 
 
     # Enable the database manager
-    use_database:           false
+    use_database:           true
 

@@ -1,15 +1,5 @@
 TODO List:
-
-- ajout de message par promo, par filière, par semaine; par des admin
-
-- gérer le paramètre identifieur du lundi matin minuit
-
-- redirection de la page d'accueil vers le dernier edt vu par cookies 
-
-- iCal
-
-- css mobile
-
-- css impression
-
-- test unitaire/fonctionnel
+- édition des notices protégées autrement que par un secret dans le routing.yml
+- code de mise à jour du cron à changer dans apps/frontend/modules/cron/actions/actions.class.php
+La faire dépendre d'un chemin quelconque
+- une interface d'administration des filières/promo, protégée
