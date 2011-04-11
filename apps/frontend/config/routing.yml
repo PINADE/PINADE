@@ -95,12 +95,3 @@ filiere_index:
   url:   /:filiere
   param: { module: edt, action: indexPromo }
 
-
-# generic rules
-# please, remove them by adding more specific rules
-default_index:
-  url:   /:module
-  param: { action: index }
-
-default:
-  url:   /:module/:action/*
