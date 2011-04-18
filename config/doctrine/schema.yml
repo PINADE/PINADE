@@ -44,3 +44,11 @@ Message:
     semaine:            { type: integer, notnull: true }
   relations:
     Promotion:  { local: promotion_id, foreign: id, type: one }
+
+Page:
+  actAs:  { Timestampable: ~ }
+  columns:
+    url:                { type: string(255), notnull: true, unique: true }
+    title:              { type: string(255) }
+    text:               { type: string(4000) }
+    

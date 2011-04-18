@@ -6,10 +6,6 @@ homepage:
   url:   /
   param: { module: edt, action: index }
 
-faq:
-  url:   /faq
-  param: { module: edt, action: faq }
-
 # actions cron
 cron:
   url:  /cron/:action/*
@@ -90,8 +86,11 @@ image_default:
   url:  /:filiere/:promo/*
   param: { module: edt, action: image }
 
-# Page pour une filière
+# Page pour une filière ou pour une page si elle n'existe pas
 filiere_index:
   url:   /:filiere
   param: { module: edt, action: indexPromo }
 
+# Route utilisée pour générer les liens vers les pages (mais pas pour le routage)
+page:
+  url:   /:url

@@ -42,6 +42,8 @@ class edtActions extends sfActions
     // Si on n'a pas redirigé, pas de cookie ou cookie erroné, on affiche la liste des filières
     $this->filieres = Doctrine_Core::getTable('Filiere')
       ->createQuery('f')
+      ->leftJoin('f.Promotions p')
+      ->orderBy('p.weight ASC')
       ->execute();
   }
 
@@ -55,7 +57,12 @@ class edtActions extends sfActions
       ->execute()
       ->getFirst();
 
-    $this->forward404Unless( $this->filiere, sprintf('Object filiere does not exist (%s).', $request->getParameter('filiere')));
+    //$this->forward404Unless( $this->filiere, sprintf('Object filiere does not exist (%s).', $request->getParameter('filiere')));
+    if(!$this->filiere)
+    {
+      $request->setParameter('url', $request->getParameter('filiere'));
+      $this->forward('pages', 'show');
+    }
 
   }
   
