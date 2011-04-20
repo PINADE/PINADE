@@ -28,7 +28,7 @@
               <div id="error">
                 Attention, cet emploi du temps a plus de <?php echo floor($diff_day)." jour".(($diff_day >= 2) ? "s" : "") ?>.
                 <?php echo link_to("Actualisez la page", "@image?filiere=".$filiere->getUrl()."&promo=".$promotion->getUrl()."&semaine=$semaine") ?> et 
-                <?php echo link_to('contactez-nous', '@faq#contact') ?> si cela ne débloque pas cette situation.<br/><br/>
+                <?php echo link_to('contactez-nous', '@page?url=faq#contact') ?> si cela ne débloque pas cette situation.<br/><br/>
               </div>
   <?php endif ?>
           <img src='<?php echo url_for("@image_img?filiere=".$filiere->getUrl()."&promo=".$promotion->getUrl()."&semaine=$semaine") ?>/img.gif' alt='emploi du temps <?php echo $filiere." ".$promotion ?>'/>
