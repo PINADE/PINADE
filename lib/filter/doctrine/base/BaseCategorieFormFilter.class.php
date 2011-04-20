@@ -1,14 +1,14 @@
 <?php
 
 /**
- * Filiere filter form base class.
+ * Categorie filter form base class.
  *
  * @package    edt
  * @subpackage filter
  * @author     Théophile Helleboid, Michael Muré
  * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 29570 2010-05-21 14:49:47Z Kris.Wallsmith $
  */
-abstract class BaseFiliereFormFilter extends BaseFormFilterDoctrine
+abstract class BaseCategorieFormFilter extends BaseFormFilterDoctrine
 {
   public function setup()
   {
@@ -30,7 +30,7 @@ abstract class BaseFiliereFormFilter extends BaseFormFilterDoctrine
       'in_menu'     => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
     ));
 
-    $this->widgetSchema->setNameFormat('filiere_filters[%s]');
+    $this->widgetSchema->setNameFormat('categorie_filters[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
 
@@ -41,7 +41,7 @@ abstract class BaseFiliereFormFilter extends BaseFormFilterDoctrine
 
   public function getModelName()
   {
-    return 'Filiere';
+    return 'Categorie';
   }
 
   public function getFields()

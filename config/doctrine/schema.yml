@@ -5,7 +5,7 @@
 #       'displayMode' => '1057855',
 #       'displayConfId' => '8',
 
-Filiere:
+Categorie:
   columns:
     url:                { type: string(255) }
     nom:                { type: string(255) }
@@ -14,14 +14,14 @@ Filiere:
     weight:             { type: integer, default: 0 }
     in_menu:            { type: boolean, default: false }
   relations:
-    Promotions:  { class: Promotion, local: id, foreign: filiere_id, type: many }
+    Promotions:  { class: Promotion, local: id, foreign: categorie_id, type: many }
 
 Promotion:
   columns:
     url:                { type: string(255) }
     nom:                { type: string(255) }
     description:        { type: string(4000) }
-    filiere_id:         { type: integer, notnull: true }
+    categorie_id:       { type: integer, notnull: true }
     weight:             { type: integer, default: 0 }
     in_menu:            { type: boolean, default: false }
     project_id:         { type: string(255), notnull: true }
@@ -33,7 +33,7 @@ Promotion:
     width:              { type: integer, default: 800 }
     height:             { type: integer, default: 600 }
   relations:
-    Filiere:  { local: filiere_id, foreign: id, type: one }
+    Categorie:  { local: categorie_id, foreign: id, type: one }
     Messages: { class: Message, local: id, foreign: promotion_id, type: many }
 
 Message:

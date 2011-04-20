@@ -1,16 +1,16 @@
 <?php
 
 /**
- * Filiere form base class.
+ * Categorie form base class.
  *
- * @method Filiere getObject() Returns the current form's model object
+ * @method Categorie getObject() Returns the current form's model object
  *
  * @package    edt
  * @subpackage form
  * @author     Théophile Helleboid, Michael Muré
  * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 29553 2010-05-20 14:33:00Z Kris.Wallsmith $
  */
-abstract class BaseFiliereForm extends BaseFormDoctrine
+abstract class BaseCategorieForm extends BaseFormDoctrine
 {
   public function setup()
   {
@@ -34,7 +34,7 @@ abstract class BaseFiliereForm extends BaseFormDoctrine
       'in_menu'     => new sfValidatorBoolean(array('required' => false)),
     ));
 
-    $this->widgetSchema->setNameFormat('filiere[%s]');
+    $this->widgetSchema->setNameFormat('categorie[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
 
@@ -45,7 +45,7 @@ abstract class BaseFiliereForm extends BaseFormDoctrine
 
   public function getModelName()
   {
-    return 'Filiere';
+    return 'Categorie';
   }
 
 }

@@ -8,7 +8,7 @@
  * @property string $url
  * @property string $nom
  * @property string $description
- * @property integer $filiere_id
+ * @property integer $categorie_id
  * @property integer $weight
  * @property boolean $in_menu
  * @property string $project_id
@@ -19,13 +19,13 @@
  * @property string $id_piano_day
  * @property integer $width
  * @property integer $height
- * @property Filiere $Filiere
+ * @property Categorie $Categorie
  * @property Doctrine_Collection $Messages
  * 
  * @method string              getUrl()              Returns the current record's "url" value
  * @method string              getNom()              Returns the current record's "nom" value
  * @method string              getDescription()      Returns the current record's "description" value
- * @method integer             getFiliereId()        Returns the current record's "filiere_id" value
+ * @method integer             getCategorieId()      Returns the current record's "categorie_id" value
  * @method integer             getWeight()           Returns the current record's "weight" value
  * @method boolean             getInMenu()           Returns the current record's "in_menu" value
  * @method string              getProjectId()        Returns the current record's "project_id" value
@@ -36,12 +36,12 @@
  * @method string              getIdPianoDay()       Returns the current record's "id_piano_day" value
  * @method integer             getWidth()            Returns the current record's "width" value
  * @method integer             getHeight()           Returns the current record's "height" value
- * @method Filiere             getFiliere()          Returns the current record's "Filiere" value
+ * @method Categorie           getCategorie()        Returns the current record's "Categorie" value
  * @method Doctrine_Collection getMessages()         Returns the current record's "Messages" collection
  * @method Promotion           setUrl()              Sets the current record's "url" value
  * @method Promotion           setNom()              Sets the current record's "nom" value
  * @method Promotion           setDescription()      Sets the current record's "description" value
- * @method Promotion           setFiliereId()        Sets the current record's "filiere_id" value
+ * @method Promotion           setCategorieId()      Sets the current record's "categorie_id" value
  * @method Promotion           setWeight()           Sets the current record's "weight" value
  * @method Promotion           setInMenu()           Sets the current record's "in_menu" value
  * @method Promotion           setProjectId()        Sets the current record's "project_id" value
@@ -52,7 +52,7 @@
  * @method Promotion           setIdPianoDay()       Sets the current record's "id_piano_day" value
  * @method Promotion           setWidth()            Sets the current record's "width" value
  * @method Promotion           setHeight()           Sets the current record's "height" value
- * @method Promotion           setFiliere()          Sets the current record's "Filiere" value
+ * @method Promotion           setCategorie()        Sets the current record's "Categorie" value
  * @method Promotion           setMessages()         Sets the current record's "Messages" collection
  * 
  * @package    edt
@@ -77,7 +77,7 @@ abstract class BasePromotion extends sfDoctrineRecord
              'type' => 'string',
              'length' => 4000,
              ));
-        $this->hasColumn('filiere_id', 'integer', null, array(
+        $this->hasColumn('categorie_id', 'integer', null, array(
              'type' => 'integer',
              'notnull' => true,
              ));
@@ -128,8 +128,8 @@ abstract class BasePromotion extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('Filiere', array(
-             'local' => 'filiere_id',
+        $this->hasOne('Categorie', array(
+             'local' => 'categorie_id',
              'foreign' => 'id'));
 
         $this->hasMany('Message as Messages', array(
