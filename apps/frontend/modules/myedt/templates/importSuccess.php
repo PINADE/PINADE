@@ -25,6 +25,8 @@
   
   <label for="nom">Nom de l'emploi du temps :</label>
   <input type="text" name="nom" id="nom"  value="<?php echo $sf_request->getParameter('nom') ?>"/><br/>
+  <label for="description">Description (facultative)</label> :<br/>
+  <textarea id="description" name="description"  style="width:90%; height:3em" placeholder="Cours de MIAGE 1, groupe TD 1, TP2"><?php echo $sf_request->getParameter('description') ?></textarea><br/>
   <input type="submit" value="Importer l'image !" />
 
 

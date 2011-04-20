@@ -82,6 +82,7 @@ class myedtActions extends sfActions
     $promotion->setIdTree($idTree);
     $promotion->setFiliereId($filiere->getId());
     $promotion->setNom($nom);
+    $promotion->setDescription($request->getParameter('description'));
     $promotion->setUrl($nom);
     $promotion->save();
 
