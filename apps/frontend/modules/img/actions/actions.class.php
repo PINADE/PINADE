@@ -18,11 +18,11 @@ class imgActions extends sfActions
   {
     $this->promotion = Doctrine_Core::getTable('Promotion')
       ->createQuery('p')
-      ->leftJoin('p.Filiere f')
-      ->where('p.url = ? AND f.url = ?', array($request->getParameter('promo'),  $request->getParameter('filiere')))
+      ->leftJoin('p.Categorie c')
+      ->where('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
       ->execute()
       ->getFirst();
-    $this->filiere = $this->promotion->getFiliere();
+    $this->categorie = $this->promotion->getCategorie();
 
     $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
 
@@ -59,11 +59,11 @@ class imgActions extends sfActions
   {
     $this->promotion = Doctrine_Core::getTable('Promotion')
       ->createQuery('p')
-      ->leftJoin('p.Filiere f')
-      ->where('p.url = ? AND f.url = ?', array($request->getParameter('promo'),  $request->getParameter('filiere')))
+      ->leftJoin('p.Categorie c')
+      ->where('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
       ->execute()
       ->getFirst();
-    $this->filiere = $this->promotion->getFiliere();
+    $this->categorie = $this->promotion->getCategorie();
     
     $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
 
