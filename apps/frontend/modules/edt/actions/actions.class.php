@@ -18,49 +18,50 @@ class edtActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
     // On récupère le cookie et on redirige s'il existe
-    // default=<filiere>/<promo>
+    // default=<categorie>/<promo>
     $default = $request->getCookie('default');
     if(! empty($default))
     {
       $array = explode('-', $default);
       if(count($array) == 2)
       {
-        $filiere = $array[0];
+        $categorie = $array[0];
         $promo = $array[1];
         $promotion = Doctrine_Core::getTable('Promotion')
               ->createQuery('p')
-              ->leftJoin('p.Filiere f')
-              ->where('p.url = ? AND f.url = ?', array($promo, $filiere))
+              ->leftJoin('p.Categorie c')
+              ->where('p.url = ? AND c.url = ?', array($promo, $categorie))
               ->execute();
 
         // On vérifie si la promo existe bien, pour éviter les farces
         // et les redirections infinies (cookie mis à "/" par exemple
         if($promotion->count())
-          $this->redirect("@image?filiere=$filiere&promo=$promo&semaine=");
+          $this->redirect("@image?categorie=$categorie&promo=$promo&semaine=");
       }
     }
     // Si on n'a pas redirigé, pas de cookie ou cookie erroné, on affiche la liste des filières
-    $this->filieres = Doctrine_Core::getTable('Filiere')
-      ->createQuery('f')
-      ->leftJoin('f.Promotions p')
+    $this->categories = Doctrine_Core::getTable('Categorie')
+      ->createQuery('c')
+      ->leftJoin('c.Promotions p')
       ->orderBy('p.weight ASC')
       ->execute();
   }
 
   public function executeIndexPromo(sfWebRequest $request)
   {
-    $this->filiere = Doctrine_Core::getTable('Filiere')
-      ->createQuery('f')
-      ->leftJoin('f.Promotions p')
-      ->where('f.url = ?', array($request->getParameter('filiere')))
+    $this->categorie = Doctrine_Core::getTable('Categorie')
+      ->createQuery('c')
+      ->leftJoin('c.Promotions p')
+      ->where('c.url = ?', array($request->getParameter('categorie')))
       ->orderBy('p.weight ASC')
       ->execute()
       ->getFirst();
 
     //$this->forward404Unless( $this->filiere, sprintf('Object filiere does not exist (%s).', $request->getParameter('filiere')));
-    if(!$this->filiere)
+    // Si la catégorie n'existe pas, c'est une page "statique". On forward vers le pages/show
+    if(!$this->categorie)
     {
-      $request->setParameter('url', $request->getParameter('filiere'));
+      $request->setParameter('url', $request->getParameter('categorie'));
       $this->forward('pages', 'show');
     }
 
@@ -70,13 +71,13 @@ class edtActions extends sfActions
   {
     $this->promotion = Doctrine_Core::getTable('Promotion')
       ->createQuery('p')
-      ->leftJoin('p.Filiere f')
-      ->where('p.url = ? AND f.url = ?', array($request->getParameter('promo'),  $request->getParameter('filiere')))
+      ->leftJoin('p.Categorie c')
+      ->where('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
       ->execute()
       ->getFirst();
     $this->forward404Unless($this->promotion);
 
-    $this->filiere = $this->promotion->getFiliere();
+    $this->categorie = $this->promotion->getCategorie();
 
     $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
 
