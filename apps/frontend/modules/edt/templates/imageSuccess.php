@@ -1,4 +1,4 @@
-          <?php include_partial('title', array('filiere' => $filiere, 'promotion' => $promotion)) ?>
+          <?php include_partial('title', array('categorie' => $categorie, 'promotion' => $promotion)) ?>
 
 
           <h1 id="title"><?php include_slot('title') ?></h1>
@@ -13,11 +13,11 @@
 
           <p class="center">
             <?php echo link_to(image_tag('divers/precedent.png', 'alt="<<"'),
-              "@image?filiere=".$filiere->getUrl()."&promo=".$promotion->getUrl()."&semaine=$semaine_precedente") ?>
+              "@image?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=$semaine_precedente") ?>
 
-            <?php echo link_to('semaine actuelle', "@image?filiere=".$filiere->getUrl()."&promo=".$promotion->getUrl()."&semaine=") ?>
+            <?php echo link_to('semaine actuelle', "@image?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=") ?>
 
-            <?php echo link_to(image_tag('divers/suivant.png', 'alt=">>"'), "@image?filiere=".$filiere->getUrl()."&promo=".$promotion->getUrl()."&semaine=$semaine_suivante") ?>
+            <?php echo link_to(image_tag('divers/suivant.png', 'alt=">>"'), "@image?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=$semaine_suivante") ?>
 
           </p>
 
@@ -26,11 +26,11 @@
 ?>
               <div id="error">
                 Attention, cet emploi du temps a plus de <?php echo floor($diff_day)." jour".(($diff_day >= 2) ? "s" : "") ?>.
-                <?php echo link_to("Actualisez la page", "@image?filiere=".$filiere->getUrl()."&promo=".$promotion->getUrl()."&semaine=$semaine") ?> et 
+                <?php echo link_to("Actualisez la page", "@image?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=$semaine") ?> et 
                 <?php echo link_to('contactez-nous', '@page?url=faq#contact') ?> si cela ne débloque pas cette situation.<br/><br/>
               </div>
   <?php endif ?>
-          <img src='<?php echo url_for("@image_img?filiere=".$filiere->getUrl()."&promo=".$promotion->getUrl()."&semaine=$semaine") ?>/img.gif' alt='emploi du temps <?php echo $filiere." ".$promotion ?>'/>
+          <img src='<?php echo url_for("@image_img?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=$semaine") ?>/img.gif' alt='emploi du temps <?php echo $categorie." ".$promotion ?>'/>
 <?php else: ?>
           <p>Pas d'emploi du temps cette semaine.</p>
 <?php endif ?>
@@ -44,16 +44,16 @@
 
             if(e.which == 37)
             {
-              document.location = '<?php echo url_for("@image?filiere=".$filiere->getUrl()."&promo=".$promotion->getUrl()."&semaine=".max(0,$semaine-1)) ?>';
+              document.location = '<?php echo url_for("@image?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=".max(0,$semaine-1)) ?>';
             }
             else if(e.which == 39)
             {
-              document.location = '<?php echo url_for("@image?filiere=".$filiere->getUrl()."&promo=".$promotion->getUrl()."&semaine=".max(0,$semaine+1)) ?>';
+              document.location = '<?php echo url_for("@image?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=".max(0,$semaine+1)) ?>';
             }
           }
           </script>
 <br/>
-<?php if($sf_request->getCookie('default') == $filiere->getUrl().'-'.$promotion->getUrl()): ?>
+<?php if($sf_request->getCookie('default') == $categorie->getUrl().'-'.$promotion->getUrl()): ?>
           <form method="post" action="<?php echo url_for('@cookie_reset') ?>">
           <input type="submit" value="Effacer cette page comme page d'accueil" class="button" />
           <input type="hidden" name="key" value="default" />
@@ -61,10 +61,10 @@
           <form method="post" action="<?php echo url_for('@cookie_set') ?>">
           <input type="submit" value="Enregistrer cette page comme page d'accueil" class="button" />
           <input type="hidden" name="key" value="default" />
-          <input type="hidden" name="value" value="<?php echo $filiere->getUrl().'-'.$promotion->getUrl() ?>" />
+          <input type="hidden" name="value" value="<?php echo $categorie->getUrl().'-'.$promotion->getUrl() ?>" />
 
 <?php endif ?>
           </form>
 
 <br/>
-<?php echo link_to("Ajouter à Google Agenda", "http://www.google.com/calendar/render?cid=".urlencode(url_for("@ical?filiere=".$filiere->getUrl()."&promo=".$promotion->getUrl(), true))) ?>
+<?php echo link_to("Ajouter à Google Agenda", "http://www.google.com/calendar/render?cid=".urlencode(url_for("@ical?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl(), true))) ?>
