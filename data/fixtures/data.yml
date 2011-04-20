@@ -3,7 +3,7 @@ Promotion:
     url: 1a
     nom: 1A
     description: 'Informatique & Réseaux 1a'
-    Filiere: Filiere_1
+    Categorie: Categorie_1
     weight: '0'
     in_menu: true
     project_id: '19'
@@ -18,7 +18,7 @@ Promotion:
     url: 2a
     nom: 2A
     description: 'Informatique & Réseaux 2a'
-    Filiere: Filiere_1
+    Categorie: Categorie_1
     weight: '2'
     in_menu: true
     project_id: '19'
@@ -33,7 +33,7 @@ Promotion:
     url: 2a
     nom: 2A
     description: 'Auto 2a'
-    Filiere: Filiere_2
+    Categorie: Categorie_2
     weight: '2'
     in_menu: true
     project_id: '19'
@@ -48,7 +48,7 @@ Promotion:
     url: 1a
     nom: 1A
     description: 'Auto 1a'
-    Filiere: Filiere_2
+    Categorie: Categorie_2
     weight: '0'
     in_menu: true
     project_id: '19'
@@ -63,7 +63,7 @@ Promotion:
     url: 3a
     nom: 3A
     description: 'Informatique & Réseaux 3a'
-    Filiere: Filiere_1
+    Categorie: Categorie_1
     weight: '4'
     in_menu: true
     project_id: '19'
@@ -78,7 +78,7 @@ Promotion:
     url: 3a
     nom: 3A
     description: '3A auto'
-    Filiere: Filiere_2
+    Categorie: Categorie_2
     weight: '4'
     in_menu: true
     project_id: '19'
@@ -93,7 +93,7 @@ Promotion:
     url: 1a
     nom: 1A
     description: '1a textile'
-    Filiere: Filiere_3
+    Categorie: Categorie_3
     weight: '0'
     in_menu: true
     project_id: '19'
@@ -108,7 +108,7 @@ Promotion:
     url: 2a
     nom: 2A
     description: '2a textile'
-    Filiere: Filiere_3
+    Categorie: Categorie_3
     weight: '2'
     in_menu: true
     project_id: '19'
@@ -123,7 +123,7 @@ Promotion:
     url: 3a
     nom: 3A
     description: '3a textile'
-    Filiere: Filiere_3
+    Categorie: Categorie_3
     weight: '4'
     in_menu: true
     project_id: '19'
@@ -138,7 +138,7 @@ Promotion:
     url: 1a
     nom: 1A
     description: '1a méca'
-    Filiere: Filiere_4
+    Categorie: Categorie_4
     weight: '0'
     in_menu: true
     project_id: '19'
@@ -153,7 +153,7 @@ Promotion:
     url: 2a
     nom: 2A
     description: '2a méca'
-    Filiere: Filiere_4
+    Categorie: Categorie_4
     weight: '2'
     in_menu: true
     project_id: '19'
@@ -168,7 +168,7 @@ Promotion:
     url: 3a
     nom: 3A
     description: '3a méca'
-    Filiere: Filiere_4
+    Categorie: Categorie_4
     weight: '6'
     in_menu: true
     project_id: '19'
@@ -183,7 +183,7 @@ Promotion:
     url: 1a
     nom: 1A
     description: '1a prod'
-    Filiere: Filiere_5
+    Categorie: Categorie_5
     weight: '0'
     in_menu: true
     project_id: '19'
@@ -198,7 +198,7 @@ Promotion:
     url: 2a
     nom: 2A
     description: '2a prod'
-    Filiere: Filiere_5
+    Categorie: Categorie_5
     weight: '2'
     in_menu: true
     project_id: '19'
@@ -213,7 +213,7 @@ Promotion:
     url: l3
     nom: L3
     description: 'l3 / lmme'
-    Filiere: Filiere_6
+    Categorie: Categorie_6
     weight: '0'
     in_menu: true
     project_id: '19'
@@ -228,7 +228,7 @@ Promotion:
     url: m1
     nom: M1
     description: 'm1 / lmme'
-    Filiere: Filiere_6
+    Categorie: Categorie_6
     weight: '2'
     in_menu: true
     project_id: '19'
@@ -243,7 +243,7 @@ Promotion:
     url: m2
     nom: M2
     description: 'm2 / lmme'
-    Filiere: Filiere_6
+    Categorie: Categorie_6
     weight: '4'
     in_menu: true
     project_id: '19'
@@ -258,7 +258,7 @@ Promotion:
     url: msf
     nom: MSF
     description: 'MSF / lmme'
-    Filiere: Filiere_6
+    Categorie: Categorie_6
     weight: '6'
     in_menu: true
     project_id: '19'
@@ -273,7 +273,7 @@ Promotion:
     url: mr
     nom: MR
     description: 'master recherche / info'
-    Filiere: Filiere_1
+    Categorie: Categorie_1
     weight: '10'
     in_menu: true
     project_id: '19'
@@ -288,7 +288,7 @@ Promotion:
     url: m1-miage
     nom: m1-miage
     description: null
-    Filiere: Filiere_7
+    Categorie: Categorie_7
     weight: '0'
     in_menu: false
     project_id: ''
@@ -303,7 +303,7 @@ Promotion:
     url: m1-miage-ok
     nom: m1-miage-ok
     description: null
-    Filiere: Filiere_7
+    Categorie: Categorie_7
     weight: '0'
     in_menu: false
     project_id: '4'
@@ -318,7 +318,7 @@ Promotion:
     url: m1-miage-ok2
     nom: m1-miage-ok2
     description: null
-    Filiere: Filiere_7
+    Categorie: Categorie_7
     weight: '0'
     in_menu: false
     project_id: '4'
@@ -333,7 +333,7 @@ Promotion:
     url: L3-chimie-FST
     nom: L3-chimie-FST
     description: null
-    Filiere: Filiere_7
+    Categorie: Categorie_7
     weight: '0'
     in_menu: false
     project_id: '4'
@@ -344,50 +344,50 @@ Promotion:
     id_piano_day: '0,1,2,3,4,5'
     width: '800'
     height: '600'
-Filiere:
-  Filiere_1:
+Categorie:
+  Categorie_1:
     url: info
     nom: Informatique
     description: "Informatique & Réseaux\r\n"
     logo: info.png
     weight: '0'
     in_menu: true
-  Filiere_2:
+  Categorie_2:
     url: auto
     nom: Automatique
     description: null
     logo: auto.png
     weight: '3'
     in_menu: true
-  Filiere_3:
+  Categorie_3:
     url: text
     nom: Textile
     description: null
     logo: text.png
     weight: '6'
     in_menu: true
-  Filiere_4:
+  Categorie_4:
     url: meca
     nom: Mécanique
     description: null
     logo: meca.png
     weight: '8'
     in_menu: true
-  Filiere_5:
+  Categorie_5:
     url: prod
     nom: 'Système de Production'
     description: null
     logo: prod.png
     weight: '10'
     in_menu: true
-  Filiere_6:
+  Categorie_6:
     url: lmme
     nom: 'Licences/Masters Méca'
     description: null
     logo: lmme.png
     weight: '15'
     in_menu: true
-  Filiere_7:
+  Categorie_7:
     url: perso
     nom: 'edt Personnels'
     description: null

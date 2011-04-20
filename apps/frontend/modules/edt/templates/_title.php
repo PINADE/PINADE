@@ -1,5 +1,5 @@
 <?php slot('title'); 
-if(isset($filiere)) echo $filiere;
+if(isset($categorie)) echo $categorie;
 
 if(isset($promotion)) echo ' - '.$promotion;
 

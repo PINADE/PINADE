@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr" <?php
   echo ($sf_request->getCookie("offline") == "enabled" && $sf_request->getParameter('module') == 'edt') ?
-    'manifest="'.url_for('@manifest?filiere='.$sf_request->getParameter('filiere').
+    'manifest="'.url_for('@manifest?categorie='.$sf_request->getParameter('categorie').
     '&promo='.$sf_request->getParameter('promo').
     '&semaine='.$sf_request->getParameter('semaine', AdeTools::getSemaineNumber())).'" >'
  : '>' ?>
@@ -33,20 +33,20 @@
                 <?php echo link_to('Accueil', '@homepage', "inline") ?>
 
               </li>
-<?php $filieres = Doctrine_Core::getTable('Filiere')
-      ->createQuery('f')
-      ->leftJoin('f.Promotions p')
-      ->where('f.in_menu = 1')
+<?php $categories = Doctrine_Core::getTable('Categorie')
+      ->createQuery('c')
+      ->leftJoin('c.Promotions p')
+      ->where('c.in_menu = 1')
       ->andWhere('p.in_menu = 1')
-      ->orderBy('f.weight ASC, p.weight ASC')
+      ->orderBy('c.weight ASC, p.weight ASC')
       ->execute();
 ?>
-<?php foreach($filieres as $filiere): ?>
-              <li><?php echo image_tag("logos/".$filiere->getLogo(), "alt='logo ".$filiere."'") ?><?php echo $filiere ?>
+<?php foreach($categories as $categorie): ?>
+              <li><?php echo image_tag("logos/".$categorie->getLogo(), "alt='logo ".$categorie."'") ?><?php echo $categorie ?>
 
                 <ul>
-  <?php foreach($filiere->getPromotions() as $promo): ?>
-                <li><?php echo link_to($promo, "@image?filiere=".$filiere->getUrl()."&promo=".$promo->getUrl()."&semaine=".$sf_request->getParameter('semaine')) ?></li>
+  <?php foreach($categorie->getPromotions() as $promo): ?>
+                <li><?php echo link_to($promo, "@image?categorie=".$categorie->getUrl()."&promo=".$promo->getUrl()."&semaine=".$sf_request->getParameter('semaine')) ?></li>
   <?php endforeach ?>
               </ul>
               </li>

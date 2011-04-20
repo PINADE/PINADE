@@ -12,13 +12,13 @@
         -webkit-column-gap: 20px;
         column-count: 3;
         column-gap: 20px;">
-<?php foreach($filieres as $filiere): ?>
-  <li><?php echo image_tag("logos/".$filiere->getLogo(), "alt='logo ".$filiere."'");
-   echo " ".link_to($filiere, '@filiere_index?filiere='.$filiere->getUrl()) ?>
+<?php foreach($categories as $categorie): ?>
+  <li><?php echo image_tag("logos/".$categorie->getLogo(), "alt='logo ".$categorie."'");
+   echo " ".link_to($categorie, '@categorie_index?categorie='.$categorie->getUrl()) ?>
     <ul>
-    <?php foreach($filiere->getPromotions() as $promotion): ?>
+    <?php foreach($categorie->getPromotions() as $promotion): ?>
       <li>
-        <?php echo link_to($promotion, "@image?filiere=".$filiere->getUrl()."&promo=".$promotion->getUrl()."&semaine=") ?>
+        <?php echo link_to($promotion, "@image?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=") ?>
       </li>
     <?php endforeach ?>
     </ul>
