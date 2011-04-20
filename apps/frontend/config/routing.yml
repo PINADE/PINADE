@@ -13,7 +13,7 @@ cron:
 
 # actions notice. kSdsZhrS is the "password"
 notice:
-  url:  /kSdsZhrS/:action/:filiere/:promo/:semaine/*
+  url:  /kSdsZhrS/:action/:categorie/:promo/:semaine/*
   param: { module: notice }
 
 # (re)set cookie
@@ -27,35 +27,35 @@ cookie_reset:
 
 # Image gif d'une semaine, puis celle par défaut
 image_img:
-  url:  /img/:filiere/:promo/:semaine/*
+  url:  /img/:categorie/:promo/:semaine/*
   param: { module: img, action: img }
 
 image_img_default:
-  url:  /img/:filiere/:promo/*
+  url:  /img/:categorie/:promo/*
   param: { module: img, action: img }
 
 # détails sur l'image d'une semaine
 details_img:
-  url:  /details/:filiere/:promo/:semaine/*
+  url:  /details/:categorie/:promo/:semaine/*
   param: { module: img, action: details }
 
 # iCal update
 ical_update:
-  url:  /ical_update/:filiere/:promo/*
+  url:  /ical_update/:categorie/:promo/*
   param: { module: ical, action: update }
 
 # iCal
 ical:
-  url:  /ical/:filiere/:promo/ical.ics
+  url:  /ical/:categorie/:promo/ical.ics
   param: { module: ical, action: ical }
 
 # manifest for offline
 manifest:
-  url:  /cache.manifest/:filiere/:promo/:semaine/*
+  url:  /cache.manifest/:categorie/:promo/:semaine/*
   param: { module: offline, action: manifest }
 
 manifest_default:
-  url:  /cache.manifest/:filiere/:promo/*
+  url:  /cache.manifest/:categorie/:promo/*
   param: { module: offline, action: manifest }
 
 offline_action:
@@ -74,21 +74,21 @@ myedt_default:
 
 # Page de l'edt pour la semaine courante
 image_default_index:
-  url:  /:filiere/:promo
+  url:  /:categorie/:promo
   param: { module: edt, action: image }
 
 # Page pour une semaine, puis pour la semaine par défaut
 image:
-  url:  /:filiere/:promo/:semaine
+  url:  /:categorie/:promo/:semaine
   param: { module: edt, action: image}
 
 image_default:
-  url:  /:filiere/:promo/*
+  url:  /:categorie/:promo/*
   param: { module: edt, action: image }
 
 # Page pour une filière ou pour une page si elle n'existe pas
-filiere_index:
-  url:   /:filiere
+categorie_index:
+  url:   /:categorie
   param: { module: edt, action: indexPromo }
 
 # Route utilisée pour générer les liens vers les pages (mais pas pour le routage)
