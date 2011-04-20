@@ -88,7 +88,7 @@ image_default:
 
 # Page pour une filière ou pour une page si elle n'existe pas
 categorie_index:
-  url:   /:categorie
+  url:   /:categorie/*
   param: { module: edt, action: indexPromo }
 
 # Route utilisée pour générer les liens vers les pages (mais pas pour le routage)
