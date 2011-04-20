@@ -31,7 +31,7 @@ class cronActions extends sfActions
     // Pour la semaine en cours et la suivante
     foreach(array($semaine, $semaine +1) as $semaine)
     {
-      // Pour chaque promo de chaque filiere de chaque semaine
+      // Pour chaque promo de chaque semaine
       foreach($promotions as $promotion)
       {
         // On crée une image ADE, qu'on met à jour en forçant l'update
@@ -62,7 +62,7 @@ class cronActions extends sfActions
 
     $message = "";
 
-    // Pour chaque promo de chaque filiere de chaque semaine
+    // Pour chaque promo  de chaque semaine
     foreach($promotions as $promotion)
     {
       // On crée une image ADE, qu'on met à jour en forçant l'update
