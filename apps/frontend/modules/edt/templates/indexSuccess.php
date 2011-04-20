@@ -4,7 +4,7 @@
 </h1>
 
 
-<h2>Les emplois du temps <i>officiels</i></h2>
+<h2>Les emplois du temps sélectionnés</h2>
 
 <ul style="-moz-column-count: 3;
         -moz-column-gap: 20px;
