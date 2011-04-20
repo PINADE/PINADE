@@ -50,28 +50,28 @@ class myedtActions extends sfActions
     }
 
 
-    $filiere = Doctrine_Core::getTable('Promotion')
+    $categorie = Doctrine_Core::getTable('Promotion')
       ->createQuery('p')
-      ->leftJoin('p.Filiere f')
-      ->where('f.url = "perso"')
+      ->leftJoin('p.Categorie c')
+      ->where('c.url = "perso"')
       ->andWhere('p.url = ?', array($nom))
       ->execute();
 
-    if($filiere->count() > 0)
+    if($categorie->count() > 0)
     {
       $request->setParameter('erreur', "Nom déjà pris, choisissez en un autre !");
       $this->forward('myedt', 'import');
     }
 
 
-    $filiere = Doctrine_Core::getTable('Filiere')
-      ->createQuery('f')
-      ->where('f.url = "perso"')
+    $categorie = Doctrine_Core::getTable('Categorie')
+      ->createQuery('c')
+      ->where('c.url = "perso"')
       ->execute()->getFirst();
 
-    if(!$filiere)
+    if(!$categorie)
     {
-      $request->setParameter('erreur', "Erreur de l'administrateur. La filière 'perso' n'existe pas !");
+      $request->setParameter('erreur', "Erreur de l'administrateur. La catégorie 'perso' n'existe pas !");
       $this->forward('myedt', 'import');
     }
 
@@ -80,13 +80,13 @@ class myedtActions extends sfActions
     // $promotion->setIdPianoWeek($idPianoWeek);
     $promotion->setIdPianoDay($idPianoDay);
     $promotion->setIdTree($idTree);
-    $promotion->setFiliereId($filiere->getId());
+    $promotion->setCategorieId($categorie->getId());
     $promotion->setNom($nom);
     $promotion->setDescription($request->getParameter('description'));
     $promotion->setUrl($nom);
     $promotion->save();
 
-    $this->redirect('@image?filiere=perso&promo='.$request->getParameter('nom').'&semaine=');
+    $this->redirect('@image?categorie=perso&promo='.$request->getParameter('nom').'&semaine=');
 
    // https://www.emploisdutemps.uha.fr/ade/imageEt?&&&width=800&height=600&lunchName=REPAS&displayMode=1057855&showLoad=false&ttl=1283427991552&displayConfId=8
 

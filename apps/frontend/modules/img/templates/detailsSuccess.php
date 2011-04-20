@@ -1,8 +1,8 @@
 Information sur l'image<br/>
 <ul>
-  <li>Filière :  <b><?php echo $filiere ?></li></b>
-  <li>Promo :    <b><?php echo $promotion ?></li></b>
-  <li>Semaine :  <b><?php echo $semaine ?></li></b>
+  <li>Catégorie : <b><?php echo $categorie ?></li></b>
+  <li>Promo :     <b><?php echo $promotion ?></li></b>
+  <li>Semaine :   <b><?php echo $semaine ?></li></b>
   <li>URL :  <b style="overflow:auto; display:block"><?php echo link_to($url, $url) ?></li></b>
   <li>Img Filepath : <b <?php echo ($img_mtime == 0) ? 'style="color:red"' : '' ?>><?php echo $img_filepath ?></b><br/>
     Dernière modification : <b><?php echo strftime("%a %d %b %Y %H:%M:%S", $img_mtime) ?></b></li>
