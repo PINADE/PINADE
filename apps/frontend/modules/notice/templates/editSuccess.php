@@ -1,4 +1,4 @@
-<?php include_partial('edt/title', array('filiere' => $promotion->getFiliere(), 'promotion' => $promotion)) ?>
+<?php include_partial('edt/title', array('categorie' => $promotion->getCategorie(), 'promotion' => $promotion)) ?>
 
 
 <h1 id="title"><?php include_slot('title') ?></h1>
@@ -8,9 +8,9 @@
 </h2>
 
 
-  <form method="post" action="<?php echo url_for("@notice?action=update&promo=".$promotion->getUrl()."&filiere=".$promotion->getFiliere()->getUrl()."&semaine=$semaine") ?>">
+  <form method="post" action="<?php echo url_for("@notice?action=update&promo=".$promotion->getUrl()."&categorie=".$promotion->getCategorie()->getUrl()."&semaine=$semaine") ?>">
 <label for="message">Note&nbsp;:<br/>
 <textarea id="message" name="message" cols='50' rows='5'><?php echo $notice ?></textarea><br/>
 <input type="submit" value="Enregistrer" name="submit" /> - 
-<?php echo link_to('Annuler', "@notice?action=show&promo=".$promotion->getUrl()."&filiere=".$promotion->getFiliere()->getUrl()."&semaine=$semaine") ?>
+<?php echo link_to('Annuler', "@notice?action=show&promo=".$promotion->getUrl()."&categorie=".$promotion->getCategorie()->getUrl()."&semaine=$semaine") ?>
 </form>

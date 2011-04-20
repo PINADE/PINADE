@@ -18,13 +18,13 @@ class noticeActions extends sfActions
   {
     $this->promotion = Doctrine_Core::getTable('Promotion')
       ->createQuery('p')
-      ->leftJoin('p.Filiere f')
-      ->where('p.url = ? AND f.url = ?', array($request->getParameter('promo'),  $request->getParameter('filiere')))
+      ->leftJoin('p.Categorie c')
+      ->where('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
       ->execute()
       ->getFirst();
     $this->forward404Unless($this->promotion);
 
-    $this->filiere = $this->promotion->getFiliere();
+    $this->categorie = $this->promotion->getCategorie();
 
     $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
 
@@ -54,8 +54,8 @@ class noticeActions extends sfActions
   {
     $this->promotion = Doctrine_Core::getTable('Promotion')
       ->createQuery('p')
-      ->leftJoin('p.Filiere f')
-      ->where('p.url = ? AND f.url = ?', array($request->getParameter('promo'),  $request->getParameter('filiere')))
+      ->leftJoin('p.Categorie c')
+      ->where('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
       ->execute()
       ->getFirst();
     $this->forward404Unless($this->promotion);
@@ -75,8 +75,8 @@ class noticeActions extends sfActions
     $this->forward404Unless($request->isMethod(sfRequest::POST));
     $promotion = Doctrine_Core::getTable('Promotion')
       ->createQuery('p')
-      ->leftJoin('p.Filiere f')
-      ->where('p.url = ? AND f.url = ?', array($request->getParameter('promo'),  $request->getParameter('filiere')))
+      ->leftJoin('p.Categorie c')
+      ->where('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
       ->execute()
       ->getFirst();
     $this->forward404Unless($promotion);
@@ -97,7 +97,7 @@ class noticeActions extends sfActions
       $message->save();
     }
 
-    $this->redirect("@notice?action=show&promo=".$promotion->getUrl()."&filiere=".$promotion->getFiliere()->getUrl()."&semaine=$semaine");
+    $this->redirect("@notice?action=show&promo=".$promotion->getUrl()."&categorie=".$promotion->getCategorie()->getUrl()."&semaine=$semaine");
   }
 
 
