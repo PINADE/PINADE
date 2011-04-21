@@ -11,6 +11,25 @@ class icalActions extends sfActions
 {
 
   /**
+<<<<<<< HEAD
+    Display the gif of the week
+  */
+  public function executeUpdate(sfWebRequest $request)
+  {
+    $this->promotion = Doctrine_Core::getTable('Promotion')
+      ->createQuery('p')
+      ->leftJoin('p.Categorie c')
+      ->where('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
+      ->execute()
+      ->getFirst();
+
+    $adeImage = new AdeImage($this->promotion, $semaine);
+
+    $adeImage->updateHtml();
+    $adeImage->updateIcal();
+    $this->path = $adeImage->getInfoPath();
+  }
+  /**
     Display the iCal
   */
   public function executeIcal(sfWebRequest $request)
@@ -21,7 +40,6 @@ class icalActions extends sfActions
       ->where('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
       ->execute()
       ->getFirst();
-    $this->forward404Unless($this->promotion);
 
     $adeImage = new AdeImage($this->promotion, $semaine);
 
