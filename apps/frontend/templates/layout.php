@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" <?php
-  echo ($sf_request->getCookie("offline") == "enabled" && $sf_request->getParameter('module') == 'edt') ?
-    'manifest="'.url_for('@manifest?categorie='.$sf_request->getParameter('categorie').
-    '&promo='.$sf_request->getParameter('promo').
-    '&semaine='.$sf_request->getParameter('semaine', AdeTools::getSemaineNumber())).'" >'
- : '>' ?>
+<html lang="fr">
 
   <head>
     <?php include_http_metas() ?>
@@ -15,11 +10,9 @@
     <?php include_partial('global/perso-css') ?>
     <link rel="stylesheet" href="/css/mobile.css" type="text/css" media="handheld, only screen and (max-device-width: 480px)" />
     <?php include_javascripts() ?>
-    <?php if($sf_request->getCookie("offline") == "enabled")
-            echo javascript_include_tag('offline.js');    ?>
 
   </head>
-  <body <?php echo ($sf_request->getCookie("offline") == "enabled") ? 'onload="loaded();"' : '' ?> >
+  <body>
     <div id="global">
       <div id="centre">
         <div id="contenu">
