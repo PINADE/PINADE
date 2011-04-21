@@ -78,26 +78,24 @@ class edtActions extends sfActions
 
     $this->categorie = $this->promotion->getCategorie();
 
-    $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
-
-    $this->semaine = $semaine;
-    $this->semaine_suivante = $semaine + 1;
+    $this->semaine = $this->promotion->getAdeWeekNumber($request->getParameter('semaine'));
+    $this->semaine_suivante = $this->semaine + 1;
     // Pas de semaine négative !
-    $this->semaine_precedente = max(0,$semaine - 1);
+    $this->semaine_precedente = max(0, $this->semaine - 1);
 
 
-    $this->adeImage = new AdeImage($this->promotion, $this->semaine);
+    $adeImage = new AdeImage($this->promotion, $this->semaine);
 
-    $this->image_path = sfConfig::get('sf_web_dir').$this->adeImage->getWebPath();
+    $this->image_path = sfConfig::get('sf_web_dir').$adeImage->getWebPath();
     if(file_exists($this->image_path))
       $this->image_mtime = filemtime($this->image_path);
     else
-      $this->adeImage->updateImage();
+      $adeImage->updateImage();
 
     $this->diff_day = (time() - $this->image_mtime)/(60*60*24);
 
     // Timestamp du lundi, début de semaine
-    $this->timestamp = AdeTools::getTimestamp($this->semaine);
+    $this->timestamp = $this->promotion->getTimestamp($this->semaine);
     // Notice
     $this->notice = $this->promotion->getWeekMessage($this->semaine);
   }
