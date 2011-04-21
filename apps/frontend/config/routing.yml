@@ -44,19 +44,6 @@ ical:
   url:  /ical/:categorie/:promo/ical.ics
   param: { module: ical, action: ical }
 
-# manifest for offline
-manifest:
-  url:  /cache.manifest/:categorie/:promo/:semaine/*
-  param: { module: offline, action: manifest }
-
-manifest_default:
-  url:  /cache.manifest/:categorie/:promo/*
-  param: { module: offline, action: manifest }
-
-offline_action:
-  url:  /offline/:action/*
-  param: { module: offline }
-
 # Myedt
 myedt:
   url:  /myedt/:action/*
