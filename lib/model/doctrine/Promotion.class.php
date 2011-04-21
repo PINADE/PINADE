@@ -26,4 +26,26 @@ class Promotion extends BasePromotion
       ->execute()
       ->getFirst();
   }
+
+  /**
+   * Retourne le numéro ADE de la semaine :
+   * - celui passé en paramètre s'il existe
+   * - celui de la semaine courante sinon
+   */
+  public function getAdeWeekNumber($number = null)
+  {
+    if($number != null)
+      return $number;
+
+    //$Epoch_UHA = 1283119200 - (2*24 + 6)*60*60;
+    return floor((time()- $this->getStartTimestamp())/(60*60*24*7));
+  }
+
+  /**
+   * Retourne le timestamp correspondant à la semaine ADE
+   */
+  public function getTimestamp($semaineADE)
+  {
+    return $this->getStartTimestamp() + $semaineADE * (60*60*24*7);
+  }
 }
