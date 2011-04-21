@@ -39,7 +39,7 @@ class edtActions extends sfActions
           $this->redirect("@image?categorie=$categorie&promo=$promo&semaine=");
       }
     }
-    // Si on n'a pas redirigé, pas de cookie ou cookie erroné, on affiche la liste des filières
+    // Si on n'a pas redirigé, pas de cookie ou cookie erroné, on affiche la liste des catégories
     $this->categories = Doctrine_Core::getTable('Categorie')
       ->createQuery('c')
       ->leftJoin('c.Promotions p')
@@ -57,7 +57,6 @@ class edtActions extends sfActions
       ->execute()
       ->getFirst();
 
-    //$this->forward404Unless( $this->filiere, sprintf('Object filiere does not exist (%s).', $request->getParameter('filiere')));
     // Si la catégorie n'existe pas, c'est une page "statique". On forward vers le pages/show
     if(!$this->categorie)
     {

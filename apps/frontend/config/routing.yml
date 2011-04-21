@@ -81,7 +81,7 @@ image_default:
   url:  /:categorie/:promo/*
   param: { module: edt, action: image }
 
-# Page pour une filière ou pour une page si elle n'existe pas
+# Page pour une catégorie ou pour une page si elle n'existe pas
 categorie_index:
   url:   /:categorie/*
   param: { module: edt, action: indexPromo }
