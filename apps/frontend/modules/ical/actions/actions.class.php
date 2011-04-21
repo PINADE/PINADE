@@ -17,8 +17,8 @@ class icalActions extends sfActions
   {
     $this->promotion = Doctrine_Core::getTable('Promotion')
       ->createQuery('p')
-      ->leftJoin('p.Filiere f')
-      ->where('p.url = ? AND f.url = ?', array($request->getParameter('promo'),  $request->getParameter('filiere')))
+      ->leftJoin('p.Categorie c')
+      ->where('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
       ->execute()
       ->getFirst();
 
@@ -35,8 +35,8 @@ class icalActions extends sfActions
   {
     $this->promotion = Doctrine_Core::getTable('Promotion')
       ->createQuery('p')
-      ->leftJoin('p.Filiere f')
-      ->where('p.url = ? AND f.url = ?', array($request->getParameter('promo'),  $request->getParameter('filiere')))
+      ->leftJoin('p.Categorie c')
+      ->where('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
       ->execute()
       ->getFirst();
 
