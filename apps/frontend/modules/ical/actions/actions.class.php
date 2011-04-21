@@ -11,6 +11,7 @@ class icalActions extends sfActions
 {
 
   /**
+<<<<<<< HEAD
     Display the gif of the week
   */
   public function executeUpdate(sfWebRequest $request)
@@ -29,7 +30,7 @@ class icalActions extends sfActions
     $this->path = $adeImage->getInfoPath();
   }
   /**
-    Display the gif of the week
+    Display the iCal
   */
   public function executeIcal(sfWebRequest $request)
   {
