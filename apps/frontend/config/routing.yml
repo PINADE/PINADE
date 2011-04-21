@@ -39,11 +39,6 @@ details_img:
   url:  /details/:filiere/:promo/:semaine/*
   param: { module: img, action: details }
 
-# iCal update
-ical_update:
-  url:  /ical_update/:filiere/:promo/*
-  param: { module: ical, action: update }
-
 # iCal
 ical:
   url:  /ical/:filiere/:promo/ical.ics
