@@ -15,15 +15,15 @@ class icalActions extends sfActions
   */
   public function executeUpdate(sfWebRequest $request)
   {
-    $filiere = $request->getParameter('filiere');
-    $promo = $request->getParameter('promo');
-    
-    $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
+    $this->promotion = Doctrine_Core::getTable('Promotion')
+      ->createQuery('p')
+      ->leftJoin('p.Filiere f')
+      ->where('p.url = ? AND f.url = ?', array($request->getParameter('promo'),  $request->getParameter('filiere')))
+      ->execute()
+      ->getFirst();
 
-    $adeImage = new AdeImage(
-      array(array('filiere' => $filiere, 'promo' => $promo )),
-      array('idPianoWeek' => $semaine)
-    );
+    $adeImage = new AdeImage($this->promotion, $semaine);
+
     $adeImage->updateHtml();
     $adeImage->updateIcal();
     $this->path = $adeImage->getInfoPath();
@@ -33,25 +33,23 @@ class icalActions extends sfActions
   */
   public function executeIcal(sfWebRequest $request)
   {
-    $filiere = $request->getParameter('filiere');
-    $promo = $request->getParameter('promo');
-    
-    $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
+    $this->promotion = Doctrine_Core::getTable('Promotion')
+      ->createQuery('p')
+      ->leftJoin('p.Filiere f')
+      ->where('p.url = ? AND f.url = ?', array($request->getParameter('promo'),  $request->getParameter('filiere')))
+      ->execute()
+      ->getFirst();
 
-    $adeImage = new AdeImage(
-      array(array('filiere' => $filiere, 'promo' => $promo )),
-      array('idPianoWeek' => $semaine)
-    );
+    $adeImage = new AdeImage($this->promotion, $semaine);
+
+
     $filepath = $adeImage->getIcalPath();
-//    $this->setLayout(false);
+
     $this->getResponse()->setContentType('text/calendar');
 
-    // Set content and exit
+    // Set infos about the iCal file
     $this->getResponse()->setHttpHeader('Content-Length', filesize($filepath));
     $this->getResponse()->setHttpHeader('Last-Modified', gmdate('D, d M Y H:i:s', filemtime($filepath)).' GMT');
-    // The image can be cached by proxy and browser's cache, during at most 3600 seconds
-//    $this->getResponse()->addCacheControlHttpHeader('public');
-//    $this->getResponse()->addCacheControlHttpHeader('max-age', '3600');
 
     // Send content
     $this->getResponse()->setContent(file_get_contents($filepath));
