@@ -22,9 +22,9 @@ class imgActions extends sfActions
       ->where('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
       ->execute()
       ->getFirst();
-    $this->categorie = $this->promotion->getCategorie();
+    $this->forward404Unless($this->promotion);
 
-    $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
+    $semaine = $this->promotion->getAdeWeekNumber($request->getParameter('semaine'));
 
     $adeImage = new AdeImage($this->promotion, $semaine);
 
@@ -49,7 +49,7 @@ class imgActions extends sfActions
     return sfView::NONE;
     
     // If you want to debug, comment the previous line and uncomment the following
-    // $this->setTemplate('index');
+    // $this->setTemplate('imagedebug');
   }
 
   /**
@@ -63,9 +63,11 @@ class imgActions extends sfActions
       ->where('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
       ->execute()
       ->getFirst();
+    $this->forward404Unless($this->promotion);
+
     $this->categorie = $this->promotion->getCategorie();
     
-    $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
+    $semaine = $this->promotion->getAdeWeekNumber($request->getParameter('semaine'));
 
     $adeImage = new AdeImage($this->promotion, $semaine);
 
@@ -75,9 +77,10 @@ class imgActions extends sfActions
     $this->semaine = $semaine;
     $this->img_filepath = $filepath;
     $this->ical_filepath = $adeImage->getIcalPath();
-    $this->notice = $adeImage->getNotice();
+    $this->notice = $this->promotion->getWeekMessage($this->semaine);
     $this->cookie = $request->getCookie('default');
     $this->url = $adeImage->getUrl();
+    
 
     if(file_exists($this->img_filepath))
       $this->img_mtime = filemtime($this->img_filepath);
