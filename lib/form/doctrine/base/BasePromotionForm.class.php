@@ -28,6 +28,7 @@ abstract class BasePromotionForm extends BaseFormDoctrine
       'select_branch_id' => new sfWidgetFormInputText(),
       'select_id'        => new sfWidgetFormInputText(),
       'id_piano_day'     => new sfWidgetFormInputText(),
+      'start_timestamp'  => new sfWidgetFormInputText(),
       'width'            => new sfWidgetFormInputText(),
       'height'           => new sfWidgetFormInputText(),
     ));
@@ -46,6 +47,7 @@ abstract class BasePromotionForm extends BaseFormDoctrine
       'select_branch_id' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'select_id'        => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'id_piano_day'     => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'start_timestamp'  => new sfValidatorInteger(array('required' => false)),
       'width'            => new sfValidatorInteger(array('required' => false)),
       'height'           => new sfValidatorInteger(array('required' => false)),
     ));

@@ -26,7 +26,7 @@ class noticeActions extends sfActions
 
     $this->categorie = $this->promotion->getCategorie();
 
-    $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
+    $semaine = $this->promotion->getAdeWeekNumber($request->getParameter('semaine'));
 
     $this->semaine = $semaine;
     $this->semaine_suivante = $semaine + 1;
@@ -45,7 +45,7 @@ class noticeActions extends sfActions
     $this->diff_day = (time() - $this->image_mtime)/(60*60*24);
 
     // Timestamp du lundi, début de semaine
-    $this->timestamp = AdeTools::getTimestamp($this->semaine);
+    $this->timestamp = $this->promotion->getTimestamp($this->semaine);
     // Notice
     $this->notice = $this->promotion->getWeekMessage($this->semaine);
   }
@@ -60,14 +60,14 @@ class noticeActions extends sfActions
       ->getFirst();
     $this->forward404Unless($this->promotion);
 
-    $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
+    $semaine = $this->promotion->getAdeWeekNumber($request->getParameter('semaine'));
     $this->semaine = $semaine;
 
     // Notice
     $this->notice = $this->promotion->getWeekMessage($this->semaine);
 
 
-    $this->timestamp = AdeTools::getTimestamp($this->semaine);
+    $this->timestamp = $this->promotion->getTimestamp($this->semaine);
 
   }
   public function executeUpdate(sfWebRequest $request)
@@ -80,14 +80,23 @@ class noticeActions extends sfActions
       ->execute()
       ->getFirst();
     $this->forward404Unless($promotion);
-    $semaine = intval($request->getParameter('semaine', AdeTools::getSemaineNumber()));
+
+    $semaine = $promotion->getAdeWeekNumber($request->getParameter('semaine'));
+    $texte   = $request->getParameter('message');
 
     if($message = $promotion->getWeekMessage($semaine)) {
       // Un message existe déjà, on le met à jour
-      $message->setTexte($request->getParameter('message'));
-      $message->save();
+      if(strlen($texte) > 0)
+      {
+	$message->setTexte($texte);
+	$message->save();
+      }
+      else
+      {
+	$message->delete();
+      }
     }
-    else
+    elseif(strlen($texte) > 0) // on ne crée le message que s'il y a du texte
     {
       // On crée le message dans la base :
       $message = new Message();

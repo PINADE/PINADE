@@ -17,6 +17,7 @@
  * @property string $select_branch_id
  * @property string $select_id
  * @property string $id_piano_day
+ * @property integer $start_timestamp
  * @property integer $width
  * @property integer $height
  * @property Categorie $Categorie
@@ -34,6 +35,7 @@
  * @method string              getSelectBranchId()   Returns the current record's "select_branch_id" value
  * @method string              getSelectId()         Returns the current record's "select_id" value
  * @method string              getIdPianoDay()       Returns the current record's "id_piano_day" value
+ * @method integer             getStartTimestamp()   Returns the current record's "start_timestamp" value
  * @method integer             getWidth()            Returns the current record's "width" value
  * @method integer             getHeight()           Returns the current record's "height" value
  * @method Categorie           getCategorie()        Returns the current record's "Categorie" value
@@ -50,6 +52,7 @@
  * @method Promotion           setSelectBranchId()   Sets the current record's "select_branch_id" value
  * @method Promotion           setSelectId()         Sets the current record's "select_id" value
  * @method Promotion           setIdPianoDay()       Sets the current record's "id_piano_day" value
+ * @method Promotion           setStartTimestamp()   Sets the current record's "start_timestamp" value
  * @method Promotion           setWidth()            Sets the current record's "width" value
  * @method Promotion           setHeight()           Sets the current record's "height" value
  * @method Promotion           setCategorie()        Sets the current record's "Categorie" value
@@ -114,6 +117,10 @@ abstract class BasePromotion extends sfDoctrineRecord
              'type' => 'string',
              'default' => '0,1,2,3,4',
              'length' => 255,
+             ));
+        $this->hasColumn('start_timestamp', 'integer', null, array(
+             'type' => 'integer',
+             'default' => 1283119200,
              ));
         $this->hasColumn('width', 'integer', null, array(
              'type' => 'integer',

@@ -25,19 +25,18 @@ class cronActions extends sfActions
       ->createQuery('f')
       ->execute();
 
-    $semaine = AdeTools::getSemaineNumber();
-
     $message = "";
-    // Pour la semaine en cours et la suivante
-    foreach(array($semaine, $semaine +1) as $semaine)
+    // Pour chaque promo
+    foreach($promotions as $promotion)
     {
-      // Pour chaque promo de chaque semaine
-      foreach($promotions as $promotion)
+      $semaine_actuelle = $promotion->getAdeWeekNumber();
+      // Pour la semaine en cours et la suivante
+      foreach(array($semaine_actuelle, $semaine_actuelle +1) as $semaine)
       {
         // On crée une image ADE, qu'on met à jour en forçant l'update
         $adeImage = new AdeImage($promotion, $semaine);
         $adeImage->updateImage(true);
-        $message .= '- '.$promotion->getFiliere().', '.$promotion.", semaine $semaine mis à jour\n";
+        $message .= '- '.$promotion->getCategorie().', '.$promotion.", semaine $semaine mis à jour\n";
       }
     }
     $this->message = $message;
@@ -58,7 +57,6 @@ class cronActions extends sfActions
       ->createQuery('f')
       ->execute();
 
-    $semaine = AdeTools::getSemaineNumber();
 
     $message = "";
 
@@ -66,11 +64,11 @@ class cronActions extends sfActions
     foreach($promotions as $promotion)
     {
       // On crée une image ADE, qu'on met à jour en forçant l'update
-      $adeImage = new AdeImage($promotion, $semaine);
+      $adeImage = new AdeImage($promotion, $promotion->getAdeWeekNumber());
 
       $adeImage->updateHtml();
       $adeImage->updateIcal();
-      $message .= '- '.$promotion->getFiliere().', '.$promotion." mis à jour\n";
+      $message .= '- '.$promotion->getCategorie().', '.$promotion." mis à jour\n";
     }
 
     $this->message = $message;

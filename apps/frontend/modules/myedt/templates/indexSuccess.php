@@ -7,7 +7,7 @@
       <th>Url</th>
       <th>Nom</th>
       <th>Description</th>
-      <th>Filiere</th>
+      <th>Categorie</th>
       <th>Id tree</th>
       <th>Branch</th>
       <th>Select branch</th>
@@ -24,7 +24,7 @@
       <td><?php echo $promotion->getUrl() ?></td>
       <td><?php echo $promotion->getNom() ?></td>
       <td><?php echo $promotion->getDescription() ?></td>
-      <td><?php echo $promotion->getFiliereId() ?></td>
+      <td><?php echo $promotion->getCategorieId() ?></td>
       <td><?php echo $promotion->getIdTree() ?></td>
       <td><?php echo $promotion->getBranchId() ?></td>
       <td><?php echo $promotion->getSelectBranchId() ?></td>

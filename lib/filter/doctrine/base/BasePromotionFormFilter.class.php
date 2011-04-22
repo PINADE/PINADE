@@ -25,6 +25,7 @@ abstract class BasePromotionFormFilter extends BaseFormFilterDoctrine
       'select_branch_id' => new sfWidgetFormFilterInput(),
       'select_id'        => new sfWidgetFormFilterInput(),
       'id_piano_day'     => new sfWidgetFormFilterInput(),
+      'start_timestamp'  => new sfWidgetFormFilterInput(),
       'width'            => new sfWidgetFormFilterInput(),
       'height'           => new sfWidgetFormFilterInput(),
     ));
@@ -42,6 +43,7 @@ abstract class BasePromotionFormFilter extends BaseFormFilterDoctrine
       'select_branch_id' => new sfValidatorPass(array('required' => false)),
       'select_id'        => new sfValidatorPass(array('required' => false)),
       'id_piano_day'     => new sfValidatorPass(array('required' => false)),
+      'start_timestamp'  => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'width'            => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'height'           => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
     ));
@@ -76,6 +78,7 @@ abstract class BasePromotionFormFilter extends BaseFormFilterDoctrine
       'select_branch_id' => 'Text',
       'select_id'        => 'Text',
       'id_piano_day'     => 'Text',
+      'start_timestamp'  => 'Number',
       'width'            => 'Number',
       'height'           => 'Number',
     );

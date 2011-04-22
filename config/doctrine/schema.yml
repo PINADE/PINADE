@@ -30,6 +30,7 @@ Promotion:
     select_branch_id:   { type: string(255) }
     select_id:          { type: string(255) }
     id_piano_day:       { type: string(255), default: '0,1,2,3,4' }
+    start_timestamp:    { type: integer, default: 1283119200 }
     width:              { type: integer, default: 800 }
     height:             { type: integer, default: 600 }
   relations:

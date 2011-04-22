@@ -16,7 +16,7 @@
             <?php echo link_to(image_tag('divers/precedent.png', 'alt="<<"'),
               "@notice?action=show&categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=$semaine_precedente") ?>
 
-            <?php echo link_to('semaine actuelle', "@notice?action=show&categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=".AdeTools::getSemaineNumber()) ?>
+            <?php echo link_to('semaine actuelle', "@notice?action=show&categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=".$promotion->getAdeWeekNumber()) ?>
 
             <?php echo link_to(image_tag('divers/suivant.png', 'alt=">>"'), "@notice?action=show&categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=$semaine_suivante") ?>
 

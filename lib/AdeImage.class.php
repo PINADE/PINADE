@@ -18,19 +18,14 @@ class AdeImage
     $ade_browser,
     $error = "";
 
-  public function __construct(Promotion $promotion = null, $semaine = null)
+  public function __construct(Promotion $promotion, $semaine)
   {
     $this->ade_browser = new AdeBrowser();
     $this->promotion = $promotion;
-
-    if($semaine == null)
-      $this->semaine = AdeTools::getSemaineNumber();
-    else
-      $this->semaine = $semaine;
-    
+    $this->semaine = $semaine;
   }
   
-  public function getUrl($week = NULL)
+  public function getUrl()
   {
 
     return sfConfig::get('sf_ade_url')."imageEt?".
@@ -48,27 +43,6 @@ class AdeImage
       "&displayConfId=".sfConfig::get('sf_ade_display_conf_id');
   }
 
-
-  /**
-    Retourne les informations de la semaine, si elles existent
-  */
-  public function getNotice()
-  {
-    $path = $this->getPath().'/notice-'.$this->semaine.'.txt';
-    if(file_exists($path))
-      return file_get_contents($path);
-    else
-      return;
-  }
-
-  /**
-    Retourne les informations de la semaine, si elles existent
-  */
-  public function setNotice($notice)
-  {
-    $path = $this->getPath().'/notice-'.$this->semaine.'.txt';
-    return file_put_contents($path, $notice) ;
-  }
 
   public function updateImage($force = false)
   {
@@ -149,7 +123,13 @@ class AdeImage
     return $this->getPath().'ical.ics';
   }
 
-
+  /**
+   * Retourne le timestamp correspondant à la semaine ADE
+   */
+  public function getTimestamp()
+  {
+    return $this->promotion->getStartTimestamp() + $this->semaine * (60*60*24*7);
+  }
 
   public function updateHtml()
   {
@@ -220,7 +200,7 @@ PRODID:-//edt.iariss.fr//Symfony1.4 iariss.fr//EN
 VERSION:2.0
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:edt.iariss.fr - ".$this->promotion." - ".$this->promotion->getFiliere()."
+X-WR-CALNAME:edt.iariss.fr - ".$this->promotion." - ".$this->promotion->getCategorie()."
 X-WR-TIMEZONE:Europe/Paris
 BEGIN:VTIMEZONE
 TZID:Europe/Paris
@@ -274,7 +254,7 @@ END:VTIMEZONE\n\n";
       $ical .= "DURATION:PT".intval($duree[0])."H".intval($duree[1])."M0S\n";
       $ical .= 'LOCATION:'.$salle."\n";
       $ical .= "DESCRIPTION:$nom - $salle - $prof - $promo - ".$entree['date']." - ".$entree['heure']." (".$entree['duree'].")\n";
-      $ical .= "UID:".$date[2].$date[1].$date[0]."T".$heure[0].$heure[1]."01-$prof$salle$type".$this->promotion."-".$this->promotion->getFiliere()."@edt.iariss.fr\n";
+      $ical .= "UID:".$date[2].$date[1].$date[0]."T".$heure[0].$heure[1]."01-$prof$salle$type".$this->promotion."-".$this->promotion->getCategorie()."@edt.iariss.fr\n";
       $ical .= "END:VEVENT\n\n";      
 
     }

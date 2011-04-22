@@ -39,6 +39,10 @@ details_img:
   url:  /details/:categorie/:promo/:semaine/*
   param: { module: img, action: details }
 
+details_img_default:
+  url:  /details/:categorie/:promo/*
+  param: { module: img, action: details }
+
 # iCal
 ical:
   url:  /ical/:categorie/:promo/ical.ics
