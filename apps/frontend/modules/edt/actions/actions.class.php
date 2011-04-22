@@ -87,11 +87,17 @@ class edtActions extends sfActions
     $adeImage = new AdeImage($this->promotion, $this->semaine);
 
     $this->image_path = sfConfig::get('sf_web_dir').$adeImage->getWebPath();
-    if(file_exists($this->image_path))
+    if(file_exists($this->image_path)) // L'image existe, elle se 
       $this->image_mtime = filemtime($this->image_path);
     else
+    {
       $adeImage->updateImage();
-
+      if(file_exists($this->image_path))
+        $this->image_mtime = filemtime($this->image_path);
+      else
+        $this->forward404();
+      
+    }
     $this->diff_day = (time() - $this->image_mtime)/(60*60*24);
 
     // Timestamp du lundi, début de semaine
