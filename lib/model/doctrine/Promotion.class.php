@@ -34,7 +34,7 @@ class Promotion extends BasePromotion
    */
   public function getAdeWeekNumber($number = null)
   {
-    if($number != null)
+    if($number !== null)
       return $number;
 
     //$Epoch_UHA = 1283119200 - (2*24 + 6)*60*60;

@@ -18,7 +18,7 @@ class AdeImage
     $ade_browser,
     $error = "";
 
-  public function __construct(Promotion $promotion = null, $semaine)
+  public function __construct(Promotion $promotion, $semaine)
   {
     $this->ade_browser = new AdeBrowser();
     $this->promotion = $promotion;
@@ -123,7 +123,13 @@ class AdeImage
     return $this->getPath().'ical.ics';
   }
 
-
+  /**
+   * Retourne le timestamp correspondant à la semaine ADE
+   */
+  public function getTimestamp()
+  {
+    return $this->promotion->getStartTimestamp() + $this->semaine * (60*60*24*7);
+  }
 
   public function updateHtml()
   {
