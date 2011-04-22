@@ -213,3 +213,11 @@ img {
   padding: 5px;
   background: #EEE;
 }
+
+.table-details {
+  border-collapse: collapse;
+}
+.table-details td, th {
+  border:1px solid black;
+  padding:3px;
+}

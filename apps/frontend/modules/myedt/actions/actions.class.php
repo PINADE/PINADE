@@ -45,7 +45,7 @@ class myedtActions extends sfActions
 
     if($request->getParameter('nom') == "" || (preg_match("@^[0-9a-zA-Z\-_]+$@", $nom, $dummy) == 0))
     {
-      $request->setParameter('erreur', "Nom vide ou avec des caractères invalides !");
+      $request->setParameter('erreur', "Nom vide ou avec des caractères invalides ! Il ne peut comporter que des chiffres, lettres non accentuées, - et _");
       $this->forward('myedt', 'import');
     }
 
@@ -89,6 +89,25 @@ class myedtActions extends sfActions
     $this->redirect('@image?categorie=perso&promo='.$request->getParameter('nom').'&semaine=');
 
    // https://www.emploisdutemps.uha.fr/ade/imageEt?&&&width=800&height=600&lunchName=REPAS&displayMode=1057855&showLoad=false&ttl=1283427991552&displayConfId=8
+
+  }
+
+  public function executeShow(sfWebRequest $request)
+  {
+    $this->promotion = Doctrine_Core::getTable('Promotion')
+      ->createQuery('p')
+      ->leftJoin('p.Categorie c')
+      ->where('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
+      ->execute()
+      ->getFirst();
+    $this->forward404Unless($this->promotion);
+    
+    foreach(range(0, 52) as $semaine)
+    {
+      $images[$semaine] = new AdeImage($this->promotion, $semaine);
+    }
+    $this->images = $images;
+    $this->cookie = $request->getCookie('default');
 
   }
 
