@@ -22,7 +22,7 @@ class edtActions extends sfActions
     $default = $request->getCookie('default');
     if(! empty($default))
     {
-      $array = explode('-', $default);
+      $array = explode('/', $default);
       if(count($array) == 2)
       {
         $categorie = $array[0];
