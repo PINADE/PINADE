@@ -18,6 +18,7 @@ all:
 
     ade_project_id: '19'
 
+    # Config to be reverse-engineered from ADE
     ade_display_mode: '1057855'
     ade_display_conf_id: '8'
 
