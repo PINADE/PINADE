@@ -1,0 +1,11 @@
+plugins/sfADEConfigPlugin/config/settings.yml
+lib/vendor/*
+!/lib/vendor/README
+cache/*
+!cache/dummy.txt
+log/*
+!log/dummy.txt
+web/images/edt/*
+!web/images/edt/dummy.txt
+config/databases.yml
+

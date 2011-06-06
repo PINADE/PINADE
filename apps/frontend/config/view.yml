@@ -1,0 +1,21 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/13-View
+
+
+default:
+  http_metas:
+    content-type: text/html
+
+  metas:
+    title:        Emploi du temps
+    description:  Emploi du temps de l'ENSISA - IARISS
+    keywords:     Emploi du temps, edt, IARISS, UHA, ENSISA
+    language:     fr
+    #robots:       index, follow
+
+  stylesheets:    [base.css, modele07.css ]
+
+  javascripts:    []
+
+  has_layout:     true
+  layout:         layout

@@ -1,0 +1,5 @@
+all:
+  has_layout:     true
+
+identifier:
+  has_layout:     true

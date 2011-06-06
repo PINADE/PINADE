@@ -1,0 +1,55 @@
+# Configuration:
+#   columns:
+#     identifier:   { type: string(255) }
+#     project_id:         { type: string(255) }
+#       'displayMode' => '1057855',
+#       'displayConfId' => '8',
+
+Categorie:
+  columns:
+    url:                { type: string(255) }
+    nom:                { type: string(255) }
+    description:        { type: string(4000) }
+    logo:               { type: string(255) }
+    weight:             { type: integer, default: 0 }
+    in_menu:            { type: boolean, default: false }
+  relations:
+    Promotions:  { class: Promotion, local: id, foreign: categorie_id, type: many }
+
+Promotion:
+  columns:
+    url:                { type: string(255) }
+    nom:                { type: string(255) }
+    description:        { type: string(4000) }
+    categorie_id:       { type: integer, notnull: true }
+    weight:             { type: integer, default: 0 }
+    in_menu:            { type: boolean, default: false }
+    project_id:         { type: string(255), notnull: true }
+    id_tree:            { type: string(255) }
+    branch_id:          { type: string(255) }
+    select_branch_id:   { type: string(255) }
+    select_id:          { type: string(255) }
+    id_piano_day:       { type: string(255), default: '0,1,2,3,4' }
+    start_timestamp:    { type: integer, default: 1283119200 }
+    width:              { type: integer, default: 800 }
+    height:             { type: integer, default: 600 }
+  relations:
+    Categorie:  { local: categorie_id, foreign: id, type: one }
+    Messages: { class: Message, local: id, foreign: promotion_id, type: many }
+
+Message:
+  actAs:  { Timestampable: ~ }
+  columns:
+    texte:              { type: string(4000) }
+    promotion_id:       { type: integer, notnull: true }
+    semaine:            { type: integer, notnull: true }
+  relations:
+    Promotion:  { local: promotion_id, foreign: id, type: one }
+
+Page:
+  actAs:  { Timestampable: ~ }
+  columns:
+    url:                { type: string(255), notnull: true, unique: true }
+    title:              { type: string(255) }
+    text:               { type: string(4000) }
+    

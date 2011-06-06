@@ -1,0 +1,13 @@
+http://www.emploidutemps.uha.fr/ade/imageEt?
+   identifier   = 3df5af70498bff8bc4facf408da524dc // Identifiant commun pour 2 auth sur 2 projets différents sur la mm IP
+ & projectId    = 28                               // N° de la composante
+ & idPianoWeek  = 2                                // N° de la semaine, depuis le début de l'année
+ & idPianoDay   = 0,1,2,3,4,5                      // Numéros des jours à afficher, de lundi (0) à dimanche (6)
+ & idTree       = 134,132,133                      // ?
+ & width        = 1274                             // Taille de l'image
+ & height       = 297
+ & lunchName    = REPAS
+ & displayMode  = 1057855                          // ?
+ & showLoad     = false
+ & ttl          = 1283427991552                    // timestamp en micro + 1 jour
+ & displayConfId= 8

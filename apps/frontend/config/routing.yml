@@ -1,0 +1,82 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+# pages statiques (ou presque)
+homepage:
+  url:   /
+  param: { module: edt, action: index }
+
+# actions cron
+cron:
+  url:  /cron/:action/*
+  param: { module: cron }
+
+# actions notice. kSdsZhrS is the "password"
+notice:
+  url:  /kSdsZhrS/:action/:categorie/:promo/:semaine/*
+  param: { module: notice }
+
+# (re)set cookie
+cookie_set:
+  url:  /cookie/set/*
+  param: { module: cookie, action: set }
+
+cookie_reset:
+  url:  /cookie/reset/*
+  param: { module: cookie, action: reset }
+
+# Image gif d'une semaine, puis celle par défaut
+image_img:
+  url:  /img/:categorie/:promo/:semaine/*
+  param: { module: img, action: img }
+
+image_img_default:
+  url:  /img/:categorie/:promo/*
+  param: { module: img, action: img }
+
+# détails sur l'image d'une semaine
+details_img:
+  url:  /details/:categorie/:promo/:semaine/*
+  param: { module: img, action: details }
+
+details_img_default:
+  url:  /details/:categorie/:promo/*
+  param: { module: img, action: details }
+
+# iCal
+ical:
+  url:  /ical/:categorie/:promo/ical.ics
+  param: { module: ical, action: ical }
+
+# Myedt
+myedt:
+  url:  /myedt/:action/*
+  param: { module: myedt }
+
+myedt_default:
+  url:  /myedt/*
+  param: { module: myedt, action: index }
+
+
+# Page de l'edt pour la semaine courante
+image_default_index:
+  url:  /:categorie/:promo
+  param: { module: edt, action: image }
+
+# Page pour une semaine, puis pour la semaine par défaut
+image:
+  url:  /:categorie/:promo/:semaine
+  param: { module: edt, action: image}
+
+image_default:
+  url:  /:categorie/:promo/*
+  param: { module: edt, action: image }
+
+# Page pour une catégorie ou pour une page si elle n'existe pas
+categorie_index:
+  url:   /:categorie/*
+  param: { module: edt, action: indexPromo }
+
+# Route utilisée pour générer les liens vers les pages (mais pas pour le routage)
+page:
+  url:   /:url

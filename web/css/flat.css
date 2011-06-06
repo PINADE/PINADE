@@ -1,0 +1,17 @@
+body {
+  background: white;
+}
+
+#contenu {
+  background: white;
+  /*border:1px solid black; */
+  width:800px;
+  margin-left:0;
+}
+
+#navigation {
+  background: #eee;
+  border:1px solid black;
+  color:black;
+  margin-left: 900px;
+}

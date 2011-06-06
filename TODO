@@ -1,0 +1,5 @@
+TODO List:
+- édition des notices protégées autrement que par un secret dans le routing.yml
+- code de mise à jour du cron à changer dans apps/frontend/modules/cron/actions/actions.class.php
+La faire dépendre d'un chemin quelconque
+- une interface d'administration des filières/promo, protégée

@@ -1,0 +1,223 @@
+/* ==============================================
+   FEUILLE DE STYLES DES GABARITS HTML/CSS --- 07
+   © Elephorm & Alsacreations.com
+   Conditions d'utilisation:
+   http://creativecommons.org/licenses/by/2.0/fr/
+   ============================================== */
+
+
+/* --- COULEURS --- */
+
+/* Note: vous pouvez modifier simplement l'aspect de ce gabarit en modifiant
+   uniquement les couleurs de fond (propriétés background) et les couleurs
+   du texte (propriété color).
+   Pour modifier la disposition des blocs, voir plus bas dans la feuille de
+   styles la partie «positionnement». */
+
+/* Général */
+body {
+  background: #2C2F22;
+}
+a {
+  color: #FF6533;
+}
+a:hover, a:focus {
+  color: #FF4C00;
+}
+strong {
+  color: #A1B55D;
+}
+
+/* Bloc central contenant #navigation et #contenu */
+#centre {
+/*  background: url(../images/07-colonnes.png) repeat-y; */ /* Voir -> Note 1 */
+}
+
+/* Navigation */
+#navigation {
+  background: #181A12; /* -> 2 */
+  position: absolute;
+  top:2em;
+  color: #F0E39E;
+}
+#navigation a {
+  color: #FF6533;
+}
+#navigation a:hover, #navigation a:focus {
+  background: #000000;
+}
+
+/* Contenu principal */
+#contenu {
+  color: #363B29;
+  background: #cbd888; /* -> 2 */
+}
+#contenu a {
+  color: #332510;
+}
+#contenu a:hover, #contenu a:focus {
+  color: #6E5122;
+}
+#contenu strong {
+  color: #181A12;
+}
+
+
+/* --- POSITIONNEMENT --- */
+
+/* Page */
+body {
+  padding: 10px 5px;
+}
+#global {
+  width: 1040px; /* -> 3 */
+  margin: 0 auto; /* -> 4 */
+}
+
+
+/* Bloc central contenant #navigation et #contenu */
+#centre {
+  width: 100%; /* -> 5 */
+  overflow: hidden; /* -> 5 */
+}
+
+/* Menu de navigation */
+#navigation {
+  width: 180px;
+/*  float: left; /* -> 6 */
+}
+#navigation ul {
+  margin: 0;
+  padding: 3px; /* was : 13 */
+  list-style: none;
+}
+#navigation a {
+  display: inline-block;
+  height: 1%; /* -> 7 */
+  padding: 6px 10px 6px 10px;
+  line-height: 1.5;
+  font-size: .9em;
+  text-decoration: none;
+  padding-right: 13px;
+}
+#navigation li {
+  display: inline;
+}
+#navigation img {
+  vertical-align:middle;
+}
+
+#accueil-menu {
+  display:block !important;
+  text-align: center;
+  border-bottom: 1px solid black;
+  margin-bottom:5px;
+}
+
+/* espace pub IARISS */
+#pub p {
+  margin: 10px;
+}
+#pub a {
+  display:inline;
+  padding:0;
+}
+
+/* Liens internes */
+#liens-internes, #stylesheet {
+  padding-left:10px;
+}
+
+#liens-internes a {
+  display:block;
+}
+
+/* Contenu */
+
+#contenu {
+  margin-left: 200px; 
+  padding: 10px 20px;
+  overflow-x: auto;
+}
+/*
+ #contenu > :first-child {
+  margin-top: 10px;
+}
+*/
+h1,h2,h3 {
+  margin-top:5px;
+  margin-bottom:0px;
+}
+
+#contenu p, #contenu li {
+  line-height: 1.5;
+}
+#contenu .center {
+  text-align: center;
+}
+
+/* Pied de page */
+#pied {
+  margin: 0;
+  padding: 15px 20px 10px 0;
+  font-size: .85em;
+  text-align: center;
+  color: #F0E39E;
+}
+
+/* Mention de copyright */
+#copyright {
+  margin: 8px 0 0 0;
+  font-size: 1em;
+  text-align: left;
+}
+
+img {
+  vertical-align:middle;
+}
+
+#notice {
+  background: #eee;
+  border:1px solid black;
+  padding:5px;
+  margin:8px;
+}
+
+#title {
+  font-size:200%;
+}
+#semaine {
+}
+
+#error {
+  font-weight:bold;
+  color:red;
+}
+
+.button {
+  padding: 0;
+  display: inline;
+  border-style: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #332510;
+  text-decoration:underline;
+}
+
+.button:hover, .button:focus {
+  color: #6E5122;
+}
+
+.erreur {
+  border: 2px solid red;
+  padding: 5px;
+  background: #EEE;
+}
+
+.table-details {
+  border-collapse: collapse;
+}
+.table-details td, th {
+  border:1px solid black;
+  padding:3px;
+}

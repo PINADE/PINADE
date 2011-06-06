@@ -1,0 +1,40 @@
+h1, h2 {
+  font-size:110%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin:0;
+}
+
+body {
+  /*background: none transparent; */
+  padding:0;
+}
+
+#global {
+  width: auto;
+}
+
+#contenu {
+/*  background: none transparent; */
+  margin: 0;
+  padding: 0;
+}
+
+#centre {
+  background: none transparent;
+  overflow:visible;
+}
+
+#navigation {
+  position:inherit;
+}
+
+/*
+#contenu .center {
+  text-align:left;
+}
+*/
+#pied {
+  text-align: left;
+}
