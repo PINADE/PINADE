@@ -18,6 +18,9 @@ all:
 
     ade_project_id: '19'
 
+    ade_display_mode: '1057855'
+    ade_display_conf_id: '8'
+
     branches_to_id: [ 199, 190, 16 ]
 
     css:
