@@ -27,4 +27,3 @@ all:
     css:
       flat: { title: "Flat" }
     #  antoine: { title: "Clear style" }
-
