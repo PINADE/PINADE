@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * edt tools.
+ *
+ * @package    tools
+ * @subpackage AdeBrowser
+ * @author     T. Helleboid <t.helleboid@iariss.fr>, M.Muré <m.mure@iariss.fr>
+ */
 
 class AdeBrowser
 {
