@@ -90,8 +90,8 @@
 
       <div id="pied">
         <p>
-          Emploi du temps réalisé par <?php echo link_to('IARISS', 'http://iariss.fr/') ?>,
-            code source du projet <acronym title="PINADE Is Not ADE"><?php echo link_to('PINADE', 'https://github.com/PINADE/PINADE') ?></acronym> sur <?php echo link_to('GitHub', 'https://github.com/ ') ?>
+          Emploi du temps réalisé par <?php echo link_to('IARISS', 'http://iariss.fr/') ?>.
+           <b><?php echo $_SERVER['SERVER_NAME'] ?></b> vous est livré grâce à <acronym title="PINADE Is Not ADE"><?php echo link_to('PINADE', 'https://github.com/PINADE/PINADE') ?></acronym>.
           - <a href="mailto:contact@iariss.fr">Contact</a>
           - <?php echo link_to('FAQ', '@page?url=faq') ?>
           - <span id="status"></span>
