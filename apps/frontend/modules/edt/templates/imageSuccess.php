@@ -53,7 +53,7 @@
           }
           </script>
 <br/>
-<?php if($sf_request->getCookie('default') == $categorie->getUrl().'/'.$promotion->getUrl()): ?>
+<?php if($sf_request->getCookie('default') == $promotion->getId()): ?>
           <form method="post" action="<?php echo url_for('@cookie_reset') ?>">
           <input type="submit" value="Effacer cette page comme page d'accueil" class="button" />
           <input type="hidden" name="key" value="default" />
@@ -61,7 +61,7 @@
           <form method="post" action="<?php echo url_for('@cookie_set') ?>">
           <input type="submit" value="Enregistrer cette page comme page d'accueil" class="button" />
           <input type="hidden" name="key" value="default" />
-          <input type="hidden" name="value" value="<?php echo $categorie->getUrl().'/'.$promotion->getUrl() ?>" />
+          <input type="hidden" name="value" value="<?php echo $promotion->getId() ?>" />
 
 <?php endif ?>
           </form>

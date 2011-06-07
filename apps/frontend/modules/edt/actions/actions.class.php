@@ -19,26 +19,17 @@ class edtActions extends sfActions
   {
     // On récupère le cookie et on redirige s'il existe
     // default=<categorie>/<promo>
-    $default = $request->getCookie('default');
+    $default = intval($request->getCookie('default'));
     if(! empty($default))
     {
-      $array = explode('/', $default);
-      if(count($array) == 2)
-      {
-        $categorie = $array[0];
-        $promo = $array[1];
-        $promotion = Doctrine_Core::getTable('Promotion')
-              ->createQuery('p')
-              ->leftJoin('p.Categorie c')
-              ->where('p.url = ? AND c.url = ?', array($promo, $categorie))
-              ->execute();
+      $promotion = Doctrine_Core::getTable('Promotion')->find($default);;
 
-        // On vérifie si la promo existe bien, pour éviter les farces
-        // et les redirections infinies (cookie mis à "/" par exemple
-        if($promotion->count())
-          $this->redirect("@image?categorie=$categorie&promo=$promo&semaine=");
-      }
+      // On vérifie si la promo existe bien, pour éviter les farces
+      // et les redirections infinies (cookie mis à "/" par exemple
+      if($promotion->count())
+        $this->redirect("@image?categorie=".$promotion->getCategorie()->getUrl()."&promo=".$promotion->getUrl()."&semaine=");
     }
+
     // Si on n'a pas redirigé, pas de cookie ou cookie erroné, on affiche la liste des catégories
     $this->categories = Doctrine_Core::getTable('Categorie')
       ->createQuery('c')
