@@ -7,7 +7,7 @@
 <h2>Mode d'emploi</h2>
 <ol>
   <li>Connectez-vous sur <?php echo link_to("emploisdutemps.uha.fr", "https://www.emploisdutemps.uha.fr/") ?></li>
-  <li>Sélectionnez votre composante (FST, ENSCMu, etc.)</li>
+  <li>Sélectionnez votre composante (ENSISA, FST, ENSCMu, etc.)</li>
   <li>Affichez votre emploi du temps (vous pouvez sélectionner autant de cours que vous le souhaitez, ou juste réduire à votre groupe de TP, TD, etc.)</li>
   <li>Faites un clic droit <b>sur l'image de votre emploi du temps</b> et sélectionnez « Copier l'adresse de l'image »</li>
   <li>Cliquez dans le champs « URL de l'image » ci-dessus et collez l'adresse (Ctrl+V)</li>
