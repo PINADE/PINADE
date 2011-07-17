@@ -102,10 +102,12 @@ class cronActions extends sfActions
     $browser->getUrl(sfConfig::get('sf_ade_url').'standard/gui/tree.jsp?category=trainee&expand=false&forceLoad=false&reload=false&scroll=0');
     // Select a group (ENSISA Lumiere)
     $browser->getUrl(sfConfig::get('sf_ade_url').'standard/gui/tree.jsp?branchId=199&reset=true&forceLoad=false&scroll=0');
-    // Select a group (FIP)
-    $browser->getUrl(sfConfig::get('sf_ade_url').'standard/gui/tree.jsp?branchId=190&reset=false&forceLoad=false&scroll=0');
-    // "Click" on a group (1A FIP)
-    $browser->getUrl(sfConfig::get('sf_ade_url').'standard/gui/tree.jsp?selectBranchId=16&reset=true&forceLoad=false&scroll=0');
+    // Select a group (Ingénieurs)
+    $browser->getUrl(sfConfig::get('sf_ade_url').'standard/gui/tree.jsp?branchId=203&reset=false&forceLoad=false&scroll=0');
+    // Select a group (3A)
+    $browser->getUrl(sfConfig::get('sf_ade_url').'standard/gui/tree.jsp?branchId=143&reset=false&forceLoad=false&scroll=0');
+    // "Click" on a group (3A Info S5)
+    $browser->getUrl(sfConfig::get('sf_ade_url').'standard/gui/tree.jsp?selectBranchId=145&reset=true&forceLoad=false&scroll=0');
     // Get the page with the link to the image
     $imagemap = $browser->getUrl(sfConfig::get('sf_ade_url').'custom/modules/plannings/imagemap.jsp?width=1306&height=315');
 
