@@ -3,7 +3,7 @@
 <h1><?php include_slot('title') ?></h1>
 
 <h2>
-  Selectionnez votre promotion:
+  Selectionnez votre emploi du temps&nbsp;:
 </h2>
 
 <ul>
