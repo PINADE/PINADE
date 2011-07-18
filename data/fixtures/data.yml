@@ -1,10 +1,3 @@
-Page:
-  Page_1:
-    url: faq
-    title: 'Foire Aux Questions'
-    text: "<h2 id=\"fiable\">Est-ce le site de référence ?</h2>\r\n<p><b>Non, ce site n'est pas le site officiel de l'emploi du temps</b> de l'UHA.\r\nLe site officiel est <a href=\"https://www.emploisdutemps.uha.fr/\">emploisdutemps.uha.fr</a> et reste la référence de votre emploi du temps.<br/>\r\nCependant, si tout va bien, ce site se met à jour régulièrement (<i>cf</i> section <a href=\"#delai\"><b>Délai</b></a>) les emplois du temps.</p>\r\n\r\n<h2 id=\"raccourcis\">Quels sont les raccourcis claviers sur le site ?</h2>\r\n<p>Deux raccourcis claviers ont été mis en place pour faciliter la navigation sur <b>edt.iariss.fr</b> :\r\n<ul>\r\n  <li>La touche «&nbsp;flèche gauche&nbsp;» pour aller vers la semaine précédente,</li>\r\n  <li>La touche «&nbsp;flèche droite&nbsp;» pour aller vers la semaine suivante.</li>\r\n</ul>\r\nIl n'y a pas d'autres raccourcis actuellement, mais contactez nous si vous en voulez plus&nbsp;!<br/></p>\r\n\r\n<h2 id=\"origine\">Qui est à l'origine de ce site ?</h2>\r\n<p>L'équipe de <a href=\"http://iariss.fr/\">IARISS</a> a codé ce site pour vous,\r\nparce qu'elle trouvait que le site proposé par l'UHA n'était pas du tout pratique.<br/>\r\nLes auteurs initiaux sont <b>Michaël Muré</b> et <b>Thépophile Helleboid</b>, mais nous en attendons d'autres. Venez nous rejoindre&nbsp;!\r\nLe code source <a href=\"https://github.com/PINADE/PINADE\">est hébergée sur GitHub</a>.\r\n</p>\r\n\r\n<h2 id=\"contact\">Je veux contacter les auteurs, à qui m'adresser ?</h2>\r\n<p>Envoyez un mail à <b><code>contact@iariss.fr</code></b>, c'est l'adresse unique pour contacter les auteurs.<br/></p>\r\n\r\n<h2 id=\"delai\">Quel est le délai de mise à jour des emplois du temps ?</h2>\r\n<p>Les emplois du temps sont mis à jour très régulièrement&nbsp;:\r\n<b>toutes les deux heures</b> pour les semaines courante et suivante, toutes les six heures pour les autres.\r\n Si vous trouvez que ce délai n'est pas adapté, <a href=\"#contact\">contactez-nous</a>.</p>\r\n\r\n<h2 id=\"ical\">Où trouver le calendrier <i>iCal</i> de mon emploi du temps ?</h2>\r\nL'adresse est simple : <code>http://edt.iariss.fr/ical/<i>&lt;votre filière&gt;</i>/<i>&lt;votre promo&gt;</i>/ical.ics</code></br/>\r\nPar exemple, pour les 2A Informatique : <code><a href=\"http://edt.iariss.fr/ical/info/2a/ical.ics\">http://edt.iariss.fr/ical/info/2a/ical.ics</a></code>.<br/>\r\nLe calendrier est mis à jour une fois par jour, vers 4h du matin. Il reprend tous les cours disponibles de toute l'année.\r\n<p><b>Attention</b> : cette fonctionnalité n'est pas correctement implémentée (et ne le sera sans doute jamais) et plusieurs bugs existent.\r\nPar exemple, ce calendrier n'indique pas si certains cours ont été supprimés ou remplacés.<br/>\r\nSi un cours est supprimé, il le sera dans le calendier iCal, mais il est possible qu'il apparaisse toujours dans votre calendrier local. Soyez attentif !\r\n</p>\r\n\r\n<h2 id=\"fonctionnement\">Comment fonctionne votre site ?</h2>\r\n<p>Ce site a été développé avec le framework PHP <a href='http://www.symfony-project.org/'>Symfony</a>.\r\nIl se connecte à ADE Expert, logiciel utilisé pour les emplois du temps de l'UHA, et télécharge les images des emplois du temps pour les garder sur notre serveur (chaque heure actuellement).\r\nLe logiciel reproduit votre navigation, longue et un peu complexe, et peut récupérer les informations pour vous.<br/>\r\nSi vous souhaitez connaître le fonctionnement exact, <a href=\"#contact\">contactez-nous</a>, et reportez vous à la section <a href=\"#sources\">Où sont les sources&nbsp;?</a></p>\r\n\r\n<h2 id=\"fonctionnalite\">Je voudrais avoir telle fonctionnalité, c'est possible ?</h2>\r\n<p>Bien sûr, tout est possible avec l'informatique !<br/>\r\nNous avons déjà quelques idées à implémenter, mais il est probable que nous ne soyons pas au courant de la votre.\r\nProposez-la nous en nous contactant (<code>contact@iariss.fr</code>), nous ferons notre possible pour qu'elle soit mise en place rapidement.<br/>\r\nVous savez programmer en PHP ? Et encore mieux, avec Symfony ?<br/>\r\nAlors votre profil nous intéresse ! <a href=\"#contact\">Contactez-nous</a> très rapidement, vous avez probablement votre place à IARISS !</p>\r\n\r\n<h2 id=\"sources\">Où sont les sources de votre logiciel ?</h2>\r\n<p>Notre logiciel n'est pas (encore) un Logiciel Libre. L'ouverture des sources d'un tel logiciel ne nous apparaît pas comme prioritaire,\r\nmais exprimez votre demande : il y a de grande chance que nous publierons les sources.</p>\r\n"
-    created_at: '0000-00-00 00:00:00'
-    updated_at: '0000-00-00 00:00:00'
 Promotion:
   Promotion_1:
     url: 1a
@@ -13,13 +6,13 @@ Promotion:
     Categorie: Categorie_1
     weight: '0'
     in_menu: true
-    project_id: '19'
-    id_tree: '271,177,178,179,180,181,182,183,184'
-    branch_id: '199,203,159,165'
-    select_branch_id: '175,151'
+    project_id: '21'
+    id_tree: '620,227,228,225,226,271,229,230,231,232,233,234,235,236,177,178,179,180,181,182,183,184'
+    branch_id: null
+    select_branch_id: null
     select_id: null
     id_piano_day: '0,1,2,3,4'
-    start_timestamp: '1283119200'
+    start_timestamp: '1313359200'
     width: '800'
     height: '600'
   Promotion_2:
@@ -29,13 +22,13 @@ Promotion:
     Categorie: Categorie_1
     weight: '2'
     in_menu: true
-    project_id: '19'
+    project_id: '21'
     id_tree: '192,237,238,20,21,22,24,31,136,244,247,137,138,139,141,142'
-    branch_id: '199,203,115,17,110'
-    select_branch_id: '91,132'
+    branch_id: null
+    select_branch_id: null
     select_id: null
     id_piano_day: '0,1,2,3,4'
-    start_timestamp: '1283119200'
+    start_timestamp: '1313359200'
     width: '800'
     height: '600'
   Promotion_3:
@@ -45,13 +38,13 @@ Promotion:
     Categorie: Categorie_2
     weight: '2'
     in_menu: true
-    project_id: '19'
+    project_id: '21'
     id_tree: '215,240,242,119,122,123,124,126,111,249,250,112,114,120,133,134'
-    branch_id: '199,203,115,17,110'
-    select_branch_id: '103,135'
+    branch_id: null
+    select_branch_id: null
     select_id: null
     id_piano_day: '0,1,2,3,4'
-    start_timestamp: '1283119200'
+    start_timestamp: '1313359200'
     width: '800'
     height: '600'
   Promotion_4:
@@ -61,13 +54,13 @@ Promotion:
     Categorie: Categorie_2
     weight: '0'
     in_menu: true
-    project_id: '19'
-    id_tree: '271,204,186,187,131,130,129,128,127'
-    branch_id: '199,203,159,151,165'
-    select_branch_id: '121'
-    select_id: '271'
+    project_id: '21'
+    id_tree: '620,227,228,225,226,271,229,230,231,232,233,234,235,236,204,186,187,131,130,129,128,127'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
     id_piano_day: '0,1,2,3,4'
-    start_timestamp: '1283119200'
+    start_timestamp: '1313359200'
     width: '800'
     height: '600'
   Promotion_5:
@@ -77,13 +70,13 @@ Promotion:
     Categorie: Categorie_1
     weight: '4'
     in_menu: true
-    project_id: '19'
-    id_tree: '147,148,149,113,116,117,118'
-    branch_id: '199,203,143,145'
-    select_branch_id: '146'
+    project_id: '21'
+    id_tree: '147,148,149'
+    branch_id: '199,203,143'
+    select_branch_id: '145'
     select_id: null
     id_piano_day: '0,1,2,3,4'
-    start_timestamp: '1283119200'
+    start_timestamp: '1313359200'
     width: '800'
     height: '600'
   Promotion_6:
@@ -93,13 +86,13 @@ Promotion:
     Categorie: Categorie_2
     weight: '4'
     in_menu: true
-    project_id: '19'
-    id_tree: '144,113,116,117,118'
-    branch_id: '199,203,143'
-    select_branch_id: '145'
+    project_id: '21'
+    id_tree: '171,169,193,200,174,172,173,144'
+    branch_id: null
+    select_branch_id: null
     select_id: null
     id_piano_day: '0,1,2,3,4'
-    start_timestamp: '1283119200'
+    start_timestamp: '1313359200'
     width: '800'
     height: '600'
   Promotion_7:
@@ -109,13 +102,13 @@ Promotion:
     Categorie: Categorie_3
     weight: '0'
     in_menu: true
-    project_id: '19'
+    project_id: '21'
     id_tree: '369,371,373,374,375,376,377'
-    branch_id: '275,278'
-    select_branch_id: '282'
+    branch_id: null
+    select_branch_id: null
     select_id: null
     id_piano_day: '0,1,2,3,4'
-    start_timestamp: '1283119200'
+    start_timestamp: '1313359200'
     width: '800'
     height: '600'
   Promotion_8:
@@ -125,13 +118,13 @@ Promotion:
     Categorie: Categorie_3
     weight: '2'
     in_menu: true
-    project_id: '19'
+    project_id: '21'
     id_tree: '393,394,395,397,399,390'
-    branch_id: '275,283'
-    select_branch_id: '285'
+    branch_id: null
+    select_branch_id: null
     select_id: null
     id_piano_day: '0,1,2,3,4'
-    start_timestamp: '1283119200'
+    start_timestamp: '1313359200'
     width: '800'
     height: '600'
   Promotion_9:
@@ -141,13 +134,13 @@ Promotion:
     Categorie: Categorie_3
     weight: '4'
     in_menu: true
-    project_id: '19'
+    project_id: '21'
     id_tree: '401,402,400,403'
-    branch_id: '275,286'
-    select_branch_id: '288'
+    branch_id: null
+    select_branch_id: null
     select_id: null
     id_piano_day: '0,1,2,3,4'
-    start_timestamp: '1283119200'
+    start_timestamp: '1313359200'
     width: '800'
     height: '600'
   Promotion_10:
@@ -157,13 +150,13 @@ Promotion:
     Categorie: Categorie_4
     weight: '0'
     in_menu: true
-    project_id: '19'
+    project_id: '21'
     id_tree: '305,306,307,308,309,310,311,304'
-    branch_id: '275,278'
-    select_branch_id: '279'
+    branch_id: ''
+    select_branch_id: ''
     select_id: null
     id_piano_day: '0,1,2,3,4'
-    start_timestamp: '1283119200'
+    start_timestamp: '1313359200'
     width: '800'
     height: '600'
   Promotion_11:
@@ -173,13 +166,13 @@ Promotion:
     Categorie: Categorie_4
     weight: '2'
     in_menu: true
-    project_id: '19'
-    id_tree: '382,383,385,386,387,388,389,384'
-    branch_id: '275,283'
-    select_branch_id: '284'
+    project_id: '21'
+    id_tree: '382,383,385,649,652,386,387,653,388,651,654,389,655,656,657,384'
+    branch_id: null
+    select_branch_id: null
     select_id: null
     id_piano_day: '0,1,2,3,4'
-    start_timestamp: '1283119200'
+    start_timestamp: '1313359200'
     width: '800'
     height: '600'
   Promotion_12:
@@ -189,13 +182,13 @@ Promotion:
     Categorie: Categorie_4
     weight: '6'
     in_menu: true
-    project_id: '19'
-    id_tree: '406,407,409,410,411,404'
-    branch_id: '275,286'
-    select_branch_id: '287'
+    project_id: '21'
+    id_tree: '803,804,805,809,840,845,837,404'
+    branch_id: null
+    select_branch_id: null
     select_id: null
     id_piano_day: '0,1,2,3,4'
-    start_timestamp: '1283119200'
+    start_timestamp: '1313359200'
     width: '800'
     height: '600'
   Promotion_13:
@@ -205,13 +198,13 @@ Promotion:
     Categorie: Categorie_5
     weight: '0'
     in_menu: true
-    project_id: '19'
+    project_id: '21'
     id_tree: '268,107,262,263,266,267'
-    branch_id: '199,190'
-    select_branch_id: '16'
+    branch_id: null
+    select_branch_id: null
     select_id: null
     id_piano_day: '0,1,2,3,4'
-    start_timestamp: '1283119200'
+    start_timestamp: '1313359200'
     width: '800'
     height: '600'
   Promotion_14:
@@ -221,13 +214,13 @@ Promotion:
     Categorie: Categorie_5
     weight: '2'
     in_menu: true
-    project_id: '19'
+    project_id: '21'
     id_tree: '256,78,162,185,188,222,254'
-    branch_id: '199,190'
-    select_branch_id: '213'
+    branch_id: null
+    select_branch_id: null
     select_id: null
     id_piano_day: '0,1,2,3,4'
-    start_timestamp: '1283119200'
+    start_timestamp: '1313359200'
     width: '800'
     height: '600'
   Promotion_15:
@@ -374,6 +367,29 @@ Promotion:
     start_timestamp: '1283119200'
     width: '800'
     height: '600'
+  Promotion_24:
+    url: 3a
+    nom: 3A
+    description: '3a prod'
+    Categorie: Categorie_5
+    weight: '2'
+    in_menu: true
+    project_id: '21'
+    id_tree: '886'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+Page:
+  Page_1:
+    url: faq
+    title: 'Foire Aux Questions'
+    text: "<h2 id=\"fiable\">Est-ce le site de référence ?</h2>\r\n<p><b>Non, ce site n'est pas le site officiel de l'emploi du temps</b> de l'UHA.\r\nLe site officiel est <a href=\"https://www.emploisdutemps.uha.fr/\">emploisdutemps.uha.fr</a> et reste la référence de votre emploi du temps.<br/>\r\nCependant, si tout va bien, ce site se met à jour régulièrement (<i>cf</i> section <a href=\"#delai\"><b>Délai</b></a>) les emplois du temps.</p>\r\n\r\n<h2 id=\"raccourcis\">Quels sont les raccourcis claviers sur le site ?</h2>\r\n<p>Deux raccourcis claviers ont été mis en place pour faciliter la navigation sur <b>edt.iariss.fr</b> :\r\n<ul>\r\n  <li>La touche «&nbsp;flèche gauche&nbsp;» pour aller vers la semaine précédente,</li>\r\n  <li>La touche «&nbsp;flèche droite&nbsp;» pour aller vers la semaine suivante.</li>\r\n</ul>\r\nIl n'y a pas d'autres raccourcis actuellement, mais contactez nous si vous en voulez plus&nbsp;!<br/></p>\r\n\r\n<h2 id=\"origine\">Qui est à l'origine de ce site ?</h2>\r\n<p>L'équipe de <a href=\"http://iariss.fr/\">IARISS</a> a codé ce site pour vous,\r\nparce qu'elle trouvait que le site proposé par l'UHA n'était pas du tout pratique.<br/>\r\nLes auteurs initiaux sont <b>Michaël Muré</b> et <b>Thépophile Helleboid</b>, mais nous en attendons d'autres. Venez nous rejoindre&nbsp;!\r\nLe code source <a href=\"https://github.com/PINADE/PINADE\">est hébergée sur GitHub</a>.\r\n</p>\r\n\r\n<h2 id=\"contact\">Je veux contacter les auteurs, à qui m'adresser ?</h2>\r\n<p>Envoyez un mail à <b><code>contact@iariss.fr</code></b>, c'est l'adresse unique pour contacter les auteurs.<br/></p>\r\n\r\n<h2 id=\"delai\">Quel est le délai de mise à jour des emplois du temps ?</h2>\r\n<p>Les emplois du temps sont mis à jour très régulièrement&nbsp;:\r\n<b>toutes les deux heures</b> pour les semaines courante et suivante, toutes les six heures pour les autres.\r\n Si vous trouvez que ce délai n'est pas adapté, <a href=\"#contact\">contactez-nous</a>.</p>\r\n\r\n<h2 id=\"ical\">Où trouver le calendrier <i>iCal</i> de mon emploi du temps ?</h2>\r\nL'adresse est simple : <code>http://edt.iariss.fr/ical/<i>&lt;votre filière&gt;</i>/<i>&lt;votre promo&gt;</i>/ical.ics</code></br/>\r\nPar exemple, pour les 2A Informatique : <code><a href=\"http://edt.iariss.fr/ical/info/2a/ical.ics\">http://edt.iariss.fr/ical/info/2a/ical.ics</a></code>.<br/>\r\nLe calendrier est mis à jour une fois par jour, vers 4h du matin. Il reprend tous les cours disponibles de toute l'année.\r\n<p><b>Attention</b> : cette fonctionnalité n'est pas correctement implémentée (et ne le sera sans doute jamais) et plusieurs bugs existent.\r\nPar exemple, ce calendrier n'indique pas si certains cours ont été supprimés ou remplacés.<br/>\r\nSi un cours est supprimé, il le sera dans le calendier iCal, mais il est possible qu'il apparaisse toujours dans votre calendrier local. Soyez attentif !\r\n</p>\r\n\r\n<h2 id=\"fonctionnement\">Comment fonctionne votre site ?</h2>\r\n<p>Ce site a été développé avec le framework PHP <a href='http://www.symfony-project.org/'>Symfony</a>.\r\nIl se connecte à ADE Expert, logiciel utilisé pour les emplois du temps de l'UHA, et télécharge les images des emplois du temps pour les garder sur notre serveur (chaque heure actuellement).\r\nLe logiciel reproduit votre navigation, longue et un peu complexe, et peut récupérer les informations pour vous.<br/>\r\nSi vous souhaitez connaître le fonctionnement exact, <a href=\"#contact\">contactez-nous</a>, et reportez vous à la section <a href=\"#sources\">Où sont les sources&nbsp;?</a></p>\r\n\r\n<h2 id=\"fonctionnalite\">Je voudrais avoir telle fonctionnalité, c'est possible ?</h2>\r\n<p>Bien sûr, tout est possible avec l'informatique !<br/>\r\nNous avons déjà quelques idées à implémenter, mais il est probable que nous ne soyons pas au courant de la votre.\r\nProposez-la nous en nous contactant (<code>contact@iariss.fr</code>), nous ferons notre possible pour qu'elle soit mise en place rapidement.<br/>\r\nVous savez programmer en PHP ? Et encore mieux, avec Symfony ?<br/>\r\nAlors votre profil nous intéresse ! <a href=\"#contact\">Contactez-nous</a> très rapidement, vous avez probablement votre place à IARISS !</p>\r\n\r\n<h2 id=\"sources\">Où sont les sources de votre logiciel ?</h2>\r\n<p>Notre logiciel n'est pas (encore) un Logiciel Libre. L'ouverture des sources d'un tel logiciel ne nous apparaît pas comme prioritaire,\r\nmais exprimez votre demande : il y a de grande chance que nous publierons les sources.</p>\r\n"
+    created_at: '0000-00-00 00:00:00'
+    updated_at: '0000-00-00 00:00:00'
 Categorie:
   Categorie_1:
     url: info
@@ -388,28 +404,28 @@ Categorie:
     description: null
     logo: auto.png
     weight: '3'
-    in_menu: false
+    in_menu: true
   Categorie_3:
     url: text
     nom: Textile
     description: null
     logo: text.png
     weight: '6'
-    in_menu: false
+    in_menu: true
   Categorie_4:
     url: meca
     nom: Mécanique
     description: null
     logo: meca.png
     weight: '8'
-    in_menu: false
+    in_menu: true
   Categorie_5:
     url: prod
     nom: 'Système de Production'
     description: null
     logo: prod.png
     weight: '10'
-    in_menu: false
+    in_menu: true
   Categorie_6:
     url: lmme
     nom: 'Licences/Masters Méca'
