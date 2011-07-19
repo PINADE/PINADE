@@ -54,7 +54,8 @@ class cronActions extends sfActions
     }
     
     $promotions = Doctrine_Core::getTable('Promotion')
-      ->createQuery('f')
+      ->createQuery('p')
+      ->where("p.branch_id != ''")
       ->execute();
 
 
