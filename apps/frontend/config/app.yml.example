@@ -4,29 +4,29 @@
 # default values
 #all:
 all:
-  # ADE URL *with* a "/" at the end. Ex (UHA) : 'https://www.emploisdutemps.uha.fr/ade/'
-  ade_url: 'https://www.emploisdutemps.uha.fr/ade/'
+  .settings:
+    # ADE URL *with* a "/" at the end. Ex (UHA) : 'https://www.emploisdutemps.uha.fr/ade/'
+    ade_url: 'https://www.emploisdutemps.uha.fr/ade/'
 
-  # cas_login est de la forme : base64_encode("username=prenom.nom%40uha.fr&password=YOURPASSWORD")
-  cas_login: 'dXNlcm5hbWU9cHJlbm9tLm5vbSU0MHVoYS5mciZwYXNzd29yZD1ZT1VSUEFTU1dPUkQ='
+    # cas_login est de la forme : base64_encode("username=prenom.nom%40uha.fr&password=YOURPASSWORD")
+    cas_login: 'dXNlcm5hbWU9cHJlbm9tLm5vbSU0MHVoYS5mciZwYXNzd29yZD1ZT1VSUEFTU1dPUkQ='
 
-  # Email de contact utilisé par PINADE pour prévenir d'un probleme
-  email_from:      chtitux@calvin.chtitux.org
-  .array:
+    # Email de contact utilisé par PINADE pour prévenir d'un probleme
+    email_from:  admin@example.org
     email_to: ['admin@example.net', 'informatique@example.net']
 
 
-  ade_identifier:  'e2ba267923eb2fe57325ca75fd7b03ef'
+    ade_identifier:  'e2ba267923eb2fe57325ca75fd7b03ef'
 
-  # Still used by cron/identifier
-  ade_project_id:  '21'
+    # Still used by cron/identifier
+    ade_project_id:  '21'
 
-  ade_display_mode: '1057855'
-  ade_display_conf_id: '8'
+    ade_display_mode: '1057855'
+    ade_display_conf_id: '8'
 
-  ade_cookiefile: %SF_APP_CACHE_DIR%/cookies.txt
+    ade_cookiefile: %SF_APP_CACHE_DIR%/cookies.txt
 
-  css:
-    flat: { title: "Flat" }
-    theo: { title: "Théo" }
-    # antoine: { title: "Clear style" }
+    css:
+      flat: { title: "Flat" }
+      theo: { title: "Théo" }
+      # antoine: { title: "Clear style" }
