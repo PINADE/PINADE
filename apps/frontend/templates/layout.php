@@ -69,7 +69,7 @@
               'https://www.emploisdutemps.uha.fr/') ?></li>
             </ul>
           </div>
-        <?php if(count($stylesheets = sfConfig::get('sf_css'))): ?>
+        <?php if(count($stylesheets = sfConfig::get('app_css'))): ?>
         <div id="stylesheet">
           <form method="post" action="<?php echo url_for('@cookie_set') ?>">
             Changez l'affichage de l'emploi du temps !<br/>
