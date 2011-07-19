@@ -1,4 +1,4 @@
-plugins/sfADEConfigPlugin/config/settings.yml
+apps/frontend/config/app.yml
 lib/vendor/*
 !/lib/vendor/README
 cache/*

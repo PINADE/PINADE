@@ -47,7 +47,7 @@ class AdeBrowser
 
     // Use a file to stock the cookies
     // Do not allow to modify cookies here, because it does not work if you do
-    curl_setopt($handle, CURLOPT_COOKIEFILE, sfConfig::get('sf_ade_cookiefile'));
+    curl_setopt($handle, CURLOPT_COOKIEFILE, sfConfig::get('app_ade_cookiefile'));
 
 
     if(strlen($post_fields))
@@ -83,10 +83,10 @@ class AdeBrowser
     preg_match($pattern, $login_page, $matches);
     $lt = $matches[1];
 
-    // base 64 : sfConfig::get('sf_ade_url')
+    // base 64 : sfConfig::get('app_ade_url')
 
     /* Get CAS Cookie and link to emploidutemps.uha.fr */
-    $data_string = base64_decode(sfConfig::get('sf_cas_login'))."&lt=$lt";
+    $data_string = base64_decode(sfConfig::get('app_cas_login'))."&lt=$lt";
     $handle = curl_init("https://cas.uha.fr/cas/login?service=http://www.emploisdutemps.uha.fr:80/ade/standard/gui/interface.jsp");
     curl_setopt($handle, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded')); 
     curl_setopt($handle, CURLOPT_POST, true);
@@ -99,7 +99,7 @@ class AdeBrowser
 
     // Use a file to stock the cookies
     // You do not need old cookies when you start a new authentification
-    curl_setopt($handle, CURLOPT_COOKIEJAR, sfConfig::get('sf_ade_cookiefile'));
+    curl_setopt($handle, CURLOPT_COOKIEJAR, sfConfig::get('app_ade_cookiefile'));
 
     $content = curl_exec($handle);
 
@@ -124,13 +124,13 @@ class AdeBrowser
     curl_setopt($handle, CURLOPT_HEADER, true);
 
     // Use a file to stock the cookies
-    curl_setopt($handle, CURLOPT_COOKIEJAR,  sfConfig::get('sf_ade_cookiefile'));
-    curl_setopt($handle, CURLOPT_COOKIEFILE, sfConfig::get('sf_ade_cookiefile'));
+    curl_setopt($handle, CURLOPT_COOKIEJAR,  sfConfig::get('app_ade_cookiefile'));
+    curl_setopt($handle, CURLOPT_COOKIEFILE, sfConfig::get('app_ade_cookiefile'));
 
     curl_setopt($handle, CURLOPT_FOLLOWLOCATION, true);
     $content = curl_exec($handle);
 
-    sfContext::getInstance()->getLogger()->info(file_get_contents(sfConfig::get('sf_ade_cookiefile')));
+    sfContext::getInstance()->getLogger()->info(file_get_contents(sfConfig::get('app_ade_cookiefile')));
   }
   
 
