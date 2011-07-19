@@ -11,8 +11,11 @@ all:
   cas_login: 'dXNlcm5hbWU9cHJlbm9tLm5vbSU0MHVoYS5mciZwYXNzd29yZD1ZT1VSUEFTU1dPUkQ='
 
   # Email de contact utilisé par PINADE pour prévenir d'un probleme
-  email_from:      chtitux+calvin@gmail.com
-  email_to:        chtitux@gmail.com
+  email_from:      chtitux@calvin.chtitux.org
+  .array:
+    email_to: ['admin@example.net', 'informatique@example.net']
+
+
   ade_identifier:  'e2ba267923eb2fe57325ca75fd7b03ef'
 
   # Still used by cron/identifier
