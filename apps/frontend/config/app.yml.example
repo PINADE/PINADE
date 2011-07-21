@@ -30,3 +30,6 @@ all:
       flat: { title: "Flat" }
       theo: { title: "Théo" }
       # antoine: { title: "Clear style" }
+
+    piwik_url: 'piwik.example.net'
+    piwik_code: '42'
