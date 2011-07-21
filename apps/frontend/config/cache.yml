@@ -9,3 +9,5 @@ default:
 _menu:
   enabled:    on
 
+_pied:
+  enabled:    on
