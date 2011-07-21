@@ -91,6 +91,10 @@ class edtActions extends sfActions
     }
     $this->diff_day = (time() - $this->image_mtime)/(60*60*24);
 
+    // SI l'image a plus de 1 jour, on ne cache pas pour éviter d'afficher le message "image non à jour"
+    if($this->diff_day > 1)
+      sfConfig::set('sf_cache', false);
+
     // Timestamp du lundi, début de semaine
     $this->timestamp = $this->promotion->getTimestamp($this->semaine);
     // Notice
