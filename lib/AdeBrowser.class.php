@@ -75,7 +75,7 @@ class AdeBrowser
 
   protected function getAuthentication()
   {
-    sfContext::getInstance()->getLogger()->info('get Cas Cookie');
+    sfContext::getInstance()->getLogger()->info('get ADE Cookie');
 
     /* Get lt for login */
     $login_page = file_get_contents("https://cas.uha.fr/cas/login");
