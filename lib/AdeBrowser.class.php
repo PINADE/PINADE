@@ -129,6 +129,7 @@ class AdeBrowser
 
     curl_setopt($handle, CURLOPT_FOLLOWLOCATION, true);
     $content = curl_exec($handle);
+    curl_close($handle); // cURL write cookies in the Cookies Jar file
 
     sfContext::getInstance()->getLogger()->info(file_get_contents(sfConfig::get('app_ade_cookiefile')));
   }
