@@ -61,7 +61,7 @@ class AdeBrowser
     if(strpos(curl_getinfo($handle, CURLINFO_EFFECTIVE_URL), "https://cas.uha.fr") !== false)
     {
       // Le cookie n'est pas trouvé
-      throw new sfAdeException("Problème d'authentification CAS/ADE (redirection)");
+      throw new sfAdeException("Problème d'authentification ADE (redirection)");
     }
 
     if(strpos($this->content, "Deconnected") !== false)
