@@ -28,6 +28,7 @@ abstract class BasePromotionFormFilter extends BaseFormFilterDoctrine
       'start_timestamp'  => new sfWidgetFormFilterInput(),
       'width'            => new sfWidgetFormFilterInput(),
       'height'           => new sfWidgetFormFilterInput(),
+      'edt_id'           => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Edt'), 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
@@ -46,6 +47,7 @@ abstract class BasePromotionFormFilter extends BaseFormFilterDoctrine
       'start_timestamp'  => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'width'            => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'height'           => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'edt_id'           => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Edt'), 'column' => 'id')),
     ));
 
     $this->widgetSchema->setNameFormat('promotion_filters[%s]');
@@ -81,6 +83,7 @@ abstract class BasePromotionFormFilter extends BaseFormFilterDoctrine
       'start_timestamp'  => 'Number',
       'width'            => 'Number',
       'height'           => 'Number',
+      'edt_id'           => 'ForeignKey',
     );
   }
 }

@@ -33,9 +33,11 @@ Promotion:
     start_timestamp:    { type: integer, default: 1283119200 }
     width:              { type: integer, default: 800 }
     height:             { type: integer, default: 600 }
+    edt_id:             { type: integer, default: 1, notnull: true }
   relations:
     Categorie:  { local: categorie_id, foreign: id, type: one }
-    Messages: { class: Message, local: id, foreign: promotion_id, type: many }
+    Messages:   { class: Message, local: id, foreign: promotion_id, type: many }
+    Edt:        { local: edt_id, foreign: id, type: one }
 
 Message:
   actAs:  { Timestampable: ~ }
@@ -52,4 +54,13 @@ Page:
     url:                { type: string(255), notnull: true, unique: true }
     title:              { type: string(255) }
     text:               { type: string(4000) }
-    
+
+
+Edt:
+  actAs:  { Timestampable: ~ }
+  columns:
+    nom:                { type: string(255), notnull: true, unique: true }
+    description:        { type: string(255) }
+  relations:
+    Promotions: { class: Promotion, local: id, foreign: edt_id, type: many }
+

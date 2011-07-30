@@ -440,3 +440,10 @@ Categorie:
     logo: perso.png
     weight: '20'
     in_menu: false
+Edt:
+  Edt_1:
+    nom: default
+    description: Edt default
+    created_at: 2011-07-30 10:38:27
+    updated_at: 2011-07-30 10:38:27
+
