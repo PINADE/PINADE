@@ -24,6 +24,10 @@ class AdeImage
     $this->ade_browser = new AdeBrowser();
     $this->promotion = $promotion;
     $this->edt = $promotion->getCategorie()->getEdt();
+
+    if(strlen($this->edt->getAdeUrl()) == 0)
+      throw new Exception("La catégorie ".$promotion->getCategorie()." de la promotion $promotion doit être liée à un Edt !");
+
     $this->semaine = $semaine;
   }
   
