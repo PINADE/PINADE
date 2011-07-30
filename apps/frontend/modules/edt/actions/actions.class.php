@@ -78,7 +78,7 @@ class edtActions extends sfActions
     $adeImage = new AdeImage($this->promotion, $this->semaine);
 
     $this->image_path = sfConfig::get('sf_web_dir').$adeImage->getWebPath();
-    if(file_exists($this->image_path)) // L'image existe, elle se 
+    if(file_exists($this->image_path)) // L'image existe, elle se mettra à jour lors de sa propre requête
       $this->image_mtime = filemtime($this->image_path);
     else
     {
@@ -86,7 +86,7 @@ class edtActions extends sfActions
       if(file_exists($this->image_path))
         $this->image_mtime = filemtime($this->image_path);
       else
-        $this->forward404();
+        $this->forward404("L'image ".$this->image_path." n'existe pas. Échec probable du téléchargement");
       
     }
     $this->diff_day = (time() - $this->image_mtime)/(60*60*24);
