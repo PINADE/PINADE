@@ -18,18 +18,7 @@ class AdeBrowser
 
   public function getUrl($url, $post_fields = null)
   {
-    // If an sfAdeException is
-    try {
-      return $this->ProcessUrl($url, $post_fields);
-    }
-    catch(sfAdeException $e)
-    {
-      sfContext::getInstance()->getLogger()->info('Mauvais cookie ("'.$e->getMessage().'"). Tentative de renouvellement');
-      $this->getAuthentication();
-
-      return $this->ProcessUrl($url, $post_fields);
-
-    }
+    return $this->ProcessUrl($url, $post_fields);
   }
 
   protected function ProcessUrl($url, $post_fields)
