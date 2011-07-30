@@ -22,7 +22,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-    Edt: Edt_1
+
   Promotion_2:
     url: 2a
     nom: 2A
@@ -39,7 +39,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-    Edt: Edt_1
+
   Promotion_3:
     url: 2a
     nom: 2A
@@ -56,7 +56,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-    Edt: Edt_1
+
   Promotion_4:
     url: 1a
     nom: 1A
@@ -73,7 +73,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-    Edt: Edt_1
+
   Promotion_5:
     url: 3a
     nom: 3A
@@ -90,7 +90,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-    Edt: Edt_1
+
   Promotion_6:
     url: 3a
     nom: 3A
@@ -107,7 +107,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-    Edt: Edt_1
+
   Promotion_7:
     url: 1a
     nom: 1A
@@ -124,7 +124,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-    Edt: Edt_1
+
   Promotion_8:
     url: 2a
     nom: 2A
@@ -141,7 +141,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-    Edt: Edt_1
+
   Promotion_9:
     url: 3a
     nom: 3A
@@ -158,7 +158,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-    Edt: Edt_1
+
   Promotion_10:
     url: 1a
     nom: 1A
@@ -175,7 +175,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-    Edt: Edt_1
+
   Promotion_11:
     url: 2a
     nom: 2A
@@ -192,7 +192,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-    Edt: Edt_1
+
   Promotion_12:
     url: 3a
     nom: 3A
@@ -209,7 +209,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-    Edt: Edt_1
+
   Promotion_13:
     url: 1a
     nom: 1A
@@ -226,7 +226,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-    Edt: Edt_1
+
   Promotion_14:
     url: 2a
     nom: 2A
@@ -243,7 +243,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-    Edt: Edt_1
+
   Promotion_15:
     url: l3
     nom: L3
@@ -260,7 +260,7 @@ Promotion:
     start_timestamp: '1283119200'
     width: '800'
     height: '600'
-    Edt: Edt_1
+
   Promotion_16:
     url: m1
     nom: M1
@@ -277,7 +277,7 @@ Promotion:
     start_timestamp: '1283119200'
     width: '800'
     height: '600'
-    Edt: Edt_1
+
   Promotion_17:
     url: m2
     nom: M2
@@ -294,7 +294,7 @@ Promotion:
     start_timestamp: '1283119200'
     width: '800'
     height: '600'
-    Edt: Edt_1
+
   Promotion_18:
     url: msf
     nom: MSF
@@ -311,7 +311,7 @@ Promotion:
     start_timestamp: '1283119200'
     width: '800'
     height: '600'
-    Edt: Edt_1
+
   Promotion_19:
     url: mr
     nom: MR
@@ -328,7 +328,7 @@ Promotion:
     start_timestamp: '1283119200'
     width: '800'
     height: '600'
-    Edt: Edt_1
+
   Promotion_20:
     url: m1-miage
     nom: m1-miage
@@ -345,7 +345,7 @@ Promotion:
     start_timestamp: '1283119200'
     width: '800'
     height: '600'
-    Edt: Edt_1
+
   Promotion_21:
     url: m1-miage-ok
     nom: m1-miage-ok
@@ -362,7 +362,7 @@ Promotion:
     start_timestamp: '1283119200'
     width: '800'
     height: '600'
-    Edt: Edt_1
+
   Promotion_22:
     url: m1-miage-ok2
     nom: m1-miage-ok2
@@ -379,7 +379,7 @@ Promotion:
     start_timestamp: '1283119200'
     width: '800'
     height: '600'
-    Edt: Edt_1
+
   Promotion_23:
     url: L3-chimie-FST
     nom: L3-chimie-FST
@@ -396,7 +396,7 @@ Promotion:
     start_timestamp: '1283119200'
     width: '800'
     height: '600'
-    Edt: Edt_1
+
   Promotion_24:
     url: 3a
     nom: 3A
@@ -413,12 +413,61 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-    Edt: Edt_1
+
+  Promotion_31:
+    url: master-info-sir
+    nom: master-info-sir
+    description: 'Master > Master Info > Master Pro > M2SIR'
+    Categorie: Categorie_8
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5810'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_33:
+    url: master-info-ima
+    nom: master-info-ima
+    description: M2IMA
+    Categorie: Categorie_8
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5812'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_34:
+    url: master-info-ti
+    nom: master-info-ti
+    description: 'Master Pro Info : M2TI'
+    Categorie: Categorie_8
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '4291'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+
 Categorie:
   Categorie_1:
     url: info
     nom: Informatique
-    description: "Informatique & Réseaux\r\n"
+    description: "Informatique & Réseaux"
     logo: info.png
     weight: '0'
     in_menu: true
@@ -464,9 +513,16 @@ Categorie:
     logo: perso.png
     weight: '20'
     in_menu: false
+  Categorie_8:
+    url: bio
+    nom: 'Master Lyon1 Bio'
+    description: null
+    logo: perso.png
+    weight: '20'
+    in_menu: true
 Edt:
   Edt_1:
-    nom: default
+    nom: ensisa
     description: 'Edt default'
     identifier: null
     ade_project_id: '12'
