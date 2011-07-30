@@ -4,21 +4,11 @@ class updateUhaIdentifierTask extends updateIdentifierTask
 {
   protected function configure()
   {
-    parent::configure();
-
     // Configuration de la tâche
-    // name  : doit être unique dans l'application
     // urls  : la séquence à enchaîner pour dérouler et cliquer sur un emploi du temps
     // nom_edt : nom de l'Edt dans la BDD
 
-    $this->name             = 'identifier-uha';
-    $this->briefDescription = '';
-    $this->detailedDescription = <<<EOF
-The [pinade:identifier-uha|INFO] task updates the ADE Identifier for the UHA.
-Call it with:
-
-  [php symfony pinade:identifier-uha|INFO]
-EOF;
+    $this->nom_edt = "ensisa";
 
     $this->urls = array(
       'custom/modules/plannings/plannings.jsp', // Mandatory (because of ADE)
@@ -29,7 +19,7 @@ EOF;
       'standard/gui/tree.jsp?selectBranchId=145&reset=true&forceLoad=false&scroll=0', // "Click" on a group (3A Info S5)
     );
 
-    $this->nom_edt = "ensisa";
+    parent::configure();
   }
 
 

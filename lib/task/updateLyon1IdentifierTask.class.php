@@ -4,21 +4,11 @@ class updateLyon1IdentifierTask extends updateIdentifierTask
 {
   protected function configure()
   {
-    parent::configure();
-
     // Configuration de la tâche
-    // name  : doit être unique dans l'application
     // urls  : la séquence à enchaîner pour dérouler et cliquer sur un emploi du temps
     // nom_edt : nom de l'Edt dans la BDD
 
-    $this->name             = 'identifier-lyon1';
-    $this->briefDescription = '';
-    $this->detailedDescription = <<<EOF
-The [pinade:identifier-lyon1|INFO] task updates the ADE Identifier for Lyon1.
-Call it with:
-
-  [php symfony pinade:identifier-lyon1|INFO]
-EOF;
+    $this->nom_edt = "lyon1-bio";
 
     $this->urls = array(
       'custom/modules/plannings/plannings.jsp', // Mandatory (because of ADE)
@@ -27,8 +17,8 @@ EOF;
       'standard/gui/tree.jsp?branchId=6037&reset=false&forceLoad=false&scroll=0', // Select a group (AUP)
       'standard/gui/tree.jsp?selectId=9617&reset=true&forceLoad=false&scroll=0', // "Click" on a group (3A Info S5)
     );
+    parent::configure();
 
-    $this->nom_edt = "lyon1";
   }
 
 

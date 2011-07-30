@@ -12,6 +12,14 @@ abstract class updateIdentifierTask extends sfBaseTask
     ));
 
     $this->namespace        = 'pinade';
+    $this->name             = 'identifier-'.$this->nom_edt;
+    $this->briefDescription = '';
+    $this->detailedDescription = <<<EOF
+The [pinade:{$this->name}|INFO] task updates the ADE Identifier for Lyon1.
+Call it with:
+
+  [php symfony pinade:{$this->name}|INFO]
+EOF;
   }
 
   protected function execute($arguments = array(), $options = array())
