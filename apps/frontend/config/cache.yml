@@ -6,8 +6,9 @@ default:
   with_layout: false
   lifetime:    600
 
-#_menu:
-#  enabled:    on
+_menu:
+  enabled:    on
+  contextual: true
 
 _pied:
   enabled:    on
