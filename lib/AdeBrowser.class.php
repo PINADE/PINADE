@@ -51,7 +51,7 @@ class AdeBrowser
     if(curl_getinfo($handle, CURLINFO_EFFECTIVE_URL) != $url)
     {
       // Le cookie n'est pas trouvé
-      throw new sfAdeException("Problème d'authentification ADE (redirection)");
+      throw new sfAdeException("Problème d'authentification ADE (redirection). Url originale : $url\nRedirection : ".curl_getinfo($handle, CURLINFO_EFFECTIVE_URL));
     }
 
     if(strpos($this->content, "Deconnected") !== false)
