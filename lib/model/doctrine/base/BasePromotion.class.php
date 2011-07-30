@@ -20,10 +20,8 @@
  * @property integer $start_timestamp
  * @property integer $width
  * @property integer $height
- * @property integer $edt_id
  * @property Categorie $Categorie
  * @property Doctrine_Collection $Messages
- * @property Edt $Edt
  * 
  * @method string              getUrl()              Returns the current record's "url" value
  * @method string              getNom()              Returns the current record's "nom" value
@@ -40,10 +38,8 @@
  * @method integer             getStartTimestamp()   Returns the current record's "start_timestamp" value
  * @method integer             getWidth()            Returns the current record's "width" value
  * @method integer             getHeight()           Returns the current record's "height" value
- * @method integer             getEdtId()            Returns the current record's "edt_id" value
  * @method Categorie           getCategorie()        Returns the current record's "Categorie" value
  * @method Doctrine_Collection getMessages()         Returns the current record's "Messages" collection
- * @method Edt                 getEdt()              Returns the current record's "Edt" value
  * @method Promotion           setUrl()              Sets the current record's "url" value
  * @method Promotion           setNom()              Sets the current record's "nom" value
  * @method Promotion           setDescription()      Sets the current record's "description" value
@@ -59,10 +55,8 @@
  * @method Promotion           setStartTimestamp()   Sets the current record's "start_timestamp" value
  * @method Promotion           setWidth()            Sets the current record's "width" value
  * @method Promotion           setHeight()           Sets the current record's "height" value
- * @method Promotion           setEdtId()            Sets the current record's "edt_id" value
  * @method Promotion           setCategorie()        Sets the current record's "Categorie" value
  * @method Promotion           setMessages()         Sets the current record's "Messages" collection
- * @method Promotion           setEdt()              Sets the current record's "Edt" value
  * 
  * @package    edt
  * @subpackage model
@@ -136,11 +130,6 @@ abstract class BasePromotion extends sfDoctrineRecord
              'type' => 'integer',
              'default' => 600,
              ));
-        $this->hasColumn('edt_id', 'integer', null, array(
-             'type' => 'integer',
-             'default' => 1,
-             'notnull' => true,
-             ));
     }
 
     public function setUp()
@@ -153,9 +142,5 @@ abstract class BasePromotion extends sfDoctrineRecord
         $this->hasMany('Message as Messages', array(
              'local' => 'id',
              'foreign' => 'promotion_id'));
-
-        $this->hasOne('Edt', array(
-             'local' => 'edt_id',
-             'foreign' => 'id'));
     }
 }

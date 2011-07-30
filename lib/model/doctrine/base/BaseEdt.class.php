@@ -11,7 +11,7 @@
  * @property string $ade_project_id
  * @property string $ade_url
  * @property string $login
- * @property Doctrine_Collection $Promotions
+ * @property Doctrine_Collection $Categories
  * 
  * @method string              getNom()            Returns the current record's "nom" value
  * @method string              getDescription()    Returns the current record's "description" value
@@ -19,14 +19,14 @@
  * @method string              getAdeProjectId()   Returns the current record's "ade_project_id" value
  * @method string              getAdeUrl()         Returns the current record's "ade_url" value
  * @method string              getLogin()          Returns the current record's "login" value
- * @method Doctrine_Collection getPromotions()     Returns the current record's "Promotions" collection
+ * @method Doctrine_Collection getCategories()     Returns the current record's "Categories" collection
  * @method Edt                 setNom()            Sets the current record's "nom" value
  * @method Edt                 setDescription()    Sets the current record's "description" value
  * @method Edt                 setIdentifier()     Sets the current record's "identifier" value
  * @method Edt                 setAdeProjectId()   Sets the current record's "ade_project_id" value
  * @method Edt                 setAdeUrl()         Sets the current record's "ade_url" value
  * @method Edt                 setLogin()          Sets the current record's "login" value
- * @method Edt                 setPromotions()     Sets the current record's "Promotions" collection
+ * @method Edt                 setCategories()     Sets the current record's "Categories" collection
  * 
  * @package    edt
  * @subpackage model
@@ -69,7 +69,7 @@ abstract class BaseEdt extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasMany('Promotion as Promotions', array(
+        $this->hasMany('Categorie as Categories', array(
              'local' => 'id',
              'foreign' => 'edt_id'));
 

@@ -31,7 +31,6 @@ abstract class BasePromotionForm extends BaseFormDoctrine
       'start_timestamp'  => new sfWidgetFormInputText(),
       'width'            => new sfWidgetFormInputText(),
       'height'           => new sfWidgetFormInputText(),
-      'edt_id'           => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Edt'), 'add_empty' => false)),
     ));
 
     $this->setValidators(array(
@@ -51,7 +50,6 @@ abstract class BasePromotionForm extends BaseFormDoctrine
       'start_timestamp'  => new sfValidatorInteger(array('required' => false)),
       'width'            => new sfValidatorInteger(array('required' => false)),
       'height'           => new sfValidatorInteger(array('required' => false)),
-      'edt_id'           => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Edt'), 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('promotion[%s]');

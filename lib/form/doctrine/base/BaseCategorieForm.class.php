@@ -22,6 +22,7 @@ abstract class BaseCategorieForm extends BaseFormDoctrine
       'logo'        => new sfWidgetFormInputText(),
       'weight'      => new sfWidgetFormInputText(),
       'in_menu'     => new sfWidgetFormInputCheckbox(),
+      'edt_id'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Edt'), 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
@@ -32,6 +33,7 @@ abstract class BaseCategorieForm extends BaseFormDoctrine
       'logo'        => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'weight'      => new sfValidatorInteger(array('required' => false)),
       'in_menu'     => new sfValidatorBoolean(array('required' => false)),
+      'edt_id'      => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Edt'), 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('categorie[%s]');

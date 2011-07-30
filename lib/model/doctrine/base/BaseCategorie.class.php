@@ -11,7 +11,9 @@
  * @property string $logo
  * @property integer $weight
  * @property boolean $in_menu
+ * @property integer $edt_id
  * @property Doctrine_Collection $Promotions
+ * @property Edt $Edt
  * 
  * @method string              getUrl()         Returns the current record's "url" value
  * @method string              getNom()         Returns the current record's "nom" value
@@ -19,14 +21,18 @@
  * @method string              getLogo()        Returns the current record's "logo" value
  * @method integer             getWeight()      Returns the current record's "weight" value
  * @method boolean             getInMenu()      Returns the current record's "in_menu" value
+ * @method integer             getEdtId()       Returns the current record's "edt_id" value
  * @method Doctrine_Collection getPromotions()  Returns the current record's "Promotions" collection
+ * @method Edt                 getEdt()         Returns the current record's "Edt" value
  * @method Categorie           setUrl()         Sets the current record's "url" value
  * @method Categorie           setNom()         Sets the current record's "nom" value
  * @method Categorie           setDescription() Sets the current record's "description" value
  * @method Categorie           setLogo()        Sets the current record's "logo" value
  * @method Categorie           setWeight()      Sets the current record's "weight" value
  * @method Categorie           setInMenu()      Sets the current record's "in_menu" value
+ * @method Categorie           setEdtId()       Sets the current record's "edt_id" value
  * @method Categorie           setPromotions()  Sets the current record's "Promotions" collection
+ * @method Categorie           setEdt()         Sets the current record's "Edt" value
  * 
  * @package    edt
  * @subpackage model
@@ -62,6 +68,9 @@ abstract class BaseCategorie extends sfDoctrineRecord
              'type' => 'boolean',
              'default' => false,
              ));
+        $this->hasColumn('edt_id', 'integer', null, array(
+             'type' => 'integer',
+             ));
     }
 
     public function setUp()
@@ -70,5 +79,9 @@ abstract class BaseCategorie extends sfDoctrineRecord
         $this->hasMany('Promotion as Promotions', array(
              'local' => 'id',
              'foreign' => 'categorie_id'));
+
+        $this->hasOne('Edt', array(
+             'local' => 'edt_id',
+             'foreign' => 'id'));
     }
 }
