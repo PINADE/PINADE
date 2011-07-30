@@ -55,10 +55,11 @@ class AdeBrowser
       curl_setopt($handle, CURLOPT_POST, true);
       curl_setopt($handle, CURLOPT_POSTFIELDS, $post_fields);
     }
+
     $this->content = curl_exec($handle);
     $this->curl_handle = $handle;
 
-    if(strpos(curl_getinfo($handle, CURLINFO_EFFECTIVE_URL), "https://cas.uha.fr") !== false)
+    if(curl_getinfo($handle, CURLINFO_EFFECTIVE_URL) != $url)
     {
       // Le cookie n'est pas trouvé
       throw new sfAdeException("Problème d'authentification ADE (redirection)");
@@ -67,7 +68,7 @@ class AdeBrowser
     if(strpos($this->content, "Deconnected") !== false)
     {
       // Le cookie n'est pas trouvé
-      throw new sfAdeException("Problème d'authentification CAS/ADE (Deconnected)");
+      throw new sfAdeException("Problème d'authentification ADE (Deconnected)");
     }
 
     return $this->content;
