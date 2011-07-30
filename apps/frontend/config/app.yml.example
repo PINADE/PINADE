@@ -26,6 +26,10 @@ all:
 
     ade_cookiefile: %SF_APP_CACHE_DIR%/cookies.txt
 
+    # Timestamp utilisé pour calculer le numéro de semaine PINADE<->ADE
+    # Doit être celui de minuit du premier jour de l'edt sur ADE
+    ade_default_start_timestamp: '1313359200'
+
     css:
       flat: { title: "Flat" }
       theo: { title: "Théo" }
