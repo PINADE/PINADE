@@ -73,7 +73,7 @@ class AdeImage
 
     // Create the directory if we need to
     if(!is_dir($path))
-      mkdir($path);
+      mkdir($path, 0777, true); // enable recursion
 
     if(empty($content))     // Do NOT remove cache if the file is empty (there is likely a problem)
     {
