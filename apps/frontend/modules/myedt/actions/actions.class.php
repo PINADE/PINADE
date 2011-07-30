@@ -53,7 +53,7 @@ class myedtActions extends sfActions
     $categorie = Doctrine_Core::getTable('Promotion')
       ->createQuery('p')
       ->leftJoin('p.Categorie c')
-      ->where('c.url = "perso"')
+      ->andwhere('c.url = "perso"')
       ->andWhere('p.url = ?', array($nom))
       ->execute();
 
@@ -66,7 +66,7 @@ class myedtActions extends sfActions
 
     $categorie = Doctrine_Core::getTable('Categorie')
       ->createQuery('c')
-      ->where('c.url = "perso"')
+      ->andwhere('c.url = "perso"')
       ->execute()->getFirst();
 
     if(!$categorie)
@@ -98,7 +98,7 @@ class myedtActions extends sfActions
     $this->promotion = Doctrine_Core::getTable('Promotion')
       ->createQuery('p')
       ->leftJoin('p.Categorie c')
-      ->where('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
+      ->andwhere('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
       ->execute()
       ->getFirst();
     $this->forward404Unless($this->promotion);

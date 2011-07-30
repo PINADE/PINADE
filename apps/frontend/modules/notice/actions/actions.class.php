@@ -19,7 +19,7 @@ class noticeActions extends sfActions
     $this->promotion = Doctrine_Core::getTable('Promotion')
       ->createQuery('p')
       ->leftJoin('p.Categorie c')
-      ->where('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
+      ->andwhere('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
       ->execute()
       ->getFirst();
     $this->forward404Unless($this->promotion);
@@ -55,7 +55,7 @@ class noticeActions extends sfActions
     $this->promotion = Doctrine_Core::getTable('Promotion')
       ->createQuery('p')
       ->leftJoin('p.Categorie c')
-      ->where('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
+      ->andwhere('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
       ->execute()
       ->getFirst();
     $this->forward404Unless($this->promotion);
@@ -76,7 +76,7 @@ class noticeActions extends sfActions
     $promotion = Doctrine_Core::getTable('Promotion')
       ->createQuery('p')
       ->leftJoin('p.Categorie c')
-      ->where('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
+      ->andwhere('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
       ->execute()
       ->getFirst();
     $this->forward404Unless($promotion);

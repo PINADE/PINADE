@@ -7,7 +7,7 @@
 <?php $categories = Doctrine_Core::getTable('Categorie')
       ->createQuery('c')
       ->leftJoin('c.Promotions p')
-      ->where('c.in_menu = 1')
+      ->andWhere('c.in_menu = 1')
       ->andWhere('p.in_menu = 1')
       ->orderBy('c.weight ASC, p.weight ASC')
       ->execute();

@@ -43,7 +43,7 @@ class edtActions extends sfActions
     $this->categorie = Doctrine_Core::getTable('Categorie')
       ->createQuery('c')
       ->leftJoin('c.Promotions p')
-      ->where('c.url = ?', array($request->getParameter('categorie')))
+      ->andwhere('c.url = ?', array($request->getParameter('categorie')))
       ->orderBy('p.weight ASC')
       ->execute()
       ->getFirst();
@@ -62,7 +62,7 @@ class edtActions extends sfActions
     $this->promotion = Doctrine_Core::getTable('Promotion')
       ->createQuery('p')
       ->leftJoin('p.Categorie c')
-      ->where('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
+      ->andwhere('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
       ->execute()
       ->getFirst();
     $this->forward404Unless($this->promotion);
