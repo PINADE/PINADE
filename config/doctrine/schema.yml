@@ -55,12 +55,15 @@ Page:
     title:              { type: string(255) }
     text:               { type: string(4000) }
 
-
 Edt:
   actAs:  { Timestampable: ~ }
   columns:
     nom:                { type: string(255), notnull: true, unique: true }
     description:        { type: string(255) }
+    identifier:         { type: string(255) }
+    ade_project_id:     { type: string(255) }
+    ade_url:            { type: string(255) }
+    login:          { type: string(255) }
   relations:
     Promotions: { class: Promotion, local: id, foreign: edt_id, type: many }
 

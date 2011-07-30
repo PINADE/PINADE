@@ -7,14 +7,26 @@
  * 
  * @property string $nom
  * @property string $description
+ * @property string $identifier
+ * @property string $ade_project_id
+ * @property string $ade_url
+ * @property string $login
  * @property Doctrine_Collection $Promotions
  * 
- * @method string              getNom()         Returns the current record's "nom" value
- * @method string              getDescription() Returns the current record's "description" value
- * @method Doctrine_Collection getPromotions()  Returns the current record's "Promotions" collection
- * @method Edt                 setNom()         Sets the current record's "nom" value
- * @method Edt                 setDescription() Sets the current record's "description" value
- * @method Edt                 setPromotions()  Sets the current record's "Promotions" collection
+ * @method string              getNom()            Returns the current record's "nom" value
+ * @method string              getDescription()    Returns the current record's "description" value
+ * @method string              getIdentifier()     Returns the current record's "identifier" value
+ * @method string              getAdeProjectId()   Returns the current record's "ade_project_id" value
+ * @method string              getAdeUrl()         Returns the current record's "ade_url" value
+ * @method string              getLogin()          Returns the current record's "login" value
+ * @method Doctrine_Collection getPromotions()     Returns the current record's "Promotions" collection
+ * @method Edt                 setNom()            Sets the current record's "nom" value
+ * @method Edt                 setDescription()    Sets the current record's "description" value
+ * @method Edt                 setIdentifier()     Sets the current record's "identifier" value
+ * @method Edt                 setAdeProjectId()   Sets the current record's "ade_project_id" value
+ * @method Edt                 setAdeUrl()         Sets the current record's "ade_url" value
+ * @method Edt                 setLogin()          Sets the current record's "login" value
+ * @method Edt                 setPromotions()     Sets the current record's "Promotions" collection
  * 
  * @package    edt
  * @subpackage model
@@ -33,6 +45,22 @@ abstract class BaseEdt extends sfDoctrineRecord
              'length' => 255,
              ));
         $this->hasColumn('description', 'string', 255, array(
+             'type' => 'string',
+             'length' => 255,
+             ));
+        $this->hasColumn('identifier', 'string', 255, array(
+             'type' => 'string',
+             'length' => 255,
+             ));
+        $this->hasColumn('ade_project_id', 'string', 255, array(
+             'type' => 'string',
+             'length' => 255,
+             ));
+        $this->hasColumn('ade_url', 'string', 255, array(
+             'type' => 'string',
+             'length' => 255,
+             ));
+        $this->hasColumn('login', 'string', 255, array(
              'type' => 'string',
              'length' => 255,
              ));
