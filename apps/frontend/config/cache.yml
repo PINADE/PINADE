@@ -12,3 +12,7 @@ _menu:
 
 _pied:
   enabled:    on
+
+_nom_edt:
+  enabled:    on
+  lifetime:   86400
