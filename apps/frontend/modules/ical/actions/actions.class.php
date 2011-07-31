@@ -11,8 +11,7 @@ class icalActions extends sfActions
 {
 
   /**
-<<<<<<< HEAD
-    Display the gif of the week
+    Update the iCal
   */
   public function executeUpdate(sfWebRequest $request)
   {
@@ -22,6 +21,7 @@ class icalActions extends sfActions
       ->where('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
       ->execute()
       ->getFirst();
+    $this->forward404Unless($this->promotion, "Pas de promotion trouvée");
 
     $adeImage = new AdeImage($this->promotion, $semaine);
 
@@ -40,8 +40,9 @@ class icalActions extends sfActions
       ->where('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
       ->execute()
       ->getFirst();
+    $this->forward404Unless($this->promotion, "Pas de promotion trouvée");
 
-    $adeImage = new AdeImage($this->promotion, $semaine);
+    $adeImage = new AdeImage($this->promotion, 1);
 
 
     $filepath = $adeImage->getIcalPath();
