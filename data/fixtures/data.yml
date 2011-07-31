@@ -1,10 +1,40 @@
-Page:
-  Page_1:
-    url: faq
-    title: 'Foire Aux Questions'
-    text: "<h2 id=\"fiable\">Est-ce le site de référence ?</h2>\r\n<p><b>Non, ce site n'est pas le site officiel de l'emploi du temps</b> de l'UHA.\r\nLe site officiel est <a href=\"https://www.emploisdutemps.uha.fr/\">emploisdutemps.uha.fr</a> et reste la référence de votre emploi du temps.<br/>\r\nCependant, si tout va bien, ce site se met à jour régulièrement (<i>cf</i> section <a href=\"#delai\"><b>Délai</b></a>) les emplois du temps.</p>\r\n\r\n<h2 id=\"raccourcis\">Quels sont les raccourcis claviers sur le site ?</h2>\r\n<p>Deux raccourcis claviers ont été mis en place pour faciliter la navigation sur <b>edt.iariss.fr</b> :\r\n<ul>\r\n  <li>La touche «&nbsp;flèche gauche&nbsp;» pour aller vers la semaine précédente,</li>\r\n  <li>La touche «&nbsp;flèche droite&nbsp;» pour aller vers la semaine suivante.</li>\r\n</ul>\r\nIl n'y a pas d'autres raccourcis actuellement, mais contactez nous si vous en voulez plus&nbsp;!<br/></p>\r\n\r\n<h2 id=\"origine\">Qui est à l'origine de ce site ?</h2>\r\n<p>L'équipe de <a href=\"http://iariss.fr/\">IARISS</a> a codé ce site pour vous,\r\nparce qu'elle trouvait que le site proposé par l'UHA n'était pas du tout pratique.<br/>\r\nLes auteurs initiaux sont <b>Michaël Muré</b> et <b>Thépophile Helleboid</b>, mais nous en attendons d'autres. Venez nous rejoindre&nbsp;!\r\nLe code source <a href=\"https://github.com/PINADE/PINADE\">est hébergée sur GitHub</a>.\r\n</p>\r\n\r\n<h2 id=\"contact\">Je veux contacter les auteurs, à qui m'adresser ?</h2>\r\n<p>Envoyez un mail à <b><code>contact@iariss.fr</code></b>, c'est l'adresse unique pour contacter les auteurs.<br/></p>\r\n\r\n<h2 id=\"delai\">Quel est le délai de mise à jour des emplois du temps ?</h2>\r\n<p>Les emplois du temps sont mis à jour très régulièrement&nbsp;:\r\n<b>toutes les deux heures</b> pour les semaines courante et suivante, toutes les six heures pour les autres.\r\n Si vous trouvez que ce délai n'est pas adapté, <a href=\"#contact\">contactez-nous</a>.</p>\r\n\r\n<h2 id=\"ical\">Où trouver le calendrier <i>iCal</i> de mon emploi du temps ?</h2>\r\nL'adresse est simple : <code>http://edt.iariss.fr/ical/<i>&lt;votre filière&gt;</i>/<i>&lt;votre promo&gt;</i>/ical.ics</code></br/>\r\nPar exemple, pour les 2A Informatique : <code><a href=\"http://edt.iariss.fr/ical/info/2a/ical.ics\">http://edt.iariss.fr/ical/info/2a/ical.ics</a></code>.<br/>\r\nLe calendrier est mis à jour une fois par jour, vers 4h du matin. Il reprend tous les cours disponibles de toute l'année.\r\n<p><b>Attention</b> : cette fonctionnalité n'est pas correctement implémentée (et ne le sera sans doute jamais) et plusieurs bugs existent.\r\nPar exemple, ce calendrier n'indique pas si certains cours ont été supprimés ou remplacés.<br/>\r\nSi un cours est supprimé, il le sera dans le calendier iCal, mais il est possible qu'il apparaisse toujours dans votre calendrier local. Soyez attentif !\r\n</p>\r\n\r\n<h2 id=\"fonctionnement\">Comment fonctionne votre site ?</h2>\r\n<p>Ce site a été développé avec le framework PHP <a href='http://www.symfony-project.org/'>Symfony</a>.\r\nIl se connecte à ADE Expert, logiciel utilisé pour les emplois du temps de l'UHA, et télécharge les images des emplois du temps pour les garder sur notre serveur (chaque heure actuellement).\r\nLe logiciel reproduit votre navigation, longue et un peu complexe, et peut récupérer les informations pour vous.<br/>\r\nSi vous souhaitez connaître le fonctionnement exact, <a href=\"#contact\">contactez-nous</a>, et reportez vous à la section <a href=\"#sources\">Où sont les sources&nbsp;?</a></p>\r\n\r\n<h2 id=\"fonctionnalite\">Je voudrais avoir telle fonctionnalité, c'est possible ?</h2>\r\n<p>Bien sûr, tout est possible avec l'informatique !<br/>\r\nNous avons déjà quelques idées à implémenter, mais il est probable que nous ne soyons pas au courant de la votre.\r\nProposez-la nous en nous contactant (<code>contact@iariss.fr</code>), nous ferons notre possible pour qu'elle soit mise en place rapidement.<br/>\r\nVous savez programmer en PHP ? Et encore mieux, avec Symfony ?<br/>\r\nAlors votre profil nous intéresse ! <a href=\"#contact\">Contactez-nous</a> très rapidement, vous avez probablement votre place à IARISS !</p>\r\n\r\n<h2 id=\"sources\">Où sont les sources de votre logiciel ?</h2>\r\n<p>Notre logiciel n'est pas (encore) un Logiciel Libre. L'ouverture des sources d'un tel logiciel ne nous apparaît pas comme prioritaire,\r\nmais exprimez votre demande : il y a de grande chance que nous publierons les sources.</p>\r\n"
-    created_at: '0000-00-00 00:00:00'
-    updated_at: '0000-00-00 00:00:00'
+Edt:
+  Edt_1:
+    nom: ensisa
+    description: 'Edt default'
+    identifier: null
+    ade_project_id: '12'
+    ade_url: 'https://www.emploisdutemps.uha.fr/ade/'
+    login: dXNlcm5hbWU9dGhlb3BoaWxlLmhlbGxlY
+    created_at: '2011-07-30 00:00:00'
+    updated_at: '2011-07-30 00:00:00'
+  Edt_2:
+    nom: lyon1-bio
+    description: 'UCBL - Biologie'
+    identifier: f0cdb94e439bc679a95f023c3eba8e2f
+    ade_project_id: '49'
+    ade_url: 'http://adeweb.univ-lyon1.fr/ade/'
+    login: bG9naW49bGVjdGV1ciZwYXNzd29yZD1sYW1iZGE=
+    created_at: '2011-07-30 00:00:00'
+    updated_at: '2011-07-31 14:15:38'
+  Edt_3:
+    nom: lyon1-info
+    description: 'UCBL - Informatique'
+    identifier: f0cdb94e439bc679a95f023c3eba8e2f
+    ade_project_id: '49'
+    ade_url: 'http://adeweb.univ-lyon1.fr/ade/'
+    login: bG9naW49bGVjdGV1ciZwYXNzd29yZD1sYW1iZGE=
+    created_at: '2011-07-30 00:00:00'
+    updated_at: '2011-07-31 14:15:38'
+  Edt_4:
+    nom: istil
+    description: 'UCBL - EPU - ISTIL'
+    identifier: f0cdb94e439bc679a95f023c3eba8e2f
+    ade_project_id: '49'
+    ade_url: 'http://adeweb.univ-lyon1.fr/ade/'
+    login: bG9naW49bGVjdGV1ciZwYXNzd29yZD1sYW1iZGE=
+    created_at: '2011-07-30 00:00:00'
+    updated_at: '2011-07-31 14:15:38'
 Promotion:
   Promotion_1:
     url: 1a
@@ -391,8 +421,8 @@ Promotion:
     width: '800'
     height: '600'
   Promotion_25:
-    url: master-info-sir
-    nom: master-info-sir
+    url: sir
+    nom: SIR
     description: 'Master > Master Info > Master Pro > M2SIR'
     Categorie: Categorie_8
     weight: '0'
@@ -407,8 +437,8 @@ Promotion:
     width: '800'
     height: '600'
   Promotion_26:
-    url: master-info-ima
-    nom: master-info-ima
+    url: ima
+    nom: IMA
     description: M2IMA
     Categorie: Categorie_8
     weight: '0'
@@ -423,8 +453,8 @@ Promotion:
     width: '800'
     height: '600'
   Promotion_27:
-    url: master-info-ti
-    nom: master-info-ti
+    url: ti
+    nom: TI
     description: 'Master Pro Info : M2TI'
     Categorie: Categorie_8
     weight: '0'
@@ -438,6 +468,221 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
+  Promotion_28:
+    url: m1
+    nom: m1
+    description: 'Master 1 Info'
+    Categorie: Categorie_7
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5825,5826,5827'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_29:
+    url: g1
+    nom: g1
+    description: 'Master 1 - G1'
+    Categorie: Categorie_9
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5825'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_30:
+    url: g2
+    nom: g2
+    description: 'Groupe 2 du M1 Ingo'
+    Categorie: Categorie_9
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5826'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_31:
+    url: g3
+    nom: g3
+    description: 'Groupe 3 du M1 Info'
+    Categorie: Categorie_9
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5827'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_32:
+    url: SIP
+    nom: SIP
+    description: 'http://master-info.univ-lyon1.fr/CCI/'
+    Categorie: Categorie_10
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6744'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_33:
+    url: SIRR
+    nom: SIRR
+    description: 'http://master-info.univ-lyon1.fr/CCI/'
+    Categorie: Categorie_10
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5835'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_34:
+    url: IGI
+    nom: IGI
+    description: 'http://mastria.insa-lyon.fr/'
+    Categorie: Categorie_11
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5622'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_35:
+    url: RTS
+    nom: RTS
+    description: 'http://adeweb.univ-lyon1.fr/ade/imageEt?identifier=f0cdb94e439bc679a95f023c3eba8e2f&projectId=49&idPianoWeek=8&idPianoDay=0%2C1%2C2%2C3%2C4%2C5&idTree=5463&width=1274&height=675&lunchName=REPAS&displayMode=1057855&showLoad=false&ttl=1312141869056&displayConfId=8'
+    Categorie: Categorie_11
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5463'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_36:
+    url: TIWe
+    nom: TIWe
+    description: 'http://mastria.insa-lyon.fr/'
+    Categorie: Categorie_11
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '4505'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_37:
+    url: IADE
+    nom: IADE
+    description: 'http://mastria.insa-lyon.fr/'
+    Categorie: Categorie_11
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '7341,7342'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_38:
+    url: M1
+    nom: M1
+    description: 'Master 1 SIB'
+    Categorie: Categorie_12
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '7670'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_39:
+    url: M2
+    nom: M2
+    description: 'http://dist.univ-lyon1.fr/get_page.php?id=11&langue=1'
+    Categorie: Categorie_12
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '7429,6269,6271,7015'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_40:
+    url: SIR-appr
+    nom: SIR-appr
+    description: 'Master 2 SIR Appr.'
+    Categorie: Categorie_8
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5655'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+Page:
+  Page_1:
+    url: faq
+    title: 'Foire Aux Questions'
+    text: "<h2 id=\"fiable\">Est-ce le site de référence ?</h2>\r\n<p><b>Non, ce site n'est pas le site officiel de l'emploi du temps</b> de l'UHA.\r\nLe site officiel est <a href=\"https://www.emploisdutemps.uha.fr/\">emploisdutemps.uha.fr</a> et reste la référence de votre emploi du temps.<br/>\r\nCependant, si tout va bien, ce site se met à jour régulièrement (<i>cf</i> section <a href=\"#delai\"><b>Délai</b></a>) les emplois du temps.</p>\r\n\r\n<h2 id=\"raccourcis\">Quels sont les raccourcis claviers sur le site ?</h2>\r\n<p>Deux raccourcis claviers ont été mis en place pour faciliter la navigation sur <b>edt.iariss.fr</b> :\r\n<ul>\r\n  <li>La touche «&nbsp;flèche gauche&nbsp;» pour aller vers la semaine précédente,</li>\r\n  <li>La touche «&nbsp;flèche droite&nbsp;» pour aller vers la semaine suivante.</li>\r\n</ul>\r\nIl n'y a pas d'autres raccourcis actuellement, mais contactez nous si vous en voulez plus&nbsp;!<br/></p>\r\n\r\n<h2 id=\"origine\">Qui est à l'origine de ce site ?</h2>\r\n<p>L'équipe de <a href=\"http://iariss.fr/\">IARISS</a> a codé ce site pour vous,\r\nparce qu'elle trouvait que le site proposé par l'UHA n'était pas du tout pratique.<br/>\r\nLes auteurs initiaux sont <b>Michaël Muré</b> et <b>Thépophile Helleboid</b>, mais nous en attendons d'autres. Venez nous rejoindre&nbsp;!\r\nLe code source <a href=\"https://github.com/PINADE/PINADE\">est hébergée sur GitHub</a>.\r\n</p>\r\n\r\n<h2 id=\"contact\">Je veux contacter les auteurs, à qui m'adresser ?</h2>\r\n<p>Envoyez un mail à <b><code>contact@iariss.fr</code></b>, c'est l'adresse unique pour contacter les auteurs.<br/></p>\r\n\r\n<h2 id=\"delai\">Quel est le délai de mise à jour des emplois du temps ?</h2>\r\n<p>Les emplois du temps sont mis à jour très régulièrement&nbsp;:\r\n<b>toutes les deux heures</b> pour les semaines courante et suivante, toutes les six heures pour les autres.\r\n Si vous trouvez que ce délai n'est pas adapté, <a href=\"#contact\">contactez-nous</a>.</p>\r\n\r\n<h2 id=\"ical\">Où trouver le calendrier <i>iCal</i> de mon emploi du temps ?</h2>\r\nL'adresse est simple : <code>http://edt.iariss.fr/ical/<i>&lt;votre filière&gt;</i>/<i>&lt;votre promo&gt;</i>/ical.ics</code></br/>\r\nPar exemple, pour les 2A Informatique : <code><a href=\"http://edt.iariss.fr/ical/info/2a/ical.ics\">http://edt.iariss.fr/ical/info/2a/ical.ics</a></code>.<br/>\r\nLe calendrier est mis à jour une fois par jour, vers 4h du matin. Il reprend tous les cours disponibles de toute l'année.\r\n<p><b>Attention</b> : cette fonctionnalité n'est pas correctement implémentée (et ne le sera sans doute jamais) et plusieurs bugs existent.\r\nPar exemple, ce calendrier n'indique pas si certains cours ont été supprimés ou remplacés.<br/>\r\nSi un cours est supprimé, il le sera dans le calendier iCal, mais il est possible qu'il apparaisse toujours dans votre calendrier local. Soyez attentif !\r\n</p>\r\n\r\n<h2 id=\"fonctionnement\">Comment fonctionne votre site ?</h2>\r\n<p>Ce site a été développé avec le framework PHP <a href='http://www.symfony-project.org/'>Symfony</a>.\r\nIl se connecte à ADE Expert, logiciel utilisé pour les emplois du temps de l'UHA, et télécharge les images des emplois du temps pour les garder sur notre serveur (chaque heure actuellement).\r\nLe logiciel reproduit votre navigation, longue et un peu complexe, et peut récupérer les informations pour vous.<br/>\r\nSi vous souhaitez connaître le fonctionnement exact, <a href=\"#contact\">contactez-nous</a>, et reportez vous à la section <a href=\"#sources\">Où sont les sources&nbsp;?</a></p>\r\n\r\n<h2 id=\"fonctionnalite\">Je voudrais avoir telle fonctionnalité, c'est possible ?</h2>\r\n<p>Bien sûr, tout est possible avec l'informatique !<br/>\r\nNous avons déjà quelques idées à implémenter, mais il est probable que nous ne soyons pas au courant de la votre.\r\nProposez-la nous en nous contactant (<code>contact@iariss.fr</code>), nous ferons notre possible pour qu'elle soit mise en place rapidement.<br/>\r\nVous savez programmer en PHP ? Et encore mieux, avec Symfony ?<br/>\r\nAlors votre profil nous intéresse ! <a href=\"#contact\">Contactez-nous</a> très rapidement, vous avez probablement votre place à IARISS !</p>\r\n\r\n<h2 id=\"sources\">Où sont les sources de votre logiciel ?</h2>\r\n<p>Notre logiciel n'est pas (encore) un Logiciel Libre. L'ouverture des sources d'un tel logiciel ne nous apparaît pas comme prioritaire,\r\nmais exprimez votre demande : il y a de grande chance que nous publierons les sources.</p>\r\n"
+    created_at: '0000-00-00 00:00:00'
+    updated_at: '0000-00-00 00:00:00'
 Categorie:
   Categorie_1:
     url: info
@@ -454,6 +699,7 @@ Categorie:
     logo: auto.png
     weight: '3'
     in_menu: true
+    Edt: Edt_1
   Categorie_3:
     url: text
     nom: Textile
@@ -492,32 +738,45 @@ Categorie:
     description: null
     logo: perso.png
     weight: '20'
-    in_menu: false
+    in_menu: true
     Edt: Edt_1
   Categorie_8:
-    url: bio
-    nom: 'Master Lyon1 Bio'
+    url: m2pro
+    nom: 'Master 2 Pro'
     description: null
     logo: perso.png
     weight: '20'
     in_menu: true
-    Edt: Edt_2
-Edt:
-  Edt_1:
-    nom: ensisa
-    description: 'Edt default'
-    identifier: null
-    ade_project_id: '12'
-    ade_url: 'https://www.emploisdutemps.uha.fr/ade/'
-    login: dXNlcm5hbWU9dGhlb3BoaWxlLmhlbGxlY
-    created_at: '2011-07-30 00:00:00'
-    updated_at: '2011-07-30 00:00:00'
-  Edt_2:
-    nom: lyon1-bio
-    description: 'Edt ENSISA'
-    identifier: 5829e07433756d034afa98e97a181592
-    ade_project_id: '49'
-    ade_url: 'http://adeweb.univ-lyon1.fr/ade/'
-    login: bG9naW49bGVjdGV1ciZwYXNzd29yZD1sYW1iZGE=
-    created_at: '0000-00-00 00:00:00'
-    updated_at: '2011-07-30 15:51:18'
+    Edt: Edt_3
+  Categorie_9:
+    url: m1
+    nom: 'Master 1'
+    description: null
+    logo: perso.png
+    weight: '20'
+    in_menu: true
+    Edt: Edt_3
+  Categorie_10:
+    url: m2cci
+    nom: 'Master 2 CCI'
+    description: null
+    logo: perso.png
+    weight: '20'
+    in_menu: true
+    Edt: Edt_3
+  Categorie_11:
+    url: m2rec
+    nom: 'Master 2 Recherche'
+    description: null
+    logo: perso.png
+    weight: '20'
+    in_menu: true
+    Edt: Edt_3
+  Categorie_12:
+    url: SIB
+    nom: 'Master SIB'
+    description: 'http://dist.univ-lyon1.fr/get_page.php?id=9&langue=1'
+    logo: perso.png
+    weight: '20'
+    in_menu: true
+    Edt: Edt_3
