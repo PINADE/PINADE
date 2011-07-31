@@ -222,3 +222,20 @@ img {
   border:1px solid black;
   padding:3px;
 }
+
+/* AdSense */
+.adsense-lb
+{
+  width:728px;
+  margin: 5px auto;
+}
+.adsense-menu
+{
+  width: 120px;
+  margin: 0 auto;
+}
+
+.adsense-imagetop {
+  width: 234px;
+  float: right;
+}
