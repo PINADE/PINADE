@@ -15,8 +15,11 @@ Categorie:
     in_menu:            { type: boolean, default: false }
     edt_id:             { type: integer }
   relations:
-    Promotions:  { class: Promotion, local: id, foreign: categorie_id, type: many }
+    Promotions: { class: Promotion, local: id, foreign: categorie_id, type: many }
     Edt:        { local: edt_id, foreign: id, type: one }
+  indexes:
+    index_nom:
+      fields: [url]
 
 Promotion:
   columns:
@@ -38,6 +41,9 @@ Promotion:
   relations:
     Categorie:  { local: categorie_id, foreign: id, type: one }
     Messages:   { class: Message, local: id, foreign: promotion_id, type: many }
+  indexes:
+    index_nom:
+      fields: [url]
 
 Message:
   actAs:  { Timestampable: ~ }
@@ -54,6 +60,9 @@ Page:
     url:                { type: string(255), notnull: true, unique: true }
     title:              { type: string(255) }
     text:               { type: string(4000) }
+  indexes:
+    index_nom:
+      fields: [url]
 
 Edt:
   actAs:  { Timestampable: ~ }
@@ -63,7 +72,8 @@ Edt:
     identifier:         { type: string(255) }
     ade_project_id:     { type: string(255) }
     ade_url:            { type: string(255) }
-    login:          { type: string(255) }
+    login:              { type: string(255) }
   relations:
     Categories: { class: Categorie, local: id, foreign: edt_id, type: many }
+
 
