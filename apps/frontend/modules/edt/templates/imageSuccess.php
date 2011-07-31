@@ -1,3 +1,5 @@
+          <?php include_partial('global/adsense_imagetop') ?>
+
           <?php include_partial('title', array('categorie' => $categorie, 'promotion' => $promotion)) ?>
 
 
