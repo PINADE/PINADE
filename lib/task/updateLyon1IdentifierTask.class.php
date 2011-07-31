@@ -1,15 +1,12 @@
 <?php
 
-class updateLyon1IdentifierTask extends updateIdentifierTask
+abstract class updateLyon1IdentifierTask extends updateIdentifierTask
 {
   protected function configure()
   {
     // Configuration de la tâche
     // urls  : la séquence à enchaîner pour dérouler et cliquer sur un emploi du temps
     // nom_edt : nom de l'Edt dans la BDD
-
-    $this->nom_edt = "lyon1-bio";
-
     $this->urls = array(
       'custom/modules/plannings/plannings.jsp', // Mandatory (because of ADE)
       'standard/gui/tree.jsp?category=trainee&expand=false&forceLoad=false&reload=false&scroll=0', // Select groups of students
