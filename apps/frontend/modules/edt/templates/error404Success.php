@@ -11,3 +11,5 @@
 <p>
   <?php echo link_to("Revenir à la page d'accueil", '/') ?>
 </p>
+
+<?php include_partial('global/adsense_lb') ?>
