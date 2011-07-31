@@ -34,11 +34,13 @@
               Tout est expliqué sur la <?php echo link_to('FAQ', '@page?url=faq', 'style="padding:0"') ?>&nbsp;!
             </p>
           </div>
+<?php if(sfConfig::get('sf_environment') == "dev"): ?>
           <div>
             <p>
               <b><a href="<?php echo url_for('@myedt?action=import') ?>">Importez votre agenda&nbsp;!</a></b>
             </p>
           </div>
+<?php endif ?>
           <div id="liens-internes">
             <b>Liens utiles</b>
             <ul>
