@@ -1,10 +1,11 @@
       <div id="pied">
         <p>
-          Emploi du temps réalisé par <?php echo link_to('IARISS', 'http://iariss.fr/') ?>.
-           <b><?php echo $_SERVER['SERVER_NAME'] ?></b> vous est livré grâce à <acronym title="PINADE Is Not ADE"><?php echo link_to('PINADE', 'https://github.com/PINADE/PINADE') ?></acronym>.
-          - <a href="mailto:contact@iariss.fr">Contact</a>
+          Emplois du temps hébergés par <a href="http://www.pinade.org/">pinade.org</a>.
+           <b><?php echo $_SERVER['SERVER_NAME'] ?></b> vous est livré grâce à <acronym title="PINADE Is Not ADE"><a href="http://www.pinade.org/">PINADE</a></acronym>,
+          son <?php echo link_to('code source', 'https://github.com/PINADE/PINADE') ?> est Libre.<br/>
+          <a href="mailto:contact@iariss.fr">Contact</a>
           - <?php echo link_to('FAQ', '@page?url=faq') ?>
-          - <span id="status"></span>
+<!--           - <span id="status"></span> -->
         </p>
       </div>
 
