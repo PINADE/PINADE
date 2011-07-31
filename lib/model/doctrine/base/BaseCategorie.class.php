@@ -71,6 +71,14 @@ abstract class BaseCategorie extends sfDoctrineRecord
         $this->hasColumn('edt_id', 'integer', null, array(
              'type' => 'integer',
              ));
+
+
+        $this->index('index_nom', array(
+             'fields' => 
+             array(
+              0 => 'url',
+             ),
+             ));
     }
 
     public function setUp()

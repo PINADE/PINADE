@@ -40,6 +40,14 @@ abstract class BasePage extends sfDoctrineRecord
              'type' => 'string',
              'length' => 4000,
              ));
+
+
+        $this->index('index_nom', array(
+             'fields' => 
+             array(
+              0 => 'url',
+             ),
+             ));
     }
 
     public function setUp()
