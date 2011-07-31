@@ -5,3 +5,9 @@ default:
   enabled:     false
   with_layout: false
   lifetime:    600
+
+_menu:
+  enabled:    on
+
+_pied:
+  enabled:    on

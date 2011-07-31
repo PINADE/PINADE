@@ -62,6 +62,14 @@ abstract class BaseCategorie extends sfDoctrineRecord
              'type' => 'boolean',
              'default' => false,
              ));
+
+
+        $this->index('index_nom', array(
+             'fields' => 
+             array(
+              0 => 'url',
+             ),
+             ));
     }
 
     public function setUp()

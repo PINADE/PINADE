@@ -61,7 +61,7 @@ class AdeBrowser
     if(strpos(curl_getinfo($handle, CURLINFO_EFFECTIVE_URL), "https://cas.uha.fr") !== false)
     {
       // Le cookie n'est pas trouvé
-      throw new sfAdeException("Problème d'authentification CAS/ADE (redirection)");
+      throw new sfAdeException("Problème d'authentification ADE (redirection)");
     }
 
     if(strpos($this->content, "Deconnected") !== false)
@@ -75,7 +75,7 @@ class AdeBrowser
 
   protected function getAuthentication()
   {
-    sfContext::getInstance()->getLogger()->info('get Cas Cookie');
+    sfContext::getInstance()->getLogger()->info('get ADE Cookie');
 
     /* Get lt for login */
     $login_page = file_get_contents("https://cas.uha.fr/cas/login");
@@ -129,6 +129,7 @@ class AdeBrowser
 
     curl_setopt($handle, CURLOPT_FOLLOWLOCATION, true);
     $content = curl_exec($handle);
+    curl_close($handle); // cURL write cookies in the Cookies Jar file
 
     sfContext::getInstance()->getLogger()->info(file_get_contents(sfConfig::get('app_ade_cookiefile')));
   }

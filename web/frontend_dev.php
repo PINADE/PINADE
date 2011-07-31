@@ -2,7 +2,7 @@
 
 // this check prevents access to debug front controllers that are deployed by accident to production servers.
 // feel free to remove this, extend it or make something more sophisticated.
-if (!in_array(@$_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1', '2a01:e35:8aca:4470:224:23ff:fe06:c02c')))
+if (!in_array(@$_SERVER['REMOTE_ADDR'], array('127.0.0.1', '::1', '2a01:e35:8aca:4470:224:23ff:fe06:c02c'))  && !(strpos($_SERVER['REMOTE_ADDR'], '2a01:e35:8aca:4470')!== false))
 {
   die('You are not allowed to access this file. Check '.basename(__FILE__).' for more information.');
 }

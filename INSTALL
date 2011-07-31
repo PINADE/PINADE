@@ -33,7 +33,7 @@ Décompressez l'archive dans lib/vendor/symfony/
 
 = 3 == Configuration ============================
 
-Ouvrez le fichier plugins/sfADEConfigPlugin/config/settings.yml
+Ouvrez le fichier apps/frontend/config/app.yml
 Adaptez si nécessaire toutes les valeurs du fichier.
 Utilisez Firebug et Firefox pour écouter le trafic réseau sur ADE.
 
