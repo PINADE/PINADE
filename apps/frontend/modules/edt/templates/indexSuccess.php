@@ -26,3 +26,4 @@
 <?php endforeach ?>
 </ul>
 
+<?php include_partial('global/adsense_lb') ?>

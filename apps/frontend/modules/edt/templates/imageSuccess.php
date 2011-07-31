@@ -35,6 +35,7 @@
           <p>Pas d'emploi du temps cette semaine.</p>
 <?php endif ?>
 
+<?php include_partial('global/adsense_lb') ?>
 
           <!-- raccourci clavier gauche/droite -->
           <script type="text/javascript">

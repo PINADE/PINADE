@@ -24,6 +24,9 @@
 <?php endforeach ?>
             </ul>
           </div>
+          <div id="adsense-menu">
+            <?php include_partial('global/adsense_menu') ?>
+          </div>
 
           <div id="pub" style="text-align:justify; font-size:80%">
             <p>Tu veux changer de semaine avec ton <b>clavier</b>&nbsp;?<br/>
