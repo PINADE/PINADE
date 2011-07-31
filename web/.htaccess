@@ -26,7 +26,7 @@ Options +FollowSymLinks +ExecCGI
 
   RewriteCond %{HTTP_HOST}              ^[-a-z0-9]+\.pinade\.org.*
   RewriteRule ^(.*)                     %{HTTP_HOST}$1  [C]
-  RewriteRule ^([-a-z0-9]+)\.pinade.org.*  switch-pool.php          [QSA,L]
+  RewriteRule ^([-a-z0-9]+)\.pinade.org.*  index.php          [QSA,L]
 
 #  RewriteCond %{HTTP_HOST}  ^(lyon1-bio|ensisa).*
 #  RewriteRule ^(.+)       %{HTTP_HOST}$1          [C]
