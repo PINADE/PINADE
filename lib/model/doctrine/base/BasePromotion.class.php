@@ -130,6 +130,14 @@ abstract class BasePromotion extends sfDoctrineRecord
              'type' => 'integer',
              'default' => 600,
              ));
+
+
+        $this->index('index_nom', array(
+             'fields' => 
+             array(
+              0 => 'url',
+             ),
+             ));
     }
 
     public function setUp()

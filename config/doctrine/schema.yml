@@ -15,6 +15,9 @@ Categorie:
     in_menu:            { type: boolean, default: false }
   relations:
     Promotions:  { class: Promotion, local: id, foreign: categorie_id, type: many }
+  indexes:
+    index_nom:
+      fields: [url]
 
 Promotion:
   columns:
@@ -35,7 +38,10 @@ Promotion:
     height:             { type: integer, default: 600 }
   relations:
     Categorie:  { local: categorie_id, foreign: id, type: one }
-    Messages: { class: Message, local: id, foreign: promotion_id, type: many }
+    Messages:   { class: Message, local: id, foreign: promotion_id, type: many }
+  indexes:
+    index_nom:
+      fields: [url]
 
 Message:
   actAs:  { Timestampable: ~ }
@@ -52,4 +58,7 @@ Page:
     url:                { type: string(255), notnull: true, unique: true }
     title:              { type: string(255) }
     text:               { type: string(4000) }
-    
+  indexes:
+    index_nom:
+      fields: [url]
+
