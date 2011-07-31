@@ -1,7 +1,7 @@
 Edt:
   Edt_1:
     nom: ensisa
-    description: 'Edt default'
+    description: ENSISA
     identifier: null
     ade_project_id: '12'
     ade_url: 'https://www.emploisdutemps.uha.fr/ade/'
@@ -27,7 +27,7 @@ Edt:
     created_at: '2011-07-30 00:00:00'
     updated_at: '2011-07-31 14:15:38'
   Edt_4:
-    nom: istil
+    nom: istil-gbm
     description: 'UCBL - EPU - ISTIL'
     identifier: f0cdb94e439bc679a95f023c3eba8e2f
     ade_project_id: '49'
@@ -676,6 +676,262 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
+  Promotion_41:
+    url: 1a
+    nom: 1a
+    description: ''
+    Categorie: Categorie_13
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6694'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_42:
+    url: 1b
+    nom: 1b
+    description: ''
+    Categorie: Categorie_13
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6717'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_43:
+    url: 1c
+    nom: 1c
+    description: ''
+    Categorie: Categorie_13
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6758'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_44:
+    url: 1d
+    nom: 1d
+    description: ''
+    Categorie: Categorie_13
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6785'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_45:
+    url: 1e
+    nom: 1e
+    description: ''
+    Categorie: Categorie_13
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6823'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_46:
+    url: 1f
+    nom: 1f
+    description: ''
+    Categorie: Categorie_13
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6826'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_47:
+    url: 1g
+    nom: 1g
+    description: ''
+    Categorie: Categorie_13
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6828'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_48:
+    url: 1h
+    nom: 1h
+    description: ''
+    Categorie: Categorie_13
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6830'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_49:
+    url: 2A
+    nom: 2A
+    description: ''
+    Categorie: Categorie_14
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6832'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_50:
+    url: 2B
+    nom: 2B
+    description: ''
+    Categorie: Categorie_14
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6838'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_51:
+    url: 2C
+    nom: 2C
+    description: ''
+    Categorie: Categorie_14
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6858'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_52:
+    url: 2D
+    nom: 2D
+    description: ''
+    Categorie: Categorie_14
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6859'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_53:
+    url: 2E
+    nom: 2E
+    description: ''
+    Categorie: Categorie_14
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6864'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_54:
+    url: 2F
+    nom: 2F
+    description: ''
+    Categorie: Categorie_14
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6866'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_55:
+    url: 2G
+    nom: 2G
+    description: ''
+    Categorie: Categorie_14
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6888'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_56:
+    url: 2H
+    nom: 2H
+    description: ''
+    Categorie: Categorie_14
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6900'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
 Page:
   Page_1:
     url: faq
@@ -780,3 +1036,19 @@ Categorie:
     weight: '20'
     in_menu: true
     Edt: Edt_3
+  Categorie_13:
+    url: GB1A-1
+    nom: 'GBM 1A Gr. 1'
+    description: 'http://gbm.univ-lyon1.fr/index_fichiers/istil.htm'
+    logo: perso.png
+    weight: '0'
+    in_menu: true
+    Edt: Edt_4
+  Categorie_14:
+    url: GB1A-2
+    nom: 'GBM 1A Gr. 2'
+    description: 'http://gbm.univ-lyon1.fr/index_fichiers/istil.htm'
+    logo: perso.png
+    weight: '0'
+    in_menu: true
+    Edt: Edt_4
