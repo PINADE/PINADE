@@ -12,6 +12,27 @@ Options +FollowSymLinks +ExecCGI
   #RewriteCond %{REQUEST_URI} !\.html$
   #RewriteRule .* - [L]
 
+  # Do NOT rewrite files when they exist
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule .* - [QSA,L]
+
+#  RewriteCond %{HTTP_HOST}  ^pool.*
+#  RewriteRule ^(.*)$ pool.php [QSA,L]
+
+#  RewriteCond %{HTTP_HOST}       ^(ensisa|enscmu|lyon1-bio|lyon1-info|lyon1-iufm).*
+#  RewriteRule ^(.*)              %{HTTP_HOST}$1          [C]
+#  RewriteRule ^(ensisa|enscmu|lyon1-bio|lyon1-info|lyon1-iufm).*           $1.php [QSA,L]
+
+
+  RewriteCond %{HTTP_HOST}              ^[-a-z0-9]+\.pinade\.org.*
+  RewriteRule ^(.*)                     %{HTTP_HOST}$1  [C]
+  RewriteRule ^([-a-z0-9]+)\.pinade.org.*  switch-pool.php          [QSA,L]
+
+#  RewriteCond %{HTTP_HOST}  ^(lyon1-bio|ensisa).*
+#  RewriteRule ^(.+)       %{HTTP_HOST}$1          [C]
+#  RewriteRule ^(lyon1-bio|ensisa)\..* $1.php     [QSA,L]
+
+
   # we check if the .html version is here (caching)
   RewriteRule ^$ index.html [QSA]
   RewriteRule ^([^.]+)$ $1.html [QSA]
