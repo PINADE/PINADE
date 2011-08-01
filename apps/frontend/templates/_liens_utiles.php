@@ -23,7 +23,7 @@ catch (InvalidArgumentException $e)
   echo "<!-- Liens utiles mal formés en YAML -->";
   return;
 }
-if(!is_array($liens)) { echo "<!-- Liens utiles mal formés en tableaux --><pre>".print_r($liens, 1)."</pre>"; return; }
+if(!is_array($liens)) { echo "<!-- Liens utiles mal formés en tableaux -->"; return; }
 ?>
             <b>Liens utiles</b>
             <ul>
