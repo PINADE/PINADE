@@ -13,6 +13,11 @@ if(preg_match("@^([-a-z0-9]+)\.pinade.*@", $_SERVER['SERVER_NAME'], $matches))
     case "lyon1-info":
     case "lyon1-iufm":
     case "istil-gbm":
+    case "istil-info":
+    case "istil-mam":
+    case "istil-mat":
+    case "istil-si":
+    case "istil-meca":
       define('NOM_EDT', $edt);
       break;
     default:
