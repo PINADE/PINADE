@@ -3,7 +3,7 @@
           <?php include_partial('title', array('categorie' => $categorie, 'promotion' => $promotion)) ?>
 
 
-          <h1 id="title"><?php include_slot('title') ?></h1>
+          <h1 id="title">Emploi du temps <?php include_slot('title') ?></h1>
 
           <h2 id="semaine">
             Semaine du <b><?php echo strftime("%e %B %G", $timestamp + 2*60*60) ?></b> au <b><?php echo  strftime("%e %B %G", intval($timestamp) + 5*24*60*60 - 1 ) ?></b>
