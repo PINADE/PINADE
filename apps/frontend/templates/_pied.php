@@ -3,8 +3,8 @@
           Emplois du temps hébergés par <a href="http://www.pinade.org/">pinade.org</a>.
            <b><?php echo $_SERVER['SERVER_NAME'] ?></b> vous est livré grâce à <acronym title="PINADE Is Not ADE"><a href="http://www.pinade.org/">PINADE</a></acronym>,
           son <?php echo link_to('code source', 'https://github.com/PINADE/PINADE') ?> est Libre.<br/>
-          <a href="mailto:contact@iariss.fr">Contact</a>
-          - <?php echo link_to('FAQ', '@page?url=faq') ?>
+          <a href="mailto:contact-(at)-pinade.org">Contact</a>
+          - <?php echo link_to('FAQ', 'http://www.pinade.org/pages/Foire-Aux-Questions') ?>
 <!--           - <span id="status"></span> -->
         </p>
       </div>
