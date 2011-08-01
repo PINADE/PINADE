@@ -1,42 +1,28 @@
-Edt:
-  Edt_1:
-    nom: ensisa
-    description: ENSISA
-    identifier: null
-    ade_project_id: '12'
-    ade_url: 'https://www.emploisdutemps.uha.fr/ade/'
-    login: dXNlcm5hbWU9dGhlb3BoaWxlLmhlbGxlY
-    created_at: '2011-07-30 00:00:00'
-    updated_at: '2011-07-30 00:00:00'
-  Edt_2:
-    nom: lyon1-bio
-    description: 'UCBL - Biologie'
-    identifier: f0cdb94e439bc679a95f023c3eba8e2f
-    ade_project_id: '49'
-    ade_url: 'http://adeweb.univ-lyon1.fr/ade/'
-    login: bG9naW49bGVjdGV1ciZwYXNzd29yZD1sYW1iZGE=
-    created_at: '2011-07-30 00:00:00'
-    updated_at: '2011-07-31 14:15:38'
-  Edt_3:
-    nom: lyon1-info
-    description: 'UCBL - Informatique'
-    identifier: f0cdb94e439bc679a95f023c3eba8e2f
-    ade_project_id: '49'
-    ade_url: 'http://adeweb.univ-lyon1.fr/ade/'
-    login: bG9naW49bGVjdGV1ciZwYXNzd29yZD1sYW1iZGE=
-    created_at: '2011-07-30 00:00:00'
-    updated_at: '2011-07-31 14:15:38'
-  Edt_4:
-    nom: istil-gbm
-    description: 'UCBL - EPU - ISTIL'
-    identifier: f0cdb94e439bc679a95f023c3eba8e2f
-    ade_project_id: '49'
-    ade_url: 'http://adeweb.univ-lyon1.fr/ade/'
-    login: bG9naW49bGVjdGV1ciZwYXNzd29yZD1sYW1iZGE=
-    created_at: '2011-07-30 00:00:00'
-    updated_at: '2011-07-31 14:15:38'
+Page:
+  Page_1:
+    url: faq
+    title: 'Foire Aux Questions'
+    text: "<h2 id=\"fiable\">Est-ce le site de référence ?</h2>\r\n<p><b>Non, ce site n'est pas le site officiel de l'emploi du temps</b> de l'UHA.\r\nLe site officiel est <a href=\"https://www.emploisdutemps.uha.fr/\">emploisdutemps.uha.fr</a> et reste la référence de votre emploi du temps.<br/>\r\nCependant, si tout va bien, ce site se met à jour régulièrement (<i>cf</i> section <a href=\"#delai\"><b>Délai</b></a>) les emplois du temps.</p>\r\n\r\n<h2 id=\"raccourcis\">Quels sont les raccourcis claviers sur le site ?</h2>\r\n<p>Deux raccourcis claviers ont été mis en place pour faciliter la navigation sur <b>edt.iariss.fr</b> :\r\n<ul>\r\n  <li>La touche «&nbsp;flèche gauche&nbsp;» pour aller vers la semaine précédente,</li>\r\n  <li>La touche «&nbsp;flèche droite&nbsp;» pour aller vers la semaine suivante.</li>\r\n</ul>\r\nIl n'y a pas d'autres raccourcis actuellement, mais contactez nous si vous en voulez plus&nbsp;!<br/></p>\r\n\r\n<h2 id=\"origine\">Qui est à l'origine de ce site ?</h2>\r\n<p>L'équipe de <a href=\"http://iariss.fr/\">IARISS</a> a codé ce site pour vous,\r\nparce qu'elle trouvait que le site proposé par l'UHA n'était pas du tout pratique.<br/>\r\nLes auteurs initiaux sont <b>Michaël Muré</b> et <b>Thépophile Helleboid</b>, mais nous en attendons d'autres. Venez nous rejoindre&nbsp;!\r\nLe code source <a href=\"https://github.com/PINADE/PINADE\">est hébergée sur GitHub</a>.\r\n</p>\r\n\r\n<h2 id=\"contact\">Je veux contacter les auteurs, à qui m'adresser ?</h2>\r\n<p>Envoyez un mail à <b><code>contact@iariss.fr</code></b>, c'est l'adresse unique pour contacter les auteurs.<br/></p>\r\n\r\n<h2 id=\"delai\">Quel est le délai de mise à jour des emplois du temps ?</h2>\r\n<p>Les emplois du temps sont mis à jour très régulièrement&nbsp;:\r\n<b>toutes les deux heures</b> pour les semaines courante et suivante, toutes les six heures pour les autres.\r\n Si vous trouvez que ce délai n'est pas adapté, <a href=\"#contact\">contactez-nous</a>.</p>\r\n\r\n<h2 id=\"ical\">Où trouver le calendrier <i>iCal</i> de mon emploi du temps ?</h2>\r\nL'adresse est simple : <code>http://edt.iariss.fr/ical/<i>&lt;votre filière&gt;</i>/<i>&lt;votre promo&gt;</i>/ical.ics</code></br/>\r\nPar exemple, pour les 2A Informatique : <code><a href=\"http://edt.iariss.fr/ical/info/2a/ical.ics\">http://edt.iariss.fr/ical/info/2a/ical.ics</a></code>.<br/>\r\nLe calendrier est mis à jour une fois par jour, vers 4h du matin. Il reprend tous les cours disponibles de toute l'année.\r\n<p><b>Attention</b> : cette fonctionnalité n'est pas correctement implémentée (et ne le sera sans doute jamais) et plusieurs bugs existent.\r\nPar exemple, ce calendrier n'indique pas si certains cours ont été supprimés ou remplacés.<br/>\r\nSi un cours est supprimé, il le sera dans le calendier iCal, mais il est possible qu'il apparaisse toujours dans votre calendrier local. Soyez attentif !\r\n</p>\r\n\r\n<h2 id=\"fonctionnement\">Comment fonctionne votre site ?</h2>\r\n<p>Ce site a été développé avec le framework PHP <a href='http://www.symfony-project.org/'>Symfony</a>.\r\nIl se connecte à ADE Expert, logiciel utilisé pour les emplois du temps de l'UHA, et télécharge les images des emplois du temps pour les garder sur notre serveur (chaque heure actuellement).\r\nLe logiciel reproduit votre navigation, longue et un peu complexe, et peut récupérer les informations pour vous.<br/>\r\nSi vous souhaitez connaître le fonctionnement exact, <a href=\"#contact\">contactez-nous</a>, et reportez vous à la section <a href=\"#sources\">Où sont les sources&nbsp;?</a></p>\r\n\r\n<h2 id=\"fonctionnalite\">Je voudrais avoir telle fonctionnalité, c'est possible ?</h2>\r\n<p>Bien sûr, tout est possible avec l'informatique !<br/>\r\nNous avons déjà quelques idées à implémenter, mais il est probable que nous ne soyons pas au courant de la votre.\r\nProposez-la nous en nous contactant (<code>contact@iariss.fr</code>), nous ferons notre possible pour qu'elle soit mise en place rapidement.<br/>\r\nVous savez programmer en PHP ? Et encore mieux, avec Symfony ?<br/>\r\nAlors votre profil nous intéresse ! <a href=\"#contact\">Contactez-nous</a> très rapidement, vous avez probablement votre place à IARISS !</p>\r\n\r\n<h2 id=\"sources\">Où sont les sources de votre logiciel ?</h2>\r\n<p>Notre logiciel n'est pas (encore) un Logiciel Libre. L'ouverture des sources d'un tel logiciel ne nous apparaît pas comme prioritaire,\r\nmais exprimez votre demande : il y a de grande chance que nous publierons les sources.</p>\r\n"
+    created_at: '0000-00-00 00:00:00'
+    updated_at: '0000-00-00 00:00:00'
 Promotion:
   Promotion_1:
+    url: '1'
+    nom: info
+    description: ''
+    Categorie: Categorie_21
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5173'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_2:
     url: 1a
     nom: 1A
     description: 'Informatique & Réseaux 1a'
@@ -52,7 +38,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_2:
+  Promotion_3:
     url: 2a
     nom: 2A
     description: 'Informatique & Réseaux 2a'
@@ -68,7 +54,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_3:
+  Promotion_4:
     url: 2a
     nom: 2A
     description: 'Auto 2a'
@@ -84,7 +70,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_4:
+  Promotion_5:
     url: 1a
     nom: 1A
     description: 'Auto 1a'
@@ -100,7 +86,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_5:
+  Promotion_6:
     url: 3a
     nom: 3A
     description: 'Informatique & Réseaux 3a'
@@ -116,7 +102,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_6:
+  Promotion_7:
     url: 3a
     nom: 3A
     description: '3A auto'
@@ -132,7 +118,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_7:
+  Promotion_8:
     url: 1a
     nom: 1A
     description: '1a textile'
@@ -148,7 +134,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_8:
+  Promotion_9:
     url: 2a
     nom: 2A
     description: '2a textile'
@@ -164,7 +150,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_9:
+  Promotion_10:
     url: 3a
     nom: 3A
     description: '3a textile'
@@ -180,7 +166,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_10:
+  Promotion_11:
     url: 1a
     nom: 1A
     description: '1a méca'
@@ -196,7 +182,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_11:
+  Promotion_12:
     url: 2a
     nom: 2A
     description: '2a méca'
@@ -212,7 +198,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_12:
+  Promotion_13:
     url: 3a
     nom: 3A
     description: '3a méca'
@@ -228,7 +214,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_13:
+  Promotion_14:
     url: 1a
     nom: 1A
     description: '1a prod'
@@ -244,7 +230,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_14:
+  Promotion_15:
     url: 2a
     nom: 2A
     description: '2a prod'
@@ -260,7 +246,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_15:
+  Promotion_16:
     url: l3
     nom: L3
     description: 'l3 / lmme'
@@ -276,7 +262,7 @@ Promotion:
     start_timestamp: '1283119200'
     width: '800'
     height: '600'
-  Promotion_16:
+  Promotion_17:
     url: m1
     nom: M1
     description: 'm1 / lmme'
@@ -292,7 +278,7 @@ Promotion:
     start_timestamp: '1283119200'
     width: '800'
     height: '600'
-  Promotion_17:
+  Promotion_18:
     url: m2
     nom: M2
     description: 'm2 / lmme'
@@ -308,7 +294,7 @@ Promotion:
     start_timestamp: '1283119200'
     width: '800'
     height: '600'
-  Promotion_18:
+  Promotion_19:
     url: msf
     nom: MSF
     description: 'MSF / lmme'
@@ -324,7 +310,7 @@ Promotion:
     start_timestamp: '1283119200'
     width: '800'
     height: '600'
-  Promotion_19:
+  Promotion_20:
     url: mr
     nom: MR
     description: 'master recherche / info'
@@ -340,7 +326,7 @@ Promotion:
     start_timestamp: '1283119200'
     width: '800'
     height: '600'
-  Promotion_20:
+  Promotion_21:
     url: m1-miage
     nom: m1-miage
     description: null
@@ -356,7 +342,7 @@ Promotion:
     start_timestamp: '1283119200'
     width: '800'
     height: '600'
-  Promotion_21:
+  Promotion_22:
     url: m1-miage-ok
     nom: m1-miage-ok
     description: null
@@ -372,7 +358,7 @@ Promotion:
     start_timestamp: '1283119200'
     width: '800'
     height: '600'
-  Promotion_22:
+  Promotion_23:
     url: m1-miage-ok2
     nom: m1-miage-ok2
     description: null
@@ -388,7 +374,7 @@ Promotion:
     start_timestamp: '1283119200'
     width: '800'
     height: '600'
-  Promotion_23:
+  Promotion_24:
     url: L3-chimie-FST
     nom: L3-chimie-FST
     description: null
@@ -404,7 +390,7 @@ Promotion:
     start_timestamp: '1283119200'
     width: '800'
     height: '600'
-  Promotion_24:
+  Promotion_25:
     url: 3a
     nom: 3A
     description: '3a prod'
@@ -420,7 +406,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_25:
+  Promotion_26:
     url: sir
     nom: SIR
     description: 'Master > Master Info > Master Pro > M2SIR'
@@ -436,7 +422,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_26:
+  Promotion_27:
     url: ima
     nom: IMA
     description: M2IMA
@@ -452,7 +438,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_27:
+  Promotion_28:
     url: ti
     nom: TI
     description: 'Master Pro Info : M2TI'
@@ -468,7 +454,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_28:
+  Promotion_29:
     url: m1
     nom: m1
     description: 'Master 1 Info'
@@ -484,7 +470,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_29:
+  Promotion_30:
     url: g1
     nom: g1
     description: 'Master 1 - G1'
@@ -500,7 +486,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_30:
+  Promotion_31:
     url: g2
     nom: g2
     description: 'Groupe 2 du M1 Ingo'
@@ -516,7 +502,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_31:
+  Promotion_32:
     url: g3
     nom: g3
     description: 'Groupe 3 du M1 Info'
@@ -532,7 +518,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_32:
+  Promotion_33:
     url: SIP
     nom: SIP
     description: 'http://master-info.univ-lyon1.fr/CCI/'
@@ -548,7 +534,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_33:
+  Promotion_34:
     url: SIRR
     nom: SIRR
     description: 'http://master-info.univ-lyon1.fr/CCI/'
@@ -564,7 +550,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_34:
+  Promotion_35:
     url: IGI
     nom: IGI
     description: 'http://mastria.insa-lyon.fr/'
@@ -580,7 +566,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_35:
+  Promotion_36:
     url: RTS
     nom: RTS
     description: 'http://adeweb.univ-lyon1.fr/ade/imageEt?identifier=f0cdb94e439bc679a95f023c3eba8e2f&projectId=49&idPianoWeek=8&idPianoDay=0%2C1%2C2%2C3%2C4%2C5&idTree=5463&width=1274&height=675&lunchName=REPAS&displayMode=1057855&showLoad=false&ttl=1312141869056&displayConfId=8'
@@ -596,7 +582,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_36:
+  Promotion_37:
     url: TIWe
     nom: TIWe
     description: 'http://mastria.insa-lyon.fr/'
@@ -612,7 +598,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_37:
+  Promotion_38:
     url: IADE
     nom: IADE
     description: 'http://mastria.insa-lyon.fr/'
@@ -628,7 +614,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_38:
+  Promotion_39:
     url: M1
     nom: M1
     description: 'Master 1 SIB'
@@ -644,7 +630,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_39:
+  Promotion_40:
     url: M2
     nom: M2
     description: 'http://dist.univ-lyon1.fr/get_page.php?id=11&langue=1'
@@ -660,7 +646,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_40:
+  Promotion_41:
     url: SIR-appr
     nom: SIR-appr
     description: 'Master 2 SIR Appr.'
@@ -676,7 +662,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_41:
+  Promotion_42:
     url: 1a
     nom: 1a
     description: ''
@@ -692,7 +678,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_42:
+  Promotion_43:
     url: 1b
     nom: 1b
     description: ''
@@ -708,7 +694,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_43:
+  Promotion_44:
     url: 1c
     nom: 1c
     description: ''
@@ -724,7 +710,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_44:
+  Promotion_45:
     url: 1d
     nom: 1d
     description: ''
@@ -740,7 +726,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_45:
+  Promotion_46:
     url: 1e
     nom: 1e
     description: ''
@@ -756,7 +742,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_46:
+  Promotion_47:
     url: 1f
     nom: 1f
     description: ''
@@ -772,7 +758,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_47:
+  Promotion_48:
     url: 1g
     nom: 1g
     description: ''
@@ -788,7 +774,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_48:
+  Promotion_49:
     url: 1h
     nom: 1h
     description: ''
@@ -804,7 +790,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_49:
+  Promotion_50:
     url: 2A
     nom: 2A
     description: ''
@@ -820,7 +806,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_50:
+  Promotion_51:
     url: 2B
     nom: 2B
     description: ''
@@ -836,7 +822,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_51:
+  Promotion_52:
     url: 2C
     nom: 2C
     description: ''
@@ -852,7 +838,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_52:
+  Promotion_53:
     url: 2D
     nom: 2D
     description: ''
@@ -868,7 +854,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_53:
+  Promotion_54:
     url: 2E
     nom: 2E
     description: ''
@@ -884,7 +870,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_54:
+  Promotion_55:
     url: 2F
     nom: 2F
     description: ''
@@ -900,7 +886,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_55:
+  Promotion_56:
     url: 2G
     nom: 2G
     description: ''
@@ -916,7 +902,7 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-  Promotion_56:
+  Promotion_57:
     url: 2H
     nom: 2H
     description: ''
@@ -932,13 +918,1286 @@ Promotion:
     start_timestamp: '1313359200'
     width: '800'
     height: '600'
-Page:
-  Page_1:
-    url: faq
-    title: 'Foire Aux Questions'
-    text: "<h2 id=\"fiable\">Est-ce le site de référence ?</h2>\r\n<p><b>Non, ce site n'est pas le site officiel de l'emploi du temps</b> de l'UHA.\r\nLe site officiel est <a href=\"https://www.emploisdutemps.uha.fr/\">emploisdutemps.uha.fr</a> et reste la référence de votre emploi du temps.<br/>\r\nCependant, si tout va bien, ce site se met à jour régulièrement (<i>cf</i> section <a href=\"#delai\"><b>Délai</b></a>) les emplois du temps.</p>\r\n\r\n<h2 id=\"raccourcis\">Quels sont les raccourcis claviers sur le site ?</h2>\r\n<p>Deux raccourcis claviers ont été mis en place pour faciliter la navigation sur <b>edt.iariss.fr</b> :\r\n<ul>\r\n  <li>La touche «&nbsp;flèche gauche&nbsp;» pour aller vers la semaine précédente,</li>\r\n  <li>La touche «&nbsp;flèche droite&nbsp;» pour aller vers la semaine suivante.</li>\r\n</ul>\r\nIl n'y a pas d'autres raccourcis actuellement, mais contactez nous si vous en voulez plus&nbsp;!<br/></p>\r\n\r\n<h2 id=\"origine\">Qui est à l'origine de ce site ?</h2>\r\n<p>L'équipe de <a href=\"http://iariss.fr/\">IARISS</a> a codé ce site pour vous,\r\nparce qu'elle trouvait que le site proposé par l'UHA n'était pas du tout pratique.<br/>\r\nLes auteurs initiaux sont <b>Michaël Muré</b> et <b>Thépophile Helleboid</b>, mais nous en attendons d'autres. Venez nous rejoindre&nbsp;!\r\nLe code source <a href=\"https://github.com/PINADE/PINADE\">est hébergée sur GitHub</a>.\r\n</p>\r\n\r\n<h2 id=\"contact\">Je veux contacter les auteurs, à qui m'adresser ?</h2>\r\n<p>Envoyez un mail à <b><code>contact@iariss.fr</code></b>, c'est l'adresse unique pour contacter les auteurs.<br/></p>\r\n\r\n<h2 id=\"delai\">Quel est le délai de mise à jour des emplois du temps ?</h2>\r\n<p>Les emplois du temps sont mis à jour très régulièrement&nbsp;:\r\n<b>toutes les deux heures</b> pour les semaines courante et suivante, toutes les six heures pour les autres.\r\n Si vous trouvez que ce délai n'est pas adapté, <a href=\"#contact\">contactez-nous</a>.</p>\r\n\r\n<h2 id=\"ical\">Où trouver le calendrier <i>iCal</i> de mon emploi du temps ?</h2>\r\nL'adresse est simple : <code>http://edt.iariss.fr/ical/<i>&lt;votre filière&gt;</i>/<i>&lt;votre promo&gt;</i>/ical.ics</code></br/>\r\nPar exemple, pour les 2A Informatique : <code><a href=\"http://edt.iariss.fr/ical/info/2a/ical.ics\">http://edt.iariss.fr/ical/info/2a/ical.ics</a></code>.<br/>\r\nLe calendrier est mis à jour une fois par jour, vers 4h du matin. Il reprend tous les cours disponibles de toute l'année.\r\n<p><b>Attention</b> : cette fonctionnalité n'est pas correctement implémentée (et ne le sera sans doute jamais) et plusieurs bugs existent.\r\nPar exemple, ce calendrier n'indique pas si certains cours ont été supprimés ou remplacés.<br/>\r\nSi un cours est supprimé, il le sera dans le calendier iCal, mais il est possible qu'il apparaisse toujours dans votre calendrier local. Soyez attentif !\r\n</p>\r\n\r\n<h2 id=\"fonctionnement\">Comment fonctionne votre site ?</h2>\r\n<p>Ce site a été développé avec le framework PHP <a href='http://www.symfony-project.org/'>Symfony</a>.\r\nIl se connecte à ADE Expert, logiciel utilisé pour les emplois du temps de l'UHA, et télécharge les images des emplois du temps pour les garder sur notre serveur (chaque heure actuellement).\r\nLe logiciel reproduit votre navigation, longue et un peu complexe, et peut récupérer les informations pour vous.<br/>\r\nSi vous souhaitez connaître le fonctionnement exact, <a href=\"#contact\">contactez-nous</a>, et reportez vous à la section <a href=\"#sources\">Où sont les sources&nbsp;?</a></p>\r\n\r\n<h2 id=\"fonctionnalite\">Je voudrais avoir telle fonctionnalité, c'est possible ?</h2>\r\n<p>Bien sûr, tout est possible avec l'informatique !<br/>\r\nNous avons déjà quelques idées à implémenter, mais il est probable que nous ne soyons pas au courant de la votre.\r\nProposez-la nous en nous contactant (<code>contact@iariss.fr</code>), nous ferons notre possible pour qu'elle soit mise en place rapidement.<br/>\r\nVous savez programmer en PHP ? Et encore mieux, avec Symfony ?<br/>\r\nAlors votre profil nous intéresse ! <a href=\"#contact\">Contactez-nous</a> très rapidement, vous avez probablement votre place à IARISS !</p>\r\n\r\n<h2 id=\"sources\">Où sont les sources de votre logiciel ?</h2>\r\n<p>Notre logiciel n'est pas (encore) un Logiciel Libre. L'ouverture des sources d'un tel logiciel ne nous apparaît pas comme prioritaire,\r\nmais exprimez votre demande : il y a de grande chance que nous publierons les sources.</p>\r\n"
-    created_at: '0000-00-00 00:00:00'
-    updated_at: '0000-00-00 00:00:00'
+  Promotion_58:
+    url: A
+    nom: A
+    description: ''
+    Categorie: Categorie_15
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '4965'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_59:
+    url: B
+    nom: B
+    description: ''
+    Categorie: Categorie_15
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '4968'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_60:
+    url: C
+    nom: C
+    description: ''
+    Categorie: Categorie_15
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '4969'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_61:
+    url: D
+    nom: D
+    description: ''
+    Categorie: Categorie_15
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '4970'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_62:
+    url: E
+    nom: E
+    description: ''
+    Categorie: Categorie_15
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '4971'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_63:
+    url: F
+    nom: F
+    description: ''
+    Categorie: Categorie_15
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '4972'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_64:
+    url: G
+    nom: G
+    description: ''
+    Categorie: Categorie_15
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '4975'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_65:
+    url: H
+    nom: H
+    description: ''
+    Categorie: Categorie_15
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '4977'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_66:
+    url: A-Instr
+    nom: A-Instr
+    description: ''
+    Categorie: Categorie_16
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '4979'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_67:
+    url: B-Instr
+    nom: B-Instr
+    description: ''
+    Categorie: Categorie_16
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '4980'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_68:
+    url: C-Info
+    nom: C-Info
+    description: ''
+    Categorie: Categorie_16
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '4981'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_69:
+    url: D-Div
+    nom: D-Div
+    description: ''
+    Categorie: Categorie_16
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '4982'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_70:
+    url: E-PM
+    nom: E-PM
+    description: ''
+    Categorie: Categorie_16
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '4983'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_71:
+    url: F-PM
+    nom: F-PM
+    description: ''
+    Categorie: Categorie_16
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '4984'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_72:
+    url: G-IBP-2IM
+    nom: G-IBP-2IM
+    description: ''
+    Categorie: Categorie_16
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '4985'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_73:
+    url: H-IBP-P2B
+    nom: H-IBP-P2B
+    description: ''
+    Categorie: Categorie_16
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5222'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_74:
+    url: 1A
+    nom: 1A
+    description: ''
+    Categorie: Categorie_17
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6669'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_75:
+    url: 1B
+    nom: 1B
+    description: ''
+    Categorie: Categorie_17
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6672'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_76:
+    url: 1C
+    nom: 1C
+    description: ''
+    Categorie: Categorie_17
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6673'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_77:
+    url: 1D
+    nom: 1D
+    description: ''
+    Categorie: Categorie_17
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6675'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_78:
+    url: 1E
+    nom: 1E
+    description: ''
+    Categorie: Categorie_17
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6676'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_79:
+    url: 1F
+    nom: 1F
+    description: ''
+    Categorie: Categorie_17
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6677'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_80:
+    url: 1G
+    nom: 1G
+    description: ''
+    Categorie: Categorie_17
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6678'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_81:
+    url: 1H
+    nom: 1H
+    description: ''
+    Categorie: Categorie_17
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6679'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_82:
+    url: 2A
+    nom: 2A
+    description: ''
+    Categorie: Categorie_18
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6682'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_83:
+    url: 2B
+    nom: 2B
+    description: ''
+    Categorie: Categorie_18
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6685'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_84:
+    url: 2C
+    nom: 2C
+    description: ''
+    Categorie: Categorie_18
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6686'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_85:
+    url: 2D
+    nom: 2D
+    description: ''
+    Categorie: Categorie_18
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6687'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_86:
+    url: 2E
+    nom: 2E
+    description: ''
+    Categorie: Categorie_18
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6689'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_87:
+    url: 2F
+    nom: 2F
+    description: ''
+    Categorie: Categorie_18
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6690'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_88:
+    url: 2G
+    nom: 2G
+    description: ''
+    Categorie: Categorie_18
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6691'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_89:
+    url: 2H
+    nom: 2H
+    description: ''
+    Categorie: Categorie_18
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6692'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_90:
+    url: A
+    nom: A
+    description: ''
+    Categorie: Categorie_19
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5227'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_91:
+    url: B
+    nom: B
+    description: ''
+    Categorie: Categorie_19
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5228'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_92:
+    url: C
+    nom: C
+    description: ''
+    Categorie: Categorie_19
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5304'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_93:
+    url: D
+    nom: D
+    description: ''
+    Categorie: Categorie_19
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5305'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_94:
+    url: E
+    nom: E
+    description: ''
+    Categorie: Categorie_19
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5478'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_95:
+    url: F
+    nom: F
+    description: ''
+    Categorie: Categorie_19
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5532'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_96:
+    url: G
+    nom: G
+    description: ''
+    Categorie: Categorie_19
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5540'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_97:
+    url: H
+    nom: H
+    description: ''
+    Categorie: Categorie_19
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5547'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_98:
+    url: A
+    nom: A
+    description: ''
+    Categorie: Categorie_20
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '7073'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_99:
+    url: B
+    nom: B
+    description: ''
+    Categorie: Categorie_20
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '7079'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_100:
+    url: C
+    nom: C
+    description: ''
+    Categorie: Categorie_20
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '7080'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_101:
+    url: D
+    nom: D
+    description: ''
+    Categorie: Categorie_20
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '7098'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_102:
+    url: E
+    nom: E
+    description: ''
+    Categorie: Categorie_20
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '7206'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_103:
+    url: F
+    nom: F
+    description: ''
+    Categorie: Categorie_20
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '7207'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_104:
+    url: G
+    nom: G
+    description: ''
+    Categorie: Categorie_20
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '7251'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_105:
+    url: H
+    nom: H
+    description: ''
+    Categorie: Categorie_20
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '7276'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_106:
+    url: A
+    nom: A
+    description: ''
+    Categorie: Categorie_22
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5982'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_107:
+    url: B
+    nom: B
+    description: null
+    Categorie: Categorie_22
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6007'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_108:
+    url: C
+    nom: C
+    description: null
+    Categorie: Categorie_22
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6011'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_109:
+    url: D
+    nom: D
+    description: null
+    Categorie: Categorie_22
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6032'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_110:
+    url: E
+    nom: E
+    description: null
+    Categorie: Categorie_22
+    weight: '0'
+    in_menu: true
+    project_id: '6033'
+    id_tree: null
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_111:
+    url: F
+    nom: F
+    description: null
+    Categorie: Categorie_22
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6073'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_112:
+    url: G
+    nom: G
+    description: null
+    Categorie: Categorie_22
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6078'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_113:
+    url: H
+    nom: H
+    description: null
+    Categorie: Categorie_22
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6079'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_114:
+    url: A
+    nom: A
+    description: null
+    Categorie: Categorie_23
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6080'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_115:
+    url: B
+    nom: B
+    description: null
+    Categorie: Categorie_23
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6083'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_116:
+    url: C
+    nom: C
+    description: null
+    Categorie: Categorie_23
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6084'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_117:
+    url: D
+    nom: D
+    description: null
+    Categorie: Categorie_23
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6085'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_118:
+    url: E
+    nom: E
+    description: null
+    Categorie: Categorie_23
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6096'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_119:
+    url: F
+    nom: F
+    description: null
+    Categorie: Categorie_23
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6098'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_120:
+    url: G
+    nom: G
+    description: null
+    Categorie: Categorie_23
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6106'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_121:
+    url: H
+    nom: H
+    description: null
+    Categorie: Categorie_23
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6112'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_122:
+    url: A
+    nom: A
+    description: ''
+    Categorie: Categorie_24
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5313'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_123:
+    url: B
+    nom: B
+    description: ''
+    Categorie: Categorie_24
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5349'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_124:
+    url: C
+    nom: C
+    description: ''
+    Categorie: Categorie_24
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5351'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_125:
+    url: D
+    nom: D
+    description: ''
+    Categorie: Categorie_24
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5352'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_126:
+    url: E
+    nom: E
+    description: ''
+    Categorie: Categorie_24
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5353'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_127:
+    url: F
+    nom: F
+    description: ''
+    Categorie: Categorie_24
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5354'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_128:
+    url: G
+    nom: G
+    description: ''
+    Categorie: Categorie_24
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5356'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_129:
+    url: H
+    nom: H
+    description: ''
+    Categorie: Categorie_24
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5357'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_130:
+    url: A
+    nom: A
+    description: ''
+    Categorie: Categorie_25
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5318'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_131:
+    url: B
+    nom: B
+    description: ''
+    Categorie: Categorie_25
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5328'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_132:
+    url: C
+    nom: C
+    description: ''
+    Categorie: Categorie_25
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5335'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_133:
+    url: D
+    nom: D
+    description: ''
+    Categorie: Categorie_25
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5336'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_134:
+    url: E
+    nom: E
+    description: ''
+    Categorie: Categorie_25
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5337'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_135:
+    url: F
+    nom: F
+    description: ''
+    Categorie: Categorie_25
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5338'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_136:
+    url: G
+    nom: G
+    description: ''
+    Categorie: Categorie_25
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '5339'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
+  Promotion_137:
+    url: H
+    nom: H
+    description: ''
+    Categorie: Categorie_25
+    weight: '0'
+    in_menu: true
+    project_id: '49'
+    id_tree: '6047'
+    branch_id: null
+    select_branch_id: null
+    select_id: null
+    id_piano_day: '0,1,2,3,4,5'
+    start_timestamp: '1313359200'
+    width: '800'
+    height: '600'
 Categorie:
   Categorie_1:
     url: info
@@ -1052,3 +2311,152 @@ Categorie:
     weight: '0'
     in_menu: true
     Edt: Edt_4
+  Categorie_15:
+    url: GB2A
+    nom: 'GBM 2A'
+    description: 'http://gbm.univ-lyon1.fr/index_fichiers/istil.htm'
+    logo: perso.png
+    weight: '0'
+    in_menu: true
+    Edt: Edt_4
+  Categorie_16:
+    url: GB3A
+    nom: 'GBM 3A'
+    description: 'http://gbm.univ-lyon1.fr/index_fichiers/istil.htm'
+    logo: perso.png
+    weight: '0'
+    in_menu: true
+    Edt: Edt_4
+  Categorie_17:
+    url: 1a-1
+    nom: '1A Gr. 1'
+    description: '1A Info Istil Groupe 1'
+    logo: perso.png
+    weight: '0'
+    in_menu: true
+    Edt: Edt_5
+  Categorie_18:
+    url: 1a-2
+    nom: '1A Gr. 2'
+    description: 'Info 1A Istil Groupe 2'
+    logo: perso.png
+    weight: '0'
+    in_menu: true
+    Edt: Edt_5
+  Categorie_19:
+    url: 2a
+    nom: 2A
+    description: '2A Info ISTIL'
+    logo: perso.png
+    weight: '0'
+    in_menu: true
+    Edt: Edt_5
+  Categorie_20:
+    url: 3a
+    nom: 3A
+    description: '3A Info ISTIL'
+    logo: perso.png
+    weight: '0'
+    in_menu: true
+    Edt: Edt_5
+  Categorie_21:
+    url: appr
+    nom: Apprentissage
+    description: null
+    logo: perso.png
+    weight: '0'
+    in_menu: true
+    Edt: Edt_5
+  Categorie_22:
+    url: 1a-1
+    nom: '1A Gr. 1'
+    description: null
+    logo: perso.png
+    weight: '0'
+    in_menu: true
+    Edt: Edt_6
+  Categorie_23:
+    url: 1a-2
+    nom: '1A Gr. 2'
+    description: null
+    logo: perso.png
+    weight: '0'
+    in_menu: true
+    Edt: Edt_6
+  Categorie_24:
+    url: 2a
+    nom: 2A
+    description: null
+    logo: perso.png
+    weight: '0'
+    in_menu: true
+    Edt: Edt_6
+  Categorie_25:
+    url: 3a
+    nom: 3A
+    description: null
+    logo: perso.png
+    weight: '0'
+    in_menu: true
+    Edt: Edt_6
+Edt:
+  Edt_1:
+    nom: ensisa
+    description: ENSISA
+    identifier: null
+    ade_project_id: '12'
+    ade_url: 'https://www.emploisdutemps.uha.fr/ade/'
+    login: dXNlcm5hbWU9dGhlb3BoaWxlLmhlbGxlY
+    liens_utiles: "liens:\r\n  iariss: { nom: \"IARISS\",   url:\"http://www.iariss.fr/\" }\r\n  annales: { nom: \"Annales\",  url:\"http://annales.iariss.fr/\" }\r\n  trombi: { nom: \"Trombinoscope\",  url:\"http://trombi.iariss.fr/\" }\r\n  edtuha: { nom: \"emploisdutemps.uha.fr\",  url:\"https://www.emploisdutemps.uha.fr/\" }\r\n"
+    created_at: '2011-07-30 00:00:00'
+    updated_at: '2011-07-30 00:00:00'
+  Edt_2:
+    nom: lyon1-bio
+    description: 'UCBL - Biologie'
+    identifier: f0cdb94e439bc679a95f023c3eba8e2f
+    ade_project_id: '49'
+    ade_url: 'http://adeweb.univ-lyon1.fr/ade/'
+    login: bG9naW49bGVjdGV1ciZwYXNzd29yZD1sYW1iZGE=
+    liens_utiles: null
+    created_at: '2011-07-30 00:00:00'
+    updated_at: '2011-07-31 14:15:38'
+  Edt_3:
+    nom: lyon1-info
+    description: 'UCBL - Informatique'
+    identifier: 1201f78b811fdf114b62599e580efbc3
+    ade_project_id: '49'
+    ade_url: 'http://adeweb.univ-lyon1.fr/ade/'
+    login: bG9naW49bGVjdGV1ciZwYXNzd29yZD1sYW1iZGE=
+    liens_utiles: null
+    created_at: '2011-07-30 00:00:00'
+    updated_at: '2011-08-01 08:17:40'
+  Edt_4:
+    nom: istil-gbm
+    description: 'UCBL - ISTIL - Génie Biomédical'
+    identifier: 1201f78b811fdf114b62599e580efbc3
+    ade_project_id: '49'
+    ade_url: 'http://adeweb.univ-lyon1.fr/ade/'
+    login: bG9naW49bGVjdGV1ciZwYXNzd29yZD1sYW1iZGE=
+    liens_utiles: null
+    created_at: '2011-07-30 00:00:00'
+    updated_at: '2011-08-01 09:51:18'
+  Edt_5:
+    nom: istil-info
+    description: 'UCBL - ISTIL Informatique'
+    identifier: 1201f78b811fdf114b62599e580efbc3
+    ade_project_id: '49'
+    ade_url: 'http://adeweb.univ-lyon1.fr/ade/'
+    login: bG9naW49bGVjdGV1ciZwYXNzd29yZD1sYW1iZGE=
+    liens_utiles: null
+    created_at: '2011-07-30 00:00:00'
+    updated_at: '2011-08-01 09:51:18'
+  Edt_6:
+    nom: istil-mam
+    description: 'UCBL - ISTIL MAM'
+    identifier: 1201f78b811fdf114b62599e580efbc3
+    ade_project_id: '49'
+    ade_url: 'http://adeweb.univ-lyon1.fr/ade/'
+    login: bG9naW49bGVjdGV1ciZwYXNzd29yZD1sYW1iZGE=
+    liens_utiles: null
+    created_at: '2011-07-30 00:00:00'
+    updated_at: '2011-08-01 09:51:18'
