@@ -42,15 +42,7 @@
           </div>
 <?php endif ?>
           <div id="liens-internes">
-            <b>Liens utiles</b>
-            <ul>
-              <li><?php echo link_to('iariss.fr', 'http://www.iariss.fr/') ?></li>
-              <li><?php echo link_to('Annales', 'http://annales.iariss.fr/') ?></li>
-              <li><?php echo link_to('Trombinoscope', 'http://trombi.iariss.fr/') ?></li>
-<!--               <li><?php echo link_to('BDE ENSISA', 'http://www.ensisa.info/') ?></li> -->
-              <li><?php echo link_to('emploisdutemps.uha.fr',
-              'https://www.emploisdutemps.uha.fr/') ?></li>
-            </ul>
+            <?php include_partial('global/liens_utiles') ?>
           </div>
         <?php if(count($stylesheets = sfConfig::get('app_css'))): ?>
         <div id="stylesheet">

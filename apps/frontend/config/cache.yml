@@ -16,3 +16,7 @@ _pied:
 _nom_edt:
   enabled:    on
   lifetime:   86400
+
+_liens_utiles:
+  enabled:    on
+  lifetime:   86400
