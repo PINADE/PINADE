@@ -11,6 +11,7 @@
  * @property string $ade_project_id
  * @property string $ade_url
  * @property string $login
+ * @property string $liens_utiles
  * @property Doctrine_Collection $Categories
  * 
  * @method string              getNom()            Returns the current record's "nom" value
@@ -19,6 +20,7 @@
  * @method string              getAdeProjectId()   Returns the current record's "ade_project_id" value
  * @method string              getAdeUrl()         Returns the current record's "ade_url" value
  * @method string              getLogin()          Returns the current record's "login" value
+ * @method string              getLiensUtiles()    Returns the current record's "liens_utiles" value
  * @method Doctrine_Collection getCategories()     Returns the current record's "Categories" collection
  * @method Edt                 setNom()            Sets the current record's "nom" value
  * @method Edt                 setDescription()    Sets the current record's "description" value
@@ -26,6 +28,7 @@
  * @method Edt                 setAdeProjectId()   Sets the current record's "ade_project_id" value
  * @method Edt                 setAdeUrl()         Sets the current record's "ade_url" value
  * @method Edt                 setLogin()          Sets the current record's "login" value
+ * @method Edt                 setLiensUtiles()    Sets the current record's "liens_utiles" value
  * @method Edt                 setCategories()     Sets the current record's "Categories" collection
  * 
  * @package    edt
@@ -63,6 +66,10 @@ abstract class BaseEdt extends sfDoctrineRecord
         $this->hasColumn('login', 'string', 255, array(
              'type' => 'string',
              'length' => 255,
+             ));
+        $this->hasColumn('liens_utiles', 'string', 4000, array(
+             'type' => 'string',
+             'length' => 4000,
              ));
     }
 

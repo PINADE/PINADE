@@ -22,6 +22,7 @@ abstract class BaseEdtForm extends BaseFormDoctrine
       'ade_project_id' => new sfWidgetFormInputText(),
       'ade_url'        => new sfWidgetFormInputText(),
       'login'          => new sfWidgetFormInputText(),
+      'liens_utiles'   => new sfWidgetFormTextarea(),
       'created_at'     => new sfWidgetFormDateTime(),
       'updated_at'     => new sfWidgetFormDateTime(),
     ));
@@ -34,6 +35,7 @@ abstract class BaseEdtForm extends BaseFormDoctrine
       'ade_project_id' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'ade_url'        => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'login'          => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'liens_utiles'   => new sfValidatorString(array('max_length' => 4000, 'required' => false)),
       'created_at'     => new sfValidatorDateTime(),
       'updated_at'     => new sfValidatorDateTime(),
     ));

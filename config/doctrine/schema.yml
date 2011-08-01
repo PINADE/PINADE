@@ -73,6 +73,7 @@ Edt:
     ade_project_id:     { type: string(255) }
     ade_url:            { type: string(255) }
     login:              { type: string(255) }
+    liens_utiles:       { type: string(4000) }
   relations:
     Categories: { class: Categorie, local: id, foreign: edt_id, type: many }
 
