@@ -1,6 +1,6 @@
 <?php
 
-class updateIstilGbmIdentifierTask extends updateLyon1IdentifierTask
+class updateIstilInfoIdentifierTask extends updateLyon1IdentifierTask
 {
   protected function configure()
   {
