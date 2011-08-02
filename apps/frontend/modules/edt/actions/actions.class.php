@@ -101,6 +101,11 @@ class edtActions extends sfActions
     $this->timestamp = $this->promotion->getTimestamp($this->semaine);
     // Notice
     $this->notice = $this->promotion->getWeekMessage($this->semaine);
+
+    $this->getResponse()->setHttpHeader('Link', '<'.$this->generateUrl("image", array(
+        'categorie' => $this->categorie->getUrl(),
+        'promo'     => $this->promotion->getUrl(),
+        'semaine'   => ''), 1).'>; rel="canonical"');
   }
 
   public function executeError404(sfWebRequest $request)
