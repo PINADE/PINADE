@@ -1,6 +1,6 @@
           <?php include_partial('global/adsense_imagetop') ?>
-
           <?php include_partial('title', array('categorie' => $categorie, 'promotion' => $promotion)) ?>
+          <h3 class="nom-edt-image"><?php include_partial('global/nom_edt') ?></h3>
 
 
           <h1 id="title">Emploi du temps <?php include_slot('title') ?></h1>
