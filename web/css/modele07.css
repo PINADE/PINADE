@@ -239,3 +239,16 @@ img {
   width: 234px;
   float: right;
 }
+
+#nom-edt-menu {
+  text-align:center;
+}
+.nom-edt-image
+{
+  display:none;
+}
+
+.social-button {
+  display:inline-block;
+  vertical-align:middle;
+}
