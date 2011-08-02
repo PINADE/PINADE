@@ -27,4 +27,20 @@ class pagesActions extends sfActions
     $this->forward404Unless( $this->page, sprintf('Object page does not exist with this url (%s).', $request->getParameter('url')));
 
   }
+
+  public function executeSitemap(sfWebRequest $request)
+  {
+    $this->categories = Doctrine::getTable('Categorie')
+      ->createQuery('c')
+      ->leftJoin('c.Promotions p')
+      ->execute();
+    $this->getResponse()->setContentType('application/xml');
+    $this->setLayout(false);
+  }
+
+  public function executeRobotstxt(sfWebRequest $request)
+  {
+    $this->setLayout(false);
+    $this->getResponse()->setContentType('text/plain');
+  }
 }
