@@ -107,7 +107,7 @@ class AdeImage
 
   public function getPath()
   {
-    return str_replace(',','-',sfConfig::get('sf_web_dir').'/images/edt/'.$this->edt->getNom().'/'.$this->promotion->getIdTree().'/');
+    return sfConfig::get('sf_web_dir').'/images/edt/'.$this->edt->getNom().'/'.$this->promotion->getId().'/';
   }
 
   protected function getFilename()
@@ -117,7 +117,7 @@ class AdeImage
 
   public function getWebPath()
   {
-    return '/images/edt/'.$this->edt->getNom().'/'.str_replace(',','-',$this->promotion->getIdTree()).'/'.str_replace(',','-',$this->semaine).'.gif';
+    return '/images/edt/'.$this->edt->getNom().'/'.$this->promotion->getId().'/'.str_replace(',','-',$this->semaine).'.gif';
   }
   public function getInfoPath()
   {
