@@ -86,7 +86,9 @@ class edtActions extends sfActions
       if(file_exists($this->image_path))
         $this->image_mtime = filemtime($this->image_path);
       else
-        $this->forward404("L'image ".$this->image_path." n'existe pas. Échec probable du téléchargement");
+        $this->forward404("L'image ".$this->image_path." n'existe pas (promo ".$this->promotion->getId()
+          .", url ".$request->getParameter('categorie')."/".$request->getParameter('promo')."/".$this->semaine.")."
+          ."Echec probable du telechargement");
       
     }
     $this->diff_day = (time() - $this->image_mtime)/(60*60*24);
