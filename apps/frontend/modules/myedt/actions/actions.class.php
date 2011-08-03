@@ -84,6 +84,7 @@ class myedtActions extends sfActions
     $promotion->setNom($nom);
     $promotion->setDescription($request->getParameter('description'));
     $promotion->setUrl($nom);
+    $promotion->setStartTimestamp(sfConfig::get('app_ade_default_start_timestamp'));
     $promotion->save();
 
     $this->redirect('@image?categorie=perso&promo='.$request->getParameter('nom').'&semaine=');

@@ -1,0 +1,31 @@
+body {
+  background: white;
+}
+
+#global {
+  width: 1000px;
+}
+
+#centre {
+  overflow: auto;
+}
+
+#contenu {
+  background: white;
+  margin:0 auto;
+  width:800px;
+  float:right;
+  padding:0;
+}
+
+#navigation {
+  background: white;
+  position:relative;
+  color:inherit;
+}
+
+#pied {
+  width: 500px;
+  margin: 0 auto;
+  color:inherit;
+}
