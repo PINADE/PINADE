@@ -31,7 +31,7 @@ class AdeBrowser
     $handle = curl_init($url);
     curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($handle, CURLOPT_SSL_VERIFYPEER, false); 
-    curl_setopt($handle, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows; U; Windows NT 6.1; fr; rv:1.9.2.7) Gecko/20100701 Firefox/3.6.7 contact@iariss.fr");
+    curl_setopt($handle, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows; U; Windows NT 6.1; fr; rv:1.9.2.7) Gecko/20100701 Firefox/3.6.7 pinade.org ".sfConfig::get('app_email_from'));
     curl_setopt($handle, CURLOPT_FOLLOWLOCATION, true);
 
     // Use a file to stock the cookies
