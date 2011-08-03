@@ -69,10 +69,7 @@ Edt:
   columns:
     nom:                { type: string(255), notnull: true, unique: true }
     description:        { type: string(255) }
-#    identifier:         { type: string(255) }
     ade_project_id:     { type: string(255) }
-#    ade_url:            { type: string(255) }
-#    login:              { type: string(255) }
     liens_utiles:       { type: string(4000) }
     adeserver_id:       { type: integer }
   relations:
