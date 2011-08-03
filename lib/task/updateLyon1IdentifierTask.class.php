@@ -1,9 +1,14 @@
 <?php
 
-abstract class updateLyon1IdentifierTask extends updateIdentifierTask
+class updateLyon1IdentifierTask extends updateIdentifierTask
 {
   protected function configure()
   {
+    parent::configure();
+
+    $this->name             = 'identifier-lyon1';
+    $this->ade_server_name  = 'lyon1';
+
     // Configuration de la tâche
     // urls  : la séquence à enchaîner pour dérouler et cliquer sur un emploi du temps
     // nom_edt : nom de l'Edt dans la BDD
@@ -14,7 +19,7 @@ abstract class updateLyon1IdentifierTask extends updateIdentifierTask
       'standard/gui/tree.jsp?branchId=6037&reset=false&forceLoad=false&scroll=0', // Select a group (AUP)
       'standard/gui/tree.jsp?selectId=9617&reset=true&forceLoad=false&scroll=0', // "Click" on a group (3A Info S5)
     );
-    parent::configure();
+
 
   }
 
@@ -24,7 +29,7 @@ abstract class updateLyon1IdentifierTask extends updateIdentifierTask
   {
     $this->logSection('auth', 'start Authentification');
     /* Get CAS Cookie and link to adeweb.univ-lyon1.fr */
-    $data_string = base64_decode($this->edt->getLogin())."&x=33&y=10";
+    $data_string = base64_decode($this->ade_server->getLogin())."&x=33&y=10";
     $handle = curl_init($url = "http://adeweb.univ-lyon1.fr/ade/standard/gui/interface.jsp?top=top");
     curl_setopt($handle, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded')); 
     curl_setopt($handle, CURLOPT_POST, true);
@@ -44,7 +49,7 @@ abstract class updateLyon1IdentifierTask extends updateIdentifierTask
     $content = curl_exec($handle);
     curl_close($handle); // cURL write cookies in the Cookies Jar file
 
-    $this->logSection('auth', "Fichier des cookies :\n".file_get_contents(sfConfig::get('app_ade_cookiefile')));
+    $this->logSection('auth', "Fichier des cookies ".sfConfig::get('app_ade_cookiefile').":\n".file_get_contents(sfConfig::get('app_ade_cookiefile')));
   }
 
 }

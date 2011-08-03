@@ -12,14 +12,9 @@ abstract class updateIdentifierTask extends sfBaseTask
     ));
 
     $this->namespace        = 'pinade';
-    $this->name             = 'identifier-'.$this->nom_edt;
-    $this->briefDescription = '';
-    $this->detailedDescription = <<<EOF
-The [pinade:{$this->name}|INFO] task updates the ADE Identifier for Lyon1.
-Call it with:
+    $this->briefDescription = 'update the identifier for an Adeserver';
+    $this->detailedDescription = "";
 
-  [php symfony pinade:{$this->name}|INFO]
-EOF;
   }
 
   protected function execute($arguments = array(), $options = array())
@@ -30,18 +25,18 @@ EOF;
     $this->createConfiguration('frontend', 'dev');
     sfContext::createInstance($this->configuration);
 
-    if(empty($this->nom_edt))
-      throw new sfException("nom_edt can NOT be empty. Please configure the task !");
+    if(empty($this->ade_server_name))
+      throw new sfException("ade_server_name can NOT be empty. Please configure the task !");
 
-    // Get the ENSISA edt
-    $this->edt = Doctrine_Query::create()
-      ->from('Edt e')
-      ->where('e.nom = ?', $this->nom_edt)
-      ->limit(1)
-      ->execute()->getFirst();
-    
-    if(!$this->edt)
-      throw new sfException("Edt '".$this->nom_edt."' non trouvé");
+    $this->ade_server = Doctrine::getTable('Adeserver')
+      ->createQuery('a')
+      ->addWhere('a.nom = ?', $this->ade_server_name)
+      ->execute()
+      ->getFirst();
+
+    if(!$this->ade_server)
+      throw new Exception("Adeserver ".$this->ade_server_name." non trouvé !");
+
 
     $this->getAuthentication();
     $identifier = $this->getIdentifier();
@@ -58,19 +53,23 @@ EOF;
     $this->logSection('identifier', "start Identifier");
     $browser = new AdeBrowser();
 
+    $this->logSection('identifier', 'http://adeweb.univ-lyon1.fr/ade/standard/projects.jsp');
+    $browser->getUrl('http://adeweb.univ-lyon1.fr/ade/standard/projects.jsp');
+
+    $this->logSection('identifier', "POST projectId : ".$this->ade_server->getLoginAdeProjectId());
     // Emulates query for display an arbitrary image
     // Select Project with a POST
-    $browser->getUrl($this->edt->getAdeUrl().'standard/gui/interface.jsp', 'projectId='.$this->edt->getAdeProjectId().'&x=41&y=9');
+    $browser->getUrl($this->ade_server->getAdeUrl().'standard/gui/interface.jsp', 'projectId='.$this->ade_server->getLoginAdeProjectId().'&x=41&y=9');
 
     foreach($this->urls as $url)
     {
-      $this->logSection('identifier', $this->edt->getAdeUrl().$url);
-      $browser->getUrl($this->edt->getAdeUrl().$url);
+      $this->logSection('identifier', $this->ade_server->getAdeUrl().$url);
+      $browser->getUrl($this->ade_server->getAdeUrl().$url);
     }
 
     $this->logSection('identifier', "Get the page with the image");
     // Get the page with the link to the image
-    $imagemap = $browser->getUrl($this->edt->getAdeUrl().'custom/modules/plannings/imagemap.jsp?width=1306&height=315');
+    $imagemap = $browser->getUrl($this->ade_server->getAdeUrl().'custom/modules/plannings/imagemap.jsp?width=1306&height=315');
 
     // Get the identifier 
     preg_match("@identifier=([0-9a-f]{32})@", $imagemap, $matches);
@@ -96,8 +95,8 @@ EOF;
     if(empty($identifier))
       throw new sfException("identifier is empty !");
 
-    $this->edt->setIdentifier($identifier);
-    $this->edt->save();
+    $this->ade_server->setIdentifier($identifier);
+    $this->ade_server->save();
     $this->logSection('update', "Identifier updated successfully : '$identifier'");
   }
 }
