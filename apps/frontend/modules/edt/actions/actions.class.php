@@ -70,7 +70,7 @@ class edtActions extends sfActions
     $this->categorie = $this->promotion->getCategorie();
 
     $this->semaine = $this->promotion->getAdeWeekNumber($request->getParameter('semaine'));
-    $this->semaine_suivante = $this->semaine + 1;
+    $this->semaine_suivante = min(51, $this->semaine + 1);
     // Pas de semaine négative !
     $this->semaine_precedente = max(0, $this->semaine - 1);
 
