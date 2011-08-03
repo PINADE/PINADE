@@ -6,9 +6,12 @@ class updateUhaIdentifierTask extends updateIdentifierTask
   {
     // Configuration de la tâche
     // urls  : la séquence à enchaîner pour dérouler et cliquer sur un emploi du temps
-    // nom_edt : nom de l'Edt dans la BDD
+    // name  : le nom de la tache après pinade:
+    // ade_server_name : le nom de l'adeserver dans la base de données
+    parent::configure();
 
-    $this->nom_edt = "ensisa";
+    $this->name = "identifier-ensisa";
+    $this->ade_server_name = "ensisa";
 
     $this->urls = array(
       'custom/modules/plannings/plannings.jsp', // Mandatory (because of ADE)
@@ -19,7 +22,6 @@ class updateUhaIdentifierTask extends updateIdentifierTask
       'standard/gui/tree.jsp?selectBranchId=145&reset=true&forceLoad=false&scroll=0', // "Click" on a group (3A Info S5)
     );
 
-    parent::configure();
   }
 
 

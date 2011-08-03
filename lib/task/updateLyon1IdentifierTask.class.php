@@ -4,14 +4,16 @@ class updateLyon1IdentifierTask extends updateIdentifierTask
 {
   protected function configure()
   {
+    // Configuration de la tâche
+    // urls  : la séquence à enchaîner pour dérouler et cliquer sur un emploi du temps
+    // name  : le nom de la tache après pinade:
+    // ade_server_name : le nom de l'adeserver dans la base de données
     parent::configure();
 
     $this->name             = 'identifier-lyon1';
     $this->ade_server_name  = 'lyon1';
 
-    // Configuration de la tâche
-    // urls  : la séquence à enchaîner pour dérouler et cliquer sur un emploi du temps
-    // nom_edt : nom de l'Edt dans la BDD
+
     $this->urls = array(
       'custom/modules/plannings/plannings.jsp', // Mandatory (because of ADE)
       'standard/gui/tree.jsp?category=trainee&expand=false&forceLoad=false&reload=false&scroll=0', // Select groups of students
