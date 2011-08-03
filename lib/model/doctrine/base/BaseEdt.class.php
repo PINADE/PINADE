@@ -7,29 +7,26 @@
  * 
  * @property string $nom
  * @property string $description
- * @property string $identifier
  * @property string $ade_project_id
- * @property string $ade_url
- * @property string $login
  * @property string $liens_utiles
+ * @property integer $adeserver_id
  * @property Doctrine_Collection $Categories
+ * @property Adeserver $Adeserver
  * 
  * @method string              getNom()            Returns the current record's "nom" value
  * @method string              getDescription()    Returns the current record's "description" value
- * @method string              getIdentifier()     Returns the current record's "identifier" value
  * @method string              getAdeProjectId()   Returns the current record's "ade_project_id" value
- * @method string              getAdeUrl()         Returns the current record's "ade_url" value
- * @method string              getLogin()          Returns the current record's "login" value
  * @method string              getLiensUtiles()    Returns the current record's "liens_utiles" value
+ * @method integer             getAdeserverId()    Returns the current record's "adeserver_id" value
  * @method Doctrine_Collection getCategories()     Returns the current record's "Categories" collection
+ * @method Adeserver           getAdeserver()      Returns the current record's "Adeserver" value
  * @method Edt                 setNom()            Sets the current record's "nom" value
  * @method Edt                 setDescription()    Sets the current record's "description" value
- * @method Edt                 setIdentifier()     Sets the current record's "identifier" value
  * @method Edt                 setAdeProjectId()   Sets the current record's "ade_project_id" value
- * @method Edt                 setAdeUrl()         Sets the current record's "ade_url" value
- * @method Edt                 setLogin()          Sets the current record's "login" value
  * @method Edt                 setLiensUtiles()    Sets the current record's "liens_utiles" value
+ * @method Edt                 setAdeserverId()    Sets the current record's "adeserver_id" value
  * @method Edt                 setCategories()     Sets the current record's "Categories" collection
+ * @method Edt                 setAdeserver()      Sets the current record's "Adeserver" value
  * 
  * @package    edt
  * @subpackage model
@@ -51,25 +48,16 @@ abstract class BaseEdt extends sfDoctrineRecord
              'type' => 'string',
              'length' => 255,
              ));
-        $this->hasColumn('identifier', 'string', 255, array(
-             'type' => 'string',
-             'length' => 255,
-             ));
         $this->hasColumn('ade_project_id', 'string', 255, array(
-             'type' => 'string',
-             'length' => 255,
-             ));
-        $this->hasColumn('ade_url', 'string', 255, array(
-             'type' => 'string',
-             'length' => 255,
-             ));
-        $this->hasColumn('login', 'string', 255, array(
              'type' => 'string',
              'length' => 255,
              ));
         $this->hasColumn('liens_utiles', 'string', 4000, array(
              'type' => 'string',
              'length' => 4000,
+             ));
+        $this->hasColumn('adeserver_id', 'integer', null, array(
+             'type' => 'integer',
              ));
     }
 
@@ -79,6 +67,10 @@ abstract class BaseEdt extends sfDoctrineRecord
         $this->hasMany('Categorie as Categories', array(
              'local' => 'id',
              'foreign' => 'edt_id'));
+
+        $this->hasOne('Adeserver', array(
+             'local' => 'adeserver_id',
+             'foreign' => 'id'));
 
         $timestampable0 = new Doctrine_Template_Timestampable();
         $this->actAs($timestampable0);
