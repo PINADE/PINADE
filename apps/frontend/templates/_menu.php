@@ -1,9 +1,9 @@
           <div id="menu">
+          <h3 id="nom-edt-menu"><a href="<?php echo url_for('@homepage') ?>"><?php include_partial('global/nom_edt') ?></a></h3>
             <ul>
-              <li id='accueil-menu'>
+<!--              <li id='accueil-menu'>
                 <?php echo link_to('Accueil', '@homepage', "inline") ?>
-
-              </li>
+              </li> -->
 <?php $categories = Doctrine_Core::getTable('Categorie')
       ->createQuery('c')
       ->leftJoin('c.Promotions p')

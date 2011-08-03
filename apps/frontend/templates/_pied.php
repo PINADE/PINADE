@@ -1,6 +1,5 @@
       <div id="pied">
         <p>
-          Emplois du temps hébergés par <a href="http://www.pinade.org/">pinade.org</a>.
            <b><?php echo $_SERVER['SERVER_NAME'] ?></b> vous est livré grâce à <acronym title="PINADE Is Not ADE"><a href="http://www.pinade.org/">PINADE</a></acronym>,
           son <?php echo link_to('code source', 'https://github.com/PINADE/PINADE') ?> est Libre.<br/>
           <a href="mailto:contact-(at)-pinade.org">Contact</a>
