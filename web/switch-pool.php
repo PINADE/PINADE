@@ -6,6 +6,7 @@ if(preg_match("@^([-a-z0-9]+)\.pinade.*@", $_SERVER['SERVER_NAME'], $matches))
   switch($edt)
   {
     case "pool":
+    case "test":
       break;
     case "ensisa":
 //    case "enscmu":
