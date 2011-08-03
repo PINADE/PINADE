@@ -12,7 +12,12 @@ class myedtActions extends sfActions
 {
 
   public function executeImport(sfWebRequest $request)
-  {}
+  {
+    $this->categories = Doctrine_Core::getTable('Categorie')
+      ->createQuery('c')
+      ->execute();
+
+  }
 
   public function executeCreateFromImport(sfWebRequest $request)
   {
@@ -53,7 +58,7 @@ class myedtActions extends sfActions
     $categorie = Doctrine_Core::getTable('Promotion')
       ->createQuery('p')
       ->leftJoin('p.Categorie c')
-      ->where('c.url = "perso"')
+      ->andwhere('c.url = "perso"')
       ->andWhere('p.url = ?', array($nom))
       ->execute();
 
@@ -65,13 +70,11 @@ class myedtActions extends sfActions
 
 
     $categorie = Doctrine_Core::getTable('Categorie')
-      ->createQuery('c')
-      ->where('c.url = "perso"')
-      ->execute()->getFirst();
+      ->find($cat_id = $request->getParameter('categorie_id'));
 
     if(!$categorie)
     {
-      $request->setParameter('erreur', "Erreur de l'administrateur. La catégorie 'perso' n'existe pas !");
+      $request->setParameter('erreur', "Erreur de l'administrateur. La catégorie $cat_id n'existe pas !");
       $this->forward('myedt', 'import');
     }
 
@@ -84,10 +87,11 @@ class myedtActions extends sfActions
     $promotion->setNom($nom);
     $promotion->setDescription($request->getParameter('description'));
     $promotion->setUrl($nom);
+    $promotion->setInMenu(true);
     $promotion->setStartTimestamp(sfConfig::get('app_ade_default_start_timestamp'));
     $promotion->save();
 
-    $this->redirect('@image?categorie=perso&promo='.$request->getParameter('nom').'&semaine=');
+    $this->redirect('@image?categorie='.$categorie->getUrl().'&promo='.$promotion->getNom().'&semaine=');
 
    // https://www.emploisdutemps.uha.fr/ade/imageEt?&&&width=800&height=600&lunchName=REPAS&displayMode=1057855&showLoad=false&ttl=1283427991552&displayConfId=8
 
@@ -98,7 +102,7 @@ class myedtActions extends sfActions
     $this->promotion = Doctrine_Core::getTable('Promotion')
       ->createQuery('p')
       ->leftJoin('p.Categorie c')
-      ->where('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
+      ->andwhere('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
       ->execute()
       ->getFirst();
     $this->forward404Unless($this->promotion);

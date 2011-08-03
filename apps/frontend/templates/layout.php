@@ -4,7 +4,8 @@
   <head>
     <?php include_http_metas() ?>
     <?php include_metas() ?>
-    <title><?php include_slot('title') ?> - Emploi du temps ENSISA</title>
+    <meta name="description" content="Emplois du temps <?php include_partial('global/nom_edt') ?>" />
+    <title><?php include_slot('title') ?> - Emploi du temps <?php include_partial('global/nom_edt') ?></title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
     <?php include_partial('global/perso-css') ?>

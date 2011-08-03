@@ -8,4 +8,6 @@ log/*
 web/images/edt/*
 !web/images/edt/dummy.txt
 config/databases.yml
+apps/frontend/templates/_adsense_*
+web/google*.html
 

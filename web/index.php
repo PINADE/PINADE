@@ -1,5 +1,6 @@
 <?php
 
+require_once(dirname(__FILE__).'/switch-pool.php');
 
 require_once(dirname(__FILE__).'/../config/ProjectConfiguration.class.php');
 

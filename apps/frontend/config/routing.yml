@@ -57,6 +57,14 @@ myedt_default:
   url:  /myedt/*
   param: { module: myedt, action: index }
 
+# Sitemap
+sitemap:
+  url:  /sitemap.xml
+  param: { module: pages, action: sitemap }
+
+robotstxt:
+  url:  /robots.txt
+  param: { module: pages, action: robotstxt }
 
 # Page de l'edt pour la semaine courante
 image_default_index:

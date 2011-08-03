@@ -16,4 +16,15 @@ class PromotionTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Promotion');
     }
+
+    public function createQuery($alias = '')
+    {
+      if(defined('NOM_EDT'))
+        return parent::createQuery($alias)
+          ->leftJoin($alias.'.Categorie cat')
+          ->leftJoin('cat.Edt e')
+          ->where('e.nom = ?', NOM_EDT);
+      else
+        return parent::createQuery($alias);
+    }
 }

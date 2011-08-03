@@ -1,13 +1,13 @@
           <div id="menu">
+          <h3 id="nom-edt-menu"><a href="<?php echo url_for('@homepage') ?>"><?php include_partial('global/nom_edt') ?></a></h3>
             <ul>
-              <li id='accueil-menu'>
+<!--              <li id='accueil-menu'>
                 <?php echo link_to('Accueil', '@homepage', "inline") ?>
-
-              </li>
+              </li> -->
 <?php $categories = Doctrine_Core::getTable('Categorie')
       ->createQuery('c')
       ->leftJoin('c.Promotions p')
-      ->where('c.in_menu = 1')
+      ->andWhere('c.in_menu = 1')
       ->andWhere('p.in_menu = 1')
       ->orderBy('c.weight ASC, p.weight ASC')
       ->execute();
@@ -24,28 +24,24 @@
 <?php endforeach ?>
             </ul>
           </div>
+          <div id="adsense-menu">
+            <?php include_partial('global/adsense_menu') ?>
+          </div>
 
           <div id="pub" style="text-align:justify; font-size:80%">
-            <p>Tu veux changer de semaine avec ton <b>clavier</b>&nbsp;?<br/>
-              Tu souhaites avoir ton emploi du temps sur <b>Google Agenda</b> ou un logiciel similaire&nbsp;?<br/>
-              Tout est expliqué sur la <?php echo link_to('FAQ', '@page?url=faq', 'style="padding:0"') ?>&nbsp;!
+            <p>Des questions ?<br/>
+              Tout est expliqué dans la <?php echo link_to('FAQ', 'http://www.pinade.org/pages/Foire-Aux-Questions', 'style="padding:0"') ?>&nbsp;!
             </p>
           </div>
+<?php if(sfConfig::get('sf_environment') == "dev"): ?>
           <div>
             <p>
               <b><a href="<?php echo url_for('@myedt?action=import') ?>">Importez votre agenda&nbsp;!</a></b>
             </p>
           </div>
+<?php endif ?>
           <div id="liens-internes">
-            <b>Liens utiles</b>
-            <ul>
-              <li><?php echo link_to('iariss.fr', 'http://www.iariss.fr/') ?></li>
-              <li><?php echo link_to('Annales', 'http://annales.iariss.fr/') ?></li>
-              <li><?php echo link_to('Trombinoscope', 'http://trombi.iariss.fr/') ?></li>
-<!--               <li><?php echo link_to('BDE ENSISA', 'http://www.ensisa.info/') ?></li> -->
-              <li><?php echo link_to('emploisdutemps.uha.fr',
-              'https://www.emploisdutemps.uha.fr/') ?></li>
-            </ul>
+            <?php include_partial('global/liens_utiles') ?>
           </div>
         <?php if(count($stylesheets = sfConfig::get('app_css'))): ?>
         <div id="stylesheet">

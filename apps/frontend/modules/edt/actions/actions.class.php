@@ -43,7 +43,7 @@ class edtActions extends sfActions
     $this->categorie = Doctrine_Core::getTable('Categorie')
       ->createQuery('c')
       ->leftJoin('c.Promotions p')
-      ->where('c.url = ?', array($request->getParameter('categorie')))
+      ->andwhere('c.url = ?', array($request->getParameter('categorie')))
       ->orderBy('p.weight ASC')
       ->execute()
       ->getFirst();
@@ -62,7 +62,7 @@ class edtActions extends sfActions
     $this->promotion = Doctrine_Core::getTable('Promotion')
       ->createQuery('p')
       ->leftJoin('p.Categorie c')
-      ->where('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
+      ->andwhere('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
       ->execute()
       ->getFirst();
     $this->forward404Unless($this->promotion);
@@ -70,7 +70,7 @@ class edtActions extends sfActions
     $this->categorie = $this->promotion->getCategorie();
 
     $this->semaine = $this->promotion->getAdeWeekNumber($request->getParameter('semaine'));
-    $this->semaine_suivante = $this->semaine + 1;
+    $this->semaine_suivante = min(51, $this->semaine + 1);
     // Pas de semaine négative !
     $this->semaine_precedente = max(0, $this->semaine - 1);
 
@@ -78,7 +78,7 @@ class edtActions extends sfActions
     $adeImage = new AdeImage($this->promotion, $this->semaine);
 
     $this->image_path = sfConfig::get('sf_web_dir').$adeImage->getWebPath();
-    if(file_exists($this->image_path)) // L'image existe, elle se 
+    if(file_exists($this->image_path)) // L'image existe, elle se mettra à jour lors de sa propre requête
       $this->image_mtime = filemtime($this->image_path);
     else
     {
@@ -86,7 +86,9 @@ class edtActions extends sfActions
       if(file_exists($this->image_path))
         $this->image_mtime = filemtime($this->image_path);
       else
-        $this->forward404();
+        $this->forward404("L'image ".$this->image_path." n'existe pas (promo ".$this->promotion->getId()
+          .", url ".$request->getParameter('categorie')."/".$request->getParameter('promo')."/".$this->semaine.")."
+          ."Echec probable du telechargement");
       
     }
     $this->diff_day = (time() - $this->image_mtime)/(60*60*24);
@@ -99,6 +101,11 @@ class edtActions extends sfActions
     $this->timestamp = $this->promotion->getTimestamp($this->semaine);
     // Notice
     $this->notice = $this->promotion->getWeekMessage($this->semaine);
+
+    $this->getResponse()->setHttpHeader('Link', '<'.$this->generateUrl("image", array(
+        'categorie' => $this->categorie->getUrl(),
+        'promo'     => $this->promotion->getUrl(),
+        'semaine'   => ''), 1).'>; rel="canonical"');
   }
 
   public function executeError404(sfWebRequest $request)
