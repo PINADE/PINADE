@@ -12,6 +12,8 @@ if(preg_match("@^([-a-z0-9]+)\.pinade.*@", $_SERVER['SERVER_NAME'], $matches))
     case "lyon1-bio":
     case "lyon1-info":
     case "lyon1-iufm":
+    case "lyon1-prepa":
+
     case "istil-gbm":
     case "istil-info":
     case "istil-mam":
