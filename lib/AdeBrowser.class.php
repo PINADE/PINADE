@@ -57,7 +57,7 @@ class AdeBrowser
     if(strpos($this->content, "Deconnected") !== false)
     {
       // Le cookie n'est pas trouvé
-      throw new sfAdeException("Problème d'authentification ADE (Deconnected)");
+      throw new sfAdeException("Problème d'authentification ADE (Deconnected) : mauvais projectId ?");
     }
 
     return $this->content;
