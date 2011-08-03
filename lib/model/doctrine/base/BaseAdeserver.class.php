@@ -10,20 +10,23 @@
  * @property string $identifier
  * @property string $ade_url
  * @property string $login
+ * @property string $login_ade_project_id
  * @property Doctrine_Collection $Edts
  * 
- * @method string              getNom()         Returns the current record's "nom" value
- * @method string              getDescription() Returns the current record's "description" value
- * @method string              getIdentifier()  Returns the current record's "identifier" value
- * @method string              getAdeUrl()      Returns the current record's "ade_url" value
- * @method string              getLogin()       Returns the current record's "login" value
- * @method Doctrine_Collection getEdts()        Returns the current record's "Edts" collection
- * @method Adeserver           setNom()         Sets the current record's "nom" value
- * @method Adeserver           setDescription() Sets the current record's "description" value
- * @method Adeserver           setIdentifier()  Sets the current record's "identifier" value
- * @method Adeserver           setAdeUrl()      Sets the current record's "ade_url" value
- * @method Adeserver           setLogin()       Sets the current record's "login" value
- * @method Adeserver           setEdts()        Sets the current record's "Edts" collection
+ * @method string              getNom()                  Returns the current record's "nom" value
+ * @method string              getDescription()          Returns the current record's "description" value
+ * @method string              getIdentifier()           Returns the current record's "identifier" value
+ * @method string              getAdeUrl()               Returns the current record's "ade_url" value
+ * @method string              getLogin()                Returns the current record's "login" value
+ * @method string              getLoginAdeProjectId()    Returns the current record's "login_ade_project_id" value
+ * @method Doctrine_Collection getEdts()                 Returns the current record's "Edts" collection
+ * @method Adeserver           setNom()                  Sets the current record's "nom" value
+ * @method Adeserver           setDescription()          Sets the current record's "description" value
+ * @method Adeserver           setIdentifier()           Sets the current record's "identifier" value
+ * @method Adeserver           setAdeUrl()               Sets the current record's "ade_url" value
+ * @method Adeserver           setLogin()                Sets the current record's "login" value
+ * @method Adeserver           setLoginAdeProjectId()    Sets the current record's "login_ade_project_id" value
+ * @method Adeserver           setEdts()                 Sets the current record's "Edts" collection
  * 
  * @package    edt
  * @subpackage model
@@ -54,6 +57,10 @@ abstract class BaseAdeserver extends sfDoctrineRecord
              'length' => 255,
              ));
         $this->hasColumn('login', 'string', 255, array(
+             'type' => 'string',
+             'length' => 255,
+             ));
+        $this->hasColumn('login_ade_project_id', 'string', 255, array(
              'type' => 'string',
              'length' => 255,
              ));

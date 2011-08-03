@@ -87,6 +87,7 @@ Adeserver:
     identifier:         { type: string(255) }
     ade_url:            { type: string(255) }
     login:              { type: string(255) }
+    login_ade_project_id:     { type: string(255) }
   relations:
     Edts:  { class: Edt, local: id, foreign: adeserver_id, type: many }
 
