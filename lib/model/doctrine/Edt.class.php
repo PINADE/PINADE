@@ -12,4 +12,14 @@
  */
 class Edt extends BaseEdt
 {
+
+  public function getIdentifier()
+  {
+    return $this->getAdeserver()->getIdentifier();
+  }
+
+  public function getAdeUrl()
+  {
+    return $this->getAdeserver()->getAdeUrl();
+  }
 }
