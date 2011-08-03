@@ -1,8 +1,8 @@
 <?php slot('title'); ?>Accueil<?php end_slot() ?>
 <h1>
-  Bienvenue sur le site de <b>votre</b> emploi du temps.
+  Emplois du temps <?php include_partial('global/nom_edt') ?>
 </h1>
-
+<span class="note-accueil">Ce site n'est <b>pas</b> officiel et donne les emplois du temps à titre indicatif. Plus d'informations sur <a href="http://www.pinade.org/">pinade.org</a>.</span>
 
 <h2>Les emplois du temps sélectionnés</h2>
 
@@ -26,3 +26,4 @@
 <?php endforeach ?>
 </ul>
 
+<?php include_partial('global/adsense_lb') ?>

@@ -8,6 +8,15 @@ default:
 
 _menu:
   enabled:    on
+  contextual: true
 
 _pied:
   enabled:    on
+
+_nom_edt:
+  enabled:    on
+  lifetime:   86400
+
+_liens_utiles:
+  enabled:    on
+  lifetime:   86400

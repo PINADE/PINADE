@@ -55,7 +55,7 @@ class cronActions extends sfActions
     
     $promotions = Doctrine_Core::getTable('Promotion')
       ->createQuery('p')
-      ->where("p.branch_id != ''")
+      ->andWhere("p.branch_id != ''")
       ->execute();
 
 
@@ -92,62 +92,7 @@ class cronActions extends sfActions
       $this->redirect('@homepage');
     }
 
-    $browser = new AdeBrowser();
 
-    // Emulates query for display an arbitrary image
-    // Select Project
-    $browser->getUrl(sfConfig::get('app_ade_url').'standard/gui/interface.jsp', 'projectId='.sfConfig::get('app_ade_project_id').'&x=41&y=9');
-    // Mandatory (because of ADE)
-    $browser->getUrl(sfConfig::get('app_ade_url').'custom/modules/plannings/plannings.jsp');
-    // Select groups of students
-    $browser->getUrl(sfConfig::get('app_ade_url').'standard/gui/tree.jsp?category=trainee&expand=false&forceLoad=false&reload=false&scroll=0');
-    // Select a group (ENSISA Lumiere)
-    $browser->getUrl(sfConfig::get('app_ade_url').'standard/gui/tree.jsp?branchId=199&reset=true&forceLoad=false&scroll=0');
-    // Select a group (Ingénieurs)
-    $browser->getUrl(sfConfig::get('app_ade_url').'standard/gui/tree.jsp?branchId=203&reset=false&forceLoad=false&scroll=0');
-    // Select a group (3A)
-    $browser->getUrl(sfConfig::get('app_ade_url').'standard/gui/tree.jsp?branchId=143&reset=false&forceLoad=false&scroll=0');
-    // "Click" on a group (3A Info S5)
-    $browser->getUrl(sfConfig::get('app_ade_url').'standard/gui/tree.jsp?selectBranchId=145&reset=true&forceLoad=false&scroll=0');
-    // Get the page with the link to the image
-    $imagemap = $browser->getUrl(sfConfig::get('app_ade_url').'custom/modules/plannings/imagemap.jsp?width=1306&height=315');
-
-    // Get the identifier 
-    preg_match("@identifier=([0-9a-f]{32})@", $imagemap, $matches);
-    if(count($matches)) // If the identifier is found
-    {
-      $identifier = $matches[1];
-      $this->identifier = $identifier;
-
-      // Open the settings.yml, change the identifier, and rewrite it
-      // Be careful : the number of spaces before ade_identifier is important
-      $config_file = sfConfig::get('sf_app_config_dir').'/app.yml';
-      $ade_config = file_get_contents($config_file);
-      $ade_config = preg_replace(
-        '@(\s+)ade_identifier:\s+\'[0-9a-f]{32}\'@',
-        '$1ade_identifier:  \''.$identifier.'\'',
-        $ade_config);
-      file_put_contents($config_file, $ade_config);
-
-      // We clear the cache !
-      $this->clearCache();
-    }
-    else
-    {
-      $this->identifier = "Identifier not found !";
-      $this->imagemap = $imagemap;
-      $this->getMailer()->composeAndSend(
-        sfConfig::get('app_email_from'),
-        sfConfig::get('app_email_to'),
-        $_SERVER['SERVER_NAME'].' : identifier ADE non trouvé',
-        $_SERVER['SERVER_NAME']." a tenté d'obtenir un nouvel identifier ADE mais a échoué. Les images ne seront plus mises à jour.
-Pour réparer le code source, rendez-vous dans ".__FILE__."
-Merci d'avance,
-Amicalement
--- 
-L'emploi du temps IARISS - ".$_SERVER['SERVER_NAME']
-      );
-    }
   }
 
   protected function clearCache()

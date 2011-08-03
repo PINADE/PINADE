@@ -16,4 +16,13 @@ class CategorieTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Categorie');
     }
+    public function createQuery($alias = '')
+    {
+      if(defined('NOM_EDT'))
+        return parent::createQuery($alias)
+          ->leftJoin($alias.'.Edt e')
+          ->where('e.nom = ?', NOM_EDT);
+      else
+        return parent::createQuery($alias);
+    }
 }

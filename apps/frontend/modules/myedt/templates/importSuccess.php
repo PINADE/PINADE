@@ -27,6 +27,16 @@
   <input type="text" name="nom" id="nom"  value="<?php echo $sf_request->getParameter('nom') ?>"/><br/>
   <label for="description">Description (facultative)</label> :<br/>
   <textarea id="description" name="description"  style="width:90%; height:3em" placeholder="Cours de MIAGE 1, groupe TD 1, TP2"><?php echo $sf_request->getParameter('description') ?></textarea><br/>
+
+  <label for="categorie-id">Catégorie :</label>
+  <select name="categorie_id" id="categorie-id">
+<?php foreach($categories as $categorie): ?>
+    <option value="<?php echo $categorie->getId() ?>"><?php echo $categorie ?></option>
+
+<?php endforeach ?>
+  </select>
+  <br/>
+
   <input type="submit" value="Importer l'image !" />
 
 

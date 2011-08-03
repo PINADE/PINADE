@@ -19,6 +19,7 @@ abstract class BaseCategorieFormFilter extends BaseFormFilterDoctrine
       'logo'        => new sfWidgetFormFilterInput(),
       'weight'      => new sfWidgetFormFilterInput(),
       'in_menu'     => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
+      'edt_id'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Edt'), 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
@@ -28,6 +29,7 @@ abstract class BaseCategorieFormFilter extends BaseFormFilterDoctrine
       'logo'        => new sfValidatorPass(array('required' => false)),
       'weight'      => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'in_menu'     => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
+      'edt_id'      => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Edt'), 'column' => 'id')),
     ));
 
     $this->widgetSchema->setNameFormat('categorie_filters[%s]');
@@ -54,6 +56,7 @@ abstract class BaseCategorieFormFilter extends BaseFormFilterDoctrine
       'logo'        => 'Text',
       'weight'      => 'Number',
       'in_menu'     => 'Boolean',
+      'edt_id'      => 'ForeignKey',
     );
   }
 }

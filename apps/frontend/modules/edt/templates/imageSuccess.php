@@ -1,7 +1,9 @@
+          <?php include_partial('global/adsense_imagetop') ?>
           <?php include_partial('title', array('categorie' => $categorie, 'promotion' => $promotion)) ?>
+          <h3 class="nom-edt-image"><?php include_partial('global/nom_edt') ?></h3>
 
 
-          <h1 id="title"><?php include_slot('title') ?></h1>
+          <h1 id="title">Emploi du temps <?php include_slot('title') ?></h1>
 
           <h2 id="semaine">
             Semaine du <b><?php echo strftime("%e %B %G", $timestamp + 2*60*60) ?></b> au <b><?php echo  strftime("%e %B %G", intval($timestamp) + 5*24*60*60 - 1 ) ?></b>
@@ -35,12 +37,13 @@
           <p>Pas d'emploi du temps cette semaine.</p>
 <?php endif ?>
 
+<?php include_partial('global/adsense_lb') ?>
 
           <!-- raccourci clavier gauche/droite -->
           <script type="text/javascript">
           document.onkeydown=function(e){
             //Internet Explorer ne prend pas d'objet Event en paramètre, il faut donc aller le chercher dans l'objet window 
-            if (typeof event == "undefined" ) e = window.event;
+            if (typeof e == "undefined" ) e = window.event;
 
             if(e.which == 37)
             {
@@ -67,4 +70,4 @@
           </form>
 
 <br/>
-<?php echo link_to("Ajouter à Google Agenda", "http://www.google.com/calendar/render?cid=".urlencode(url_for("@ical?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl(), true))) ?>
+<?php // echo link_to("Ajouter à Google Agenda", "http://www.google.com/calendar/render?cid=".urlencode(url_for("@ical?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl(), true))) ?>

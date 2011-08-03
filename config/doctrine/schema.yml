@@ -13,8 +13,10 @@ Categorie:
     logo:               { type: string(255) }
     weight:             { type: integer, default: 0 }
     in_menu:            { type: boolean, default: false }
+    edt_id:             { type: integer }
   relations:
-    Promotions:  { class: Promotion, local: id, foreign: categorie_id, type: many }
+    Promotions: { class: Promotion, local: id, foreign: categorie_id, type: many }
+    Edt:        { local: edt_id, foreign: id, type: one }
   indexes:
     index_nom:
       fields: [url]
@@ -61,4 +63,28 @@ Page:
   indexes:
     index_nom:
       fields: [url]
+
+Edt:
+  actAs:  { Timestampable: ~ }
+  columns:
+    nom:                { type: string(255), notnull: true, unique: true }
+    description:        { type: string(255) }
+    ade_project_id:     { type: string(255) }
+    liens_utiles:       { type: string(4000) }
+    adeserver_id:       { type: integer }
+  relations:
+    Categories: { class: Categorie, local: id, foreign: edt_id, type: many }
+    Adeserver:  { local: adeserver_id, foreign: id, type: one }
+
+Adeserver:
+  actAs:   {  Timestampable: ~ }
+  columns:
+    nom:                { type: string(255), notnull: true, unique: true }
+    description:        { type: string(4000) }
+    identifier:         { type: string(255) }
+    ade_url:            { type: string(255) }
+    login:              { type: string(255) }
+    login_ade_project_id:     { type: string(255) }
+  relations:
+    Edts:  { class: Edt, local: id, foreign: adeserver_id, type: many }
 
