@@ -7,9 +7,6 @@ default:
     content-type: text/html
 
   metas:
-    title:        Emploi du temps
-    description:  Emploi du temps de l'ENSISA - IARISS
-    keywords:     Emploi du temps, edt, IARISS, UHA, ENSISA
     language:     fr
     #robots:       index, follow
 
