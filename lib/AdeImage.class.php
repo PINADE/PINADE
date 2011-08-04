@@ -102,7 +102,7 @@ class AdeImage
       // Suppression du fichier temporaire
       unlink($tempname);
     }
-
+    return (strlen($this->error) == 0);
   }
 
   public function getPath()
