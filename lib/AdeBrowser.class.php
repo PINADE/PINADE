@@ -16,6 +16,11 @@ class AdeBrowser
     $curl_handle,
     $content;
 
+  public function __construct()
+  {
+    $this->initCookiesFile();
+  }
+
   public function getUrl($url, $post_fields = null)
   {
     return $this->ProcessUrl($url, $post_fields);
@@ -63,4 +68,13 @@ class AdeBrowser
     return $this->content;
   }  
 
+  // Rend le fichier accessible en rw pour tout le monde
+  // ie en CLI + Apache
+  protected function initCookiesFile()
+  {
+    if(!file_exists($file = sfConfig::get('app_ade_cookiefile')))
+      touch($file);
+
+    @chmod($file, 0666);
+  }
 }
