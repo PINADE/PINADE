@@ -7,7 +7,7 @@ default:
     content-type: text/html
 
   metas:
-    language:     fr
+#    language:     fr
     #robots:       index, follow
 
   stylesheets:    [base.min.css, modele07.min.css ]
