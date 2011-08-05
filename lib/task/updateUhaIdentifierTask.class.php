@@ -10,8 +10,8 @@ class updateUhaIdentifierTask extends updateIdentifierTask
     // ade_server_name : le nom de l'adeserver dans la base de données
     parent::configure();
 
-    $this->name = "identifier-ensisa";
-    $this->ade_server_name = "ensisa";
+    $this->name = "identifier-uha";
+    $this->ade_server_name = "uha";
 
     $this->urls = array(
       'custom/modules/plannings/plannings.jsp', // Mandatory (because of ADE)
@@ -34,13 +34,15 @@ class updateUhaIdentifierTask extends updateIdentifierTask
     $this->logSection('auth', 'get "lt" parameter from cas.uha.fr ');
     $login_page = file_get_contents("https://cas.uha.fr/cas/login");
     $pattern = '@name="lt" value="([^"]+)" />@';
-    preg_match($pattern, $login_page, $matches);
+    if(preg_match($pattern, $login_page, $matches) == 0)
+      throw new Exception("Pas de token 'lt' dans la page cas.uha.fr");
+
     $lt = $matches[1];
 
     $this->logSection('auth', "lt parameter got : $lt");
 
     /* Get CAS Cookie and link to emploidutemps.uha.fr */
-    $data_string = base64_decode($this->edt->getLogin())."&lt=$lt";
+    $data_string = base64_decode($this->ade_server->getLogin())."&lt=$lt";
     $handle = curl_init($url = "https://cas.uha.fr/cas/login?service=http://www.emploisdutemps.uha.fr:80/ade/standard/gui/interface.jsp");
     curl_setopt($handle, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded')); 
     curl_setopt($handle, CURLOPT_POST, true);
@@ -60,7 +62,9 @@ class updateUhaIdentifierTask extends updateIdentifierTask
 
     /* Get ticket */
     $pattern = '@window.location.href="([^"]+)@';
-    preg_match($pattern, $content, $matches);
+    if(preg_match($pattern, $content, $matches) == 0)
+      throw new Exception("Redirection javascript non trouvee après authentification sur cas.uha.fr. Mauvais login/mdp ?");
+
     $link_edt = $matches[1];
 
     $this->logSection('auth', 'got edt link : "'.$link_edt.'" ');
