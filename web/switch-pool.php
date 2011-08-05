@@ -21,6 +21,9 @@ if(preg_match("@^([-a-z0-9]+)\.pinade.*@", $_SERVER['SERVER_NAME'], $matches))
     case "istil-mat":
     case "istil-si":
     case "istil-meca":
+
+    case "esisar":
+
       define('NOM_EDT', $edt);
       break;
     default:
