@@ -8,7 +8,7 @@
         </p>
         <div class="social">Vous aimez <?php echo $_SERVER['SERVER_NAME'] ?>&nbsp;? Dites le !  
           <div class="social-button"><div class="g-plusone" data-size="medium" data-count="true" data-href="<?php echo url_for("@homepage", true) ?>"></div></div>
-          <div class="social-button"><iframe src="http://www.facebook.com/plugins/like.php?app_id=198451846877677&amp;href=<?php echo urlencode(url_for("@homepage", true)) ?>&amp;send=false&amp;layout=button_count&amp;width=90&amp;show_faces=false&amp;action=like&amp;colorscheme=dark&amp;font=verdana&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:21px;" allowTransparency="true" style="vertical-align:middle"></iframe></div>
+          <div class="social-button"><iframe src="http://www.facebook.com/plugins/like.php?app_id=198451846877677&amp;href=<?php echo urlencode(url_for("@homepage", true)) ?>&amp;send=false&amp;layout=button_count&amp;width=90&amp;show_faces=false&amp;action=like&amp;colorscheme=dark&amp;font=verdana&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:90px; height:21px;" allowTransparency="true"></iframe></div>
         </div>
       </div>
 
