@@ -16,7 +16,7 @@ class myedtActions extends sfActions
     $this->categories = Doctrine_Core::getTable('Categorie')
       ->createQuery('c')
       ->execute();
-
+    $this->categorie_id = $this->getUser()->getAttribute('pinade/categorie_id');
   }
 
   public function executeCreateFromImport(sfWebRequest $request)
@@ -90,6 +90,8 @@ class myedtActions extends sfActions
     $promotion->setInMenu(true);
     $promotion->setStartTimestamp(sfConfig::get('app_ade_default_start_timestamp'));
     $promotion->save();
+
+    $this->getUser()->setAttribute('pinade/categorie_id', $categorie->getId());
 
     $this->redirect('@image?categorie='.$categorie->getUrl().'&promo='.$promotion->getNom().'&semaine=');
 

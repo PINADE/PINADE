@@ -31,7 +31,9 @@
   <label for="categorie-id">Catégorie :</label>
   <select name="categorie_id" id="categorie-id">
 <?php foreach($categories as $categorie): ?>
-    <option value="<?php echo $categorie->getId() ?>"><?php echo $categorie ?></option>
+    <option value="<?php echo $categorie->getId() ?>"
+    <?php echo ($categorie_id == $categorie->getId()) ? "selected='selected'" : "" ?>
+    ><?php echo $categorie ?></option>
 
 <?php endforeach ?>
   </select>
