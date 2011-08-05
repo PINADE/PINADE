@@ -71,3 +71,14 @@
 
 <br/>
 <?php // echo link_to("Ajouter à Google Agenda", "http://www.google.com/calendar/render?cid=".urlencode(url_for("@ical?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl(), true))) ?>
+
+<?php if(sfConfig::get('app_enable_preload', false)): ?>
+<span id='preload-img'></span>
+<script type="text/javascript">
+setTimeout(function() {
+  document.getElementById('preload-img').style.cssText="background:url(<?php echo url_for("@image_img?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=$semaine_suivante") ?>/img.gif)";
+  console.log("preload de l'image suivante");
+}, 3500);
+</script>
+<?php endif ?>
+

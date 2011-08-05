@@ -12,6 +12,9 @@ all:
     ade_display_mode: '1057855'
     ade_display_conf_id: '8'
 
+    # Active le préchargement de l'image de l'edt avec une image en background
+    enable_preload:  true
+
     ade_cookiefile: %SF_APP_CACHE_DIR%/cookies.txt
 
     # Timestamp utilisé pour calculer le numéro de semaine PINADE<->ADE
