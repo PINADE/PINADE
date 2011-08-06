@@ -44,4 +44,6 @@
 
 </form>
 
-
+<script type="text/javascript">
+  document.getElementById("nom").focus();
+</script>
