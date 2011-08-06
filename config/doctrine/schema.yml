@@ -60,9 +60,6 @@ Page:
     url:                { type: string(255), notnull: true, unique: true }
     title:              { type: string(255) }
     text:               { type: string(4000) }
-  indexes:
-    index_nom:
-      fields: [url]
 
 Edt:
   actAs:  { Timestampable: ~ }
