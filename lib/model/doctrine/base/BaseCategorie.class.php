@@ -73,7 +73,7 @@ abstract class BaseCategorie extends sfDoctrineRecord
              ));
 
 
-        $this->index('index_nom', array(
+        $this->index('url', array(
              'fields' => 
              array(
               0 => 'url',

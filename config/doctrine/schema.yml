@@ -18,7 +18,7 @@ Categorie:
     Promotions: { class: Promotion, local: id, foreign: categorie_id, type: many }
     Edt:        { local: edt_id, foreign: id, type: one }
   indexes:
-    index_nom:
+    url:
       fields: [url]
 
 Promotion:
@@ -42,7 +42,7 @@ Promotion:
     Categorie:  { local: categorie_id, foreign: id, type: one }
     Messages:   { class: Message, local: id, foreign: promotion_id, type: many }
   indexes:
-    index_nom:
+    url:
       fields: [url]
 
 Message:
