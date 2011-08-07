@@ -10,4 +10,4 @@ web/images/edt/*
 config/databases.yml
 apps/frontend/templates/_adsense_*
 web/google*.html
-
+data/fixtures/*
