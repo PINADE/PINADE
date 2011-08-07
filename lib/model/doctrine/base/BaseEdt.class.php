@@ -10,23 +10,35 @@
  * @property string $ade_project_id
  * @property string $liens_utiles
  * @property integer $adeserver_id
+ * @property string $id_piano_day
+ * @property integer $start_timestamp
+ * @property integer $width
+ * @property integer $height
  * @property Doctrine_Collection $Categories
  * @property Adeserver $Adeserver
  * 
- * @method string              getNom()            Returns the current record's "nom" value
- * @method string              getDescription()    Returns the current record's "description" value
- * @method string              getAdeProjectId()   Returns the current record's "ade_project_id" value
- * @method string              getLiensUtiles()    Returns the current record's "liens_utiles" value
- * @method integer             getAdeserverId()    Returns the current record's "adeserver_id" value
- * @method Doctrine_Collection getCategories()     Returns the current record's "Categories" collection
- * @method Adeserver           getAdeserver()      Returns the current record's "Adeserver" value
- * @method Edt                 setNom()            Sets the current record's "nom" value
- * @method Edt                 setDescription()    Sets the current record's "description" value
- * @method Edt                 setAdeProjectId()   Sets the current record's "ade_project_id" value
- * @method Edt                 setLiensUtiles()    Sets the current record's "liens_utiles" value
- * @method Edt                 setAdeserverId()    Sets the current record's "adeserver_id" value
- * @method Edt                 setCategories()     Sets the current record's "Categories" collection
- * @method Edt                 setAdeserver()      Sets the current record's "Adeserver" value
+ * @method string              getNom()             Returns the current record's "nom" value
+ * @method string              getDescription()     Returns the current record's "description" value
+ * @method string              getAdeProjectId()    Returns the current record's "ade_project_id" value
+ * @method string              getLiensUtiles()     Returns the current record's "liens_utiles" value
+ * @method integer             getAdeserverId()     Returns the current record's "adeserver_id" value
+ * @method string              getIdPianoDay()      Returns the current record's "id_piano_day" value
+ * @method integer             getStartTimestamp()  Returns the current record's "start_timestamp" value
+ * @method integer             getWidth()           Returns the current record's "width" value
+ * @method integer             getHeight()          Returns the current record's "height" value
+ * @method Doctrine_Collection getCategories()      Returns the current record's "Categories" collection
+ * @method Adeserver           getAdeserver()       Returns the current record's "Adeserver" value
+ * @method Edt                 setNom()             Sets the current record's "nom" value
+ * @method Edt                 setDescription()     Sets the current record's "description" value
+ * @method Edt                 setAdeProjectId()    Sets the current record's "ade_project_id" value
+ * @method Edt                 setLiensUtiles()     Sets the current record's "liens_utiles" value
+ * @method Edt                 setAdeserverId()     Sets the current record's "adeserver_id" value
+ * @method Edt                 setIdPianoDay()      Sets the current record's "id_piano_day" value
+ * @method Edt                 setStartTimestamp()  Sets the current record's "start_timestamp" value
+ * @method Edt                 setWidth()           Sets the current record's "width" value
+ * @method Edt                 setHeight()          Sets the current record's "height" value
+ * @method Edt                 setCategories()      Sets the current record's "Categories" collection
+ * @method Edt                 setAdeserver()       Sets the current record's "Adeserver" value
  * 
  * @package    edt
  * @subpackage model
@@ -58,6 +70,23 @@ abstract class BaseEdt extends sfDoctrineRecord
              ));
         $this->hasColumn('adeserver_id', 'integer', null, array(
              'type' => 'integer',
+             ));
+        $this->hasColumn('id_piano_day', 'string', 255, array(
+             'type' => 'string',
+             'default' => '0,1,2,3,4',
+             'length' => 255,
+             ));
+        $this->hasColumn('start_timestamp', 'integer', null, array(
+             'type' => 'integer',
+             'default' => 1283119200,
+             ));
+        $this->hasColumn('width', 'integer', null, array(
+             'type' => 'integer',
+             'default' => 800,
+             ));
+        $this->hasColumn('height', 'integer', null, array(
+             'type' => 'integer',
+             'default' => 600,
              ));
     }
 

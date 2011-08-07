@@ -19,15 +19,10 @@ abstract class BasePromotionFormFilter extends BaseFormFilterDoctrine
       'categorie_id'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Categorie'), 'add_empty' => true)),
       'weight'           => new sfWidgetFormFilterInput(),
       'in_menu'          => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
-      'project_id'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'id_tree'          => new sfWidgetFormFilterInput(),
       'branch_id'        => new sfWidgetFormFilterInput(),
       'select_branch_id' => new sfWidgetFormFilterInput(),
       'select_id'        => new sfWidgetFormFilterInput(),
-      'id_piano_day'     => new sfWidgetFormFilterInput(),
-      'start_timestamp'  => new sfWidgetFormFilterInput(),
-      'width'            => new sfWidgetFormFilterInput(),
-      'height'           => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
@@ -37,15 +32,10 @@ abstract class BasePromotionFormFilter extends BaseFormFilterDoctrine
       'categorie_id'     => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Categorie'), 'column' => 'id')),
       'weight'           => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'in_menu'          => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
-      'project_id'       => new sfValidatorPass(array('required' => false)),
       'id_tree'          => new sfValidatorPass(array('required' => false)),
       'branch_id'        => new sfValidatorPass(array('required' => false)),
       'select_branch_id' => new sfValidatorPass(array('required' => false)),
       'select_id'        => new sfValidatorPass(array('required' => false)),
-      'id_piano_day'     => new sfValidatorPass(array('required' => false)),
-      'start_timestamp'  => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'width'            => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'height'           => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
     ));
 
     $this->widgetSchema->setNameFormat('promotion_filters[%s]');
@@ -72,15 +62,10 @@ abstract class BasePromotionFormFilter extends BaseFormFilterDoctrine
       'categorie_id'     => 'ForeignKey',
       'weight'           => 'Number',
       'in_menu'          => 'Boolean',
-      'project_id'       => 'Text',
       'id_tree'          => 'Text',
       'branch_id'        => 'Text',
       'select_branch_id' => 'Text',
       'select_id'        => 'Text',
-      'id_piano_day'     => 'Text',
-      'start_timestamp'  => 'Number',
-      'width'            => 'Number',
-      'height'           => 'Number',
     );
   }
 }
