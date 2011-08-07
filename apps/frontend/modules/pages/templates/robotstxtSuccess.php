@@ -2,6 +2,7 @@
 User-agent: *
 Disallow: /cookie/
 Disallow: /cron/
+Disallow: /img/
 
 Sitemap: <?php echo url_for('@sitemap', true) ?>
 
