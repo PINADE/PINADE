@@ -28,7 +28,7 @@ Promotion:
     description:        { type: string(4000) }
     categorie_id:       { type: integer, notnull: true }
     weight:             { type: integer, default: 0 }
-    in_menu:            { type: boolean, default: false }
+    in_menu:            { type: boolean, default: true }
     project_id:         { type: string(255), notnull: true }
     id_tree:            { type: string(255) }
     branch_id:          { type: string(255) }

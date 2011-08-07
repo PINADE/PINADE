@@ -90,7 +90,7 @@ abstract class BasePromotion extends sfDoctrineRecord
              ));
         $this->hasColumn('in_menu', 'boolean', null, array(
              'type' => 'boolean',
-             'default' => false,
+             'default' => true,
              ));
         $this->hasColumn('project_id', 'string', 255, array(
              'type' => 'string',
