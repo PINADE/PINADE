@@ -14,6 +14,8 @@
  * @property integer $start_timestamp
  * @property integer $width
  * @property integer $height
+ * @property string $display_mode
+ * @property string $display_conf_id
  * @property Doctrine_Collection $Categories
  * @property Adeserver $Adeserver
  * 
@@ -26,6 +28,8 @@
  * @method integer             getStartTimestamp()  Returns the current record's "start_timestamp" value
  * @method integer             getWidth()           Returns the current record's "width" value
  * @method integer             getHeight()          Returns the current record's "height" value
+ * @method string              getDisplayMode()     Returns the current record's "display_mode" value
+ * @method string              getDisplayConfId()   Returns the current record's "display_conf_id" value
  * @method Doctrine_Collection getCategories()      Returns the current record's "Categories" collection
  * @method Adeserver           getAdeserver()       Returns the current record's "Adeserver" value
  * @method Edt                 setNom()             Sets the current record's "nom" value
@@ -37,6 +41,8 @@
  * @method Edt                 setStartTimestamp()  Sets the current record's "start_timestamp" value
  * @method Edt                 setWidth()           Sets the current record's "width" value
  * @method Edt                 setHeight()          Sets the current record's "height" value
+ * @method Edt                 setDisplayMode()     Sets the current record's "display_mode" value
+ * @method Edt                 setDisplayConfId()   Sets the current record's "display_conf_id" value
  * @method Edt                 setCategories()      Sets the current record's "Categories" collection
  * @method Edt                 setAdeserver()       Sets the current record's "Adeserver" value
  * 
@@ -87,6 +93,16 @@ abstract class BaseEdt extends sfDoctrineRecord
         $this->hasColumn('height', 'integer', null, array(
              'type' => 'integer',
              'default' => 600,
+             ));
+        $this->hasColumn('display_mode', 'string', 255, array(
+             'type' => 'string',
+             'default' => '1057855',
+             'length' => 255,
+             ));
+        $this->hasColumn('display_conf_id', 'string', 255, array(
+             'type' => 'string',
+             'default' => '8',
+             'length' => 255,
              ));
     }
 

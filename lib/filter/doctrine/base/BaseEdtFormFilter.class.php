@@ -22,6 +22,8 @@ abstract class BaseEdtFormFilter extends BaseFormFilterDoctrine
       'start_timestamp' => new sfWidgetFormFilterInput(),
       'width'           => new sfWidgetFormFilterInput(),
       'height'          => new sfWidgetFormFilterInput(),
+      'display_mode'    => new sfWidgetFormFilterInput(),
+      'display_conf_id' => new sfWidgetFormFilterInput(),
       'created_at'      => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'updated_at'      => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
     ));
@@ -36,6 +38,8 @@ abstract class BaseEdtFormFilter extends BaseFormFilterDoctrine
       'start_timestamp' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'width'           => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'height'          => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'display_mode'    => new sfValidatorPass(array('required' => false)),
+      'display_conf_id' => new sfValidatorPass(array('required' => false)),
       'created_at'      => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'updated_at'      => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
     ));
@@ -67,6 +71,8 @@ abstract class BaseEdtFormFilter extends BaseFormFilterDoctrine
       'start_timestamp' => 'Number',
       'width'           => 'Number',
       'height'          => 'Number',
+      'display_mode'    => 'Text',
+      'display_conf_id' => 'Text',
       'created_at'      => 'Date',
       'updated_at'      => 'Date',
     );

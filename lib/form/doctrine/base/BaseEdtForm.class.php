@@ -25,6 +25,8 @@ abstract class BaseEdtForm extends BaseFormDoctrine
       'start_timestamp' => new sfWidgetFormInputText(),
       'width'           => new sfWidgetFormInputText(),
       'height'          => new sfWidgetFormInputText(),
+      'display_mode'    => new sfWidgetFormInputText(),
+      'display_conf_id' => new sfWidgetFormInputText(),
       'created_at'      => new sfWidgetFormDateTime(),
       'updated_at'      => new sfWidgetFormDateTime(),
     ));
@@ -40,6 +42,8 @@ abstract class BaseEdtForm extends BaseFormDoctrine
       'start_timestamp' => new sfValidatorInteger(array('required' => false)),
       'width'           => new sfValidatorInteger(array('required' => false)),
       'height'          => new sfValidatorInteger(array('required' => false)),
+      'display_mode'    => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'display_conf_id' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'created_at'      => new sfValidatorDateTime(),
       'updated_at'      => new sfValidatorDateTime(),
     ));

@@ -68,6 +68,8 @@ Edt:
     start_timestamp:    { type: integer, default: 1283119200 }
     width:              { type: integer, default: 800 }
     height:             { type: integer, default: 600 }
+    display_mode:       { type: string(255), default:'1057855' }
+    display_conf_id:    { type: string(255), default:'8' }
   relations:
     Categories: { class: Categorie, local: id, foreign: edt_id, type: many }
     Adeserver:  { local: adeserver_id, foreign: id, type: one }

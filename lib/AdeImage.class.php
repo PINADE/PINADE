@@ -44,10 +44,10 @@ class AdeImage
       "&width=".$this->edt->getWidth().
       "&height=".$this->edt->getHeight().
       "&lunchName=REPAS".
-      "&displayMode=".sfConfig::get('app_ade_display_mode').
+      "&displayMode=".$this->edt->getDisplayMode().
       "&showLoad=false".
       "&ttl=1283427991552".
-      "&displayConfId=".sfConfig::get('app_ade_display_conf_id');
+      "&displayConfId=".$this->edt->getDisplayConfId();
   }
 
 
