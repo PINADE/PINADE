@@ -95,7 +95,10 @@ class edtActions extends sfActions
 
     // SI l'image a plus de 1 jour, on ne cache pas pour éviter d'afficher le message "image non à jour"
     if($this->diff_day > 1)
+    {
       sfConfig::set('sf_cache', false);
+      $this->getResponse()->setHttpHeader('X-sft-cache', 'not cached, '.date('H:i:s'));
+    }
 
     // Timestamp du lundi, début de semaine
     $this->timestamp = $this->promotion->getTimestamp($this->semaine);
