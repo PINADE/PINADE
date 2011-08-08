@@ -23,10 +23,14 @@ test:
     param:
       delivery_strategy: none
 
-# dev:
+dev:
 #   mailer:
 #     param:
 #       delivery_strategy: none
+  storage:
+    class: sfSessionStorage
+    param:
+      auto_start: true
 
 all:
   routing:
@@ -44,7 +48,7 @@ all:
   storage:
     class: sfSessionStorage
     param:
-      auto_start: true
+      auto_start: false
 
   mailer:
     param:
