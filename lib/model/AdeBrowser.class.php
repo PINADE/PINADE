@@ -14,15 +14,19 @@ class AdeBrowser
     $cas_cookie,
     $ade_ticket,
     $curl_handle,
-    $content;
+    $content,
+    $cookies_init;
 
   public function __construct()
   {
-    $this->initCookiesFile();
+    $cookies_init = false;
   }
 
   public function getUrl($url, $post_fields = null)
   {
+    if(!$this->cookies_init)
+      $this->initCookiesFile();
+
     return $this->ProcessUrl($url, $post_fields);
   }
 
@@ -76,5 +80,7 @@ class AdeBrowser
       touch($file);
 
     @chmod($file, 0666);
+
+    $this->cookies_init = true;
   }
 }

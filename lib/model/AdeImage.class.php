@@ -29,6 +29,7 @@ class AdeImage
       throw new Exception("La catégorie ".$promotion->getCategorie()." de la promotion $promotion doit être liée à un Edt !");
 
     $this->semaine = $semaine;
+
   }
   
   public function getUrl()
@@ -36,17 +37,17 @@ class AdeImage
 
     return $this->edt->getAdeUrl()."imageEt?".
       "identifier=".$this->edt->getIdentifier().
-      "&projectId=".$this->promotion->getProjectId().
+      "&projectId=".$this->edt->getAdeProjectId().
       "&idPianoWeek=".$this->semaine.
-      "&idPianoDay=".$this->promotion->getIdPianoDay().
+      "&idPianoDay=".$this->edt->getIdPianoDay().
       "&idTree=".$this->promotion->getIdTree().
-      "&width=".$this->promotion->getWidth().
-      "&height=".$this->promotion->getHeight().
+      "&width=".$this->edt->getWidth().
+      "&height=".$this->edt->getHeight().
       "&lunchName=REPAS".
-      "&displayMode=".sfConfig::get('app_ade_display_mode').
+      "&displayMode=".$this->edt->getDisplayMode().
       "&showLoad=false".
       "&ttl=1283427991552".
-      "&displayConfId=".sfConfig::get('app_ade_display_conf_id');
+      "&displayConfId=".$this->edt->getDisplayConfId();
   }
 
 
@@ -134,7 +135,7 @@ class AdeImage
    */
   public function getTimestamp()
   {
-    return $this->promotion->getStartTimestamp() + $this->semaine * (60*60*24*7);
+    return $this->edt->getStartTimestamp() + $this->semaine * (60*60*24*7);
   }
 
   public function updateHtml()

@@ -11,15 +11,10 @@
  * @property integer $categorie_id
  * @property integer $weight
  * @property boolean $in_menu
- * @property string $project_id
  * @property string $id_tree
  * @property string $branch_id
  * @property string $select_branch_id
  * @property string $select_id
- * @property string $id_piano_day
- * @property integer $start_timestamp
- * @property integer $width
- * @property integer $height
  * @property Categorie $Categorie
  * @property Doctrine_Collection $Messages
  * 
@@ -29,15 +24,10 @@
  * @method integer             getCategorieId()      Returns the current record's "categorie_id" value
  * @method integer             getWeight()           Returns the current record's "weight" value
  * @method boolean             getInMenu()           Returns the current record's "in_menu" value
- * @method string              getProjectId()        Returns the current record's "project_id" value
  * @method string              getIdTree()           Returns the current record's "id_tree" value
  * @method string              getBranchId()         Returns the current record's "branch_id" value
  * @method string              getSelectBranchId()   Returns the current record's "select_branch_id" value
  * @method string              getSelectId()         Returns the current record's "select_id" value
- * @method string              getIdPianoDay()       Returns the current record's "id_piano_day" value
- * @method integer             getStartTimestamp()   Returns the current record's "start_timestamp" value
- * @method integer             getWidth()            Returns the current record's "width" value
- * @method integer             getHeight()           Returns the current record's "height" value
  * @method Categorie           getCategorie()        Returns the current record's "Categorie" value
  * @method Doctrine_Collection getMessages()         Returns the current record's "Messages" collection
  * @method Promotion           setUrl()              Sets the current record's "url" value
@@ -46,15 +36,10 @@
  * @method Promotion           setCategorieId()      Sets the current record's "categorie_id" value
  * @method Promotion           setWeight()           Sets the current record's "weight" value
  * @method Promotion           setInMenu()           Sets the current record's "in_menu" value
- * @method Promotion           setProjectId()        Sets the current record's "project_id" value
  * @method Promotion           setIdTree()           Sets the current record's "id_tree" value
  * @method Promotion           setBranchId()         Sets the current record's "branch_id" value
  * @method Promotion           setSelectBranchId()   Sets the current record's "select_branch_id" value
  * @method Promotion           setSelectId()         Sets the current record's "select_id" value
- * @method Promotion           setIdPianoDay()       Sets the current record's "id_piano_day" value
- * @method Promotion           setStartTimestamp()   Sets the current record's "start_timestamp" value
- * @method Promotion           setWidth()            Sets the current record's "width" value
- * @method Promotion           setHeight()           Sets the current record's "height" value
  * @method Promotion           setCategorie()        Sets the current record's "Categorie" value
  * @method Promotion           setMessages()         Sets the current record's "Messages" collection
  * 
@@ -90,12 +75,7 @@ abstract class BasePromotion extends sfDoctrineRecord
              ));
         $this->hasColumn('in_menu', 'boolean', null, array(
              'type' => 'boolean',
-             'default' => false,
-             ));
-        $this->hasColumn('project_id', 'string', 255, array(
-             'type' => 'string',
-             'notnull' => true,
-             'length' => 255,
+             'default' => true,
              ));
         $this->hasColumn('id_tree', 'string', 255, array(
              'type' => 'string',
@@ -112,23 +92,6 @@ abstract class BasePromotion extends sfDoctrineRecord
         $this->hasColumn('select_id', 'string', 255, array(
              'type' => 'string',
              'length' => 255,
-             ));
-        $this->hasColumn('id_piano_day', 'string', 255, array(
-             'type' => 'string',
-             'default' => '0,1,2,3,4',
-             'length' => 255,
-             ));
-        $this->hasColumn('start_timestamp', 'integer', null, array(
-             'type' => 'integer',
-             'default' => 1283119200,
-             ));
-        $this->hasColumn('width', 'integer', null, array(
-             'type' => 'integer',
-             'default' => 800,
-             ));
-        $this->hasColumn('height', 'integer', null, array(
-             'type' => 'integer',
-             'default' => 600,
              ));
 
 
