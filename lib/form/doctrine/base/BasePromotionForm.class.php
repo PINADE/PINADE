@@ -22,15 +22,10 @@ abstract class BasePromotionForm extends BaseFormDoctrine
       'categorie_id'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Categorie'), 'add_empty' => false)),
       'weight'           => new sfWidgetFormInputText(),
       'in_menu'          => new sfWidgetFormInputCheckbox(),
-      'project_id'       => new sfWidgetFormInputText(),
       'id_tree'          => new sfWidgetFormInputText(),
       'branch_id'        => new sfWidgetFormInputText(),
       'select_branch_id' => new sfWidgetFormInputText(),
       'select_id'        => new sfWidgetFormInputText(),
-      'id_piano_day'     => new sfWidgetFormInputText(),
-      'start_timestamp'  => new sfWidgetFormInputText(),
-      'width'            => new sfWidgetFormInputText(),
-      'height'           => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
@@ -41,15 +36,10 @@ abstract class BasePromotionForm extends BaseFormDoctrine
       'categorie_id'     => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Categorie'))),
       'weight'           => new sfValidatorInteger(array('required' => false)),
       'in_menu'          => new sfValidatorBoolean(array('required' => false)),
-      'project_id'       => new sfValidatorString(array('max_length' => 255)),
       'id_tree'          => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'branch_id'        => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'select_branch_id' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'select_id'        => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'id_piano_day'     => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'start_timestamp'  => new sfValidatorInteger(array('required' => false)),
-      'width'            => new sfValidatorInteger(array('required' => false)),
-      'height'           => new sfValidatorInteger(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('promotion[%s]');

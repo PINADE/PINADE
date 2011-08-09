@@ -38,7 +38,7 @@ class Promotion extends BasePromotion
       return $number;
 
     //$Epoch_UHA = 1283119200 - (2*24 + 6)*60*60;
-    return max(2, floor((time()- $this->getStartTimestamp())/(60*60*24*7)));
+    return max(2, floor((time()- $this->getCategorie()->getEdt()->getStartTimestamp())/(60*60*24*7)));
   }
 
   /**
@@ -46,6 +46,6 @@ class Promotion extends BasePromotion
    */
   public function getTimestamp($semaineADE)
   {
-    return $this->getStartTimestamp() + $semaineADE * (60*60*24*7);
+    return $this->getCategorie()->getEdt()->getStartTimestamp() + $semaineADE * (60*60*24*7);
   }
 }
