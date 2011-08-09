@@ -25,6 +25,7 @@ if(preg_match("@^([-a-z0-9]+)\.pinade.*@", $_SERVER['SERVER_NAME'], $matches))
     case "esisar":
 
     case "ptours":
+    case "tours-dcem":
       define('NOM_EDT', $edt);
       break;
     default:
