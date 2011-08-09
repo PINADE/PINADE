@@ -28,7 +28,7 @@ class myedtActions extends sfActions
     $url = urldecode($request->getParameter('url'));
     $patterns = array(
       'projectId'   => "@projectId=([\d]+)&@",
-      'idPianoWeek' => "@idPianoWeek=([\d]+)&@",
+      'idPianoWeek' => "@idPianoWeek=([\d,]+)&@",
       'idPianoDay'  => "@idPianoDay=([\d,]+)&@",
       'idTree'      => "@idTree=([\d,]+)&@",
     );
@@ -79,16 +79,12 @@ class myedtActions extends sfActions
     }
 
     $promotion = new Promotion();
-    $promotion->setProjectId($projectId);
-    // $promotion->setIdPianoWeek($idPianoWeek);
-    $promotion->setIdPianoDay($idPianoDay);
     $promotion->setIdTree($idTree);
     $promotion->setCategorieId($categorie->getId());
     $promotion->setNom($nom);
     $promotion->setDescription($request->getParameter('description'));
     $promotion->setUrl($nom);
     $promotion->setInMenu(true);
-    $promotion->setStartTimestamp(sfConfig::get('app_ade_default_start_timestamp'));
     $promotion->save();
 
     $this->getUser()->setAttribute('pinade/categorie_id', $categorie->getId());
