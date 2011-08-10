@@ -9,17 +9,10 @@ all:
     email_from:  admin@example.org
     email_to: ['admin@example.net', 'informatique@example.net']
 
-    ade_display_mode: '1057855'
-    ade_display_conf_id: '8'
-
     # Active le préchargement de l'image de l'edt avec une image en background
     enable_preload:  true
 
     ade_cookiefile: %SF_APP_CACHE_DIR%/cookies.txt
-
-    # Timestamp utilisé pour calculer le numéro de semaine PINADE<->ADE
-    # Doit être celui de minuit du premier jour de l'edt sur ADE
-    ade_default_start_timestamp: '1313359200'
 
     css:
       flat: { title: "Flat" }
