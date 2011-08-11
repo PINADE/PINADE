@@ -1,6 +1,6 @@
 <?php
 
-class updatePtoursIdentifierTask extends updateIdentifierTask
+class updateToursIdentifierTask extends updateIdentifierTask
 {
   protected function configure()
   {
@@ -10,8 +10,8 @@ class updatePtoursIdentifierTask extends updateIdentifierTask
     // ade_server_name : le nom de l'adeserver dans la base de données
     parent::configure();
 
-    $this->name             = 'identifier-ptours';
-    $this->ade_server_name  = 'ptours';
+    $this->name             = 'identifier-tours';
+    $this->ade_server_name  = 'tours';
 
 
     $this->urls = array(
