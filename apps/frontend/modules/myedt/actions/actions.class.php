@@ -20,7 +20,7 @@ class myedtActions extends sfActions
       ->leftJoin('c.Promotions p');
 
     if(defined('NOM_EDT'))
-      $query->addWhere('e.nom_edt = ?', NOM_EDT);
+      $query->addWhere('e.nom = ?', NOM_EDT);
 
     $this->adeservers = $query->execute();
   }
