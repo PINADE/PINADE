@@ -1,8 +1,10 @@
 Information sur la promotion<br/>
 <ul>
+  <li>Adeserver : <b><?php echo $promotion->getCategorie()->getEdt()->getAdeserver() ?></b></li>
+  <li>Edt :       <b><?php echo $promotion->getCategorie()->getEdt() ?></b></li>
   <li>Catégorie : <b><?php echo $promotion->getCategorie() ?></li></b>
   <li>Promo :     <b><?php echo $promotion ?></li></b>
-  <li>Start Timespamp : <b><?php echo strftime("%a %d %b %Y %H:%M:%S", $promotion->getStartTimestamp()) ?></b></li>
+  <li>Start Timespamp : <b><?php echo strftime("%a %d %b %Y %H:%M:%S", $promotion->getCategorie()->getEdt()->getStartTimestamp()) ?></b></li>
   <li>Cookie default : <b><?php echo (!empty($cookie)) ? $cookie : "<i>Pas de cookie</i>" ?></b></li>
 </ul>
 
