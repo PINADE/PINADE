@@ -13,12 +13,16 @@ class myedtActions extends sfActions
 
   public function executeIndex(sfWebRequest $request)
   {
-    $this->adeservers = Doctrine_Core::getTable('Adeserver')
+    $query = Doctrine_Core::getTable('Adeserver')
       ->createQuery('a')
       ->leftJoin('a.Edts e')
       ->leftJoin('e.Categories c')
-      ->leftJoin('c.Promotions p')
-      ->execute();
+      ->leftJoin('c.Promotions p');
+
+    if(defined('NOM_EDT'))
+      $query->addWhere('e.nom_edt = ?', NOM_EDT);
+
+    $this->adeservers = $query->execute();
   }
 
   public function executeImport(sfWebRequest $request)
