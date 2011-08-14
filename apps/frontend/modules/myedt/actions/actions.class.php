@@ -11,6 +11,16 @@
 class myedtActions extends sfActions
 {
 
+  public function executeIndex(sfWebRequest $request)
+  {
+    $this->adeservers = Doctrine_Core::getTable('Adeserver')
+      ->createQuery('a')
+      ->leftJoin('a.Edts e')
+      ->leftJoin('e.Categories c')
+      ->leftJoin('c.Promotions p')
+      ->execute();
+  }
+
   public function executeImport(sfWebRequest $request)
   {
     $this->categories = Doctrine_Core::getTable('Categorie')

@@ -1,40 +1,27 @@
-<h1>Promotions List</h1>
+<h1>Liste des emplois du temps</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Url</th>
-      <th>Nom</th>
-      <th>Description</th>
-      <th>Categorie</th>
-      <th>Id tree</th>
-      <th>Branch</th>
-      <th>Select branch</th>
-      <th>Select</th>
-      <th>Id piano day</th>
-      <th>Width</th>
-      <th>Height</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php foreach ($promotions as $promotion): ?>
-    <tr>
-      <td><a href="<?php echo url_for('myedt/edit?id='.$promotion->getId()) ?>"><?php echo $promotion->getId() ?></a></td>
-      <td><?php echo $promotion->getUrl() ?></td>
-      <td><?php echo $promotion->getNom() ?></td>
-      <td><?php echo $promotion->getDescription() ?></td>
-      <td><?php echo $promotion->getCategorieId() ?></td>
-      <td><?php echo $promotion->getIdTree() ?></td>
-      <td><?php echo $promotion->getBranchId() ?></td>
-      <td><?php echo $promotion->getSelectBranchId() ?></td>
-      <td><?php echo $promotion->getSelectId() ?></td>
-      <td><?php echo $promotion->getIdPianoDay() ?></td>
-      <td><?php echo $promotion->getWidth() ?></td>
-      <td><?php echo $promotion->getHeight() ?></td>
-    </tr>
-    <?php endforeach; ?>
-  </tbody>
-</table>
-
-  <a href="<?php echo url_for('myedt/new') ?>">New</a>
+<ul>
+  <?php foreach($adeservers as $adeserver): ?>
+  <li>
+    <?php echo $adeserver ?>
+      <ul>
+      <?php foreach($adeserver->getEdts() as $edt): ?>
+        <li>
+          <?php echo $edt ?>
+          <ul>
+          <?php foreach($edt->getCategories() as $categorie): ?>
+            <li><?php echo $categorie ?>
+              <ul>
+              <?php foreach($categorie->getPromotions() as $promotion): ?>
+                <li><?php echo link_to($promotion, 'myedt/show?categorie='.$categorie->getUrl().'&promo='.$promotion->getUrl()) ?></li>
+              <?php endforeach ?>
+              </ul>
+            </li>
+          <?php endforeach ?>
+          </ul>
+        </li>
+      <?php endforeach ?>
+      </ul>
+  </li>
+  <?php endforeach ?>
+</ul>
