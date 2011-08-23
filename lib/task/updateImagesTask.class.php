@@ -33,8 +33,8 @@ class updateImagesTask extends sfBaseTask
     $promotions = Doctrine::getTable('Promotion')
       ->createQuery('p')
       ->leftJoin('p.Categorie c')
-      ->leftJoin('c.Edt e')
-      ->addWhere('e.nom = ?', $arguments["edt"])
+      ->leftJoin('c.Edt edt')
+      ->addWhere('edt.nom = ?', $arguments["edt"])
       ->execute();
 
     foreach($promotions as $promotion)
