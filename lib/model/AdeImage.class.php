@@ -98,7 +98,12 @@ class AdeImage
       }
       else
       { // it seems OK, we can write it
-        file_put_contents($filepath, $content);
+        $source = imagecreatefromgif($tempname);
+        $rotate = imagerotate($source, 180, 0);
+        imagegif($rotate, $filepath);
+
+        // Sauvegarde originale
+        // file_put_contents($filepath, $content);
       }
       // Suppression du fichier temporaire
       unlink($tempname);
