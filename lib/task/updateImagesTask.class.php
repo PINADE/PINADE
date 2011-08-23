@@ -21,6 +21,8 @@ class updateImagesTask extends sfBaseTask
 
   protected function execute($arguments = array(), $options = array())
   {
+    define("NOM_EDT", $arguments["edt"]);
+
     // initialize the database connection
     $databaseManager = new sfDatabaseManager($this->configuration);
     $connection = $databaseManager->getDatabase($options['connection'])->getConnection();
