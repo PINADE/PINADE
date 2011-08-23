@@ -32,7 +32,15 @@ Information sur la promotion<br/>
           <a href="<?php echo $image->getWebPath() ?>"><?php echo strftime("%a %d %b %Y %H:%M:%S", $img_mtime) ?></a>
         <?php endif ?>
       </td>
-      <td><?php echo (!empty($notice)) ? ''.nl2br(html_entity_decode($notice)).'' : "<i>Pas de notice</i>" ?></td>
+      <td>
+        <a href="<?php echo url_for('notice', array(
+          'action'      => "show",
+          'categorie'   => $promotion->getCategorie()->getUrl(),
+          'promo'       => $promotion->getUrl(),
+          'semaine'     => $semaine,
+        )) ?>">
+          <?php echo (!empty($notice)) ? ''.nl2br(html_entity_decode($notice)).'' : "<i>Pas de notice</i>" ?></td>
+        </a>
     </tr>
 
 <?php endforeach ?>
