@@ -43,4 +43,46 @@ class pagesActions extends sfActions
     $this->setLayout(false);
     $this->getResponse()->setContentType('text/plain');
   }
+
+  public function executeMessage(sfWebRequest $request)
+  {
+  }
+
+  public function executeMessageprocess(sfWebRequest $request)
+  {
+    $email = $request->getParameter('email');
+    $name  = $request->getParameter('name');
+    $subject  = $request->getParameter('subject');
+    $content = $request->getParameter('content');
+    $cookie = print_r($_COOKIE, 1);
+    $server = $_SERVER['SERVER_NAME'];
+    $useragent = $_SERVER['HTTP_USER_AGENT'];
+    $date = strftime("%c");
+
+
+    $message = $this->getMailer()->compose(
+      array("norepy@pinade.org" => $nom),
+      sfConfig::get('app_email_to'),
+      "[PINADE] $server : $subject",
+      <<<EOF
+Message de {$server}
+Nom : {$nom} ({$email})
+Sujet : {$subject}
+Date : {$date}
+Message :
+{$content}
+
+Cookie : {$cookie}
+User-Agent : {$_SERVER['HTTP_USER_AGENT']}
+-- 
+PINADE - {$_SERVER['SERVER_NAME']}
+EOF
+    );
+
+    $this->getMailer()->send($message);
+
+    $this->getUser()->setFlash('notice', "Votre message a bien été envoyé");
+    $this->redirect('message');
+  }
+
 }

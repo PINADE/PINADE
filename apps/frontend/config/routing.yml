@@ -66,6 +66,16 @@ robotstxt:
   url:  /robots.txt
   param: { module: pages, action: robotstxt }
 
+# Message
+message:
+  url: /message
+  param: { module: pages, action: message }
+
+message_process:
+  url: /message_process
+  param: { module: pages, action: messageprocess }
+
+
 # Page de l'edt pour la semaine courante
 image_default_index:
   url:  /:categorie/:promo
