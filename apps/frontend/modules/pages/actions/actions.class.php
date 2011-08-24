@@ -62,7 +62,7 @@ class pagesActions extends sfActions
 
     $message = $this->getMailer()->compose(
       array("norepy@pinade.org" => $nom),
-      'contact@pinade.org',
+      sfConfig::get('app_email_to'),
       "[PINADE] $server : $subject",
       <<<EOF
 Message de {$server}
