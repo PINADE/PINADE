@@ -252,3 +252,11 @@ img {
   display:inline-block;
   vertical-align:middle;
 }
+
+.notice {
+  border: 1px solid;
+  padding: 5px;
+  margin: 5px;
+  background: #EEE;
+  font-weight: bold;
+}
