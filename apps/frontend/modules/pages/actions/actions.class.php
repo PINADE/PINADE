@@ -46,6 +46,7 @@ class pagesActions extends sfActions
 
   public function executeMessage(sfWebRequest $request)
   {
+    $this->feedback = ($request->getParameter("sent") == "1") ? "Votre message a bien été envoyé" : "";
   }
 
   public function executeMessageprocess(sfWebRequest $request)
@@ -81,8 +82,7 @@ EOF
 
     $this->getMailer()->send($message);
 
-    $this->getUser()->setFlash('notice', "Votre message a bien été envoyé");
-    $this->redirect('message');
+    $this->redirect('@message?sent=1');
   }
 
 }

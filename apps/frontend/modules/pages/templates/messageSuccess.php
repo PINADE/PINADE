@@ -2,8 +2,8 @@
 Vous pouvez envoyer un message à l'administrateur du site <b><?php echo $_SERVER['SERVER_NAME'] ?></b> via le formulaire ci-dessous.<br/>
 Si vous préférez l'email, vous pouvez toujours contacter l'administrateur sur contact-(at)-pinade.org , ou trouver des moyens alternatifs sur <a href="http://pinade.org/pages/Contact">pinade.org</a>.
 
-<?php if ($sf_user->hasFlash('notice')): ?>
-   <div class="notice"><?php echo $sf_user->getFlash('notice') ?></div>
+<?php if (strlen($feedback)): ?>
+   <div class="notice"><?php echo $feedback ?></div>
 <?php endif; ?>
 
 <br/><br/>
