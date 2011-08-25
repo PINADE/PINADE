@@ -59,6 +59,8 @@ class pagesActions extends sfActions
     $server = $_SERVER['SERVER_NAME'];
     $useragent = $_SERVER['HTTP_USER_AGENT'];
     $date = strftime("%c");
+    $ip = $_SERVER['REMOTE_ADDR'];
+    $hostname = gethostbyaddr($ip);
 
 
     $message = $this->getMailer()->compose(
@@ -67,7 +69,7 @@ class pagesActions extends sfActions
       "[PINADE] $server : $subject",
       <<<EOF
 Message de {$server}
-Nom : {$nom} ({$email})
+Nom : {$name} ({$email})
 Sujet : {$subject}
 Date : {$date}
 Message :
@@ -75,6 +77,7 @@ Message :
 
 Cookie : {$cookie}
 User-Agent : {$_SERVER['HTTP_USER_AGENT']}
+IP : {$hostname} ({$ip})
 -- 
 PINADE - {$_SERVER['SERVER_NAME']}
 EOF
