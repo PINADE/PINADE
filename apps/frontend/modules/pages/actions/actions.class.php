@@ -46,6 +46,7 @@ class pagesActions extends sfActions
 
   public function executeMessage(sfWebRequest $request)
   {
+    $this->feedback = ($request->getParameter("sent") == "1") ? "Votre message a bien été envoyé" : "";
   }
 
   public function executeMessageprocess(sfWebRequest $request)
@@ -58,6 +59,8 @@ class pagesActions extends sfActions
     $server = $_SERVER['SERVER_NAME'];
     $useragent = $_SERVER['HTTP_USER_AGENT'];
     $date = strftime("%c");
+    $ip = $_SERVER['REMOTE_ADDR'];
+    $hostname = gethostbyaddr($ip);
 
 
     $message = $this->getMailer()->compose(
@@ -66,7 +69,7 @@ class pagesActions extends sfActions
       "[PINADE] $server : $subject",
       <<<EOF
 Message de {$server}
-Nom : {$nom} ({$email})
+Nom : {$name} ({$email})
 Sujet : {$subject}
 Date : {$date}
 Message :
@@ -74,6 +77,7 @@ Message :
 
 Cookie : {$cookie}
 User-Agent : {$_SERVER['HTTP_USER_AGENT']}
+IP : {$hostname} ({$ip})
 -- 
 PINADE - {$_SERVER['SERVER_NAME']}
 EOF
@@ -81,8 +85,7 @@ EOF
 
     $this->getMailer()->send($message);
 
-    $this->getUser()->setFlash('notice', "Votre message a bien été envoyé");
-    $this->redirect('message');
+    $this->redirect('@message?sent=1');
   }
 
 }

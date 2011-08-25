@@ -77,7 +77,10 @@
 <script type="text/javascript">
 setTimeout(function() {
   document.getElementById('preload-img').style.cssText="background:url(<?php echo url_for("@image_img?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=$semaine_suivante") ?>/img.gif)";
-  console.log("preload de l'image suivante");
+  if(typeof console != 'undefined')
+  {
+    console.log("preload de l'image suivante");
+  }
 }, 3500);
 </script>
 <?php endif ?>
