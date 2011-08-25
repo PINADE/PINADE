@@ -8,11 +8,11 @@ Si vous préférez l'email, vous pouvez toujours contacter l'administrateur sur 
 
 <br/><br/>
 <form method="post" action="<?php echo url_for("message_process") ?>">
-  <label for="name">Nom :</label><input type="text" id="name" name="name" /><br/>
-  <label for="email">Adresse email :</label><input type="text" id="email" name="email" /><br/>
-  <label for="subject">Sujet du message :</label><input type="text" id="subject" name="subject" /><br/>
+  <input type="text" id="name" name="name" />  <label for="name">Nom</label><br/>
+  <input type="text" id="email" name="email" />  <label for="email">Adresse email</label><br/>
+  <input type="text" id="subject" name="subject" />  <label for="subject">Sujet du message</label><br/>
   <label for="t-content">Message :</label><br/>
-  <textarea id="t-content" name="content" style="width:300px;height:200px"></textarea><br/>
+  <textarea id="t-content" name="content" style="width:500px;height:300px"></textarea><br/>
   <input type="submit" value="Envoyer le message" />
 </form>
 
