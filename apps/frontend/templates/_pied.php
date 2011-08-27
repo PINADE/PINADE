@@ -12,7 +12,10 @@
         </div>
       </div>
 
-    <?php if(($url = sfConfig::get('app_piwik_url')) && ($code = sfConfig::get('app_piwik_code'))): ?>
+<?php
+$edt = Doctrine::getTable('Edt')->createQuery('e')->addwhere('e.nom = ?', NOM_EDT)->execute()->getFirst();
+if(($url = sfConfig::get('app_piwik_url')) && $edt && ($code = $edt->getPiwikSiteId())):
+?>
     <!-- Piwik --> 
     <script type="text/javascript"> 
     var pkBaseURL = (("https:" == document.location.protocol) ? "https://<?php echo $url ?>/" : "http://<?php echo $url ?>/");
@@ -25,7 +28,7 @@
     } catch( err ) {}
     </script><noscript><p><img src="http://<?php echo $url ?>/piwik.php?idsite=<?php echo $code ?>" style="border:0" alt="" /></p></noscript> 
     <!-- End Piwik Tracking Code --> 
-    <?php endif ?>
+<?php endif ?>
     <script type="text/javascript">
       window.___gcfg = {
         lang: 'fr'

@@ -27,6 +27,7 @@ abstract class BaseEdtForm extends BaseFormDoctrine
       'height'          => new sfWidgetFormInputText(),
       'display_mode'    => new sfWidgetFormInputText(),
       'display_conf_id' => new sfWidgetFormInputText(),
+      'piwik_site_id'   => new sfWidgetFormInputText(),
       'created_at'      => new sfWidgetFormDateTime(),
       'updated_at'      => new sfWidgetFormDateTime(),
     ));
@@ -44,6 +45,7 @@ abstract class BaseEdtForm extends BaseFormDoctrine
       'height'          => new sfValidatorInteger(array('required' => false)),
       'display_mode'    => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'display_conf_id' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'piwik_site_id'   => new sfValidatorInteger(array('required' => false)),
       'created_at'      => new sfValidatorDateTime(),
       'updated_at'      => new sfValidatorDateTime(),
     ));

@@ -16,6 +16,7 @@
  * @property integer $height
  * @property string $display_mode
  * @property string $display_conf_id
+ * @property integer $piwik_site_id
  * @property Doctrine_Collection $Categories
  * @property Adeserver $Adeserver
  * 
@@ -30,6 +31,7 @@
  * @method integer             getHeight()          Returns the current record's "height" value
  * @method string              getDisplayMode()     Returns the current record's "display_mode" value
  * @method string              getDisplayConfId()   Returns the current record's "display_conf_id" value
+ * @method integer             getPiwikSiteId()     Returns the current record's "piwik_site_id" value
  * @method Doctrine_Collection getCategories()      Returns the current record's "Categories" collection
  * @method Adeserver           getAdeserver()       Returns the current record's "Adeserver" value
  * @method Edt                 setNom()             Sets the current record's "nom" value
@@ -43,6 +45,7 @@
  * @method Edt                 setHeight()          Sets the current record's "height" value
  * @method Edt                 setDisplayMode()     Sets the current record's "display_mode" value
  * @method Edt                 setDisplayConfId()   Sets the current record's "display_conf_id" value
+ * @method Edt                 setPiwikSiteId()     Sets the current record's "piwik_site_id" value
  * @method Edt                 setCategories()      Sets the current record's "Categories" collection
  * @method Edt                 setAdeserver()       Sets the current record's "Adeserver" value
  * 
@@ -103,6 +106,9 @@ abstract class BaseEdt extends sfDoctrineRecord
              'type' => 'string',
              'default' => '8',
              'length' => 255,
+             ));
+        $this->hasColumn('piwik_site_id', 'integer', null, array(
+             'type' => 'integer',
              ));
     }
 
