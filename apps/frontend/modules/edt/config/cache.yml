@@ -1,8 +1,8 @@
 image:
-  enabled:   on
+  enabled:   false
 
 index:
-  enabled:   on
+  enabled:   false
 
 indexPromo:
   enabled:   on
