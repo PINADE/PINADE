@@ -98,7 +98,19 @@ class AdeImage
       }
       else
       { // it seems OK, we can write it
-        file_put_contents($filepath, $content);
+
+        // Retournement de l'image pour l'ENSISA
+        if(defined('NOM_EDT') && NOM_EDT == "ensisa")
+        {
+          $source = imagecreatefromgif($tempname);
+          $rotate = imagerotate($source, 180, 0);
+          imagegif($rotate, $filepath);
+        }
+        else
+        {
+          // Sauvegarde originale
+          file_put_contents($filepath, $content);
+        }
       }
       // Suppression du fichier temporaire
       unlink($tempname);
