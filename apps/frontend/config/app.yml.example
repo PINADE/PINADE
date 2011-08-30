@@ -21,3 +21,7 @@ all:
 
     piwik_url: 'piwik.example.net'
     piwik_code: '42'
+
+    # Auth facebook
+#    facebook_auth: "123456789"
+
