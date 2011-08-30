@@ -1,7 +1,7 @@
       <div id="pied">
         <p>
            <b><?php echo $_SERVER['SERVER_NAME'] ?></b> vous est livré grâce à <abbr title="PINADE Is Not ADE"><a href="http://www.pinade.org/">PINADE</a></abbr>,
-          son <?php echo link_to('code source', 'https://github.com/PINADE/PINADE') ?> est Libre.<br/>
+          son <?php echo link_to('code source', 'https://github.com/PINADE/PINADE') ?> est <a href="http://www.gnu.org/licenses/agpl.html">Libre</a>.<br/>
           <a href="<?php echo url_for("message") ?>">Contact</a>
           - <?php echo link_to('FAQ', 'http://www.pinade.org/pages/Foire-Aux-Questions') ?>
 <!--           - <span id="status"></span> -->
