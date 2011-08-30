@@ -32,6 +32,9 @@
             <p>Des questions ?<br/>
               Tout est expliqué dans la <?php echo link_to('FAQ', 'http://www.pinade.org/pages/Foire-Aux-Questions', 'style="padding:0"') ?>&nbsp;!
             </p>
+            <p>
+              Vous ne souhaitez plus voir de pub ?<br/>Sélectionnez «&nbsp;Désactiver les pubs&nbsp;» dans le menu de sélection de l'affichage en bas de ce menu.
+            </p>
           </div>
 <?php if(sfConfig::get('sf_environment') == "dev"): ?>
           <div>
@@ -52,7 +55,7 @@
               <option value="">Par défaut</option>
             <?php foreach($stylesheets as $id_css => $css): ?>
               <option value="<?php echo $id_css ?>"
-                <?php echo ($sf_request->getCookie('css') == $id_css) ? " selected='selected' " : "" ?>
+                <?php echo (false && $sf_request->getCookie('css') == $id_css) ? " selected='selected' " : "" ?>
                 ><?php echo $css['title'] ?></option>
             <?php endforeach ?>
             </select><br/>
