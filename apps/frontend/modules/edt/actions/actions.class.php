@@ -35,6 +35,7 @@ class edtActions extends sfActions
       ->createQuery('c')
       ->leftJoin('c.Promotions p')
       ->orderBy('p.weight ASC')
+      ->addWhere('c.in_menu = ?', true)
       ->execute();
   }
 
