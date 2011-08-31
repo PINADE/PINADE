@@ -13,8 +13,11 @@
       </div>
 
 <?php
-$edt = Doctrine::getTable('Edt')->createQuery('e')->addwhere('e.nom = ?', NOM_EDT)->execute()->getFirst();
-if(($url = sfConfig::get('app_piwik_url')) && $edt && ($code = $edt->getPiwikSiteId())):
+if(defined("NOM_EDT"))
+{
+  $edt = Doctrine::getTable('Edt')->createQuery('e')->addwhere('e.nom = ?', NOM_EDT)->execute()->getFirst();
+  if(($url = sfConfig::get('app_piwik_url')) && $edt && ($code = $edt->getPiwikSiteId()))
+  {
 ?>
     <!-- Piwik --> 
     <script type="text/javascript"> 
@@ -28,7 +31,10 @@ if(($url = sfConfig::get('app_piwik_url')) && $edt && ($code = $edt->getPiwikSit
     } catch( err ) {}
     </script><noscript><p><img src="http://<?php echo $url ?>/piwik.php?idsite=<?php echo $code ?>" style="border:0" alt="" /></p></noscript> 
     <!-- End Piwik Tracking Code --> 
-<?php endif ?>
+<?php
+  }
+}
+?>
     <script type="text/javascript">
       window.___gcfg = {
         lang: 'fr'
