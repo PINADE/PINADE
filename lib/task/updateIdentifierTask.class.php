@@ -53,8 +53,14 @@ abstract class updateIdentifierTask extends sfBaseTask
     $this->logSection('identifier', "start Identifier");
     $browser = new AdeBrowser();
 
-    $this->logSection('identifier', 'http://adeweb.univ-lyon1.fr/ade/standard/projects.jsp');
-    $browser->getUrl('http://adeweb.univ-lyon1.fr/ade/standard/projects.jsp');
+    try {
+      $this->logSection('identifier', $this->ade_server->getAdeUrl().'standard/projects.jsp');
+      $browser->getUrl($this->ade_server->getAdeUrl().'standard/projects.jsp');
+   }
+   catch(sfAdeRedirectionException $e)
+   {
+      $this->logSection('identifier', "Redirection détectée : ".$e );
+   }
 
     $this->logSection('identifier', "POST projectId : ".$this->ade_server->getLoginAdeProjectId());
     // Emulates query for display an arbitrary image
