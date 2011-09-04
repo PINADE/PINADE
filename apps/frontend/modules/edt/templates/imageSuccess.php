@@ -23,19 +23,15 @@
 
           </p>
 
-<?php if(file_exists($image_path)):
-        if($diff_day > 1):
-?>
+<?php if($diff_day > 1): ?>
               <div id="error">
                 Attention, cet emploi du temps a plus de <?php echo floor($diff_day)." jour".(($diff_day >= 2) ? "s" : "") ?>.
                 <?php echo link_to("Actualisez la page", "@image?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=$semaine") ?> et 
                 <?php echo link_to('contactez-nous', '@message') ?> si cela ne débloque pas cette situation.<br/><br/>
               </div>
-  <?php endif ?>
-          <img src='<?php echo url_for("@image_img?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=$semaine") ?>/img.gif' alt='emploi du temps <?php echo $categorie." ".$promotion ?>'/>
-<?php else: ?>
-          <p>Pas d'emploi du temps cette semaine.</p>
 <?php endif ?>
+
+          <img src='<?php echo url_for("@image_img?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=$semaine") ?>' alt='emploi du temps <?php echo $categorie." ".$promotion ?>'/>
 
 <?php include_partial('global/adsense_lb') ?>
 
@@ -76,7 +72,7 @@
 <span id='preload-img'></span>
 <script type="text/javascript">
 setTimeout(function() {
-  document.getElementById('preload-img').style.cssText="background:url(<?php echo url_for("@image_img?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=$semaine_suivante") ?>/img.gif)";
+  document.getElementById('preload-img').style.cssText="background:url(<?php echo url_for("@image_img?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=$semaine_suivante") ?>)";
   if(typeof console != 'undefined')
   {
     console.log("preload de l'image suivante");
