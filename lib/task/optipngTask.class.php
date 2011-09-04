@@ -6,7 +6,7 @@ class optipngTask extends sfBaseTask
   {
     $this->addOptions(array(
       new sfCommandOption('application', null, sfCommandOption::PARAMETER_REQUIRED, 'The application name', 'frontend'),
-      new sfCommandOption('env', null, sfCommandOption::PARAMETER_REQUIRED, 'The environment', 'dev'),
+      new sfCommandOption('env', null, sfCommandOption::PARAMETER_REQUIRED, 'The environment', 'prod'),
       new sfCommandOption('connection', null, sfCommandOption::PARAMETER_REQUIRED, 'The connection name', 'doctrine'),
       // add your own options here
     ));
@@ -28,7 +28,8 @@ class optipngTask extends sfBaseTask
     $databaseManager = new sfDatabaseManager($this->configuration);
     $connection = $databaseManager->getDatabase($options['connection'])->getConnection();
     $this->createConfiguration('frontend', 'dev');
-    sfContext::createInstance($this->configuration);
+    $sf_context = sfContext::createInstance($this->configuration);
+    $cache_dir = sfConfig::get('sf_cache_dir').'/'.$options['application'].'/'.$options['env'].'/';
 
     $promotions = Doctrine::getTable('Promotion')
       ->createQuery('p')
@@ -51,6 +52,7 @@ class optipngTask extends sfBaseTask
       {
         // Si le fichier n'est pas un dossier ou ne finit pas par ".gif", on le passe
         if(is_dir($file) || strpos($file, ".gif") === false) continue;
+
         $pngfile = preg_replace('@\.gif$@', '.png', $file);
 
         // On supprime le fichier PNG
@@ -61,10 +63,13 @@ class optipngTask extends sfBaseTask
         exec("optipng -o99 ".escapeshellarg($file), $output, $return_var);
 
         if($return_var == 0)
+        {
           $this->logSection('optipng', "  ".$file." optimisé");
+        }
         else
           $this->logSection('optipng', 'Problème avec '.$file.' : '.print_r($output,1));
       }
+      $this->logSection('optipng', " Promotion $promotion complétée");
     }
   }
 }
