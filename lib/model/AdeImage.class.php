@@ -120,7 +120,7 @@ class AdeImage
         // Optimize the gif
         if(sfConfig::get('app_optimize_image', false))
         {
-//           $log = exec('optipng -o99 '.escapeshellarg($filepath).' -dir '.escapeshellarg(dirname($filepath)).' &');
+          $log = exec('optipng -o99 '.escapeshellarg($filepath).' -dir '.escapeshellarg(dirname($filepath)).' > /dev/null 2>/dev/null &');
         }
       }
       // Suppression du fichier temporaire
