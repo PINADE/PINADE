@@ -36,23 +36,22 @@ class imgActions extends sfActions
 
     // Set content and exit
     $this->getResponse()->setContentType('image/'.$image_type);
-    $this->getResponse()->setHttpHeader('Content-Length', filesize($filepath));
     $this->getResponse()->setHttpHeader('Last-Modified', gmdate('D, d M Y H:i:s', filemtime($filepath)).' GMT');
     $this->getResponse()->setHttpHeader('X-PINADE-Cache', date('r'));
     // The image can be cached by proxy and browser's cache, during at most 3600 seconds
     $this->getResponse()->addCacheControlHttpHeader('public');
     $this->getResponse()->addCacheControlHttpHeader('max-age', '3600');
+
     // Debug info
     if(strlen($adeImage->getError()))
       $this->getResponse()->setHttpHeader('X-Edt-error', $adeImage->getError());
+
     // Send content
-    $this->getResponse()->setContent(file_get_contents($filepath));
+     $this->content_file = $filepath; //file_get_contents($filepath);
 
     // Send only the content without the layout
-    return sfView::NONE;
-    
-    // If you want to debug, comment the previous line and uncomment the following
-    // $this->setTemplate('imagedebug');
+     $this->setLayout(false);
+
   }
 
   /**
