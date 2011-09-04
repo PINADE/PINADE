@@ -41,7 +41,7 @@ class optipngTask extends sfBaseTask
 
     foreach($promotions as $promotion)
     {
-      $this->logSection('optipng', "Promotion $promotion");
+      $this->logSection('optipng', " Promotion $promotion");
 
       $path = $promotion->getPath();
       if(!is_dir($path)) continue;
@@ -61,7 +61,7 @@ class optipngTask extends sfBaseTask
         exec("optipng -o99 ".escapeshellarg($file), $output, $return_var);
 
         if($return_var == 0)
-          $this->logSection('optipng', $file." optimisé");
+          $this->logSection('optipng', "  ".$file." optimisé");
         else
           $this->logSection('optipng', 'Problème avec '.$file.' : '.print_r($output,1));
       }
