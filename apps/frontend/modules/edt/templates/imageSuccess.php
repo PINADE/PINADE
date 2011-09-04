@@ -45,11 +45,11 @@
             //Internet Explorer ne prend pas d'objet Event en paramètre, il faut donc aller le chercher dans l'objet window 
             if (typeof e == "undefined" ) e = window.event;
 
-            if(e.which == 37)
+            if(e.keyCode == 37)
             {
               document.location = '<?php echo url_for("@image?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=".max(0,$semaine-1)) ?>';
             }
-            else if(e.which == 39)
+            else if(e.keyCode == 39)
             {
               document.location = '<?php echo url_for("@image?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=".max(0,$semaine+1)) ?>';
             }
