@@ -30,10 +30,12 @@ class imgActions extends sfActions
 
     $adeImage->updateImage();
 
-    $filepath = sfConfig::get('sf_web_dir').$adeImage->getWebPath();
+    $filepath = $this->promotion->getPath().$adeImage->getOptimizedFilename();
+
+    $image_type = (strpos($filepath, "png") !== false) ? "png" : "gif";
 
     // Set content and exit
-    $this->getResponse()->setContentType('image/gif');
+    $this->getResponse()->setContentType('image/'.$image_type);
     $this->getResponse()->setHttpHeader('Content-Length', filesize($filepath));
     $this->getResponse()->setHttpHeader('Last-Modified', gmdate('D, d M Y H:i:s', filemtime($filepath)).' GMT');
     $this->getResponse()->setHttpHeader('X-PINADE-Cache', date('r'));
