@@ -9,7 +9,7 @@ security:  ~
 conditionalImageCache:
   class: conditionalImageCacheFilter
   param:
-    actions:
+    pages:
       - { module: img, action: img }
 
 cache:     ~
