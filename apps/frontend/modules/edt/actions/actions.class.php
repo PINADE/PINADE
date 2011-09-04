@@ -78,9 +78,11 @@ class edtActions extends sfActions
 
     $adeImage = new AdeImage($this->promotion, $this->semaine);
 
-    $this->image_path = sfConfig::get('sf_web_dir').$adeImage->getWebPath();
+    $this->image_path = $this->promotion->getPath().$adeImage->getFilename();
     if(file_exists($this->image_path)) // L'image existe, elle se mettra à jour lors de sa propre requête
+    {
       $this->image_mtime = filemtime($this->image_path);
+    }
     else
     {
       $adeImage->updateImage();
