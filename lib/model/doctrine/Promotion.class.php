@@ -28,6 +28,14 @@ class Promotion extends BasePromotion
   }
 
   /**
+   * Proxy pour récupérer l'Edt associé à la catégorie associée à la promotion
+   */
+  public function getEdt()
+  {
+    return $this->getCategorie()->getEdt();
+  }
+
+  /**
    * Retourne le numéro ADE de la semaine :
    * - celui passé en paramètre s'il existe
    * - celui de la semaine courante sinon
