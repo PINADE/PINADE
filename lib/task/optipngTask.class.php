@@ -37,8 +37,12 @@ class optipngTask extends sfBaseTask
       ->addWhere('edt.nom = ?', $arguments["edt"])
       ->execute();
 
+    $this->logSection('optipng', "Optimisation des fichiers GIFs");
+
     foreach($promotions as $promotion)
     {
+      $this->logSection('optipng', "Promotion $promotion");
+
       $path = $promotion->getPath();
       if(!is_dir($path)) continue;
       chdir($path);
