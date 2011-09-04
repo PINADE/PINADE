@@ -27,7 +27,7 @@ cookie_reset:
 
 # Image gif d'une semaine, puis celle par défaut
 image_img:
-  url:  /img/:categorie/:promo/:semaine/*
+  url:  /img/:categorie/:promo/:semaine/img/*
   param: { module: img, action: img }
 
 image_img_default:

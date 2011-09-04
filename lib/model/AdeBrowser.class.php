@@ -71,14 +71,14 @@ class AdeBrowser
     return $this->content;
   }  
 
-  // Rend le fichier accessible en rw pour tout le monde
+  // Rend le fichier accessible en rw pour user + groupe, r pour others
   // ie en CLI + Apache
   protected function initCookiesFile()
   {
     if(!file_exists($file = sfConfig::get('app_ade_cookiefile')))
       touch($file);
 
-    @chmod($file, 0666);
+    @chmod($file, 0664);
 
     $this->cookies_init = true;
   }
