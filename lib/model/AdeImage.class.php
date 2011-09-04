@@ -100,7 +100,8 @@ class AdeImage
       { // it seems OK, we can write it
 
         // Retournement de l'image pour l'ENSISA
-        if(defined('NOM_EDT') && NOM_EDT == "ensisa")
+        // Désactivation 2011-08-30 @ 14h10
+        if(false && defined('NOM_EDT') && NOM_EDT == "ensisa")
         {
           $source = imagecreatefromgif($tempname);
           $rotate = imagerotate($source, 180, 0);
