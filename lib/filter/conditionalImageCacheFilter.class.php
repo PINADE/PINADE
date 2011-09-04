@@ -20,7 +20,7 @@ class conditionalImageCacheFilter extends sfFilter
     // On ne cache que si l'image est présente en PNG
     if (sfConfig::get('app_optimize_image', false) && strpos($adeImage->getOptimizedFilename(), "png") !== false)
     {
-      $context->getViewCacheManager()->addCache("img", "img", array('lifeTime' => 3642));
+      $context->getViewCacheManager()->addCache("img", "img", array('lifeTime' => 7200));
     }
  
     // Execute next filter
