@@ -111,8 +111,8 @@ class AdeImage
         else
         {
           // On supprime le PNG s'il existe
-          if(strpos($this->getOptimizedFilename(), ".png") !== false)
-            unlink($this->getOptimizedFilename());
+          if(strpos($this->getPngFilename(), ".png") !== false)
+            unlink($this->getPngFilename());
 
           // Sauvegarde originale
           file_put_contents($filepath, $content);
@@ -139,21 +139,30 @@ class AdeImage
   }
 
   /**
+   * Retourne le nom du fichier PNG
+   * Attention : il peut ne pas exister
+   */
+  public function getPngFilename()
+  {
+    return $this->semaine.'.png';
+  }
+
+  /**
    * Retourne le fichier pour l'affichage sur les pages :
    * - le fichier PNG si la feature est activée, qu'il existe et qu'il a moins de 3h
    * - le fichier GIF sinon
    */
   public function getOptimizedFilename()
   {
-    $png_file = $this->promotion->getPath().$this->semaine.".png";
+    $png_file = $this->promotion->getPath().$this->getPngFilename();
     if(
          sfConfig::get('app_optimize_image', false)
       && file_exists($png_file)
       && time() < filemtime($png_file) + 3*60*60
     )
-      return $this->semaine.".png";
+      return $this->getPngFilename();
     else
-      return $this->semaine.'.gif';
+      return $this->getFilename();
   }
 
   public function getWebPath()
