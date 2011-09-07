@@ -111,7 +111,7 @@ class AdeImage
         else
         {
           // On supprime le PNG s'il existe
-          if(strpos($this->getPngFilename(), ".png") !== false)
+          if(file_exists($this->getPngFilename()))
             unlink($this->getPngFilename());
 
           // Sauvegarde originale
