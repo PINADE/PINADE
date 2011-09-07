@@ -45,7 +45,7 @@ class updateImagesTask extends sfBaseTask
       {
         // On crée une image ADE, qu'on met à jour en forçant l'update
         $adeImage = new AdeImage($promotion, $semaine);
-        if($adeImage->updateImage(true))
+        if($adeImage->updateImage(true, false))         // Force la mise à jour de l'image sans déclencher l'optipng
           $this->logSection('image', $promotion->getCategorie().', '.$promotion.", semaine $semaine mis à jour");
         else
           $this->logSection('image', 'Echec de la mise à jour de '.$promotion->getCategorie().', '.$promotion.", semaine $semaine");

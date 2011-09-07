@@ -51,7 +51,7 @@ class AdeImage
   }
 
 
-  public function updateImage($force = false)
+  public function updateImage($force = false, $disable_optipng = false)
   {
     $path = $this->promotion->getPath();
     // Récupération du GIF original pour comparer la date
@@ -119,7 +119,7 @@ class AdeImage
           file_put_contents($filepath, $content);
         }
         // Optimize the gif
-        if(sfConfig::get('app_optimize_image', false))
+        if($disable_optipng && sfConfig::get('app_optimize_image', false))
         {
           $log = exec('optipng -o99 '.escapeshellarg($filepath).' -dir '.escapeshellarg(dirname($filepath)).' > /dev/null 2>/dev/null &');
         }
