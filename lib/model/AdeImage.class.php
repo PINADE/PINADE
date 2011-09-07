@@ -111,8 +111,9 @@ class AdeImage
         else
         {
           // On supprime le PNG s'il existe
-          if(file_exists($this->getPngFilename()))
-            unlink($this->getPngFilename());
+          $png_file = $this->promotion->getPath().$this->getPngFilename();
+          if(file_exists($png_file))
+            unlink($png_file);
 
           // Sauvegarde originale
           file_put_contents($filepath, $content);
