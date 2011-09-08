@@ -51,7 +51,7 @@ abstract class updateIdentifierTask extends sfBaseTask
   protected function getIdentifier()
   {
     $this->logSection('identifier', "start Identifier");
-    $browser = new AdeBrowser();
+    $browser = new AdeBrowser($this->ade_server);
 
     try {
       $this->logSection('identifier', $this->ade_server->getAdeUrl().'standard/projects.jsp');

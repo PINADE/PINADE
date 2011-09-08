@@ -15,11 +15,14 @@ class AdeBrowser
     $ade_ticket,
     $curl_handle,
     $content,
-    $cookies_init;
+    $cookies_init,
+    $cookie_file;
 
-  public function __construct()
+  public function __construct(Adeserver $_ade_server)
   {
     $cookies_init = false;
+    $ade_server = $_ade_server;
+    $this->cookie_file = $ade_server->getCookieFile();
   }
 
   public function getUrl($url, $post_fields = null)
@@ -45,7 +48,7 @@ class AdeBrowser
 
     // Use a file to stock the cookies
     // Do not allow to modify cookies here, because it does not work if you do
-    curl_setopt($handle, CURLOPT_COOKIEFILE, sfConfig::get('app_ade_cookiefile'));
+    curl_setopt($handle, CURLOPT_COOKIEFILE, $this->cookie_file);
 
 
     if(strlen($post_fields))
@@ -75,10 +78,10 @@ class AdeBrowser
   // ie en CLI + Apache
   protected function initCookiesFile()
   {
-    if(!file_exists($file = sfConfig::get('app_ade_cookiefile')))
-      touch($file);
+    if(!file_exists($this->cookie_file))
+      touch($this->cookie_file);
 
-    @chmod($file, 0664);
+    @chmod($this->cookie_file, 0664);
 
     $this->cookies_init = true;
   }

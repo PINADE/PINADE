@@ -12,4 +12,8 @@
  */
 class Adeserver extends BaseAdeserver
 {
+  public function getCookieFile()
+  {
+    return sfConfig::get('sf_app_cache_dir')."/cookies-".$this->getNom().".txt";
+  }
 }
