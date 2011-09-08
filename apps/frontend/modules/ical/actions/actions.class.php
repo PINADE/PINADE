@@ -42,10 +42,8 @@ class icalActions extends sfActions
       ->getFirst();
     $this->forward404Unless($this->promotion, "Pas de promotion trouvée");
 
-    $adeImage = new AdeImage($this->promotion, 1);
 
-
-    $filepath = $adeImage->getIcalPath();
+    $filepath = $this->promotion->getIcalPath();
 
     $this->getResponse()->setContentType('text/calendar');
 
