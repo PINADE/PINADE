@@ -81,7 +81,7 @@ class Promotion extends BasePromotion
   {
 
     // Select Project
-    $ade_browser->getUrl($this->getEdt()->getAdeUrl().'standard/gui/interface.jsp', 'projectId='.sfConfig::get('app_ade_project_id').'&x=41&y=9');
+    $ade_browser->getUrl($this->getEdt()->getAdeUrl().'standard/gui/interface.jsp', 'projectId='.$this->getEdt()->getAdeProjectId().'&x=41&y=9');
     // Mandatory (because of ADE) and select the colmuns
     $ade_browser->getUrl($this->getEdt()->getAdeUrl().'custom/modules/plannings/plannings.jsp?c6T=0&c6M=0&c6J=0&aSize=0&aNe=0&c6F=0&c6E=0&c6C=0&displayType=0&c7A2=0&c7A1=0&aMx=0&roTz=0&roTy=0&c5A2=0&showTabRooms=1&c5A1=0&c5T=0&c5M=0&c5J=0&roUrl=0&c5F=0&c5E=0&c5C=0&iA2=0&iA1=0&reTz=0&reTy=0&showLoad=0&roSt=0&showTabCategory8=0&showTabCategory7=0&showTabCategory6=0&showTabCategory5=0&changeOptions=1&c8Cz=0&c8Cy=0&c8Cx=0&c7Url=0&c8Ct=0&c6Cz=0&c6Cy=0&c6Cx=0&aUrl=0&c6Ct=0&c8Ci=0&showTreeCategory1=1&reSt=0&c6Ci=0&iT=0&iM=0&iJ=0&iF=0&iE=0&iC=0&c7Tz=0&c7Ty=0&showTabDate=1&c5Tz=0&c5Ty=0&c8Zp=0&c6Zp=0&showPianoDays=1&iTz=0&iTy=0&c7St=0&c8Url=0&roCz=0&c5St=0&roCy=0&roCx=0&roCt=0&showTabTrainees=1&roCi=0&displayConfId=17&aTz=0&aTy=1&showTabActivity=1&display=1&iSt=0&showTabStage=0&reCz=0&reCy=0&reCx=0&c8A2=0&c8A1=0&reCt=0&reT=0&c6A2=0&c6A1=0&reM=0&reCi=0&reJ=0&reF=0&reE=0&reC=0&aSl=0&roZp=0&showTabResources=0&showTabInstructors=1&showTabWeek=0&y=&x=&reZp=0&c7Cz=0&c7Cy=0&c7Cx=0&c7Ct=0&c5Cz=0&c5Cy=0&c5Cx=0&showTabDuration=1&c5Ct=0&showTabDay=0&roT=0&c7Ci=0&roM=0&c5Ci=0&roJ=0&c5Url=0&roF=0&roE=0&iCz=0&roC=0&roA2=0&iCy=0&roA1=0&iCx=0&iCt=0&showPianoWeeks=1&c8Tz=0&c8Ty=0&iCi=0&c6Tz=0&c8T=0&c6Ty=0&showTab=1&c8M=0&c8J=0&aCz=0&aCy=0&c7Zp=0&aCx=0&c8F=0&c8E=0&c8C=0&reA2=0&reA1=0&c5Zp=0&c8St=0&c7T=0&c6St=0&c7M=0&aN=0&c7J=0&reUrl=0&isClickable=1&c7F=0&iZp=0&c7E=0&showTabHour=1&iUrl=0&c7C=0&aC=0&c6Url=0');
     // Select groups of students
@@ -144,13 +144,13 @@ class Promotion extends BasePromotion
 //      throw new sfException('Pas de fichier "'.$filepath.'" ');
 //    }
 
-    $this->html_info = file_get_contents($filepath);
+    $html_info = file_get_contents($filepath);
     
-    $this->html_info = str_replace('<BODY>','', $this->html_info);
-    $this->html_info = str_replace('&amp;','&', $this->html_info);
-    $this->html_info = str_replace('&','&amp;', $this->html_info);
+    $html_info = str_replace('<BODY>','', $html_info);
+    $html_info = str_replace('&amp;','&', $html_info);
+    $html_info = str_replace('&','&amp;', $html_info);
     $dom = new DOMDocument(); // creation d'un objet DOM pour lire le html 
-    if(!$dom->loadHTML($this->html_info))
+    if(!$dom->loadHTML($html_info))
       throw new sfException('HTML non chargé');
     
     $ical = "BEGIN:VCALENDAR
@@ -158,7 +158,7 @@ PRODID:-//edt.iariss.fr//Symfony1.4 iariss.fr//EN
 VERSION:2.0
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:".$_SERVER['SERVER_NAME']." - ".$this->__toString()." - ".$this->getCategorie()."
+X-WR-CALNAME:www.pinade.org - ".$this->__toString()." - ".$this->getCategorie()."
 X-WR-TIMEZONE:Europe/Paris
 BEGIN:VTIMEZONE
 TZID:Europe/Paris
@@ -212,7 +212,7 @@ END:VTIMEZONE\n\n";
       $ical .= "DURATION:PT".intval($duree[0])."H".intval($duree[1])."M0S\n";
       $ical .= 'LOCATION:'.$salle."\n";
       $ical .= "DESCRIPTION:$nom - $salle - $prof - $promo - ".$entree['date']." - ".$entree['heure']." (".$entree['duree'].")\n";
-      $ical .= "UID:".$date[2].$date[1].$date[0]."T".$heure[0].$heure[1]."01-".$prof.$salle.$type.$this->__toString()."-".$this->getCategorie()."@".$_SERVER['SERVER_NAME']."\n";
+      $ical .= "UID:".$date[2].$date[1].$date[0]."T".$heure[0].$heure[1]."01-".$prof.$salle.$type.$this->__toString()."-".$this->getCategorie()."@www.pinade.org\n";
       $ical .= "END:VEVENT\n\n";      
 
     }
