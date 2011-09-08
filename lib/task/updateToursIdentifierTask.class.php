@@ -44,13 +44,13 @@ class updateToursIdentifierTask extends updateIdentifierTask
 
     // Use a file to stock the cookies
     // You do not need old cookies when you start a new authentification
-    curl_setopt($handle, CURLOPT_COOKIEJAR, sfConfig::get('app_ade_cookiefile'));
+    curl_setopt($handle, CURLOPT_COOKIEJAR, $this->ade_server->getCookieFile());
 
     $this->logSection('auth', "Get $url");
     $content = curl_exec($handle);
     curl_close($handle); // cURL write cookies in the Cookies Jar file
 
-    $this->logSection('auth', "Fichier des cookies ".sfConfig::get('app_ade_cookiefile').":\n".file_get_contents(sfConfig::get('app_ade_cookiefile')));
+    $this->logSection('auth', "Fichier des cookies ".$this->ade_server->getCookieFile().":\n".file_get_contents($this->ade_server->getCookieFile()));
   }
 
 }

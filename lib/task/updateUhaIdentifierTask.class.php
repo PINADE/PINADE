@@ -55,7 +55,7 @@ class updateUhaIdentifierTask extends updateIdentifierTask
 
     // Use a file to stock the cookies
     // You do not need old cookies when you start a new authentification
-    curl_setopt($handle, CURLOPT_COOKIEJAR, sfConfig::get('app_ade_cookiefile'));
+    curl_setopt($handle, CURLOPT_COOKIEJAR, $this->ade_server->getCookieFile());
 
     $this->logSection('auth', "get link for emploisdutemps.uha.fr");
     $content = curl_exec($handle);
@@ -83,8 +83,8 @@ class updateUhaIdentifierTask extends updateIdentifierTask
     curl_setopt($handle, CURLOPT_HEADER, true);
 
     // Use a file to stock the cookies
-    curl_setopt($handle, CURLOPT_COOKIEJAR,  sfConfig::get('app_ade_cookiefile'));
-    curl_setopt($handle, CURLOPT_COOKIEFILE, sfConfig::get('app_ade_cookiefile'));
+    curl_setopt($handle, CURLOPT_COOKIEJAR,  $this->ade_server->getCookieFile());
+    curl_setopt($handle, CURLOPT_COOKIEFILE, $this->ade_server->getCookieFile());
 
     curl_setopt($handle, CURLOPT_FOLLOWLOCATION, true);
 
@@ -92,7 +92,7 @@ class updateUhaIdentifierTask extends updateIdentifierTask
     $content = curl_exec($handle);
     curl_close($handle); // cURL write cookies in the Cookies Jar file
 
-    $this->logSection('auth', "Fichier des cookies :\n".file_get_contents(sfConfig::get('app_ade_cookiefile')));
+    $this->logSection('auth', "Fichier des cookies :\n".file_get_contents($this->ade_server->getCookieFile()));
   }
 
 }
