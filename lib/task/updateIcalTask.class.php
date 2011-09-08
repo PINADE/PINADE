@@ -52,10 +52,10 @@ class updateIcalTask extends sfBaseTask
 
     foreach($promotions as $promotion)
     {
-      $this->logSection('ical', "Mise à jour de ".$promotion." ".(date("c")));
+      $this->logSection('ical', "Mise à jour de ".$promotion->getCategorie()->getUrl()."/".$promotion->getUrl()." ".(date("c")));
       $promotion->updateHtml($ade_browser);
       $promotion->updateIcal($ade_browser);
-      $this->logSection('ical', "Fin de la mise à jour de ".$promotion." ".(date("c")));
+      $this->logSection('ical', "Fin de la mise à jour de ".$promotion->getCategorie()->getUrl()."/".$promotion->getUrl()." ".(date("c")));
     }
   }
 
