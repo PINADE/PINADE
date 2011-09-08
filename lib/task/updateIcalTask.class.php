@@ -53,7 +53,6 @@ class updateIcalTask extends sfBaseTask
     {
       $promotion->updateHtml($ade_browser);
       $promotion->updateIcal($ade_browser);
-      break;
     }
   }
 
