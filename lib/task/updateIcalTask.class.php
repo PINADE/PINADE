@@ -45,6 +45,7 @@ class updateIcalTask extends sfBaseTask
       ->createQuery('p')
       ->leftJoin('p.Categorie c')
       ->leftJoin('c.Edt edt')
+      ->leftJoin('edt.Adeserver as')
       ->addWhere('edt.nom = ?', $arguments["edt"])
       ->execute();
 
