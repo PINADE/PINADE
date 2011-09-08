@@ -39,6 +39,7 @@ class updateIcalTask extends sfBaseTask
     if(!$this->ade_server)
       throw new Exception("Adeserver ".$this->ade_server_name." non trouvé !");
 
+    $this->logSection('ical', "Mise à jour des iCal de ".$arguments["adeserver"]."/".$arguments["edt"]);
 
     $promotions = Doctrine::getTable('Promotion')
       ->createQuery('p')
@@ -51,8 +52,10 @@ class updateIcalTask extends sfBaseTask
 
     foreach($promotions as $promotion)
     {
+      $this->logSection('ical', "Mise à jour de ".$promotion." ".(date("c")));
       $promotion->updateHtml($ade_browser);
       $promotion->updateIcal($ade_browser);
+      $this->logSection('ical', "Fin de la mise à jour de ".$promotion." ".(date("c")));
     }
   }
 
