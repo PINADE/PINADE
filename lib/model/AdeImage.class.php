@@ -21,9 +21,9 @@ class AdeImage
 
   public function __construct(Promotion $promotion, $semaine)
   {
-    $this->ade_browser = new AdeBrowser();
     $this->promotion = $promotion;
     $this->edt = $promotion->getCategorie()->getEdt();
+    $this->ade_browser = new AdeBrowser($this->edt->getAdeServer());
 
     if(strlen($this->edt->getAdeUrl()) == 0)
       throw new Exception("La catégorie ".$promotion->getCategorie()." de la promotion $promotion doit être liée à un Edt !");
