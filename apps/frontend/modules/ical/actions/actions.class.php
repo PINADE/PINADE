@@ -11,25 +11,6 @@ class icalActions extends sfActions
 {
 
   /**
-    Update the iCal
-  */
-  public function executeUpdate(sfWebRequest $request)
-  {
-    $this->promotion = Doctrine_Core::getTable('Promotion')
-      ->createQuery('p')
-      ->leftJoin('p.Categorie c')
-      ->where('p.url = ? AND c.url = ?', array($request->getParameter('promo'),  $request->getParameter('categorie')))
-      ->execute()
-      ->getFirst();
-    $this->forward404Unless($this->promotion, "Pas de promotion trouvée");
-
-    $adeImage = new AdeImage($this->promotion, $semaine);
-
-    $adeImage->updateHtml();
-    $adeImage->updateIcal();
-    $this->path = $adeImage->getInfoPath();
-  }
-  /**
     Display the iCal
   */
   public function executeIcal(sfWebRequest $request)
