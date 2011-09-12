@@ -1,6 +1,6 @@
 <?php
 
-if(preg_match("@^(|[46]\.)([-a-z0-9]+)\.pinade.*@", $_SERVER['SERVER_NAME'], $matches))
+if(preg_match("@^(|[l46]\.)([-a-z0-9]+)\.pinade.*@", $_SERVER['SERVER_NAME'], $matches))
 {
   $edt = $matches[2];
   switch($edt)
