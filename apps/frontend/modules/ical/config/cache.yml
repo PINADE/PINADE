@@ -1,5 +1,5 @@
 ical:
   enabled:   on
   with_layout: true
-  lifeTime:   43200
+  lifetime:   43200
 
