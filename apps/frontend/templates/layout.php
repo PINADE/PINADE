@@ -10,7 +10,6 @@
     <title><?php include_slot('title') ?> - Emploi du temps <?php include_partial('global/nom_edt') ?></title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
-<!--     <?php include_partial('global/perso-css') ?> -->
     <link rel="stylesheet" href="/css/mobile.css" type="text/css" media="handheld, only screen and (max-device-width: 480px)" />
     <?php include_javascripts() ?>
 
