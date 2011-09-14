@@ -3,6 +3,7 @@ User-agent: *
 Disallow: /cookie/
 Disallow: /cron/
 Disallow: /img/
+Disallow: /myedt/
 
 Sitemap: <?php echo url_for('@sitemap', true) ?>
 
