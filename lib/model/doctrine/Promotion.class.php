@@ -138,11 +138,10 @@ class Promotion extends BasePromotion
   public function updateIcal()
   {
     $filepath = $this->getInfoPath();
-//    if(!file_exists($filepath))
-//    {
-//      $this->updateHtml();
-//      throw new sfException('Pas de fichier "'.$filepath.'" ');
-//    }
+    if(!file_exists($filepath))
+    {
+      return false;
+    }
 
     $html_info = file_get_contents($filepath);
     
@@ -221,6 +220,7 @@ END:VTIMEZONE\n\n";
     $ical .= "END:VCALENDAR";
 
     file_put_contents($this->getIcalPath(), $ical);
+    return true;
 
   }
 }
