@@ -12,7 +12,7 @@ default:
 
   stylesheets:    [base.min.css, modele07.min.css ]
 
-  javascripts:    []
+  javascripts:    [css.js]
 
   has_layout:     true
   layout:         layout
