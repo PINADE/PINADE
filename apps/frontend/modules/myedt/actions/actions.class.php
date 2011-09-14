@@ -27,6 +27,8 @@ class myedtActions extends sfActions
 
   public function executeImport(sfWebRequest $request)
   {
+    $this->forward404Unless(sfConfig::get('sf_environment') == "dev");
+
     $this->categories = Doctrine_Core::getTable('Categorie')
       ->createQuery('c')
       ->execute();
@@ -35,6 +37,8 @@ class myedtActions extends sfActions
 
   public function executeCreateFromImport(sfWebRequest $request)
   {
+
+    $this->forward404Unless(sfConfig::get('sf_environment') == "dev");
     // projectId=19
     // idPianoWeek=31
     // idPianoDay=0,1,2,3,4
