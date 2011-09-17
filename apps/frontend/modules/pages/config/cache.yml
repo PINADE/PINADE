@@ -1,0 +1,8 @@
+message:
+  enabled:   false
+
+robotstxt:
+  enabled:   on
+
+sitemap:
+  enabled:   on

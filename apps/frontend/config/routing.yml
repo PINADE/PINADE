@@ -27,7 +27,7 @@ cookie_reset:
 
 # Image gif d'une semaine, puis celle par défaut
 image_img:
-  url:  /img/:categorie/:promo/:semaine/*
+  url:  /img/:categorie/:promo/:semaine/img/*
   param: { module: img, action: img }
 
 image_img_default:
@@ -65,6 +65,16 @@ sitemap:
 robotstxt:
   url:  /robots.txt
   param: { module: pages, action: robotstxt }
+
+# Message
+message:
+  url: /message
+  param: { module: pages, action: message }
+
+message_process:
+  url: /message_process
+  param: { module: pages, action: messageprocess }
+
 
 # Page de l'edt pour la semaine courante
 image_default_index:

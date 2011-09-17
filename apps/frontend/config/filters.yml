@@ -6,5 +6,12 @@ security:  ~
 
 # insert your own filters here
 
+conditionalImageCache:
+  class: conditionalImageCacheFilter
+  param:
+    pages:
+      - { module: img, action: img }
+
 cache:     ~
 execution: ~
+

@@ -1,8 +1,11 @@
 image:
-  enabled:   on
+  enabled:   false
 
+# Actuellement pas possible à cause de la redirection vers la "page d'accueil"
 index:
-  enabled:   on
+  enabled:     false
+  with_layout: true
 
 indexPromo:
   enabled:   on
+  with_layout: true

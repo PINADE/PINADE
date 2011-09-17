@@ -18,7 +18,7 @@ Categorie:
     Promotions: { class: Promotion, local: id, foreign: categorie_id, type: many }
     Edt:        { local: edt_id, foreign: id, type: one }
   indexes:
-    index_nom:
+    url:
       fields: [url]
 
 Promotion:
@@ -28,21 +28,16 @@ Promotion:
     description:        { type: string(4000) }
     categorie_id:       { type: integer, notnull: true }
     weight:             { type: integer, default: 0 }
-    in_menu:            { type: boolean, default: false }
-    project_id:         { type: string(255), notnull: true }
+    in_menu:            { type: boolean, default: true }
     id_tree:            { type: string(255) }
     branch_id:          { type: string(255) }
     select_branch_id:   { type: string(255) }
     select_id:          { type: string(255) }
-    id_piano_day:       { type: string(255), default: '0,1,2,3,4' }
-    start_timestamp:    { type: integer, default: 1283119200 }
-    width:              { type: integer, default: 800 }
-    height:             { type: integer, default: 600 }
   relations:
     Categorie:  { local: categorie_id, foreign: id, type: one }
     Messages:   { class: Message, local: id, foreign: promotion_id, type: many }
   indexes:
-    index_nom:
+    url:
       fields: [url]
 
 Message:
@@ -60,9 +55,6 @@ Page:
     url:                { type: string(255), notnull: true, unique: true }
     title:              { type: string(255) }
     text:               { type: string(4000) }
-  indexes:
-    index_nom:
-      fields: [url]
 
 Edt:
   actAs:  { Timestampable: ~ }
@@ -72,6 +64,13 @@ Edt:
     ade_project_id:     { type: string(255) }
     liens_utiles:       { type: string(4000) }
     adeserver_id:       { type: integer }
+    id_piano_day:       { type: string(255), default: '0,1,2,3,4' }
+    start_timestamp:    { type: integer, default: 1283119200 }
+    width:              { type: integer, default: 800 }
+    height:             { type: integer, default: 600 }
+    display_mode:       { type: string(255), default:'1057855' }
+    display_conf_id:    { type: string(255), default:'8' }
+    piwik_site_id:      { type: integer }
   relations:
     Categories: { class: Categorie, local: id, foreign: edt_id, type: many }
     Adeserver:  { local: adeserver_id, foreign: id, type: one }

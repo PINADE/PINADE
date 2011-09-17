@@ -20,9 +20,12 @@
     <div class="erreur"><?php echo $erreur ?></div>
   <?php endif ?>
 
-  <label for="url"><b>URL de l'image :</b></label>
-  <input type="text" name="url" style="width:100%" id="url" value="<?php echo $sf_request->getParameter('url') ?>" placeholder="https://www.emploisdutemps.uha.fr/ade/imageEt?identifier=474a99cb3003b98bb57140b12f65b16e&amp;projectId=19&amp;idPianoWeek=28&amp;idPianoDay=0,1,2,3,4&amp;idTree=271,177,178,179,180,181,182,183,184&amp;width=800&amp;height=600&amp;lunchName=REPAS&amp;displayMode=1057855&amp;showLoad=false&amp;ttl=1283427991552&amp;displayConfId=8"/><br/>
+  <label for="adeurl"><b>URL de l'image :</b></label>
+  <input type="text" name="adeurl" style="width:100%" id="adeurl" value="<?php echo $sf_request->getParameter('adeurl') ?>" placeholder="https://www.emploisdutemps.uha.fr/ade/imageEt?identifier=474a99cb3003b98bb57140b12f65b16e&amp;projectId=19&amp;idPianoWeek=28&amp;idPianoDay=0,1,2,3,4&amp;idTree=271,177,178,179,180,181,182,183,184&amp;width=800&amp;height=600&amp;lunchName=REPAS&amp;displayMode=1057855&amp;showLoad=false&amp;ttl=1283427991552&amp;displayConfId=8"/><br/>
   
+  <label for="nom">URL de l'emploi du temps :</label>
+  <input type="text" name="url" id="url"  value="<?php echo $sf_request->getParameter('url') ?>"/><br/>
+
   <label for="nom">Nom de l'emploi du temps :</label>
   <input type="text" name="nom" id="nom"  value="<?php echo $sf_request->getParameter('nom') ?>"/><br/>
   <label for="description">Description (facultative)</label> :<br/>
@@ -31,7 +34,9 @@
   <label for="categorie-id">Catégorie :</label>
   <select name="categorie_id" id="categorie-id">
 <?php foreach($categories as $categorie): ?>
-    <option value="<?php echo $categorie->getId() ?>"><?php echo $categorie ?></option>
+    <option value="<?php echo $categorie->getId() ?>"
+    <?php echo ($categorie_id == $categorie->getId()) ? "selected='selected'" : "" ?>
+    ><?php echo $categorie ?></option>
 
 <?php endforeach ?>
   </select>
@@ -42,4 +47,6 @@
 
 </form>
 
-
+<script type="text/javascript">
+  document.getElementById("url").focus();
+</script>

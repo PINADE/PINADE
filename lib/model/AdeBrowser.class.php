@@ -14,10 +14,22 @@ class AdeBrowser
     $cas_cookie,
     $ade_ticket,
     $curl_handle,
-    $content;
+    $content,
+    $cookies_init,
+    $cookie_file;
+
+  public function __construct(Adeserver $_ade_server)
+  {
+    $cookies_init = false;
+    $ade_server = $_ade_server;
+    $this->cookie_file = $ade_server->getCookieFile();
+  }
 
   public function getUrl($url, $post_fields = null)
   {
+    if(!$this->cookies_init)
+      $this->initCookiesFile();
+
     return $this->ProcessUrl($url, $post_fields);
   }
 
@@ -36,7 +48,7 @@ class AdeBrowser
 
     // Use a file to stock the cookies
     // Do not allow to modify cookies here, because it does not work if you do
-    curl_setopt($handle, CURLOPT_COOKIEFILE, sfConfig::get('app_ade_cookiefile'));
+    curl_setopt($handle, CURLOPT_COOKIEFILE, $this->cookie_file);
 
 
     if(strlen($post_fields))
@@ -50,17 +62,27 @@ class AdeBrowser
 
     if(curl_getinfo($handle, CURLINFO_EFFECTIVE_URL) != $url)
     {
-      // Le cookie n'est pas trouvé
-      throw new sfAdeException("Problème d'authentification ADE (redirection). Url originale : $url\nRedirection : ".curl_getinfo($handle, CURLINFO_EFFECTIVE_URL));
+      // On est redirigé, on a probablement été déconnecté
+      throw new sfAdeRedirectionException("Problème d'authentification ADE (redirection). Url originale : $url\nRedirection : ".curl_getinfo($handle, CURLINFO_EFFECTIVE_URL));
     }
 
     if(strpos($this->content, "Deconnected") !== false)
     {
-      // Le cookie n'est pas trouvé
       throw new sfAdeException("Problème d'authentification ADE (Deconnected) : mauvais projectId ?");
     }
 
     return $this->content;
   }  
 
+  // Rend le fichier accessible en rw pour user + groupe, r pour others
+  // ie en CLI + Apache
+  protected function initCookiesFile()
+  {
+    if(!file_exists($this->cookie_file))
+      touch($this->cookie_file);
+
+    @chmod($this->cookie_file, 0664);
+
+    $this->cookies_init = true;
+  }
 }

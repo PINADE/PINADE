@@ -1,8 +1,10 @@
 Information sur la promotion<br/>
 <ul>
+  <li>Adeserver : <b><?php echo $promotion->getCategorie()->getEdt()->getAdeserver() ?></b></li>
+  <li>Edt :       <b><?php echo $promotion->getCategorie()->getEdt() ?></b></li>
   <li>Catégorie : <b><?php echo $promotion->getCategorie() ?></li></b>
   <li>Promo :     <b><?php echo $promotion ?></li></b>
-  <li>Start Timespamp : <b><?php echo strftime("%a %d %b %Y %H:%M:%S", $promotion->getStartTimestamp()) ?></b></li>
+  <li>Start Timespamp : <b><?php echo strftime("%a %d %b %Y %H:%M:%S", $promotion->getCategorie()->getEdt()->getStartTimestamp()) ?></b></li>
   <li>Cookie default : <b><?php echo (!empty($cookie)) ? $cookie : "<i>Pas de cookie</i>" ?></b></li>
 </ul>
 
@@ -30,7 +32,15 @@ Information sur la promotion<br/>
           <a href="<?php echo $image->getWebPath() ?>"><?php echo strftime("%a %d %b %Y %H:%M:%S", $img_mtime) ?></a>
         <?php endif ?>
       </td>
-      <td><?php echo (!empty($notice)) ? ''.nl2br(html_entity_decode($notice)).'' : "<i>Pas de notice</i>" ?></td>
+      <td>
+        <a href="<?php echo url_for('notice', array(
+          'action'      => "show",
+          'categorie'   => $promotion->getCategorie()->getUrl(),
+          'promo'       => $promotion->getUrl(),
+          'semaine'     => $semaine,
+        )) ?>">
+          <?php echo (!empty($notice)) ? ''.nl2br(html_entity_decode($notice)).'' : "<i>Pas de notice</i>" ?></td>
+        </a>
     </tr>
 
 <?php endforeach ?>

@@ -11,31 +11,49 @@
 class myedtActions extends sfActions
 {
 
+  public function executeIndex(sfWebRequest $request)
+  {
+    $query = Doctrine_Core::getTable('Adeserver')
+      ->createQuery('a')
+      ->leftJoin('a.Edts e')
+      ->leftJoin('e.Categories c')
+      ->leftJoin('c.Promotions p');
+
+    if(defined('NOM_EDT'))
+      $query->addWhere('e.nom = ?', NOM_EDT);
+
+    $this->adeservers = $query->execute();
+  }
+
   public function executeImport(sfWebRequest $request)
   {
+    $this->forward404Unless(sfConfig::get('sf_environment') == "dev");
+
     $this->categories = Doctrine_Core::getTable('Categorie')
       ->createQuery('c')
       ->execute();
-
+    $this->categorie_id = $this->getUser()->getAttribute('pinade/categorie_id');
   }
 
   public function executeCreateFromImport(sfWebRequest $request)
   {
+
+    $this->forward404Unless(sfConfig::get('sf_environment') == "dev");
     // projectId=19
     // idPianoWeek=31
     // idPianoDay=0,1,2,3,4
     // idTree=147,148,149,113,116,117,118
-    $url = urldecode($request->getParameter('url'));
+    $adeurl = urldecode($request->getParameter('adeurl'));
     $patterns = array(
       'projectId'   => "@projectId=([\d]+)&@",
-      'idPianoWeek' => "@idPianoWeek=([\d]+)&@",
+      'idPianoWeek' => "@idPianoWeek=([\d,]+)&@",
       'idPianoDay'  => "@idPianoDay=([\d,]+)&@",
       'idTree'      => "@idTree=([\d,]+)&@",
     );
     
     foreach($patterns as $id => $pattern)
     {
-      if(preg_match($pattern, $url, $matches[$id]) == 0)
+      if(preg_match($pattern, $adeurl, $matches[$id]) == 0)
       {
         $request->setParameter('erreur', "Problème dans l'URL de l'image ($id incorrect/non trouvé)");
         $this->forward('myedt', 'import');
@@ -46,11 +64,12 @@ class myedtActions extends sfActions
     $idPianoWeek = $matches['idPianoWeek'][1];
     $idPianoDay = $matches['idPianoDay'][1];
     $idTree = $matches['idTree'][1];
-    $nom = $request->getParameter('nom');
+    $url = $request->getParameter('url');
+    $nom = (strlen($param = $request->getParameter('nom'))) ? $param : $url;
 
-    if($request->getParameter('nom') == "" || (preg_match("@^[0-9a-zA-Z\-_]+$@", $nom, $dummy) == 0))
+    if(preg_match("@^[0-9a-zA-Z\-_]+$@", $url, $dummy) == 0)
     {
-      $request->setParameter('erreur', "Nom vide ou avec des caractères invalides ! Il ne peut comporter que des chiffres, lettres non accentuées, - et _");
+      $request->setParameter('erreur', "URL vide ou avec des caractères invalides ! Il ne peut comporter que des chiffres, lettres non accentuées, - et _");
       $this->forward('myedt', 'import');
     }
 
@@ -79,19 +98,17 @@ class myedtActions extends sfActions
     }
 
     $promotion = new Promotion();
-    $promotion->setProjectId($projectId);
-    // $promotion->setIdPianoWeek($idPianoWeek);
-    $promotion->setIdPianoDay($idPianoDay);
     $promotion->setIdTree($idTree);
     $promotion->setCategorieId($categorie->getId());
     $promotion->setNom($nom);
     $promotion->setDescription($request->getParameter('description'));
-    $promotion->setUrl($nom);
+    $promotion->setUrl($url);
     $promotion->setInMenu(true);
-    $promotion->setStartTimestamp(sfConfig::get('app_ade_default_start_timestamp'));
     $promotion->save();
 
-    $this->redirect('@image?categorie='.$categorie->getUrl().'&promo='.$promotion->getNom().'&semaine=');
+    $this->getUser()->setAttribute('pinade/categorie_id', $categorie->getId());
+
+    $this->redirect('@image?categorie='.$categorie->getUrl().'&promo='.$promotion->getUrl().'&semaine=');
 
    // https://www.emploisdutemps.uha.fr/ade/imageEt?&&&width=800&height=600&lunchName=REPAS&displayMode=1057855&showLoad=false&ttl=1283427991552&displayConfId=8
 

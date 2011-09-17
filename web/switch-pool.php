@@ -1,15 +1,17 @@
 <?php
 
-if(preg_match("@^([-a-z0-9]+)\.pinade.*@", $_SERVER['SERVER_NAME'], $matches))
+if(preg_match("@^(|[l46]\.)([-a-z0-9]+)\.pinade.*@", $_SERVER['SERVER_NAME'], $matches))
 {
-  $edt = $matches[1];
+  $edt = $matches[2];
   switch($edt)
   {
     case "pool":
     case "test":
       break;
+
     case "ensisa":
-//    case "enscmu":
+    case "enscmu":
+
     case "lyon1-bio":
     case "lyon1-info":
     case "lyon1-iufm":
@@ -21,6 +23,20 @@ if(preg_match("@^([-a-z0-9]+)\.pinade.*@", $_SERVER['SERVER_NAME'], $matches))
     case "istil-mat":
     case "istil-si":
     case "istil-meca":
+
+    case "esisar":
+
+    case "ptours":
+    case "ptours-da":
+    case "ptours-di":
+    case "ptours-dii":
+    case "ptours-dee":
+    case "ptours-dms":
+
+    case "tours-dcem":
+    case "tours-pharma":
+    case "tours-ldroit":
+    case "tours-mdroit":
       define('NOM_EDT', $edt);
       break;
     default:

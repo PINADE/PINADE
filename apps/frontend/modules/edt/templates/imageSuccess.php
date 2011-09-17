@@ -23,19 +23,15 @@
 
           </p>
 
-<?php if(file_exists($image_path)):
-        if($diff_day > 1):
-?>
+<?php if($diff_day > 1): ?>
               <div id="error">
                 Attention, cet emploi du temps a plus de <?php echo floor($diff_day)." jour".(($diff_day >= 2) ? "s" : "") ?>.
                 <?php echo link_to("Actualisez la page", "@image?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=$semaine") ?> et 
-                <?php echo link_to('contactez-nous', '@page?url=faq#contact') ?> si cela ne débloque pas cette situation.<br/><br/>
+                <?php echo link_to('contactez-nous', '@message') ?> si cela ne débloque pas cette situation.<br/><br/>
               </div>
-  <?php endif ?>
-          <img src='<?php echo url_for("@image_img?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=$semaine") ?>/img.gif' alt='emploi du temps <?php echo $categorie." ".$promotion ?>'/>
-<?php else: ?>
-          <p>Pas d'emploi du temps cette semaine.</p>
 <?php endif ?>
+
+          <img src='<?php echo url_for("@image_img?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=$semaine") ?>' alt='emploi du temps <?php echo $categorie." ".$promotion ?>'/>
 
 <?php include_partial('global/adsense_lb') ?>
 
@@ -45,11 +41,11 @@
             //Internet Explorer ne prend pas d'objet Event en paramètre, il faut donc aller le chercher dans l'objet window 
             if (typeof e == "undefined" ) e = window.event;
 
-            if(e.which == 37)
+            if(e.keyCode == 37)
             {
               document.location = '<?php echo url_for("@image?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=".max(0,$semaine-1)) ?>';
             }
-            else if(e.which == 39)
+            else if(e.keyCode == 39)
             {
               document.location = '<?php echo url_for("@image?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=".max(0,$semaine+1)) ?>';
             }
@@ -71,3 +67,17 @@
 
 <br/>
 <?php // echo link_to("Ajouter à Google Agenda", "http://www.google.com/calendar/render?cid=".urlencode(url_for("@ical?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl(), true))) ?>
+
+<?php if(sfConfig::get('app_enable_preload', false)): ?>
+<span id='preload-img'></span>
+<script type="text/javascript">
+setTimeout(function() {
+  document.getElementById('preload-img').style.cssText="background:url(<?php echo url_for("@image_img?categorie=".$categorie->getUrl()."&promo=".$promotion->getUrl()."&semaine=$semaine_suivante") ?>)";
+  if(typeof console != 'undefined')
+  {
+    console.log("preload de l'image suivante");
+  }
+}, 3500);
+</script>
+<?php endif ?>
+

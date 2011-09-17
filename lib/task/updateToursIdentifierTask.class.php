@@ -1,6 +1,6 @@
 <?php
 
-class updateLyon1IdentifierTask extends updateIdentifierTask
+class updateToursIdentifierTask extends updateIdentifierTask
 {
   protected function configure()
   {
@@ -10,16 +10,15 @@ class updateLyon1IdentifierTask extends updateIdentifierTask
     // ade_server_name : le nom de l'adeserver dans la base de données
     parent::configure();
 
-    $this->name             = 'identifier-lyon1';
-    $this->ade_server_name  = 'lyon1';
+    $this->name             = 'identifier-tours';
+    $this->ade_server_name  = 'tours';
 
 
     $this->urls = array(
       'custom/modules/plannings/plannings.jsp', // Mandatory (because of ADE)
       'standard/gui/tree.jsp?category=trainee&expand=false&forceLoad=false&reload=false&scroll=0', // Select groups of students
-      'standard/gui/tree.jsp?branchId=4339&reset=true&forceLoad=false&scroll=0', // Select a group (AUP-DU-DAEU-DEUST)
-      'standard/gui/tree.jsp?branchId=6037&reset=false&forceLoad=false&scroll=0', // Select a group (AUP)
-      'standard/gui/tree.jsp?selectId=9617&reset=true&forceLoad=false&scroll=0', // "Click" on a group (3A Info S5)
+      'standard/gui/tree.jsp?branchId=5206&reset=true&forceLoad=false&scroll=0', // Select a group (Polytech'Tours)
+      'standard/gui/tree.jsp?selectBranchId=3262&reset=true&forceLoad=false&scroll=0', // "Click" on a group (DA)
     );
 
 
@@ -32,7 +31,7 @@ class updateLyon1IdentifierTask extends updateIdentifierTask
     $this->logSection('auth', 'start Authentification');
     /* Get CAS Cookie and link to adeweb.univ-lyon1.fr */
     $data_string = base64_decode($this->ade_server->getLogin())."&x=33&y=10";
-    $handle = curl_init($url = "http://adeweb.univ-lyon1.fr/ade/standard/gui/interface.jsp?top=top");
+    $handle = curl_init($url = $this->ade_server->getAdeUrl()."standard/gui/interface.jsp?top=top");
     curl_setopt($handle, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded')); 
     curl_setopt($handle, CURLOPT_POST, true);
     curl_setopt($handle, CURLOPT_POSTFIELDS, $data_string);
